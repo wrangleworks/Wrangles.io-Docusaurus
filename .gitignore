@@ -1,0 +1,23 @@
+# Node / Docusaurus
+my-docs-site/node_modules/
+my-docs-site/.docusaurus/
+my-docs-site/build/
+my-docs-site/.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Secrets
+.env
+.env.*
+
