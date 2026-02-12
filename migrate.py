@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 API_TOKEN = os.getenv("API_TOKEN")  # Make sure to export this in your shell
 WIKI_BASE_URL = "https://dev.wrangles.io"
 WIKI_GRAPHQL_URL = f"{WIKI_BASE_URL}/graphql"
+PROJECT_NAME = "docusaurus"
 
 CURRENT_DIR = pathlib.Path(os.getcwd())
 
@@ -200,7 +201,7 @@ def main() -> None:
         logger.error("No API_TOKEN found. Run: export API_TOKEN='your_token'")
         return
 
-    logger.info("--- STARTING NUCLEAR MIGRATION ---")
+    logger.info(f"--- STARTING {PROJECT_NAME.upper()} MIGRATION ---")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -217,4 +218,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

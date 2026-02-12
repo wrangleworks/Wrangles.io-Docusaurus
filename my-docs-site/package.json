@@ -1,5 +1,5 @@
 {
-  "name": "wrangles-internal-docs",
+  "name": "docusaurus-internal-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -47,4 +47,3 @@
     "node": ">=18.0"
   }
 }
-

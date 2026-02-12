@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  docusaurus-wrangles-io:
+    image: ghcr.io/wrangleworks/docusaurus:latest
+    container_name: docusaurus-wrangles-io
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
+      - docusaurus-proxy
+
+networks:
+  docusaurus-proxy:
+    external: true
