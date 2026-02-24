@@ -14,6 +14,7 @@ Each Wrangle is optimized for a particular job, many of which are backed by soph
 - Transform 1, 1000, or 1,000,000 rows easily in Excel.
 - String together a series of Wrangles as an automated sequence using Recipes.
 - Much more...
+- this is a test column
 \{.grid-list\}
 
 &lt;br/>

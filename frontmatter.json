@@ -1,0 +1,104 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "docusaurus",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/my-docs-site/docs",
+      "title": "docs"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/waas"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/tutorials"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/excel"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/account"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/ADI"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python/connectors"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python/recipes"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/excel/my_wrangles"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/excel/in-depth-examples"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/excel/Let's-Get-Ready-To-Wrangle"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python/recipes/wrangles"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python/recipes/custom-functions"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/python/connectors/notification"
+    },
+    {
+      "path": "[[workspace]]/my-docs-site/docs/excel/in-depth-examples/example-1"
+    }
+  ],
+  "frontMatter.git.enabled": true
+}
