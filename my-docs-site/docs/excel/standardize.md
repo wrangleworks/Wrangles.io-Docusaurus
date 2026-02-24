@@ -8,7 +8,7 @@ slug: /excel/standardize
 \{.links-list\}
 
 ---
-
+This is a testing env
 The Standardize Wrangle can be used to replace words or patterns with their "standardized" form. You can think of this Wrangle as a smart find-and-replace feature. In addition to our Standardize Stock Wrangles, you can customize Standardize Wrangles so that they are much more unique to your use case.
 
 > Click [here](/python/recipes/wrangles/standalone#standardize) to learn how to use Standardize Wrangles in a recipe.
