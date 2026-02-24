@@ -1,0 +1,16 @@
+{
+  "name": "Wrangles Docusaurus",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "workspaceFolder": "/workspaces/Wrangles.io-Docusaurus",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eliostruyf.vscode-front-matter"
+      ]
+    }
+  },
+  "postCreateCommand": "cd my-docs-site && npm install",
+  "postStartCommand": "cd my-docs-site && npm run start",
+  "remoteUser": "vscode"
+}

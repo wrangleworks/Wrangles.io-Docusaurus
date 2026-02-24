@@ -1,4 +1,14 @@
-# Node / Docusaurus
+node_modules/
+/my-docs-site/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+.env# Node / Docusaurus
 my-docs-site/node_modules/
 my-docs-site/.docusaurus/
 my-docs-site/build/
@@ -20,4 +30,12 @@ __pycache__/
 # Secrets
 .env
 .env.*
+
+
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+.pnpm-debug.log
 
