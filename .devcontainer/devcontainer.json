@@ -1,7 +1,10 @@
 {
   "name": "Wrangles Docusaurus",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
-  "workspaceFolder": "/workspaces/Wrangles.io-Docusaurus",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
   "forwardPorts": [3000],
   "customizations": {
     "vscode": {
@@ -10,7 +13,11 @@
       ]
     }
   },
-  "postCreateCommand": "cd my-docs-site && npm install",
-  "postStartCommand": "cd my-docs-site && npm run start",
-  "remoteUser": "vscode"
+  // 1. Nukes the root-owned temp cache
+  // 2. Forces workspace ownership to the 'node' user
+  // 3. Installs dependencies
+  "postCreateCommand": "sudo rm -rf /tmp/node-jiti && sudo chown -R node:node /workspaces/Wrangles.io-Docusaurus && cd my-docs-site && npm install",
+  
+  // Starts the server automatically in a visible terminal
+  "postAttachCommand": "cd my-docs-site && npm start"
 }
