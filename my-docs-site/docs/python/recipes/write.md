@@ -7,7 +7,7 @@ slug: /python/recipes/write
 \{.links-list\}
 
 # Data Frame
-By default, the output data can be returned as a Pandas Dataframe for further manipulation this is a test text.
+By default, the output data can be returned as a Pandas Dataframe for further manipulation.
 
 ```python
 df = wrangles.recipe.run('recipe.wrgl.yml')
