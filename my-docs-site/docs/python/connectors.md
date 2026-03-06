@@ -29,4 +29,4 @@ Connectors allow reading and writing data from separate systems, either as [func
 - [![](/images/icons/sqlite_logo.png =20x)\{.mr-1\} SQLite *Read/Write from SQLite database*](/python/connectors/sqlite)
 - [:memo: Test *Generate test data.*](/python/connectors/test)
 - [:train: Train *Read and write wrangles training data*](/python/connectors/train)
-\{.links-list\}
+<!-- {.links-list} -->

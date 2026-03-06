@@ -4,7 +4,7 @@ slug: /python/recipes/write
 ---
 
 - [Connectors *Learn about the available connectors*](/python/connectors)
-\{.links-list\}
+<!-- {.links-list} -->
 
 # Data Frame
 By default, the output data can be returned as a Pandas Dataframe for further manipulation.

@@ -11,4 +11,4 @@ Stock Wrangles are included when installing the Data Wrangles Excel add-in. Foll
 - [Standardize *Wrangles to Standardize text data*](/excel/standardize)
 - [Classify *Predict which categories items belong to*](/excel/classify)
 - [Translate *Translate text between languages*](/excel/translate)
-\{.links-list\}
+<!-- {.links-list} -->

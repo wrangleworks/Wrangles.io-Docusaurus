@@ -13,7 +13,7 @@ Recipes are written with [YAML](https://en.wikipedia.org/wiki/YAML) and follow a
 - [:cowboy_hat_face: Wrangles *Manipulate the structure and content of the data*](/python/recipes/wrangles)
 - [:pen: Write *Export data to different targets*](/python/recipes/write)
 - [:runner: Run *Run a recipe or connector at the start, on success or on failure of a recipe.*](/python/recipes/run)
-\{.links-list\}
+<!-- {.links-list} -->
 
 # Example
 > Autocompletion and validation can be added in many code editors.
@@ -181,4 +181,4 @@ wrangles:
 - [Custom Functions *Incorporate custom python code into a recipe.*](/python/recipes/custom-functions)
 - [Conditions *Use if or where to execute wrangles and connectors only in some circumstances or on subsets of the data*](/python/recipes/conditions)
 - [Variables *Use environment or python variables in recipes. Pass secrets or enable recipes to be reusable.*](/python/recipes/variables)
-\{.links-list\}
+<!-- {.links-list} -->

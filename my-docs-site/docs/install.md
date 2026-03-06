@@ -12,4 +12,4 @@ slug: /install
 
 - [Excel *Install the Excel Add-in.*](/excel/install)
 - [Python *Install the Python package.*](/python/install)
-\{.links-list\}
+<!-- {.links-list} -->

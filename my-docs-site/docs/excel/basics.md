@@ -3,8 +3,11 @@ title: "Basics"
 slug: /excel/basics
 ---
 
-- [Installation Guide](/excel/install) Not installed the add-in yet? Learn how.
-\{.links-list\}
+<ul className="links-list">
+  <li>
+    <a href="/excel/install">Installation Guide</a> Not installed the add-in yet? Learn how.
+  </li>
+</ul>
 
 ---
 
@@ -36,12 +39,13 @@ Wrangles are grouped into several categories.
 
 Each guide contains additional details for example Wrangles within each Category. They are worth reviewing - often there's more to a Wrangle than meets the eye!
 
-- [Extract](/excel/extract)  Identify and extract meaningful information from unstructured text
-- [Format](/excel/format) Quickly reformat data
-- [Standardize](/excel/standardize) Replaces words or patterns with anything of your choosing
-- [Classify](/excel/classify) Predict which categories items belong to
-- [Translate](/excel/translate) Translate text between languages
-\{.links-list\}
+<ul className="links-list">
+  <li><a href="/excel/extract">Extract</a> Identify and extract meaningful information from unstructured text</li>
+  <li><a href="/excel/format">Format</a> Quickly reformat data</li>
+  <li><a href="/excel/standardize">Standardize</a> Replaces words or patterns with anything of your choosing</li>
+  <li><a href="/excel/classify">Classify</a> Predict which categories items belong to</li>
+  <li><a href="/excel/translate">Translate</a> Translate text between languages</li>
+</ul>
 
 # Types of Wrangle
 Wrangles come in 3 types:

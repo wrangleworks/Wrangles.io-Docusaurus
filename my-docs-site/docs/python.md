@@ -4,7 +4,7 @@ slug: /python
 ---
 
 - [Installation Guide *Not installed the package yet? Learn how.*](/python/install)
-\{.links-list\}
+<!-- {.links-list} -->
 ---
 
 # What are Wrangles?
@@ -22,7 +22,7 @@ Wrangles are system independent, and allow you to pull data from one system, tra
 
 # Functions
 - [Functions *Incorporate Wrangles directly into python code*](/python/functions)
-\{.links-list\}
+<!-- {.links-list} -->
 
 ```python
 >>> wrangles.extract.attributes('it is 15mm long')
@@ -31,7 +31,7 @@ Wrangles are system independent, and allow you to pull data from one system, tra
 
 # Recipes
 - [Recipes *Run a series of Wrangles in an automated sequence*](/python/recipes)
-\{.links-list\}
+<!-- {.links-list} -->
 ```python
 wrangles.recipe.run('recipe.wrgl.yml')
 ```
@@ -40,7 +40,7 @@ wrangles.recipe.run('recipe.wrgl.yml')
 
 # Connectors
 - [Connectors *Connect data from other systems as a function or in a recipe*](/python/connectors)
-\{.links-list\}
+<!-- {.links-list} -->
 ```yaml
 read:
   - file:

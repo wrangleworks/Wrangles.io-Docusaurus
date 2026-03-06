@@ -4,7 +4,7 @@ slug: /excel/diy
 ---
 
 - [Basics *Unsure how to start? Learn how.*](/excel/basics)
-\{.links-list\}
+<!-- {.links-list} -->
 
 ---
 

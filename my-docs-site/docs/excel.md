@@ -4,7 +4,7 @@ slug: /excel
 ---
 
 - [Installation Guide *Not installed the add-in yet? Learn how.*](/excel/install)
-\{.links-list\}
+<!-- {.links-list} -->
 
 ---
 
@@ -44,7 +44,7 @@ Each guide contains additional details for example Wrangles within each Category
 - [Standardize *Replaces words or patterns with anything of your choosing*](/excel/standardize)
 - [Classify *Predict which categories items belong to*](/excel/classify)
 - [Translate *Translate text between languages*](/excel/translate)
-\{.links-list\}
+<!-- {.links-list} -->
 
 # Types of Wrangle
 Wrangles come in 3 types:

@@ -4,7 +4,7 @@ slug: /excel/translate
 ---
 
 - [Basics *Unsure how to start? Learn how.*](/excel)
-\{.links-list\}
+<!-- {.links-list} -->
 
 ---
 

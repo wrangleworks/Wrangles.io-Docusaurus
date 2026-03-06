@@ -19,7 +19,7 @@ slug: /python/recipes/wrangles
 - [Split *Split a single column to multiple columns*](/python/recipes/wrangles/split)
 - [Standalone *Wrangles that don't belong to a specific category*](/python/recipes/wrangles/standalone)
 - [Utilities *Wrangles that alter the data as a whole, leave data unchanged, or actions are seen externally*](/python/recipes/wrangles/utilities)
-\{.links-list\}
+<!-- {.links-list} -->
 
 # Using Wrangles
 
@@ -88,4 +88,4 @@ wrangles:
 
 - [Custom Functions *Incorporate custom python code into a recipe.*](/python/recipes/custom-functions)
 - [Variables *Use environment or python variables in recipes. Pass secrets or enable recipes to be reusable.*](/python/recipes/variables)
-\{.links-list\}
+<!-- {.links-list} -->

@@ -4,7 +4,7 @@ slug: /excel/my_wrangles
 ---
 
 - [Basics *Unsure how to start? Learn how.*](/excel/basics)
-\{.links-list\}
+<!-- {.links-list} -->
 
 ---
 
@@ -19,7 +19,7 @@ The My Wrangles page of the Data Wrangles add-in is where Data Wranglers spend m
 - [Standardize *Wrangles to Standardize text data*](/excel/my_wrangles/standardize)
 - [Map *Map columns from one table/sheet to another where the columns names have been standardized*](/excel/map)
 - [Lookup *Save data to be looked up later as a Wrangle or in a recipe*](/excel/Lookup)
-\{.links-list\}
+<!-- {.links-list} -->
 
 # Creating DIY Wrangles
 The Data Wrangles Excel add-in makes it very easy to create your own Wrangle. Simply open the Data Wrangles tool bar and click on the "My Wrangles" button, this will open the Wrangles Task Pane. From here, click the button which pertains to the type of Wrangle (Classify, Extract or Standardize) you wish to create then click the **+** sign at the top right corner of the Task Pane. This will create a new sheet where the training data will need to be placed. Once the training data is all filled in and the model has been named, click the submit button to train your custom DIY Wrangle. Your DIY Wrangle is now ready for use from the Wrangles Task Pane.

@@ -29,4 +29,4 @@ Custom functions must be structured in a specific way to be used within a recipe
 - [Read *Read data with custom code*](/python/recipes/custom-functions/read)
 - [Wrangles *Wrangle data with custom code*](/python/recipes/custom-functions/wrangles)
 - [Write *Write data with custom code*](/python/recipes/custom-functions/write)
-\{.links-list\}
+<!-- {.links-list} -->
