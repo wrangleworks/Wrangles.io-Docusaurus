@@ -5,7 +5,7 @@ slug: /excel/standardize
 
 - [Basics *Unsure how to start? Learn how.*](/excel)
 - [DIY Standardize Wrangles *Build your own customized standardize wrangles*](/excel/my_wrangles/standardize)
-<!-- {.links-list} -->
+\{.links-list\}
 
 ---
 This is a testing env

@@ -30,12 +30,14 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
+          remarkPlugins: [require('./src/remark/linksListMarker')],
         },
         blog: {
           showReadingTime: true,
         },
         theme: {
-          customCss: './src/css/custom.css',
+          // Use require.resolve to avoid path resolution quirks across environments.
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -69,4 +71,3 @@ const config = {
 };
 
 export default config;
-

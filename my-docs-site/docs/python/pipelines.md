@@ -4,7 +4,7 @@ slug: /python/pipelines
 ---
 
 - [Recipes *Pipelines run recipes, learn how to write them here.*](/python/pipelines/recipes)
-<!-- {.links-list} -->
+\{.links-list\}
 
 ---
 

@@ -4,7 +4,7 @@ slug: /new-standardiz
 ---
 
 - [Basics *Unsure how to start? Learn how.*](/excel)
-<!-- {.links-list} -->
+\{.links-list\}
 
 ---
 

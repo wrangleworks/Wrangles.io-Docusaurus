@@ -50,4 +50,4 @@ A variety of notifications for specific services are also available.
 - [Email *Send an email.*](/python/connectors/notification/email)
 - [Telegram *Send telegram messages.*](/python/connectors/notification/telegram)
 - [Slack *Send Slack messages*](https://wrangles.io/en/python/connectors/notification/slack)
-<!-- {.links-list} -->
+\{.links-list\}

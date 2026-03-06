@@ -5,7 +5,7 @@ slug: /excel/extract
 
 - [Basics *Unsure how to start? Learn how.*](/excel)
 - [DIY Extract Wrangles *Build your own customized extract wrangles*](/excel/my_wrangles/extract)
-<!-- {.links-list} -->
+\{.links-list\}
 
 ---
 

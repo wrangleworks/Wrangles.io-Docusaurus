@@ -1,17 +1,64 @@
 .links-list {
   list-style: none;
-  margin: 1rem 0;
+  margin: 1.25rem 0;
   padding-left: 0;
 }
 
 .links-list li {
-  background: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #ffffff 0%, #f6f7f9 55%, #eef1f5 100%);
+  border: 1px solid #d1d7e0;
+  border-bottom-color: #b9c1ce;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -2px 0 rgba(16, 24, 40, 0.06) inset,
+    0 18px 26px rgba(18, 27, 43, 0.18),
+    0 6px 10px rgba(18, 27, 43, 0.14),
+    0 1px 2px rgba(18, 27, 43, 0.12);
   margin: 0;
-  padding: 16px;
+  padding: 15px 16px;
+  position: relative;
+  transform: translateY(0);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.links-list li::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.45) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 10px;
+  content: "";
+  height: 45%;
+  left: 1px;
+  pointer-events: none;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+}
+
+.links-list li:hover {
+  border-color: #b4bcc9;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -2px 0 rgba(16, 24, 40, 0.06) inset,
+    0 26px 38px rgba(18, 27, 43, 0.22),
+    0 10px 16px rgba(18, 27, 43, 0.16),
+    0 2px 3px rgba(18, 27, 43, 0.14);
+  transform: translateY(-2px);
 }
 
 .links-list li + li {
-  margin-top: 12px;
+  margin-top: 14px;
+}
+
+.links-list li a {
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
