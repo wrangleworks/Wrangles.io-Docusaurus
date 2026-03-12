@@ -30,7 +30,10 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
-          remarkPlugins: [require('./src/remark/linksListMarker')],
+          remarkPlugins: [
+            require('./src/remark/linksListMarker'),
+            require('./src/remark/scrapedAttributes'),
+          ],
         },
         blog: {
           showReadingTime: true,
