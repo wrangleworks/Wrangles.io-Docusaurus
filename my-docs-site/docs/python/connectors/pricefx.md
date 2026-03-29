@@ -8,7 +8,7 @@ slug: /python/connectors/pricefx
 
 
 The PriceFx connector supports reading and writing to/from a PriceFx instance. Product and Customer master/extension tables, data sources, and Company Parameters are supported.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read

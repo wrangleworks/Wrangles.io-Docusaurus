@@ -29,28 +29,28 @@ Standardize text by eliminating extra spaces and converting special space charac
 #### Example 
 
  
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> In the case of zero width space in a URL
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> In the case of zero width space in a URL
+<tr><td>
 
 | Before |
 | --- |
 | wrangles.io |
 | wrangleworks.com |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | wrangle s.io |
 | wrangle works.com |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ## Phone Numbers
@@ -65,10 +65,7 @@ Standardize phone numbers to a consistent format by choosing from predefined for
 | (XXX)-XXX-XXXX | (123)-456-7890 |
 | XXX XXX XXXX | 123 456 7890 |
 | Custom format example: XXX-XXX | 567-890  |
-  
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+
 
 ## Fraction to Decimal
 Standardize each fraction into its decimal equivalent.
@@ -76,10 +73,10 @@ Standardize each fraction into its decimal equivalent.
 ### Tabset \{.tabset\}
 #### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Decimal Places = 2
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Decimal Places = 2
+<tr><td>
 
 | Before |
 | --- |
@@ -88,9 +85,9 @@ Standardize each fraction into its decimal equivalent.
 | 1/4 |
 
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
@@ -98,9 +95,9 @@ Standardize each fraction into its decimal equivalent.
 | .33 |
 | .25 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ## Remove Characters
 Standardize your data by removing specific characters.
@@ -109,93 +106,93 @@ Standardize your data by removing specific characters.
 
 ### Tabset \{.tabset\}
 #### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Character to Remove: !
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Character to Remove: !
+<tr><td>
 
 | Before |
 | --- |
 | I would love to tell you about Wrangle works! It's so cool.|
 | Wrangle Works is the BEST! |
   
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | I would love to tell you about Wrangle works It's so cool.|  
 | Wrangle Works is the BEST |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ## Significant Figures
 Standardize the precision of your numerical data by specifying the desired number of significant figures.
 
 ### Tabset \{.tabset\}
 #### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Significant Figures: 3
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Significant Figures: 3
+<tr><td>
 
 | Before |
 | --- |
 | 0.0544859 |
 | 0.75849 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | 0.0545 |
 | 0.758 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ## Replace
 Standardize data with our find and replace functionality; optionally utilize regular expressions for advanced matching. 
 
 ### Tabset \{.tabset\}
 #### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Before |
 | --- |
 | Wrangle works is 4 years old |
 | Wrangle works is 4 years old |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Regex |
 | --- |
 | Off - Find: young , Replace: old|
 | On - Find: \d , Replace: # |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | Wrangle works is 4 years young |
 | Wrangle works is # years old |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Custom
 Custom Wrangles must be trained before they can be used. Once trained, DIY or bespoke Wrangles (created by WrangleWorks) will be available here.

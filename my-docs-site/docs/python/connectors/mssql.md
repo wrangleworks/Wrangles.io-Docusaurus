@@ -4,7 +4,7 @@ slug: /python/connectors/mssql
 ---
 
 The mssql connector supports read and writing to/from a Microsoft SQL Server.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read
@@ -39,7 +39,7 @@ df = mssql.read(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -52,7 +52,7 @@ df = mssql.read(
 | columns | | list | A list with a subset of the columns to import. This is less efficient than specifying in the command. |
 | order_by | | str | Uses SQL syntax to sort the input. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 ## Write
 ### Recipe
@@ -86,7 +86,7 @@ mssql.write(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -100,7 +100,7 @@ mssql.write(
 | columns | | list | Subset of the columns to be written. If not provided, all columns will be output. |
 | order_by | | str | Uses SQL syntax to sort the output. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 ## Run
 
@@ -138,7 +138,7 @@ mssql.run(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -149,4 +149,4 @@ mssql.run(
 | port | | int | The Port to connect to. Defaults to 1433. |
 | database |  | str | Database to execute the command against. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

@@ -8,8 +8,8 @@ Functions to extract information from unstructured text.
 > Click [here](/excel/extract) to learn how to use Extract Wrangles in Excel.
 \{.is-success\}
 
-# Address&lt;br>
-Extract geographical information from unstructured text such as streets, cities or countries.&lt;br>
+# Address
+Extract geographical information from unstructured text such as streets, cities or countries.
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -31,7 +31,7 @@ wrangles:
 | London SW1A 1AA, London, England, United Kingdom | |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -41,7 +41,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # AI
 Use the power of AI (OpenAI's chatGPT in particular) to extract meaningful data. There are two ways to use extract.ai: recipe based and model based.
@@ -76,28 +76,28 @@ wrangles:
             - 3600 max. rpm
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Product Specs                    |
 |:---------------------------------|
 | 18V Cordless 4.5in angle grinder |
 | 120V 12in chop saw 3600 max. rpm |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Blade Diameter | Max. RPM |
 |:--------------:|:--------:|
 | 4.5 inches |  |
 | 12 inches | 3600 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ##### Description Only
 ```yaml
@@ -110,28 +110,28 @@ wrangles:
         Max. RPM: The maximum rotations per minute (rpm).
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Product Specs                    |
 |:---------------------------------|
 | 18V Cordless 4.5in angle grinder |
 | 120V 12in chop saw 3600 max. rpm |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Blade Diameter | Max. RPM |
 |:--------------:|:--------:|
 | 4.5 inches |  |
 | 12 inches | 3600 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Model Based
 Model based extract.ai's use a model id to call a previously trained extract.ai. Like a Lookup Wrangle, data is output as a dictionary if a single output is passed where the name does not match one of the extract values name in the model. Outputs that do match the extracted values name from the model will be returned as individual columns. If no input or output is specified, results are returned as individual columns. Also, if the model only has a single value to extract, that will be output as it's own column instead of a dictionary.
@@ -156,28 +156,28 @@ wrangles:
       output: Attributes
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Items |
 |:-----:|
 | Large yellow square |
 | Medium orange triangle |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Attributes |
 |:----------:|
 | \{Colors: [yellow], Shapes: square, Sizes: Large\} |
 | \{Colors: [orange], Shapes: triangle, Sizes: Medium\} |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ##### Column Output by Name
 ```yaml
@@ -190,28 +190,28 @@ wrangles:
        - Sizes
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Items |
 |:-----:|
 | Large yellow square |
 | Medium orange triangle |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Colors | Sizes |
 |:------:|:-----:|
 | [yellow] | Large |
 | [orange] | Medium |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ##### Column Output Without Input or Output
 ```yaml
@@ -221,31 +221,31 @@ wrangles:
       model_id: xxxx-xxxx-xxxxxxxx
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Items |
 |:-----:|
 | Large yellow square |
 | Medium orange triangle |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Colors | Shapes | Sizes |
 |:------:|:------:|:-----:|
 | [yellow] | square | Large |
 | [orange] | triangle | Medium |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -262,10 +262,10 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 ### Output Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -274,9 +274,9 @@ wrangles:
 | default | | str, num, int, bool, "null", object, array | A default value to return. |
 | examples | | array | Provide examples of typical values to return. |
 | enum | | array | List of possible values for the output. | 
-&lt;/div>
+</div>
 
-# Attributes&lt;br>
+# Attributes
 Extract numeric attributes from unstructured text such as lengths or voltages.
 
 ## Tabset \{.tabset\}
@@ -315,7 +315,7 @@ wrangles:
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -354,9 +354,9 @@ List of Attributes:
   - time
   - volume
   - volumetric flow
-&lt;/div>
+</div>
 
-# Brackets&lt;br>
+# Brackets
 Extract text properties in brackets from the input
 
 ## Tabset \{.tabset\}
@@ -379,7 +379,7 @@ wrangles:
 | &lt;!>        | !        |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -391,10 +391,10 @@ wrangles:
 | include_brackets | | bool | Include the brackets in the output |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
-# Codes&lt;br>
-Extract alphanumeric codes from unstructured text. Can be performed on one column or multiple columns.&lt;br>
+# Codes
+Extract alphanumeric codes from unstructured text. Can be performed on one column or multiple columns.
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -430,7 +430,7 @@ wrangles:
 | code CH465517080-1 | code CH465517080-2 | ['CH465517080-1', 'CH465517080-2'] |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -439,13 +439,13 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Custom&lt;br>
+# Custom
 Extract data from the input using a DIY or bespoke extraction wrangle. Can be performed on one column or multiple columns.
 
 It is important to note that (non-regex) pattern matching extracts match whole words that are separated by word boundaries. Word boundaries include anything that is not a letter, number or an underscore.
-&lt;br>
+
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -460,7 +460,7 @@ wrangles:
       output: Wood Types
       model_id: model_id_here
 ```
-&lt;br/>
+
 
 | Product                           | Wood Types             |
 |:----------------------------------|:-----------------------|
@@ -479,7 +479,7 @@ wrangles:
       output: Wood Types
       model_id: model_id_here
 ```
-&lt;br/>
+
 
 | Part 1 of 2             | Part 2 of 2                 | Wood Types   |
 |:------------------------|:----------------------------|:--------------|
@@ -501,7 +501,7 @@ wrangles:
       	- wood_Type_model_id
         - item_type_model_id
 ```
-&lt;br/>
+
 
 | Product                           | Wood Types             | Item Type
 |:----------------------------------|:-----------------------|:-----------------------|
@@ -509,7 +509,7 @@ wrangles:
 | Living Room Teakwood Frame Mirror | Teakwood               | Mirror |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -524,13 +524,13 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 > **Note**: When using an AI based extract, the output will be returned as a dictionary.
 \{.is-info\}
 
 
-# Date Properties&lt;br>
+# Date Properties
 Extract date properties from a date (day, month, year, etc...)
 
 ## Tabset \{.tabset\}
@@ -551,7 +551,7 @@ wrangles:
 | 1992-08-13 00:00:00 | August   |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -562,9 +562,9 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
-# Date Range&lt;br>
+# Date Range
 Extract date range from two dates
 
 ## Tabset \{.tabset\}
@@ -586,7 +586,7 @@ wrangles:
 | 1992-08-13 00:00:00 | 2023-08-13 00:00:00 |      371 |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -617,7 +617,7 @@ Range options:
   - seconds
   - milliseconds
 
-&lt;/div>
+</div>
 
 # HTML
 Extract Text and Links from HTML Elements
@@ -654,7 +654,7 @@ wrangles:
 | `<a href="https://www.wrangleworks.com/">Wrangle Works!</a>` | ['https://www.wrangleworks.com/'] |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -665,9 +665,9 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
-# Properties&lt;br>
+# Properties
 Extract categorical properties from unstructured text such as colours or materials.
 
 ## Tabset \{.tabset\}
@@ -703,7 +703,7 @@ wrangles:
 | Plastic Yellow Bottle       | ['Yellow']        |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -715,9 +715,9 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
-# Regex&lt;br>
+# Regex
 Extract single values using regex
 
 ## Tabset \{.tabset\}
@@ -756,7 +756,7 @@ wrangles:
 | 2gpm water pump for 2 gal tank | 2 Gallons Per Minute |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -768,4 +768,4 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
   
-&lt;/div>
+</div>

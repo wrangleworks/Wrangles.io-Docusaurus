@@ -23,26 +23,26 @@ wrangles:
       output: Merged
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Dict 1           | Dict 2            |
 |:-----------------|:------------------|
 | `{'First': 'One'}` | `{'Second': 'Two'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Merged                            |
 |:----------------------------------|
 | `{'First': 'One', 'Second': 'Two'}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using a Wildcard (\*)
 
@@ -54,26 +54,26 @@ wrangles:
       output: Merged
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Dict 1           | Dict 2            |
 |:-----------------|:------------------|
 | `{'First': 'One'}` | `{'Second': 'Two'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Merged                            |
 |:----------------------------------|
 | `{'First': 'One', 'Second': 'Two'}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using a Wildcard (\*) With Not Columns
 
@@ -87,29 +87,29 @@ wrangles:
       output: Merged
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Dict 1           | Dict 2            | Dict 3            |
 |:-----------------|:------------------|:------------------|
 | `{'First': 'One'}` | `{'Second': 'Two'}` | `{'Third': 'Three'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Merged                            |
 |:----------------------------------|
 | `{'First': 'One', 'Third': 'Three'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -118,7 +118,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Coalesce
 Take the first non-empty value from a series of columns.
@@ -142,10 +142,10 @@ wrangles:
       where: Col2 = E
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   | Col3   |
 |:------:|:------:|:------:|
@@ -153,9 +153,9 @@ wrangles:
 | D      | E      | F      |
 | G      | H      | I      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
   
 | Col1   | Col2   | Col3   | Output Col   |
@@ -164,12 +164,12 @@ wrangles:
 | D      | E      | F      | D            |
 | G      | H      | I      |              |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -178,7 +178,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Concatenate
 If the input is a list of columns, concatenate multiple columns into one as a delimited string.
@@ -202,26 +202,26 @@ wrangles:
       output: Join Col
       char: ', '
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   | Col3   |
 |:-------|:-------|:-------|
 | A      | B      | C      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Join Col   |
 |:------------:|
 | A, B, C      |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Concatenating a Single Column
 
@@ -234,29 +234,29 @@ wrangles:
       output: Join List
       char: ' '
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1            |
 |:---------------:|
 | ['A', 'B', 'C'] |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Join List   |
 |:-----------:|
 | A B C       |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -267,7 +267,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Key Value Pairs
 Create a dictionary from keys and values in paired columns.
@@ -285,10 +285,10 @@ wrangles:
       output: Pairs
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Letter   |   Number |
 |:---------|---------:|
@@ -296,9 +296,9 @@ wrangles:
 | B        |        2 |
 | C        |        3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Pairs      |
 |:----------:|
@@ -306,9 +306,9 @@ wrangles:
 | `{'B': 2}` |
 | `{'C': 3}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using a wildcard (\*)
 
@@ -321,10 +321,10 @@ wrangles:
       output: Object
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | key 1   | key 2   | value 1   | value 2   |
 |:--------|:--------|:----------|:----------|
@@ -332,9 +332,9 @@ wrangles:
 | B       | Two     | b         | Second    |
 | C       | three   | c         | Third     |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Object                         |
 |:------------------------------:|
@@ -342,12 +342,12 @@ wrangles:
 | `{'B': 'b', 'Two': 'Second'}`  |
 | `{'C': 'c', 'three': 'Third'}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -356,7 +356,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Lists
 Take lists in multiple columns and merge them to a single list.
@@ -376,29 +376,29 @@ wrangles:
       remove_duplicates: false		
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Col1       | Col2       |
 |:-----------|:-----------|
 | ['A', 'B'] | ['D', 'E'] |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Combined Col         |
 |:--------------------:|
 | ['A', 'B', 'D', 'E'] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -408,7 +408,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # To List
 Take multiple columns and merge them to a list.
@@ -428,29 +428,29 @@ wrangles:
     output: List Col
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   | Col3   |
 |:-------|:-------|:-------|
 | A      | B      | C      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | List Col    		|
 |:---------------:|
 | ['A', 'B', 'C'] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -460,7 +460,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # To Dict
 Take multiple columns and merge them to a dictionary (aka object) using the column headers as keys.
@@ -479,29 +479,29 @@ wrangles:
       output: Dict Col
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   |
 |:------:|:------:|
 | A      | B      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Dict Col                         |
 |:--------------------------------:|
 | `{'Col1': 'A', 'Col2': 'B'}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -511,4 +511,4 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

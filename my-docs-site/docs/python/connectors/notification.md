@@ -7,7 +7,7 @@ slug: /python/connectors/notification
 \{.is-info\}
 
 Send notifications - such as to alert someone when a recipe is finished or if it fails.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Run (Generic)

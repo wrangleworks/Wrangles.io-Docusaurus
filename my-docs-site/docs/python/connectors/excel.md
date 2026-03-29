@@ -7,7 +7,7 @@ slug: /python/connectors/excel
 \{.is-warning\}
 
 The Excel connector allows users to define which sheet and where to write the output, write to multiple sheets, write to sheets dynamically or return data at different stages of the recipe. More configuration options will be added over time.
-&lt;br/>
+
 
 ## Write
 ### Tabset \{.tabset\}
@@ -29,7 +29,7 @@ excel.write(df=my_dataframe, name='NewSheet', cell = 'C3')
 
 #### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -43,4 +43,4 @@ excel.write(df=my_dataframe, name='NewSheet', cell = 'C3')
 | order_by | | str | Uses SQL syntax to sort the output. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>

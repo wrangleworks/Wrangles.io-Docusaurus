@@ -4,7 +4,7 @@ slug: /python/connectors/sftp
 ---
 
 The sftp connector supports reading and writing CSV, Excel and JSON files to & from an SFTP server.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read

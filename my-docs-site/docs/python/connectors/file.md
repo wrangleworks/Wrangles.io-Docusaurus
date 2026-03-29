@@ -4,7 +4,7 @@ slug: /python/connectors/file
 ---
 
 The file connector supports CSV, Excel and JSON files.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read
@@ -29,7 +29,7 @@ df = file.read('file.csv')
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -48,7 +48,7 @@ df = file.read('file.csv')
 | order_by | | str | Uses SQL syntax to sort the input. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 ## Write
 ### Recipe
@@ -71,7 +71,7 @@ file.write(df, 'file.xlsx')
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -91,4 +91,4 @@ file.write(df, 'file.xlsx')
 | order_by | | str | Uses SQL syntax to sort the output. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>

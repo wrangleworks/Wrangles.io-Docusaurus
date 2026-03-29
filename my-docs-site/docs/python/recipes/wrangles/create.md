@@ -24,11 +24,11 @@ wrangles:
         - Medium
         - Good
 ```
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th></tr>
+<tr><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 |   Data | Category   |
 |-------:|:-----------|
@@ -39,8 +39,8 @@ wrangles:
 |      6 | Good       |
 |      3 | Bad        |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 #### Creating Bins With a List
 
@@ -63,10 +63,10 @@ wrangles:
         - B
         - A
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Grade | Student |
 |:-----:|:-------:|
@@ -75,9 +75,9 @@ wrangles:
 | 76 | Edward |
 | 84 | Wendy |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Grade | Letter Grade | Student |
 |:-----:|:------------:|:-------:|
@@ -86,12 +86,12 @@ wrangles:
 | 76 | C | Edward |
 | 84 | B | Wendy |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -102,7 +102,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Column
 Create a column with a user defined value. Defaults to None (empty).
@@ -122,10 +122,10 @@ wrangles:
       value: new value			# Optional, otherwise empty
       where: column > 1
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
@@ -133,9 +133,9 @@ wrangles:
 | 2 |
 | 3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | New Column |
 | :-----: | :-----: |
@@ -143,9 +143,9 @@ wrangles:
 | 2 | new value |
 | 3 | new value |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Creating Multiple Columns
 
@@ -157,10 +157,10 @@ wrangles:
         - New Column 2: new value 2
         - New Column 3: new value 1
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
@@ -168,9 +168,9 @@ wrangles:
 | 2 |
 | 3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | New Column 1 | New Column 2 | New Column 3 |
 | :-----: | :-----: | :-----: | :-----: | :-----: |
@@ -178,9 +178,9 @@ wrangles:
 | 2 | new value 1 | new value 2 | new value 1 |
 | 3 | new value 1 | new value 2 | new value 1 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Creating Columns That Consist of Lists
 
@@ -193,10 +193,10 @@ wrangles:
             - 5
         		- 6
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
@@ -204,9 +204,9 @@ wrangles:
 | 2 |
 | 3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | New Column |
 | :-----: | :-----: |
@@ -214,15 +214,15 @@ wrangles:
 | 2 | [4, 5, 6] |
 | 3 | [4, 5, 6] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Columns of empty lists can also be created by passing through an empty list (empty square brackets: []) to the value of the column.
 \{.is-info\}
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -231,7 +231,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Embeddings
 Create an embedding based on text input.
@@ -249,19 +249,19 @@ wrangles:
       output: embeddings
 ```
 
-&lt;table>
-&lt;td>
+<table>
+<td>
   
 | my_column (input) | embeddings (output)|
 |:---------:|:----------:|
 | angle grinder | [0.010793785, -0.010007165, 0.0028609, -0.0139...] |
 | jig saw | [-0.008975127, 0.009314879, -0.024150735, -0.0...] |
   
-&lt;/td>
-&lt;/table>
+</td>
+</table>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -276,7 +276,7 @@ wrangles:
 | url | | str | Override the default url for the AI endpoint. Must use the OpenAI embeddings API. Defaults to "https://api.openai.com/v1/embeddings". |
 | precision | | str | The precision of the embeddings. Default is float32. This should be used with output_type numpy array. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # GUID / UUID
 Create a column with a GUID (Globally Unique Identifier)
@@ -296,22 +296,22 @@ wrangles:
   - create.uuid:
       output: GUID Column
 ```
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th></tr>
+<tr><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | GUID Column                          |
 |:------------------------------------:|
 | 9a13b4dd-1993-4bd2-8974-3f9a0f006d86 |
 | 1528d918-ecd7-457c-b44d-3d30705696d3 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -319,7 +319,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Hash
 Create a hash of a column.
@@ -336,32 +336,32 @@ wrangles:
       output: hash
       method: md5
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Description |
 |:-----------:|
 | The wrench is blue |
 | The hammer is yellow |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | New Column |
 |:----------:|
 | ce114e4501d2f4e2dcea3e17b546f339 |
 | a54d88e06612d820bc3be72877c74f257b561b19 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -371,7 +371,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Index
 Create a new incremental index.
@@ -388,23 +388,23 @@ wrangles:
       start: 1    # optional
       step: 1     # optional
 ```
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th></tr>
+<tr><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | New Index |
 |:---------:|
 | 1         |
 | 2         |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -415,7 +415,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Jinja
 Makes use of a jinja template to create a description, title, or summary based on your data. 
@@ -436,34 +436,34 @@ wrangles:
       	string: |
         	This is a {{ Brand }} {{ Item_Type }} that is {{ Size }}
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Brand | Item Type | Size | 
 | :-----: | :-----: | :-----: |
 | SKF | ball bearing | 10mm |
 | Timken | bearing seal | 15mm |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Brand | Item Type | Size | Description |
 | :-----: | :-----: | :-----: | :-----: |
 | SKF | ball bearing | 10mm | This is a SKF ball bearing that is 10mm |
 | Timken | bearing seal | 15mm | This is a Timken bearing seal that is 15mm|
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Using a "|" character denotes a multi-line string in yaml which preserves line breaks. Use ">" if a multi-line string is used and you do not wish to preserve line breaks. See [jinja documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/) for information on how to write a jinja template.
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -473,4 +473,4 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

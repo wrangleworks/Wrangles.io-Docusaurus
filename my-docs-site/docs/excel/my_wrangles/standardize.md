@@ -39,28 +39,28 @@ To retrain, or update, your wrangle hover your cursor over the three dots to the
 | USA | United States of America |
 | UK | United Kingdom |
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Address |
 |:--------|
 | 101 Wrangle Works ave, USA |
 | London SW1A 1AA, UK |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Address | Standardize Addresses |
 |:--------|:--------------------- |
 | 101 Wrangle Works ave, USA | 101 Wrangle Works Avenue, United States of America |
 | London SW1A 1AA, UK | London SW1A 1AA, United Kingdom |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ## Regular Expressions
 

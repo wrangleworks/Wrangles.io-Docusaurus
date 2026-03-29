@@ -20,7 +20,7 @@ read:
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Example | Category | Notes |
 | :------ | :------- | :---- |
@@ -29,7 +29,7 @@ read:
 | Pear | Fruit | |
 | Aperagus | Vegetable | |
 
-&lt;/div>
+</div>
 
 ##### Parameters
 
@@ -46,7 +46,7 @@ df = train.classify.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Example | Category | Notes |
 | :------ | :------- | :---- |
@@ -55,7 +55,7 @@ df = train.classify.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 | Pear | Fruit | |
 | Asperagus | Vegetable | |
 
-&lt;/div>
+</div>
 
 ##### Parameters
 
@@ -124,7 +124,7 @@ read:
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Entity to Find | Variation (Optional) | Notes |
 | :------------- | :------------------- | :---- |
@@ -132,7 +132,7 @@ read:
 | Needle Bearing | needle, bearing | |
 | Roller Bearing | roller, bearing | |
   
-&lt;/div>
+</div>
   
 #### Function
 ```python
@@ -142,7 +142,7 @@ df = train.extract.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Entity to Find | Variation (Optional) | Notes |
 | :------------- | :------------------- | :---- |
@@ -150,7 +150,7 @@ df = train.extract.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 | Needle Bearing | needle, bearing | |
 | Roller Bearing | roller, bearing | |
   
-&lt;/div>
+</div>
 
 ### Write
 #### Recipe
@@ -212,7 +212,7 @@ read:
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Key | Value1 | Value2 |
 | :--- | :------ | :---- |
@@ -221,7 +221,7 @@ read:
 | Salad | Garden | Ceasar |
 | Taco | Soft | Crispy |
  
-&lt;/div>
+</div>
 
 #### Function 
 ```python
@@ -231,7 +231,7 @@ df = train.lookup.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Key | Value1 | Value2 |
 | :--- | :------ | :---- |
@@ -240,7 +240,7 @@ df = train.lookup.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 | Salad | Garden | Ceasar |
 | Taco | Soft | Crispy |
  
-&lt;/div>
+</div>
 
 ### Write
 #### Recipe
@@ -300,7 +300,7 @@ read:
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Find | Replace | Notes |
 | :--- | :------ | :---- |
@@ -309,7 +309,7 @@ read:
 | Bagel | Donut | |
 | Taco | Burrito | |
  
-&lt;/div>
+</div>
 
 #### Function 
 ```python
@@ -319,7 +319,7 @@ df = train.standardize.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 
 ##### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Find | Replace | Notes |
 | :--- | :------ | :---- |
@@ -328,7 +328,7 @@ df = train.standardize.read(model_id = 'xxxxxxxx-xxxx-xxxx')
 | Bagel | Donut | |
 | Taco | Burrito | |
  
-&lt;/div>
+</div>
 
 ### Write
 #### Recipe

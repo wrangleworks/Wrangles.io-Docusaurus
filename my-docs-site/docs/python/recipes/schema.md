@@ -18,10 +18,10 @@ Follow these instuctions to enable in VS Code. Once added, any file named *.wrgl
 
 1. Install the YAML extension.
 ![yaml-extension-vscode.png](/images/yaml-extension-vscode.png)
-&lt;br/>
+
 1. From the VS Code settings (Ctrl + ,), search yaml schema and click *'Edit in settings.json'*
   ![vscode-yaml-schema.png](/images/vscode-yaml-schema.png)
-&lt;br/>
+
 1. Modify or add the yaml.schemas section as below
 ```json
 "yaml.schemas": {

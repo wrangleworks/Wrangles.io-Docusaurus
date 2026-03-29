@@ -20,10 +20,10 @@ Convert units or standardize if Convert To is set to Standard.
 ## Tabset \{.tabset\}
 ### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Decimal Places = 2
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Decimal Places = 2
+<tr><td>
 
 | Before |
 | --- |
@@ -32,9 +32,9 @@ Convert units or standardize if Convert To is set to Standard.
 | 1/4 yard |
 
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
@@ -42,9 +42,9 @@ Convert units or standardize if Convert To is set to Standard.
 | 4 in |
 | 9 in |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 | Option | Notes |
@@ -88,10 +88,10 @@ Standardize each fraction into its decimal equivalent.
 ## Tabset \{.tabset\}
 ### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Decimal Places = 2
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Decimal Places = 2
+<tr><td>
 
 | Before |
 | --- |
@@ -100,9 +100,9 @@ Standardize each fraction into its decimal equivalent.
 | 1/4 |
 
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
@@ -110,9 +110,9 @@ Standardize each fraction into its decimal equivalent.
 | .33 |
 | .25 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Phone Numbers
 Standardize phone numbers to a consistent format by choosing from predefined format options or customizing your own. 
@@ -126,10 +126,7 @@ Standardize phone numbers to a consistent format by choosing from predefined for
 | (XXX)-XXX-XXXX | (123)-456-7890 |
 | XXX XXX XXXX | 123 456 7890 |
 | Custom format example: XXX-XXX | 567-890  |
-  
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+
 
 
 # Remove Attributes
@@ -137,10 +134,10 @@ Remove attributes from the selected range
 
 ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Character to Remove: !
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Character to Remove: !
+<tr><td>
 
 | Before |
 | --- |
@@ -148,9 +145,9 @@ Remove attributes from the selected range
 | 13mm Ratchet Wrench |
 | 3lb Hammer |
   
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
@@ -158,9 +155,9 @@ Remove attributes from the selected range
 | Ratchet Wrench |
 | Hammer |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 # Remove Characters
@@ -170,28 +167,28 @@ Standardize your data by removing specific characters.
 
 ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Character to Remove: !
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Character to Remove: !
+<tr><td>
 
 | Before |
 | --- |
 | I would love to tell you about Wrangle works! It's so cool.|
 | Wrangle Works is the BEST! |
   
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | I would love to tell you about Wrangle works It's so cool.|  
 | Wrangle Works is the BEST |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Remove Words
 Standardize your data by removing specific words. The Remove Words wrangle will remove words **found in** subsequent columns **from** the leftmost column. This can be done in entirety (where ordering of the words matters) with the "Tokenize to remove" parameter set to False, or word for word with "Tokenize to remove" set to True. The "Ignore Case" parameter can also be used to account for or ignore case when set to True or False (respectively).
@@ -200,10 +197,10 @@ Standardize your data by removing specific words. The Remove Words wrangle will 
 
 ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Removing Part Numbers From Description
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Removing Part Numbers From Description
+<tr><td>
 
 | Description | Part Number |
 |:-----------:|:-----------:|
@@ -211,9 +208,9 @@ Standardize your data by removing specific words. The Remove Words wrangle will 
 | Voluptatem Samsung 2lb Blue 0000AHYR898RFHUI $100 | 0000AHYR898RFHUI |
 | 0000HHGT7TR97H GGL Steel TV AAA $100 | 0000HHGT7TR97H |
   
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Description - Remove Words |
 |:-----------:|
@@ -221,9 +218,9 @@ Standardize your data by removing specific words. The Remove Words wrangle will 
 | Voluptatem Samsung 2lb Blue $100 |
 | 0000HHGT7TR97H GGL Steel TV AAA $100 |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Replace
 Standardize data with our find and replace functionality; optionally utilize regular expressions for advanced matching.
@@ -232,47 +229,47 @@ Standardize data with our find and replace functionality; optionally utilize reg
 
 ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Before |
 | --- |
 | Wrangle works is 4 years old |
 | Wrangle works is 4 years old |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Regex |
 | --- |
 | Off - Find: young , Replace: old|
 | On - Find: \d , Replace: # |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | Wrangle works is 4 years young |
 | Wrangle works is # years old |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Round
 Round to a set number of decimal places. Number of decimal places to round to can be set by the user. The example below shows rounding to two decimal places.
 
 > Click [here](/python/recipes/wrangles/standalone#round) to learn how to use Round Wrangles in a recipe.
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Before |
 | --- |
@@ -280,9 +277,9 @@ Round to a set number of decimal places. Number of decimal places to round to ca
 |  2.718281828459045 |
 | 6.02214076 × 10^23 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
@@ -290,37 +287,37 @@ Round to a set number of decimal places. Number of decimal places to round to ca
 | 2.72 |
 | 6.02 x 10^23 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Significant Figures
 Standardize the precision of your numerical data by specifying the desired number of significant figures.
 
 ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> Significant Figures: 3
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> Significant Figures: 3
+<tr><td>
 
 | Before |
 | --- |
 | 0.0544859 |
 | 0.75849 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | 0.0545 |
 | 0.758 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Spaces
 Standardize text by eliminating extra spaces and converting special space characters to a single space.
@@ -330,25 +327,25 @@ Standardize text by eliminating extra spaces and converting special space charac
 ### Example 
 
  
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> In the case of zero width space in a URL
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> In the case of zero width space in a URL
+<tr><td>
 
 | Before |
 | --- |
 | wrangles.io |
 | wrangleworks.com |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | After |
 | --- |
 | wrangle s.io |
 | wrangle works.com |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>

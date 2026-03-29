@@ -7,7 +7,7 @@ slug: /python/connectors/notification/email
 \{.is-info\}
 
 Send an email - such as to alert someone when a recipe is finished or if it fails.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Run

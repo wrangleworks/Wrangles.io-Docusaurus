@@ -32,38 +32,38 @@ read:
       	  	name: file2.xlsx
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
 | a |
 
-&lt;/td>&lt;td>
+</td><td>
   
 \+ 
   
-&lt;/td>&lt;td>
+</td><td>
 
 | column |
 | :-----: |
 | b |
 
-&lt;/td>&lt;td>
+</td><td>
 
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column |
 | :-----: |
 | a |
 | b |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Union is the default aggregation for multiple reads. 
 \{.is-info\}
@@ -80,37 +80,37 @@ read:
         - file:
       	  	name: file2.xlsx
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
 | a |
 
-&lt;/td>&lt;td>
+</td><td>
   
 \+ 
   
-&lt;/td>&lt;td>
+</td><td>
 
 | column |
 | :-----: |
 | b |
 
-&lt;/td>&lt;td>
+</td><td>
 
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | column |
 | :-----: | :---: |
 | a | b |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Join
 > Joins can be done using data from any connector, or even custom functions.

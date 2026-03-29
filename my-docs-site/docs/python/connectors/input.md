@@ -18,11 +18,11 @@ read:
 
 #### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | columns | | str, list | Subset of the columns to be read. If not provided, all columns will be input. |
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 
-&lt;/div>
+</div>

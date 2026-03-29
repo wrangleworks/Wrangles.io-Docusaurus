@@ -6,8 +6,8 @@ slug: /python/recipes/wrangles/format
 > Click [here](/excel/format) to learn how to use Format Wrangles in Excel.
 \{.is-success\}
 
-# Dates&lt;br>
-Format a date into desired pattern&lt;br>
+# Dates
+Format a date into desired pattern
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -27,7 +27,7 @@ wrangles:
 | 6/23/1912 | 1912-06-23      |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -37,10 +37,10 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Pad&lt;br>
-Pad a string to a fixed length&lt;br>
+# Pad
+Pad a string to a fixed length
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -56,10 +56,10 @@ wrangles:
       char: "-"
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Part Number |
 | :-----: |
@@ -68,9 +68,9 @@ wrangles:
 | 84 |
 | 98516 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Part Number |
 | :-----: |
@@ -79,12 +79,12 @@ wrangles:
 | ---84 |
 | 98516 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -96,10 +96,10 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Prefix&lt;br>
-Add a prefix to a column.&lt;br>
+# Prefix
+Add a prefix to a column.
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -121,7 +121,7 @@ wrangles:
 | hero   | antihero   |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -131,10 +131,10 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Remove Duplicates&lt;br>
-Removed duplicate values in a list.&lt;br>
+# Remove Duplicates
+Removed duplicate values in a list.
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -148,32 +148,32 @@ wrangles:
         output: Commander
         where: Rank = Commander
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Attack of the Clones     | Rank |
 |:-------------------------|:-----|
 | ['Cody', 'Cody', 'Cody'] | Commander |
 | ['Rex', 'Rex', 'Rex'] | Captain |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Attack of the Clones     | Rank | Commander|
 |:-------------------------|:-----|:---------|
 | ['Cody', 'Cody', 'Cody'] | Commander | ['Cody'] |
 | ['Rex', 'Rex', 'Rex'] | Captain | |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -183,7 +183,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Significant Figures
 Format a value to a specific number of significant figures
@@ -208,7 +208,7 @@ wrangles:
 | 55.6 | 55 |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -218,10 +218,10 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Suffix&lt;br>
-Add a suffix to a column&lt;br>
+# Suffix
+Add a suffix to a column
 
 ## Tabset \{.tabset\}
 ### Sample
@@ -243,7 +243,7 @@ wrangles:
 | icon   | iconic   |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -253,9 +253,9 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
-# Trim&lt;br>
+# Trim
 Remove excess whitespace at the start and end of text. Can accept multiple columns.
 
 ## Tabset \{.tabset\}
@@ -274,7 +274,7 @@ Remove excess whitespace at the start and end of text. Can accept multiple colum
 |     Hello World      | Hello World |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -283,4 +283,4 @@ Remove excess whitespace at the start and end of text. Can accept multiple colum
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

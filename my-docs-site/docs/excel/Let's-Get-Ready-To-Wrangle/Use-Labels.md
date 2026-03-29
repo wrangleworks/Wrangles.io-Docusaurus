@@ -32,7 +32,7 @@ These Extract Wrangles are trained in the exact same way as normal, but instead 
 
 Here is an example of training data for an Extract Wrangle that is built to be used with use_labels.
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Find | Output(Optional) | Notes |
 |:----:|:----------------:|:-----:|
@@ -41,13 +41,13 @@ Here is an example of training data for an Extract Wrangle that is built to be u
 | pvc | Material: PVC | |
 | copper | Material: Copper | |
 
-&lt;/div>
+</div>
 
 ## In Use
 
 With the use_labels parameter/setting set to true, the output of this will look like the following:
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Description | Extracted Attributes |
 |:-----------:|:--------------------:|
@@ -55,7 +55,7 @@ With the use_labels parameter/setting set to true, the output of this will look 
 | First ever chrome plated pvc pipe | `{"Finish": "Chrome", "Material": "PVC"}` |
 | Bronze colored copper faucet | `{"Finish": "Bronze", "Material": "Copper"}` |
 
-&lt;/div>
+</div>
 
 This is just a small example that uses 2 attributes that have 2 values each, but this method can be implemented on a much larger scale.
 
@@ -65,7 +65,7 @@ This is where we implement a second wrangle that will really show the advantage 
 
 After running the previously mentioned Wrangle, our data now looks as follows:
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Description | Extracted Attributes | Finish | Material |
 |:-----------:|:--------------------:|:------:|:--------:|
@@ -73,7 +73,7 @@ After running the previously mentioned Wrangle, our data now looks as follows:
 | First ever chrome plated pvc pipe | `{"Finish": "Chrome", "Material": "PVC"}` | Chrome | PVC |
 | Bronze colored copper faucet | `{"Finish": "Bronze", "Material": "Copper"}` | Bronze | Copper |
 
-&lt;/div>
+</div>
 
 In just two steps, we have extracted attributes and listed them into their own columns. You'll notice that the new columns have been named after the keys from the "Extracted Attributes" column.
 

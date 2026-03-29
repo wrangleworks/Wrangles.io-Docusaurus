@@ -16,37 +16,37 @@ wrangles:
   - select.columns:
       input: Manufacturer
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Part Number |
 |:----------:|:-----------:|
 | SKF | 1234 |
 | Timken | 5678 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer |
 |:----------:|
 | SKF |
 | Timken |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | Name of the column(s) to select | 
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Dictionary Element
 Select a named element of a dictionary.
@@ -65,28 +65,28 @@ wrangles:
       default: square
       where: Part Number = 1234
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Properties | Part Number |
 |:----------:|:-----------:|
 | `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` | 1234 |
 | `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` | 5678 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Shapes |
 |:------:|
 | round |
 | |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Selecting Multiple Dictionary Elements
 When passing element as a list, the output will remane a dictionary even if it is only a list of one. In the example below, we have overwritten the input column by not providing an output.
@@ -99,28 +99,28 @@ wrangles:
       	- shapes
         - materials
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Properties |
 |:----------:|
 | `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` |
 | `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Properties |
 |:----------:|
 | `{'shapes': 'round', 'materials': 'tungsten'}` |
 | `{'shapes': 'square', 'materials': 'tungsten'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Selecting Multiple Dictionary Elements Using a Wildcard
 Wildcards can be used to select dictionary elements. As before, when passing element as a list, the output remanes a dictionary. **Note**: When using a wildcard or regex, element must be passed as a list and therefore the output will remain a dictionary.
@@ -133,26 +133,26 @@ wrangles:
       element: 
       	- Col*
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Column                                    |
 |:-----------------------------------------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Other3': 'C'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Column                                    | Output Dict |
 |:-----------------------------------------:|:-----------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col2': 'B'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Selecting Multiple Dictionary Elements Using Regex
 Regex patterns can be used to select dictionary elements. As before, when passing element as a list, the output remanes a dictionary. **Note**: When using a wildcard or regex, element must be passed as a list and therefore the output will remain a dictionary.
@@ -165,26 +165,26 @@ wrangles:
       element: 
       	- "regex: .*2"
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Column                                    |
 |:-----------------------------------------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Column                                    | Output Dict |
 |:-----------------------------------------:|:-----------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col2': 'B'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Selecting Elements While Renaming 
 Selected dictionary elements can also be renamed in the output by following the example below.
@@ -198,26 +198,26 @@ wrangles:
       	- Col1: Column 1
         - Col2: Column 2
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Column                                    |
 |:-----------------------------------------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Column                                    | Output Dict |
 |:-----------------------------------------:|:-----------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Column 1': 'A', 'Column 2': 'B'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using Default to Fill Missing Elements
 By adding a default, missing dictionary elements are filled in upon output. Without the use of a default, the wrangle will throw an error when it encounters a missing element.
@@ -234,32 +234,32 @@ wrangles:
       	Col1: Z
         Col3: Y
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Column                                    |
 |:-----------------------------------------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
 | `{'Col1': 'D', 'Col2': 'E'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Column                                    | Output Dict |
 |:-----------------------------------------:|:-----------:|
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col3': 'C'}` |
 | `{'Col1': 'D', 'Col2': 'E'}` | `{'Col1': 'D', 'Col3': 'Y'}` |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -270,7 +270,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 
 # Element
@@ -320,10 +320,10 @@ wrangles:
       mean: Price ($)
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Product | Product Type | Quantity | Price ($) |
 | :------ | :----------- | :------- | :-------- |
@@ -332,9 +332,9 @@ wrangles:
 | Cordless Drill | Power Tools | 2 | 49.99 |
 | Reciprocating Saw | Power Tools | 7 | 29.99 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
   
 | Product Type | Quantity.sum | Price ($).mean |
@@ -342,9 +342,9 @@ wrangles:
 | Hand Tools | 15 | 9.99 |
 | Power Tools | 9 | 39.99 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Grouping With Custom Function Aggregation 
 
@@ -360,10 +360,10 @@ def sum_times_two(x):
     return sum(x) * 2
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Category | Quantity |
 |:--------:|:--------:|
@@ -372,9 +372,9 @@ def sum_times_two(x):
 | Hand Tools | 2 |
 | Power Tools | 4 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
   
 | Category | Quantity.sum_times_two |
@@ -382,9 +382,9 @@ def sum_times_two(x):
 | Hand Tools | 12 |
 | Power Tools | 4 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Note: Recipes using select.group_by **must** be output to a new sheet because they change the shape of the dataframe.
 \{.is-info\}
@@ -426,10 +426,10 @@ wrangles:
       n: 2
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
@@ -438,27 +438,27 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
 | SKF | Ball Bearing |
 | Timken | Bearing Race |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | n | ✓ | integer | Number of rows to return | 
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Highest Confidence
 Select the option with the highest confidence from multiple columns.
@@ -482,7 +482,7 @@ wrangles:
 | Col1        | Col2        | Col3        | |   | | Highest Confidence   |
 |:-----------:|:-----------:|:-----------:|-|:-:|-|:--------------------:|
 | ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | ['C', 0.99]          |
-&lt;br/>
+
 
 #### Selecting Highest Confidence Two Outputs
 When a list of two outputs is given, the item and it's confidence are split into different columns
@@ -504,7 +504,7 @@ wrangles:
 | ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | C    | .99 |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -513,7 +513,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 
 # Left
@@ -537,7 +537,7 @@ wrangles:
 | pudding | | → | | pud    |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -547,7 +547,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Length
 Calculate the lengths of data in a column. The length depends on the data type e.g. text will be the length of the text, lists will be the number of elements in the list.
@@ -569,7 +569,7 @@ wrangles:
 | 6202 | | → | | 4 |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -578,7 +578,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # List Element
 Select a numbered element of a list (zero indexed)
@@ -603,7 +603,7 @@ wrangles:
 | ['D', 'E'] | | → | | F |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -614,7 +614,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 
 # Right
@@ -638,7 +638,7 @@ wrangles:
 | pudding | | → | | ing    |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -648,7 +648,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 
 # Sample
@@ -665,10 +665,10 @@ wrangles:
       rows: 2
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
@@ -677,18 +677,18 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
 | SKF | Ball Bearing |
 | Acme Bearings | Needle Bearing |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Selecting a Random 25% of All Rows
 
@@ -698,10 +698,10 @@ wrangles:
       rows: .25
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
@@ -710,26 +710,26 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
 | Acme Bearings | Needle Bearing |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | rows | ✓ | int, number, str | If a whole number, will select that number of rows. If a decimal between 0 and 1 will select that fraction of the rows e.g. 0.1 => 10% of rows will be returned. Can only be a string if it is a valid number e.g. "two". |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 
 # Substring
@@ -782,7 +782,7 @@ wrangles:
 | pudding | | → | | pud    |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -793,7 +793,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Tail 
 Return the last n rows
@@ -809,10 +809,10 @@ wrangles:
       n: 2
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
@@ -821,27 +821,27 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | Product |
 |:------------:|:-------:|
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | n | ✓ | integer | Number of rows to return | 
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Threshold
 Select the first option if it exceeds a given threshold, else the second option.
@@ -866,7 +866,7 @@ wrangles:
 | ['A', 0.6] | ['B', 0.79] | | → | | B           |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -876,4 +876,4 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

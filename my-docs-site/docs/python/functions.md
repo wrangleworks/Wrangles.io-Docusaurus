@@ -32,13 +32,13 @@ MechPT
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be classified. |
 | model_id | ✓ | str | ID of the model to run. |
-&lt;/div>
+</div>
 
 # Extract
 
@@ -55,13 +55,13 @@ Extract features from addresses such as streets or countries.
 [['1100 Congress Ave']]
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for attributes. |
 | dataType | ✓ | streets / cities / regions / countries | The type of information to return. |
-&lt;/div>
+</div>
 
 ## Ai
 
@@ -76,7 +76,7 @@ Use the power of AI (OpenAI's chatGPT in particular) to extract meaningful data
 'Yellow'
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -91,7 +91,7 @@ Use the power of AI (OpenAI's chatGPT in particular) to extract meaningful data
 | messages | | list | Overall prompts to pass additional instructions. |
 | url | | str | Override the endpoint. Must implement the OpenAI chat completions API schema with function calling. |
 
-&lt;/div>
+</div>
 
 ## Attributes
 Extract numeric attributes such as lengths or voltages.
@@ -106,14 +106,14 @@ Extract numeric attributes such as lengths or voltages.
 [{'length': ['15mm']}, {'electric potential': ['15V']}]
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for attributes. |
 | responseContent |  | span / object | Default span. If span, returns original text, if object returns an object of value and dimension. |
 | type |  | angle / area / current / force / length / power / pressure / electric potential / volume / mass | Specify which types of attributes to find. If omitted, a dictionary of all attributes types is returned |
-&lt;/div>
+</div>
 
 ## Codes
 Extract alphanumeric codes.
@@ -128,12 +128,12 @@ Extract alphanumeric codes.
 [['ABCD1234ZZ'], ['NNN555BBB', 'XYZ789']]
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for codes. |
-&lt;/div>
+</div>
 
 ## Custom
 Extract entities using a custom model. An extraction wrangle must be created to be able to use this.
@@ -148,13 +148,13 @@ Extract entities using a custom model. An extraction wrangle must be created to 
 [['SKF'], ['FESTO']]
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for custom entities. |
 | model_id | ✓ | str | ID of the model to run. |
-&lt;/div>
+</div>
 
 ## Properties
 Extract categorical properties such as colours or materials.
@@ -169,13 +169,13 @@ Extract categorical properties such as colours or materials.
 [{'Colours': ['Yellow']}, {'Colours': ['Green']}]
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for properties. |
 | type |  | colours / materials / shapes / standards | The type of property to return. If omitted, a dictionary with all results will be returned. |
-&lt;/div>
+</div>
 
 # Lookup
 Lookups can be used to look up data from a saved lookup wrangle. They can either be key (exact) or semantic (most similar meaning) based matches.
@@ -193,14 +193,14 @@ Exact lookups look up exact matches (from your list of values) in a saved lookup
 {"Value1": "Key1's Value1", "Value2": "Key1's Value2"}
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for properties. |
 | model_id | ✓ | str | ID of the model to run. |
 | columns |  | str, list | The columns to be returned. If not provided, all columns will be returned as a dict. |
-&lt;/div>
+</div>
   
 ## Semantic Lookups
 Semantic lookups look up the most similar matches (from your list of values) in a saved lookup wrangle.
@@ -215,14 +215,14 @@ Semantic lookups look up the most similar matches (from your list of values) in 
 {"Value1": "Key1's Value1", "Value2": "Key1's Value2"}
 ```
 #### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be searched for properties. |
 | model_id | ✓ | str | ID of the model to run. |
 | columns |  | str, list | The columns to be returned. If not provided, all columns will be returned as a dict. |
-&lt;/div>
+</div>
 
 # Standardize
 Standardize text data, such as replacing abbreviations. A standardization wrangle must be created to be able to use this.
@@ -238,13 +238,13 @@ Standardize text data, such as replacing abbreviations. A standardization wrangl
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | The text(s) to be standardized. |
 | model_id | ✓ | str | ID of the model to run. |
-&lt;/div>
+</div>
 
 # Translate
 Translate text between languages.
@@ -262,7 +262,7 @@ Mi nombre es Chris
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -270,4 +270,4 @@ Mi nombre es Chris
 | target_language | ✓ | str | A code for the target language. [Available Codes](https://www.deepl.com/docs-api/translating-text/) |
 | source_language |  | str | A code for the source language. If omitted, the language will be inferred from the contents. |
 | case |  | lower / upper / title | Allow changing the case of the input prior to translation. |
-&lt;/div>
+</div>

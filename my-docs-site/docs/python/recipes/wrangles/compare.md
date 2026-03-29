@@ -22,10 +22,10 @@ wrangles:
       output: Difference
       method: difference
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -33,9 +33,9 @@ wrangles:
 | Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
 | Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Difference |
 |:----------:|
@@ -43,9 +43,9 @@ wrangles:
 | Maple Orange Steel |
 | Normal Blue Plastic |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Comparing the intersection of two columns of text
 
@@ -58,10 +58,10 @@ wrangles:
       output: Intersection
       method: intersection
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -69,9 +69,9 @@ wrangles:
 | Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
 | Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Intersection |
 |:----------:|
@@ -79,9 +79,9 @@ wrangles:
 | Medium Wood Top Coffee Table |
 | Small Wood Top Console Table |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Comparing the overlap of two columns of text
 
@@ -94,10 +94,10 @@ wrangles:
       output: Overlap
       method: overlap
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Part Code1 | Part Code2 |
 |:----------:|:----------:|
@@ -105,9 +105,9 @@ wrangles:
 | X06-02-000 | X06-81-000 |
 | 7100E15-V-230/3 | 7100E15-V-120/1 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Overlap |
 |:-------:|
@@ -115,12 +115,12 @@ wrangles:
 | X06-**-000 |
 | 7100E15-V-\**0/\* |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -135,4 +135,4 @@ wrangles:
 | empty_a | | str | Value to use for empty input a (overlap) |
 | empty_b | | str | Value to use for empty input b (overlap) |
 | all_empty | | str | Value to use for both inputs (overlap) |
-&lt;/div>
+</div>

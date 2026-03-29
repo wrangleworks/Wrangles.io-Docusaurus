@@ -7,7 +7,7 @@ slug: /python/connectors/ssh
 \{.is-info\}
 
 Execute commands via SSH - such as to trigger an action before or after a recipe is run.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Run

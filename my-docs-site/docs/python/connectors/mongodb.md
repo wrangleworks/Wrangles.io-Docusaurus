@@ -4,7 +4,7 @@ slug: /python/connectors/mongodb
 ---
 
 The MongoDB connector supports read and writing to/from a collection.
-&lt;br>
+
 
 
 # Tabset \{.tabset\}
@@ -38,7 +38,7 @@ df = mongodb.read(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -51,7 +51,7 @@ df = mongodb.read(
 | projection | | str | Select which fields to include |
 | order_by | | str | Uses SQL syntax to sort the input. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 ## Write
 ### Recipe
@@ -85,7 +85,7 @@ mongodb.write(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -100,4 +100,4 @@ mongodb.write(
 | update | | str | mongoDB query value to update, only valid when using UPDATE |
 | order_by | | str | Uses SQL syntax to sort the output. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

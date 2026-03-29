@@ -7,7 +7,7 @@ slug: /python/connectors/akeneo
 \{.is-info\}
 
 The Akeneo connector supports write to a PIM product list
-&lt;br>
+
 
 
 # Tabset \{.tabset\}
@@ -47,7 +47,7 @@ akeneo.write(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -60,4 +60,4 @@ akeneo.write(
 | locale |  | str | Product locale |
 | scope | | str | Product scope |
 | columns | | str | Columns to include in Write function |
-&lt;/div>
+</div>

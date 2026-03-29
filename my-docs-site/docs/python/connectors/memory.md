@@ -22,7 +22,7 @@ df = memory.read(id='1234')
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -31,7 +31,7 @@ df = memory.read(id='1234')
 | order_by | | str | Uses SQL syntax to sort the input. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 ## Write
 ### Recipe

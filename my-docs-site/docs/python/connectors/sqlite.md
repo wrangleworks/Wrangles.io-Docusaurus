@@ -4,7 +4,7 @@ slug: /python/connectors/sqlite
 ---
 
 The sqlite connector supports read and writing to/from a sqlite database.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read
@@ -28,14 +28,14 @@ df = sqlite.read(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | database | ✓ | str | The database to connect to including the file path. e.g. directory/database.db |
 | command | ✓ | str | Table name or SQL command to select data. Note - using variables here can make your recipe vulnerable to sql injection. Use params if using variables from untrusted sources. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 ## Write
 Export data to a SQLite Database
@@ -59,7 +59,7 @@ sqlite.write(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -67,7 +67,7 @@ sqlite.write(
 | database | ✓ | str | The database to connect to including the file path. e.g. directory/database.db |
 | table | ✓ | str | The table to write to |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 ## Run
 Run a command on a SQLite Database.
@@ -91,7 +91,7 @@ sqlite.run(
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -99,4 +99,4 @@ sqlite.run(
 | command | ✓ | str, list | SQL command or a list of SQL commands to execute |
 | params | | list, obj | Variables to pass to a parameterized query. This may use %s or %(name)s syntax |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

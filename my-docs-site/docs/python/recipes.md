@@ -32,7 +32,7 @@ wrangles.recipe.run(recipe = 'my_recipe.wrgl.yml', variables = my_variables, dat
 \{.is-warning\}
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -41,7 +41,7 @@ wrangles.recipe.run(recipe = 'my_recipe.wrgl.yml', variables = my_variables, dat
 | dataframe | | Pandas Dataframe | (Optional) Pass in a pandas dataframe, instead of defining a read section within the YAML |
 | functions | | list, dict | (Optional) A function or list of functions that can be called as part of the recipe. Functions can be referenced as custom.function_name |
 | timeout | | str | (Optional) Set a timeout for the recipe in seconds. If not provided, the time is unlimited. |
-&lt;/div>
+</div>
 
 > **Recipes execute code. Be careful running recipes from remote sources. Only run recipes from sources you trust.**
 \{.is-warning\}
@@ -85,26 +85,26 @@ wrangles:
       output: Join Col
       char: ', '
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   | Col3   |
 |:-------|:-------|:-------|
 | A      | B      | C      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Join Col   |
 |:------------:|
 | A, B, C      |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Optional Columns
 Wrangles will generally fail if applied to a column that doesn't exist. A question mark (?) can be added to the end of a column name to make it optional. This disables the validation, but may still fail if the column is essential to the functioning of the wrangle.
@@ -121,26 +121,26 @@ wrangles:
         - Col3? # this will include Col3 if it exists
       output: output_column
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   |
 |:-------|:-------|
 | A      | B      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | output_column   |
 |:------------:|
 | ['A', 'B']      |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Exclude Columns
 A dash (-) attached to the front of the column name will not include that column. Typically, this can be combined with a wildcard to find all columns matching a pattern except certain ones.
@@ -155,26 +155,26 @@ wrangles:
       output: Join Col
       char: ', '
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1   | Col2   | Col3   |
 |:-------|:-------|:-------|
 | A      | B      | C      |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Join Col   |
 |:------------:|
 | A, C      |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Advanced Topics
 

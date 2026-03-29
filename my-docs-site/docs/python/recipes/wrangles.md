@@ -49,10 +49,10 @@ wrangles:
       input: column1
       output: column2
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column1 |
 | :-----: |
@@ -60,9 +60,9 @@ wrangles:
 | an example sentence |
 | an example sentence |
 
-&lt;/td>&lt;td> 
+</td><td> 
 →
-&lt;/td>&lt;td>
+</td><td>
 
 | column1 |
 | :-----: |
@@ -70,9 +70,9 @@ wrangles:
 | AN EXAMPLE SENTENCE |
 | AN EXAMPLE SENTENCE |
 
-&lt;/td>&lt;td>
+</td><td>
 →
-&lt;/td>&lt;td>
+</td><td>
   
 | column1 | column2 |
 | :-----: | :-----: |
@@ -80,9 +80,9 @@ wrangles:
 | AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |
 | AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # Advanced Topics
 

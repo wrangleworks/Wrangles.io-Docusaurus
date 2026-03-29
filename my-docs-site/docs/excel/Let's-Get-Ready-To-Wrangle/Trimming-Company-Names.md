@@ -69,10 +69,10 @@ While these could have been added to the same line (separated by "|"), I chose t
 
 ### Results
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Brand |
 |:-----:|
@@ -84,9 +84,9 @@ While these could have been added to the same line (separated by "|"), I chose t
 | SolTech Energy, Ltd |
 | General Generic Stuff, LLC |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Brand | Brand Wrangled |
 |:-----:|:--------------:|
@@ -98,9 +98,9 @@ While these could have been added to the same line (separated by "|"), I chose t
 | SolTech Energy, Ltd | SolTech |
 | General Generic Stuff, LLC | General Generic |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Note: It is always a good idea to run a trim wrangle on your data after running a standardize wrangle like this to drop extra spaces that came about because of the wrangle.
 \{.is-info\}

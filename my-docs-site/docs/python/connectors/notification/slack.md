@@ -9,7 +9,7 @@ slug: /python/connectors/notification/slack
 Send a Slack notification - such as to alert someone when a recipe is finished or if it fails.
 
 See [docs](https://slack.com/apps/new/A0F7XDUAZ-incoming-webhooks) for how to create a WebHook in Slack.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Run

@@ -4,7 +4,7 @@ slug: /python/connectors/concurrent
 ---
 
 By default, all functions executed by a recipe happen sequentially. The concurrent connector allows functions to be executed in parallel.
-&lt;br/>
+
 
 Click [here](https://wrangles.io/python/recipes/wrangles/utilities#concurrent) to learn about the concurrent wrangle.
 
@@ -27,7 +27,7 @@ read:
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -36,7 +36,7 @@ read:
 | use_multiprocessing | | str | Use multiprocessing instead of threading. Default is False. |
 | functions | | str | Custom functions to make available downstream. |
 | variables | | int | Variables to make available downstream. |
-&lt;/div>
+</div>
 
 ## Write
 ### Recipe
@@ -58,7 +58,7 @@ write:
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -68,7 +68,7 @@ write:
 | variables | | str | Variables to pass to any downstream recipes. |
 | functions | | str | Custom functions to pass to any downstream recipes. |
 | use_multiprocessing | | str | Use multiprocessing instead of threading. Default is False. |
-&lt;/div>
+</div>
 
 ## Run
 
@@ -89,7 +89,7 @@ run:
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -98,4 +98,4 @@ run:
 | variables | | str | Variables to pass to any downstream recipes. |
 | functions | | str | Custom functions to pass to any downstream recipes. |
 | use_multiprocessing | | int | Use multiprocessing instead of threading. Default is False. |
-&lt;/div>
+</div>

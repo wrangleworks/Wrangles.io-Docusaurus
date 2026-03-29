@@ -55,10 +55,10 @@ wrangles:
       case: upper
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -67,9 +67,9 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -78,9 +78,9 @@ wrangles:
 | Acme Bearings | NEEDLE BEARING |
 | General Bearing Co. | ROLLER BEARING |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ## Custom Function That Takes in Variables Dictionary
@@ -110,10 +110,10 @@ wrangles:
       case: upper
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -122,9 +122,9 @@ wrangles:
 | Acme Bearings | Needle Bearing |
 | General Bearing Co. | Roller Bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Col1 | Col2 |
 |:----:|:----:|
@@ -133,9 +133,9 @@ wrangles:
 | Acme Bearings | NEEDLE BEARING |
 | General Bearing Co. | ROLLER BEARING |
 
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 # Samples

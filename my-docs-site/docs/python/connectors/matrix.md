@@ -70,7 +70,7 @@ def get_list():
 | Screw Driver | $11.99 | 17 | Tools |
 | Wire Nuts | $1.99 | 11 | Electrical |
 
-&lt;br/>
+
 
 ### Function
 ```python
@@ -150,7 +150,7 @@ def get_list():
 | Extension Cord | $4.95 | 14 | Electrical |
 | Wire Nuts | $1.99 | 11 | Electrical |
 
-&lt;br/>
+
 
 ### Function
 ```python
@@ -211,7 +211,7 @@ variables = {"input_var1": ["a", "b", "c"], "input_var2": '["a", "b", "c"]'}
 test_vals = ["a", "b", "c"]
 ```
 
-&lt;br/>
+
 
 ### Function
 ```python

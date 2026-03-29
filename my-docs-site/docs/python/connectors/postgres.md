@@ -4,7 +4,7 @@ slug: /python/connectors/postgres
 ---
 
 The postgres connector supports reading and writing to/from a PostgreSQL server.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read

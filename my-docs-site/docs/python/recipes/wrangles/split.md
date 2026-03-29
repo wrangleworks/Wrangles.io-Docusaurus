@@ -97,7 +97,7 @@ wrangles:
 | `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      | C      |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -107,7 +107,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # List
 Split a list to multiple columns.
@@ -128,7 +128,7 @@ wrangles:
 | Column             | |   | | Column1   | Column2   | Column3   |
 |:------------------:|-|:-:|-|:---------:|:---------:|:---------:|
 | ['A', 'B', 'C']    | | → | | A         | B         | C         |
-&lt;br/>
+
 
 #### Named Columns
 ```yaml
@@ -146,7 +146,7 @@ wrangles:
 | ['A', 'B', 'C']    | | → | | A         | B         | C         |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -154,7 +154,7 @@ wrangles:
 | output | ✓ | list | Output supports a wildcard to dynamically number the columns e.g. col* -> col1, col2, col3, ... |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 # Text
 
@@ -177,7 +177,7 @@ wrangles:
 |:------------------:|-|:-:|-|:------------------------:|
 | Hello, Wrangles!   | | → | | ['Hello', 'Wrangles!']   |
 
-&lt;br/>
+
 
 #### Split Using Regex
 ```yaml
@@ -193,7 +193,7 @@ wrangles:
 | 1x2 | | → | | ['1', '2'] |
 | 1X2 | | → | | ['1', '2'] |
 
-&lt;br/>
+
 
 #### Slice the Output
 Choose specific elements to keep after splitting.
@@ -210,7 +210,7 @@ wrangles:
 |:------------------:|-|:-:|-|:------------------------:|
 | Hello, Wrangles!   | | → | | Hello  |
 
-&lt;br/>
+
 
 #### Split to Columns (Wildcard)
 The output columns will be given an incrementing number in the position of the wildcard (\*)
@@ -226,7 +226,7 @@ wrangles:
 | Col              | |   | | Col1    | Col2     |
 |:----------------:|-|:-:|-|:--------:|:---------:|
 | Hello, Wrangles! | | → | | Hello    | Wrangles! |
-&lt;br/>
+
 
 #### Split to Columns (Named)
 The output will be placed in the named columns. The number of output columns must be known in advance.
@@ -247,7 +247,7 @@ wrangles:
 | Wrangles, are, Cool! | | → | | Wrangles  | are    | Cool! |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -260,7 +260,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Tokenize
 [Tokenize](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization) elements in a list or string into individual tokens.
@@ -295,7 +295,7 @@ wrangles:
 | ['Stainless Steel', 'Oak Wood'] | | → | | ['Stainless', 'Steel', 'Oak', 'Wood'] |
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -305,4 +305,4 @@ wrangles:
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | method | | str | Method to split the list. Options: space, boundary, boundary_ignore_space or use a custom function with custom.\&lt;function\> or use a regex pattern with regex:\&lt;pattern\> |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

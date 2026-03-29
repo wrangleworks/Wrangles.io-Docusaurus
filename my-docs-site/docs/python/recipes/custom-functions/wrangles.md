@@ -44,24 +44,24 @@ wrangles:
 # Dataframe Level Functions
 Dataframe level functions take in the dataframe as a variable and run on the dataframe as a whole. Dataframe level functions must return a dataframe.
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Products   |
 |:----------:|
 | Hammer |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Products |Stock   |
 |:---------|------:|
 | Hammer | Hammer is out of stock |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def function(df, input, output):
@@ -79,24 +79,24 @@ wrangles:
 # Row Level Functions
 Row level functions are performed row by row and therefore do not take the dataframe in as a variable. Row level functions do not return a dataframe but instead return the values that will fill the output column.
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Products   |
 |:----------:|
 | Hammer |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Products |Stock   |
 |:---------|------:|
 | Hammer | Hammer is out of stock |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def function(Products):
@@ -116,24 +116,24 @@ wrangles:
 # Using **kwargs
 The function variable kwargs is a dictionary that stores wildcard function variables. That is, it allows you to pass variables into functions without explicitly naming them. 
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Products   |
 |:----------:|
 | Hammer |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Products |Stock   |
 |:---------|------:|
 | Hammer | Hammer is out of stock |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def function(Products, **kwargs):
@@ -154,24 +154,24 @@ wrangles:
 # Recipe Parameters
 Recipe parameters can be passed to a custom function as variables.
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Products   |
 |:----------:|
 | Hammer |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Products | Products with suffix |
 |:---------|------:|
 | Hammer | Hammer abc |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def function(Products, suffix):
@@ -225,24 +225,24 @@ def function_name(df, example_param, **kwargs):
 
 ## Reverse Strings (Dataframe Level)
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Strings         |
 |:---------------:|
 | Reverse Reverse |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 |Reverse         |
 |:---------------:|
 |esreveR esreveR |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def reverse_strings(df, input, output):
@@ -266,24 +266,24 @@ wrangles:
 
 ## Reverse Strings (Row Level)
 
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Strings         |
 |:---------------:|
 | Reverse Reverse |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 |Reverse         |
 |:---------------:|
 |esreveR esreveR |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
+</td></tr>
+</table>
 
 ```python
 def reverse_strings(Strings):

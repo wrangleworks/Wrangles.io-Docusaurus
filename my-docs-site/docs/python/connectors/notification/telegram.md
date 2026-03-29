@@ -9,7 +9,7 @@ slug: /python/connectors/notification/telegram
 Send a telegram notification - such as to alert someone when a recipe is finished or if it fails.
 
 See [docs](https://core.telegram.org/bots) for how to setup and get required keys.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Run

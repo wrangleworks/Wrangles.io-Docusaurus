@@ -19,27 +19,27 @@ Change the case of the input.
  ## Tabset \{.tabset\}
 ### Example 
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | |
 | --- |
 | CONVERT TO LOWER CASE |
   
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | |
 | --- |
 | convert to lower case |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ![lower_case.gif](/gifs/lower_case.gif)
 
@@ -62,10 +62,10 @@ Useful if you have multiple columns with similar data but only need one column.
  ## Tabset \{.tabset\}
 ### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | header1 | header2 | header 3
 |---|---|---|
@@ -74,9 +74,9 @@ Useful if you have multiple columns with similar data but only need one column.
 |  |  | hey |
   
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | new column|
 | --- |
@@ -84,9 +84,9 @@ Useful if you have multiple columns with similar data but only need one column.
 | 2 |
 | hey |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 # Collapse to JSON
@@ -97,10 +97,10 @@ Merge multiple columns into JSON strings.
 ### Example
 
 #### To Array
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | header1 | header2 |
 |---|---|
@@ -108,9 +108,9 @@ Merge multiple columns into JSON strings.
 | b | 2 |
 | c | 3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | ["header1","header2"] |
 | --- |
@@ -118,17 +118,17 @@ Merge multiple columns into JSON strings.
 | ["b",2] |
 | ["c",3] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### To Object
 For objects the column headers will be used as the keys and must be unique.
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | header1 | header2 |
 |---|---|
@@ -136,9 +136,9 @@ For objects the column headers will be used as the keys and must be unique.
 | b | 2 |
 | c | 3 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | &nbsp; |
 | --- |
@@ -146,9 +146,9 @@ For objects the column headers will be used as the keys and must be unique.
 | &nbsp;\{"header1":"b","header2":2\}&nbsp; |
 | &nbsp;\{"header1":"c","header2":3\}&nbsp; |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 
@@ -166,26 +166,26 @@ Merges multiple columns into one. All columns are combined together sequentially
 
  ## Tabset \{.tabset\}
 ### Example
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | | | |
 | --- | --- | --- |
 | a | b | c |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | |
 | --- |
 | abc |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 
@@ -202,10 +202,10 @@ Expand JSON strings into multiple columns.
 ### Example
 
 #### From Array
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | ["header1","header2"] |
 | --- |
@@ -213,9 +213,9 @@ Expand JSON strings into multiple columns.
 | ["b",2] |
 | ["c",3] |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | header1 | header2 |
 |---|---|
@@ -223,17 +223,17 @@ Expand JSON strings into multiple columns.
 | b | 2 |
 | c | 3 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### From Object
 For objects, the keys will be used as the new column headers.
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | &nbsp; |
 | --- |
@@ -241,9 +241,9 @@ For objects, the keys will be used as the new column headers.
 | &nbsp;\{"header1":"b","header2":2\}&nbsp; |
 | &nbsp;\{"header1":"c","header2":3\}&nbsp; |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | header1 | header2 |
 |---|---|
@@ -251,9 +251,9 @@ For objects, the keys will be used as the new column headers.
 | b | 2 |
 | c | 3 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 # Merge JSON
@@ -264,10 +264,10 @@ Merge multiple JSON objects or arrays together into one object or array.
 ### Example
 
 #### Merge Array
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Array 1 | Array 2 |
 | :-----: | :-----: |
@@ -275,9 +275,9 @@ Merge multiple JSON objects or arrays together into one object or array.
 | ["c", "d"] | [3, 4] |
 | ["e", "f"] | [5, 6] |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Merge Array |
 | :---------: |
@@ -285,17 +285,17 @@ Merge multiple JSON objects or arrays together into one object or array.
 | ["c", "d", 3, 4] |
 | ["e", "f", 5, 6] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Merge Object
 
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Object 1 | Object 2 |
 | :------: | :------: |
@@ -303,9 +303,9 @@ Merge multiple JSON objects or arrays together into one object or array.
 | &nbsp;\{"Key1": "b","Key2": 2\}&nbsp; | &nbsp;\{"Key3": "e", "Key4": 5\}&nbsp; |
 | &nbsp;\{"Key1": "c","Key2": 3\}&nbsp; | &nbsp;\{"Key3": "f", "Key4": 6\}&nbsp; |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Merge Object |
 | :----------: |
@@ -313,9 +313,9 @@ Merge multiple JSON objects or arrays together into one object or array.
 | &nbsp;\{"Key1": "b","Key2": 2, "Key3": "e", "Key4": 5\}&nbsp; |
 | &nbsp;\{"Key1": "c","Key2": 3, "Key3": "f", "Key4": 6\}&nbsp; |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 
@@ -335,26 +335,26 @@ Pad text to a fixed length. Useful for IDs that must follow a specific format. Y
 ### Example
 #### Length = 10 | Char = 0 | Pad = Leading
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | |
 | --- |
 | 12345 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | |
 | --- |
 | 0000012345 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 | Option | Description |
@@ -373,10 +373,10 @@ Adds a prefix or suffix to selected columns.
 ### Example
 #### Value = DEMO-
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Part Number |
 | --- |
@@ -385,9 +385,9 @@ Adds a prefix or suffix to selected columns.
 | 67890 | 
 | 09876 | 
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Part Number | Prefix |
 |:-----------:|:------:|
@@ -396,9 +396,9 @@ Adds a prefix or suffix to selected columns.
 | 67890 | DEMO-67890 |
 | 09876 | DEMO-09876 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 | Option | Description |
@@ -416,26 +416,26 @@ Splits an input into multiple columns.
 ## Tabset \{.tabset\}
 ### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | |
 | --- |
 | a,b,c |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 |   |   |   |
 |---|---|---|
 | a | b | c |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ![split.gif](/gifs/split.gif)
 ### Options
@@ -451,26 +451,26 @@ Removes excess whitespace from the start and end of text.
  ## Tabset \{.tabset\}
 ### Example
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | |
 | --- |
 | ' &nbsp;&nbsp;&nbsp;trim me&nbsp;&nbsp;&nbsp; ' |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | |
 | --- |
 | 'trim me' |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 # Truncate
@@ -480,26 +480,26 @@ Truncate text to take a snippet from longer text.
 ### Example
 
 #### Length = 3 | Trunc = Right
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Data |
 | --- |
 | abcdefghi |
   
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Right |
 | --- |
 | ghi |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Options
 

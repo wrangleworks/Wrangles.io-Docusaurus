@@ -7,7 +7,7 @@ slug: /python/connectors/test
 \{.is-info\}
 
 A useful connector to create test data. Either fixed values can be set or data can be randomly generated.
-&lt;br/>
+
 
 # Tabset \{.tabset\}
 ## Read
@@ -29,14 +29,14 @@ read:
 ```
 #### Output
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | fixed value | code | boolean | number | int | char | word | sentence | random_choice |
 | :--------- | :--- | :------ | :----- | :-- | :--- | :--- | :------- | :--- |
 | example string | E4CO2KRBG2 | True | 2.767 | 23 | m | neque | Adipisci dolor quisquam labore dolorem dolor | apple |
 | example string | 8G7DT4H7AB | False | 2.873 | 69 | r | tempora | Amet numquam quiquia numquam adipisci labore | pear |
 
-&lt;/div>
+</div>
 
 ### Function
 ```python
@@ -52,7 +52,7 @@ df = test.read(rows=2, values={'header1':'a','header2':'b'})
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
   
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -61,7 +61,7 @@ df = test.read(rows=2, values={'header1':'a','header2':'b'})
 | order_by | | str | Uses SQL syntax to sort the input. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 
-&lt;/div>
+</div>
 
 ### Special Inputs
 - **\&lt;code>** or **&lt;code(8)>** : Random alphanumeric codes - *(8)* sets the length. *e.g. J1RSB7X9*

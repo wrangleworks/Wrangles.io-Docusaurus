@@ -17,8 +17,8 @@ Each Wrangle is optimized for a particular job, many of which are backed by soph
 
 \{.grid-list\}
 
-&lt;br/>
-&lt;br/>
+
+
 
 # Data Wrangles [Excel](/excel) Add-In
 

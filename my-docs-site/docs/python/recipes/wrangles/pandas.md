@@ -18,10 +18,10 @@ Pandas functions within recipes allow users to employ the powerful [pandas](http
 wrangles:
   - pandas.drop_duplicates: {}
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Part Number | Item |
 |:--------|:--------|
@@ -30,18 +30,18 @@ wrangles:
 | 456789 | screwdriver |
 | 123456 | ball bearing |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Part Number | Item |
 |:--------|:--------|
 | 123456 | ball bearing |
 | 789123 | angle grinder |
 | 456789 | screwdriver |
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 > This example does not use any parameters, see [pandas.drop_duplicates](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html) for function parameters.
@@ -61,10 +61,10 @@ wrangles:
       parameters:
         by: Product Type
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Product Type | Description |
 |:--------|:--------|
@@ -73,9 +73,9 @@ wrangles:
 | bearings | 3"odx2.5"id thrust bearing |
 | hardware | m6x35mm stainless steel bolt |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Product Type | Description |
 |:--------|:--------|
@@ -83,12 +83,12 @@ wrangles:
 | bearings | 3"odx2.5"id thrust bearing |
 | hardware | 1/4-20x3" machine screw |
 | hardware | m6x35mm stainless steel bolt |
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -97,7 +97,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > More parameters for this function can be found in the [pandas.groupby](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html) documentation.
 \{.is-note\}
@@ -117,10 +117,10 @@ wrangles:
       parameters:
       	n: 2
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Voltage | Current | Resistance |
 |:--------|:--------|:-----------|
@@ -129,20 +129,20 @@ wrangles:
 | 24v | 12a | 2ohm |
 | 36v | 12a | 3ohm |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Voltage | Current | Resistance |
 |:--------|:--------|:-----------|
 | 12v | 6a | 2ohm |
 | 24v | 12a | 2ohm |
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -150,7 +150,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > See [pandas.sample](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html) for more parameters and information on this function.
 \{.is-note\}

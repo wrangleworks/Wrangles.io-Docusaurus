@@ -23,31 +23,31 @@ wrangles:
           output: modified_lists
           case: upper
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | list_column |
 |:-----------:|
 | ["a", "b", "c"] |
 | ["e", "f", "g"] |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | list_column | modified_lists |
 |:-----------:|:--------------:|
 | ["a", "b", "c"] | ["A", "B", "C"] |
 | ["e", "f", "g"] | ["E", "F", "G"] |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -58,7 +58,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Batch
 Execute a series of wrangles broken into a series of batches. The batches can optionally be executed in parallel with the threads parameter, and provide an error output to catch errors.
@@ -84,10 +84,10 @@ wrangles:
                 description: Title of the product
           
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Product Description |
 |:-------------: |
@@ -96,9 +96,9 @@ wrangles:
 | Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. |
 | Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Product Description | Title |
 |:------------------: | :------------: |
@@ -107,12 +107,12 @@ wrangles:
 | Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. | Stainless Steel Water Bottle |
 | Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. | Wireless Bluetooth Earbuds |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -121,7 +121,7 @@ wrangles:
 | threads | | int | The amount of batches than are run in parallel |
 | on_error | | dict | Provides a default output if there is an error within the batch. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Concurrent
 The Concurrent Wrangle allows users to run multiple wrangles concurrently rather than sequentially. Wrangles must specify output columns to be used concurrently. When using concurrent, Wrangles may not complete in a predictable order and it is not recommended to update overlapping columns with different wrangles.
@@ -143,10 +143,10 @@ wrangles:
             input: Products
             output: Attributes
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Products |
 |:--------:|
@@ -154,9 +154,9 @@ wrangles:
 | brg seal 1" id 5493 |
 | 3lb hammer 87102 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Products | Part Codes | Attributes |
 |:--------:|:----------:|:----------:|
@@ -164,18 +164,18 @@ wrangles:
 | brg seal 1" id 5493 | 5493 | \{"length":["1in"]\} |
 | 3lb hammer 87102 | 87102 | \{"weight":["3lb"]\} |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | wrangles | ✓ | list | The wrangles section of a recipe to execute for each combination of variables | 
 | max_concurrency | | int | The maximum number of wrangles to execute in parallel |
-&lt;/div>
+</div>
 
 
 
@@ -194,28 +194,28 @@ wrangles:
   		input: Product Data
       output: Product Data (copy)
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Product Data |
 |:----------:|
 | SKF ball brg |
 | brg seal |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Product Data | Product Data (copy) |
 |:----------:| :-------------------: |
 | SKF ball bearing | SKF ball bearing |
 | bearing seal | bearing seal |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Copying a Column Express as a Dictionary
 ```yaml
@@ -223,31 +223,31 @@ wrangles:
   - copy:
   		Product Data: Product Data (copy)
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Product Data |
 |:----------:|
 | SKF ball brg |
 | brg seal |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Product Data | Product Data (copy) |
 |:----------:| :-------------------: |
 | SKF ball bearing | SKF ball bearing |
 | bearing seal | bearing seal |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -256,7 +256,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Drop
 Drop columns within a dataframe.
@@ -271,37 +271,37 @@ wrangles:
   		columns:
       	- Material
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Product Data | Material |
 |:------------:| :------: |
 | SKF ball brg | Ceramic |
 | brg seal | Rubber |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Product Data |
 |:----------:|
 | SKF ball bearing |
 | bearing seal |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | columns | ✓ | str, list | Column(s) to be droppped. | 
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > Drop is not compatible with where filtering
 \{.is-info\}
@@ -319,10 +319,10 @@ wrangles:
   - explode:
       input: Products
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer | Products |
 | :----------: | :-----: |
@@ -330,9 +330,9 @@ wrangles:
 | Milwaukee | [Angle Grinder, Drill, Impact Driver] |
 | Schneider | Solid State Relay |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Manufacturer | Products |
 | :----------: | :-----: |
@@ -343,12 +343,12 @@ wrangles:
 | Milwaukee | Impact Driver |
 | Schneider | Solid State Relay |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -356,7 +356,7 @@ wrangles:
 | reset_index | | bool | Reset the index after exploding. Default False. |
 | drop_empty | | bool | Empty lists will not produce a row in the exploded output. Default False. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Filter
 Filter the dataframe based on the contents.
@@ -374,10 +374,10 @@ wrangles:
       equal:
       	- red
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Fruit      | Color   |
 |:-----------|:--------|
@@ -386,24 +386,24 @@ wrangles:
 | Orange     | orange  |
 | Strawberry | red     |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Fruit      | Color   |
 |:-----------|:--------|
 | Apple      | red     |
 | Strawberry | red     |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > If **input** is not provided, **where** must be used. See [Using Filters and Where](/excel/Let's-Get-Ready-To-Wrangle/filtering) for more information.
 \{.is-info\}
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -423,7 +423,7 @@ wrangles:
 | where | | str | Use a SQL WHERE clause to filter the data. **Input parameter must be used if where is not provided.** It is suggested to use where independently of all other parameters except where_params. Defaults to none. |
 | where_params | list, obj | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name). |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > If **input** is not provided, **where** must be used. See [Using Filters and Where](/excel/Let's-Get-Ready-To-Wrangle/filtering) for more information.
 \{.is-info\}
@@ -469,7 +469,7 @@ wrangles:
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -482,7 +482,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Matrix
 Apply a matrix of wrangles to the dataframe. This will run the wrangles for each combination of the variables. Click [here](https://wrangles.io/en/python/connectors/matrix) for the connector equivalent of this wrangle.
@@ -509,10 +509,10 @@ def test_fn(Col1, value):
     return Col1 + value
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Part Code | 
 |:---------:|
@@ -521,9 +521,9 @@ def test_fn(Col1, value):
 | 554-114   |
 | 554-112   |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Part Code | Part Code A | Part Code B | Part Code C |
 |:---------:|:-----------:|:-----------:|:-----------:|
@@ -532,9 +532,9 @@ def test_fn(Col1, value):
 | 554-114   | 554-114A    | 554-114B    | 554-114C    |
 | 554-112   | 554-112A    | 554-112B    | 554-112C    |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using Unique Variables Per Row
 Unique variables for each row can be utlized by following the example below where a different model id is used for each row.
@@ -555,10 +555,10 @@ wrangles:
 ```
 
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Description | Model ID |
 |:-----------:|:--------:|
@@ -566,9 +566,9 @@ wrangles:
 | The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy |
 | The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Description | Model ID | Extracted Values |
 |:-----------:|:--------:|:----------------:|
@@ -576,12 +576,12 @@ wrangles:
 | The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy | indestructible |
 | The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz | 1200ft-lbs |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -589,7 +589,7 @@ wrangles:
 | wrangles | ✓ | list | The wrangles to apply to the dataframe. Each wrangle will be run for each combination of the variables. |
 | functions | | function, list  | Any user defined custom functions. |
 | strategy | | str | Determines how to combine variables when there are multiple. loop (default) iterates over each set of variables, repeating shorter lists until the longest is completed. permutations uses the combination of all variables against all other variables. |
-&lt;/div>
+</div>
 
 
 # Reindex
@@ -609,10 +609,10 @@ wrangles:
         - 2
         - 1
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 |      | Product Data | Material |
 | :--: | :----------: | :------: |
@@ -622,9 +622,9 @@ wrangles:
 | 4 | Ceramic cartridge | Ceramic |
 | 5 | Needle Bearing | Stainless Steel |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 
 |      | Product Data | Material |
@@ -635,12 +635,12 @@ wrangles:
 | 2 | brg seal | Rubber |
 | 1 | SKF ball brg | Ceramic |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -649,7 +649,7 @@ wrangles:
 | index |  | str, list | New labels for the index. Preferably an Index object to avoid duplicating data. |
 | labels |  | str, list | New labels / index to conform the axis specified by ‘axis’ to. | 
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > Note: Cannot specify both 'axis' and any of 'index' or 'columns'
 \{.is-info\}
@@ -676,28 +676,28 @@ wrangles:
        	- MPN
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer Name | Manufacturer Part Number |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | MPN |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Renaming Columns Without Using Input and Output
 Rename is a unique Wrangle that can be used without naming input and output. Simply list the columns to be renamed with their new names seperated by a colon
@@ -708,28 +708,28 @@ wrangles:
       Manufacturer Part Number: MPN
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer Name | Manufacturer Part Number |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Manufacturer | MPN |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 #### Using Wrangles in Rename
 Wrangles can be used to rename columns, but they must be used instead of using the standard rename. Simply add wrangles as a parameter, then add the wrangles you wish to use. **Note:** *if using wrangles to rename, a column named 'columns' must be returned.*
@@ -742,32 +742,32 @@ Wrangles can be used to rename columns, but they must be used instead of using t
             case: upper
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Manufacturer Name | Manufacturer Part Number |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | MANUFACTURER NAME | MANUFACTURER PART NUMBER |
 |:--------:|:--------:| 
 | SKF | 302-2 |
 | Timken | PF48 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -775,7 +775,7 @@ Wrangles can be used to rename columns, but they must be used instead of using t
 | output | | str, list | |
 | wrangles | | array | Use wrangles to transform the column names. The input is named 'columns' and the final result must also include the column named 'columns'. **This can only be used instead of the standard rename.** |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 > Rename is not compatible with where filtering
 \{.is-info\}
@@ -794,10 +794,10 @@ wrangles:
       by: Price
       ascending: true
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | Item | Price |
 |:----:|:-----:|
@@ -807,9 +807,9 @@ wrangles:
 | Wrench | 6.99 |
 | Saw | 13.99 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | Item | Price |
 |:----:|:-----:|
@@ -819,19 +819,19 @@ wrangles:
 | Saw | 13.99 |
 | Drill | 29.99 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | by | ✓ | str, list | Name or list of the column(s) to sort by. | 
 | ascending | | bool | Sort ascending vs. descending. Specify a list to sort multiple columns in different orders. If this is a list of bools then it must match the length of the by. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Transpose
 Transpose a dataframe.
@@ -841,39 +841,39 @@ Transpose a dataframe.
 wrangles:
   - transpose: {}
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
 | Product Data | Material |
 |:------------:| :------: |
 | SKF ball brg | Ceramic |
 | brg seal | Rubber |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | | | |
 | -- | -- | -- |
 | Product Data | SKF ball bearing | bearing seal |
 | Material | Ceramic | Rubber |
     
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 > Transpose is not compatible with where filtering
 \{.is-info\}
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Try
 Try a list of wrangles and catch any errors that occur
@@ -893,7 +893,7 @@ wrangles:
 ```
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
  
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -904,4 +904,4 @@ wrangles:
 | variables | | dict | Variables to be used in the Try. |
 | retries | | int | Number of times to retry the wrangles if an error occurs. Default 0. |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

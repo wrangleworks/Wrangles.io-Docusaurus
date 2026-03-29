@@ -19,10 +19,10 @@ wrangles:
       case: upper
       where: column = 'more text'
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
@@ -30,9 +30,9 @@ wrangles:
 | more text |
 | some more text |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | new column |
 | :-----: | :-----: |
@@ -40,12 +40,12 @@ wrangles:
 | more text | MORE TEXT |
 | some more text | |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -55,7 +55,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Data Type
 Change the data type of the input.
@@ -73,30 +73,30 @@ Change the data type of the input.
           data_type: int
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
 | 3.14159 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | column | new column |
 | :-----: | :-----: |
 | 3.14159 | 3 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -106,7 +106,7 @@ Change the data type of the input.
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # Fraction to Decimal
 Convert fractions to decimals
@@ -124,31 +124,31 @@ wrangles:
       decimals: 3
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | fractions |
 | :-----: |
 | 3/32 |
 | 25/64 |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | decimals |
 | :-----: |
 | 0.094 |
 | 0.391 |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -158,7 +158,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # To JSON
 Convert an object to a JSON representation.
@@ -175,31 +175,31 @@ wrangles:
       output: new column
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
 | `['a', 'python', 'list']` |
 | `{'python': 'dict'}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | new column |
 | :-----: |
 | `["a","python","list"]` |
 | `{"python":"dict"}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -211,7 +211,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # From JSON
 Convert a JSON string into an object
@@ -228,31 +228,31 @@ wrangles:
       output: new column
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
 
 | column |
 | :-----: |
 | `["a","python","list"]` |
 | `{"python":"dict"}` |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
   
 | new column |
 | :-----: |
 | `['a', 'python', 'list']` |
 | `{'python': 'dict'}` |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -262,7 +262,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # To YAML
 Convert an object to a YAML representation.
@@ -278,17 +278,17 @@ wrangles:
       indent: 2
 ```
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
-&lt;table>
-  &lt;tr>
-    &lt;th>column 1&lt;/th>
-  &lt;/tr>
-  &lt;tr>
-    &lt;td>
+<table>
+  <tr>
+    <th>column 1</th>
+  </tr>
+  <tr>
+    <td>
       
      
 ```python
@@ -302,20 +302,20 @@ wrangles:
    }
 ```
    
-&lt;/td>
-&lt;/tr>
-&lt;/table>
+</td>
+</tr>
+</table>
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
-&lt;table>
-  &lt;tr>
-    &lt;th>column 1&lt;/th>
-  &lt;/tr>
-  &lt;tr>
-    &lt;td>
+<table>
+  <tr>
+    <th>column 1</th>
+  </tr>
+  <tr>
+    <td>
       
 ```yaml
     Product Specs:
@@ -324,17 +324,17 @@ wrangles:
       weight: 3lb
 ```
       
-&lt;/td>
-  &lt;/tr>
-&lt;/table>
+</td>
+  </tr>
+</table>
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -345,7 +345,7 @@ wrangles:
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>
 
 # From YAML
 Convert a YAML representation into an object
@@ -359,17 +359,17 @@ wrangles:
   - convert.from_yaml:
       input: column 1
 ```
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr>
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr>
+<tr><td>
   
-&lt;table>
-  &lt;tr>
-    &lt;th>column 1&lt;/th>
-  &lt;/tr>
-  &lt;tr>
-    &lt;td>
+<table>
+  <tr>
+    <th>column 1</th>
+  </tr>
+  <tr>
+    <td>
 
 ```yaml
     Product Specs:
@@ -378,20 +378,20 @@ wrangles:
       weight: 3lb
 ```
 
-&lt;/td>
-&lt;/tr>
-&lt;/table>
+</td>
+</tr>
+</table>
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
-&lt;table>
-  &lt;tr>
-    &lt;th>column 1&lt;/th>
-  &lt;/tr>
-  &lt;tr>
-    &lt;td>
+<table>
+  <tr>
+    <th>column 1</th>
+  </tr>
+  <tr>
+    <td>
       
 ```python
    {'Product Specs': [
@@ -404,17 +404,17 @@ wrangles:
    }
 ```
       
-&lt;/td>
-  &lt;/tr>
-&lt;/table>
+</td>
+  </tr>
+</table>
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 ### Parameters
 
-&lt;div style="overflow-x: auto">
+<div className="table-scroll">
 
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
@@ -422,4 +422,4 @@ wrangles:
 | output | | str, list | Name of the output column. If omitted, the input column will be overwritten |
 | default | | any | Value to return if the row is empty or fails to be parsed as JSON |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
-&lt;/div>
+</div>

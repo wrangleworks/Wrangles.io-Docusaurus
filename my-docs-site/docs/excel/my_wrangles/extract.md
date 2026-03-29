@@ -84,28 +84,28 @@ Extracting only the last name form a list of names.
 | :--- | :---------------- | :---- | 
 | regex: \s\w+ | | Matches any word character (one or more times) that follows a space. | 
 
-&lt;div style="overflow-x: auto">
-&lt;table>
-&lt;tr>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;/th>&lt;/tr> 
-&lt;tr>&lt;td>
+<div className="table-scroll">
+<table>
+<tr><th></th><th></th><th></th></tr> 
+<tr><td>
 
 | Names |
 | ----- |
 | Enrico Fermi |
 | Werner Heisenberg |
 
-&lt;/td>&lt;td>
+</td><td>
 → 
-&lt;/td>&lt;td>
+</td><td>
 
 | Last Name |
 | --------- |
 | Fermi |
 | Heisenberg |
   
-&lt;/td>&lt;/tr>
-&lt;/table>
-&lt;/div>
+</td></tr>
+</table>
+</div>
 
 # AI Extract Wrangles
 AI Extract Wrangles are a premium feature that allow users to use text prompts to describe the type of content to extract from an input. Contact us by email or at this [link](https://www.wrangleworks.com/contact.html) to have Extract AI Wrangles enabled for your account.
