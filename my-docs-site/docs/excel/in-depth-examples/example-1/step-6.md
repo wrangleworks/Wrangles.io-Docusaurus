@@ -1,15 +1,6 @@
 ---
-title: "Step 6"
+title: "Step 6: DIY Extract Wrangle Example 1"
 slug: /excel/in-depth-examples/example-1/step-6
----
-
-title: Step 6: DIY Extract Wrangle Example 1
-description: 
-published: true
-date: 2023-08-22T15:00:06.169Z
-tags: 
-editor: markdown
-dateCreated: 2023-07-14T22:24:45.778Z
 ---
 
 ## Step 6: DIY Extract Wrangle Example 1

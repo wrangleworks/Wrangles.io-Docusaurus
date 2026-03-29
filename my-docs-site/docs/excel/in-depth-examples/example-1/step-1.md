@@ -1,15 +1,6 @@
 ---
-title: "Step 1"
+title: "Step 1: Extract Properties"
 slug: /excel/in-depth-examples/example-1/step-1
----
-
-title: Step 1: Extract Properties
-description: 
-published: true
-date: 2023-08-21T21:25:24.984Z
-tags: 
-editor: markdown
-dateCreated: 2023-07-14T22:10:24.249Z
 ---
 
 ## Step 1: Extract Properties 

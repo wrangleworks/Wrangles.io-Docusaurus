@@ -1,15 +1,6 @@
 ---
-title: "Step 3"
+title: "Step 3: Extract Codes"
 slug: /excel/in-depth-examples/example-1/step-3
----
-
-title: Step 3: Extract Codes
-description: 
-published: true
-date: 2023-07-20T15:31:14.197Z
-tags: 
-editor: markdown
-dateCreated: 2023-07-14T22:16:42.164Z
 ---
 
 ## Step 3: Extract Codes

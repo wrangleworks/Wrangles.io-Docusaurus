@@ -1,15 +1,6 @@
 ---
-title: "Step 2"
+title: "Step 2: Extract Weight Attributes"
 slug: /excel/in-depth-examples/example-1/step-2
----
-
-title: Step 2: Extract Weight Attributes
-description: 
-published: true
-date: 2023-08-21T21:36:11.935Z
-tags: 
-editor: markdown
-dateCreated: 2023-07-14T22:14:57.660Z
 ---
 
 ## Step 2: Extract Weight Attributes

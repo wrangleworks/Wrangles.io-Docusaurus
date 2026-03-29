@@ -1,15 +1,6 @@
 ---
-title: "Step 5"
+title: "Step 5: Extract Curly Brackets"
 slug: /excel/in-depth-examples/example-1/step-5
----
-
-title: Step 5: Extract Curly Brackets
-description: 
-published: true
-date: 2023-08-21T22:00:14.174Z
-tags: 
-editor: markdown
-dateCreated: 2023-07-14T22:19:18.019Z
 ---
 
 ## Step 5: Extract Curly Brackets
