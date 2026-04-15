@@ -3,6 +3,9 @@ title: "Format"
 slug: /python/recipes/wrangles/format
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 > Click [here](/excel/format) to learn how to use Format Wrangles in Excel.
 \{.is-success\}
 
@@ -47,41 +50,11 @@ Pad a string to a fixed length
 
 #### Adding Dashes to Part Numbers
 
-```yaml
-wrangles:
-  - format.pad:
-      input: Part Number
-      pad_length: 5
-      side: left
-      char: "-"
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Part Number |
-| :-----: |
-| 0458 |
-| 396 |
-| 84 |
-| 98516 |
-
-</td><td>
-→ 
-</td><td>
-  
-| Part Number |
-| :-----: |
-| -0458 |
-| --396 |
-| ---84 |
-| 98516 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - format.pad:\n      input: Part Number\n      pad_length: 5\n      side: left\n      char: \"-\""}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Part Number |\n| :-----: |\n| 0458 |\n| 396 |\n| 84 |\n| 98516 |\n\n</td><td>\n→ \n</td><td>\n  \n| Part Number |\n| :-----: |\n| -0458 |\n| --396 |\n| ---84 |\n| 98516 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -141,35 +114,11 @@ Removed duplicate values in a list.
 
 #### Removing Duplicates From a List
 
-```yaml
-wrangles:
-    - format.remove_duplicates:
-        input: Attack of the Clones
-        output: Commander
-        where: Rank = Commander
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Attack of the Clones     | Rank |
-|:-------------------------|:-----|
-| ['Cody', 'Cody', 'Cody'] | Commander |
-| ['Rex', 'Rex', 'Rex'] | Captain |
-
-</td><td>
-→ 
-</td><td>
-  
-| Attack of the Clones     | Rank | Commander|
-|:-------------------------|:-----|:---------|
-| ['Cody', 'Cody', 'Cody'] | Commander | ['Cody'] |
-| ['Rex', 'Rex', 'Rex'] | Captain | |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n    - format.remove_duplicates:\n        input: Attack of the Clones\n        output: Commander\n        where: Rank = Commander"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Attack of the Clones     | Rank |\n|:-------------------------|:-----|\n| ['Cody', 'Cody', 'Cody'] | Commander |\n| ['Rex', 'Rex', 'Rex'] | Captain |\n\n</td><td>\n→ \n</td><td>\n  \n| Attack of the Clones     | Rank | Commander|\n|:-------------------------|:-----|:---------|\n| ['Cody', 'Cody', 'Cody'] | Commander | ['Cody'] |\n| ['Rex', 'Rex', 'Rex'] | Captain | |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 
 ### Parameters

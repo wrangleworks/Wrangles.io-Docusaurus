@@ -3,6 +3,9 @@ title: "Utilities"
 slug: /python/recipes/wrangles/utilities
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 # Accordion
 Allows applying a series of wrangles to the elements of a list individually.
 
@@ -12,39 +15,11 @@ Allows applying a series of wrangles to the elements of a list individually.
 #### Example
 This example shows how to use convert.case on a list of strings, where normally it would not work on a list.
 
-```yaml
-wrangles:
-- accordion:
-    input: list_column
-    output: modified_lists
-    wrangles:
-      - convert.case:
-          input: list_column
-          output: modified_lists
-          case: upper
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| list_column |
-|:-----------:|
-| ["a", "b", "c"] |
-| ["e", "f", "g"] |
-
-</td><td>
-→ 
-</td><td>
-
-| list_column | modified_lists |
-|:-----------:|:--------------:|
-| ["a", "b", "c"] | ["A", "B", "C"] |
-| ["e", "f", "g"] | ["E", "F", "G"] |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n- accordion:\n    input: list_column\n    output: modified_lists\n    wrangles:\n      - convert.case:\n          input: list_column\n          output: modified_lists\n          case: upper"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| list_column |\n|:-----------:|\n| [\"a\", \"b\", \"c\"] |\n| [\"e\", \"f\", \"g\"] |\n\n</td><td>\n→ \n</td><td>\n\n| list_column | modified_lists |\n|:-----------:|:--------------:|\n| [\"a\", \"b\", \"c\"] | [\"A\", \"B\", \"C\"] |\n| [\"e\", \"f\", \"g\"] | [\"E\", \"F\", \"G\"] |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -69,47 +44,11 @@ Execute a series of wrangles broken into a series of batches. The batches can op
 #### Example
 This example shows how to use batch on an Extract AI Wrangle
 
-```yaml
-wrangles:
-  - batch:
-  		batch_size: 2
-      threads: 1
-      wrangles:
-      	- extract.ai:
-            api_key: Your OpenAI api key
-            input: Product Description
-            output:
-              Title:
-                type: string
-                description: Title of the product
-          
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Product Description |
-|:-------------: |
-| Sleep better with our Memory Foam Pillow, designed to contour to your head and neck. |
-| Stay comfortable and stylish with our Organic Cotton T-Shirt, made from soft, breathable fabric. |
-| Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. |
-| Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. |
-
-</td><td>
-→ 
-</td><td>
-
-| Product Description | Title |
-|:------------------: | :------------: |
-| Sleep better with our Memory Foam Pillow, designed to contour to your head and neck. | Memory Foam Pillow |
-| Stay comfortable and stylish with our Organic Cotton T-Shirt, made from soft, breathable fabric. | Organic Cotton T-Shirt |
-| Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. | Stainless Steel Water Bottle |
-| Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. | Wireless Bluetooth Earbuds |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - batch:\n  \t\tbatch_size: 2\n      threads: 1\n      wrangles:\n      \t- extract.ai:\n            api_key: Your OpenAI api key\n            input: Product Description\n            output:\n              Title:\n                type: string\n                description: Title of the product\n          "}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Product Description |\n|:-------------: |\n| Sleep better with our Memory Foam Pillow, designed to contour to your head and neck. |\n| Stay comfortable and stylish with our Organic Cotton T-Shirt, made from soft, breathable fabric. |\n| Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. |\n| Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. |\n\n</td><td>\n→ \n</td><td>\n\n| Product Description | Title |\n|:------------------: | :------------: |\n| Sleep better with our Memory Foam Pillow, designed to contour to your head and neck. | Memory Foam Pillow |\n| Stay comfortable and stylish with our Organic Cotton T-Shirt, made from soft, breathable fabric. | Organic Cotton T-Shirt |\n| Keep drinks hot or cold with our Stainless Steel Water Bottle, featuring durable insulation. | Stainless Steel Water Bottle |\n| Enjoy crisp sound and long battery life with our Wireless Bluetooth Earbuds. | Wireless Bluetooth Earbuds |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -131,42 +70,11 @@ See [here](https://wrangles.io/python/connectors/concurrent) for the Concurrent 
 ## Tabset \{.tabset\}
 ### Sample
 #### Running Wrangles Concurrently
-```yaml
-wrangles:
-  - concurrent:
-      wrangles:
-        - extract.codes:
-        	  input: Products
-            output: Part Codes
-            
-        - extract.attributes:
-            input: Products
-            output: Attributes
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Products |
-|:--------:|
-| SKF ball brg 2" od 6202 |
-| brg seal 1" id 5493 |
-| 3lb hammer 87102 |
-
-</td><td>
-→ 
-</td><td>
-
-| Products | Part Codes | Attributes |
-|:--------:|:----------:|:----------:|
-| ball brg 2" od 6202 | 6202 | \{"length":["2in"]\} |
-| brg seal 1" id 5493 | 5493 | \{"length":["1in"]\} |
-| 3lb hammer 87102 | 87102 | \{"weight":["3lb"]\} |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - concurrent:\n      wrangles:\n        - extract.codes:\n        \t  input: Products\n            output: Part Codes\n            \n        - extract.attributes:\n            input: Products\n            output: Attributes"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Products |\n|:--------:|\n| SKF ball brg 2\" od 6202 |\n| brg seal 1\" id 5493 |\n| 3lb hammer 87102 |\n\n</td><td>\n→ \n</td><td>\n\n| Products | Part Codes | Attributes |\n|:--------:|:----------:|:----------:|\n| ball brg 2\" od 6202 | 6202 | \\{\"length\":[\"2in\"]\\} |\n| brg seal 1\" id 5493 | 5493 | \\{\"length\":[\"1in\"]\\} |\n| 3lb hammer 87102 | 87102 | \\{\"weight\":[\"3lb\"]\\} |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -188,63 +96,18 @@ Create a copy of columns in a dataframe.
 ### Sample
 
 #### Copying a Column With Input and Output
-```yaml
-wrangles:
-  - copy:
-  		input: Product Data
-      output: Product Data (copy)
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Data |
-|:----------:|
-| SKF ball brg |
-| brg seal |
-
-</td><td>
-→ 
-</td><td>
-
-| Product Data | Product Data (copy) |
-|:----------:| :-------------------: |
-| SKF ball bearing | SKF ball bearing |
-| bearing seal | bearing seal |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - copy:\n  \t\tinput: Product Data\n      output: Product Data (copy)"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Data |\n|:----------:|\n| SKF ball brg |\n| brg seal |\n\n</td><td>\n→ \n</td><td>\n\n| Product Data | Product Data (copy) |\n|:----------:| :-------------------: |\n| SKF ball bearing | SKF ball bearing |\n| bearing seal | bearing seal |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Copying a Column Express as a Dictionary
-```yaml
-wrangles:
-  - copy:
-  		Product Data: Product Data (copy)
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Data |
-|:----------:|
-| SKF ball brg |
-| brg seal |
-
-</td><td>
-→ 
-</td><td>
-
-| Product Data | Product Data (copy) |
-|:----------:| :-------------------: |
-| SKF ball bearing | SKF ball bearing |
-| bearing seal | bearing seal |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - copy:\n  \t\tProduct Data: Product Data (copy)"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Data |\n|:----------:|\n| SKF ball brg |\n| brg seal |\n\n</td><td>\n→ \n</td><td>\n\n| Product Data | Product Data (copy) |\n|:----------:| :-------------------: |\n| SKF ball bearing | SKF ball bearing |\n| bearing seal | bearing seal |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -265,34 +128,11 @@ Drop columns within a dataframe.
 ### Sample
 
 #### Dropping a Column
-```yaml
-wrangles:
-  - drop:
-  		columns:
-      	- Material
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Data | Material |
-|:------------:| :------: |
-| SKF ball brg | Ceramic |
-| brg seal | Rubber |
-
-</td><td>
-→ 
-</td><td>
-
-| Product Data |
-|:----------:|
-| SKF ball bearing |
-| bearing seal |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - drop:\n  \t\tcolumns:\n      \t- Material"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Data | Material |\n|:------------:| :------: |\n| SKF ball brg | Ceramic |\n| brg seal | Rubber |\n\n</td><td>\n→ \n</td><td>\n\n| Product Data |\n|:----------:|\n| SKF ball bearing |\n| bearing seal |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -314,38 +154,11 @@ Explode a column of lists into rows.
 
 #### Exploding a Column
 
-```yaml
-wrangles:
-  - explode:
-      input: Products
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Products |
-| :----------: | :-----: |
-| SKF | [Ball Bearing, Bearing Seal] |
-| Milwaukee | [Angle Grinder, Drill, Impact Driver] |
-| Schneider | Solid State Relay |
-
-</td><td>
-→ 
-</td><td>
-  
-| Manufacturer | Products |
-| :----------: | :-----: |
-| SKF | Ball Bearing |
-| SKF | Bearing Seal |
-| Milwaukee | Angle Grinder |
-| Milwaukee | Drill |
-| Milwaukee | Impact Driver |
-| Schneider | Solid State Relay |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - explode:\n      input: Products"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Products |\n| :----------: | :-----: |\n| SKF | [Ball Bearing, Bearing Seal] |\n| Milwaukee | [Angle Grinder, Drill, Impact Driver] |\n| Schneider | Solid State Relay |\n\n</td><td>\n→ \n</td><td>\n  \n| Manufacturer | Products |\n| :----------: | :-----: |\n| SKF | Ball Bearing |\n| SKF | Bearing Seal |\n| Milwaukee | Angle Grinder |\n| Milwaukee | Drill |\n| Milwaukee | Impact Driver |\n| Schneider | Solid State Relay |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -366,38 +179,11 @@ Filter the dataframe based on the contents.
 
 #### Filtering a Column
 
-```yaml
-wrangles:
-  # Select only red fruits
-  - filter:
-  		input: Color
-      equal:
-      	- red
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Fruit      | Color   |
-|:-----------|:--------|
-| Apple      | red     |
-| Apple      | green   |
-| Orange     | orange  |
-| Strawberry | red     |
-
-</td><td>
-→ 
-</td><td>
-
-| Fruit      | Color   |
-|:-----------|:--------|
-| Apple      | red     |
-| Strawberry | red     |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  # Select only red fruits\n  - filter:\n  \t\tinput: Color\n      equal:\n      \t- red"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Fruit      | Color   |\n|:-----------|:--------|\n| Apple      | red     |\n| Apple      | green   |\n| Orange     | orange  |\n| Strawberry | red     |\n\n</td><td>\n→ \n</td><td>\n\n| Fruit      | Color   |\n|:-----------|:--------|\n| Apple      | red     |\n| Strawberry | red     |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 > If **input** is not provided, **where** must be used. See [Using Filters and Where](/excel/Let's-Get-Ready-To-Wrangle/filtering) for more information.
 \{.is-info\}
@@ -539,46 +325,11 @@ def test_fn(Col1, value):
 #### Using Unique Variables Per Row
 Unique variables for each row can be utlized by following the example below where a different model id is used for each row.
 
-```yaml
-wrangles:
-  - matrix:
-      variables:
-        model_id: set(Model ID)
-      wrangles:
-        - extract.custom:
-            input: Description
-            output: Extracted Values
-            model_id: ${model_id}
-            where: "[Model ID] = ?"
-            where_params:
-               - ${model_id}
-```
-
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Description | Model ID |
-|:-----------:|:--------:|
-| The SKF 6202 bearing is the best bearing in the world | xxxxxxxx-xxxx-xxxx |
-| The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy |
-| The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz |
-
-</td><td>
-→ 
-</td><td>
-
-| Description | Model ID | Extracted Values |
-|:-----------:|:--------:|:----------------:|
-| The SKF 6202 bearing is the best bearing in the world | xxxxxxxx-xxxx-xxxx | 6202 |
-| The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy | indestructible |
-| The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz | 1200ft-lbs |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - matrix:\n      variables:\n        model_id: set(Model ID)\n      wrangles:\n        - extract.custom:\n            input: Description\n            output: Extracted Values\n            model_id: ${model_id}\n            where: \"[Model ID] = ?\"\n            where_params:\n               - ${model_id}"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Description | Model ID |\n|:-----------:|:--------:|\n| The SKF 6202 bearing is the best bearing in the world | xxxxxxxx-xxxx-xxxx |\n| The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy |\n| The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz |\n\n</td><td>\n→ \n</td><td>\n\n| Description | Model ID | Extracted Values |\n|:-----------:|:--------:|:----------------:|\n| The SKF 6202 bearing is the best bearing in the world | xxxxxxxx-xxxx-xxxx | 6202 |\n| The Timken 6102 bearing is indestructible | yyyyyyyy-yyyy-yyyy | indestructible |\n| The Milwaukee impact has 1200lft-lbs of torque | zzzzzzzz-zzzz-zzzz | 1200ft-lbs |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -599,45 +350,11 @@ Conform DataFrame to new index with optional filling logic.
 ### Sample
 
 #### Reindexing a Dataframe
-```yaml
-wrangles:
-  - reindex:
-  		index: 
-      	- 5
-        - 4
-        - 3
-        - 2
-        - 1
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-|      | Product Data | Material |
-| :--: | :----------: | :------: |
-| 1 | SKF ball brg | Ceramic |
-| 2 | brg seal | Rubber |
-| 3 | Ball valve | Brass |
-| 4 | Ceramic cartridge | Ceramic |
-| 5 | Needle Bearing | Stainless Steel |
-
-</td><td>
-→ 
-</td><td>
-
-
-|      | Product Data | Material |
-| :--: | :----------: | :------: |
-| 5 | Needle Bearing | Stainless Steel |
-| 4 | Ceramic cartridge | Ceramic |
-| 3 | Ball valve | Brass |
-| 2 | brg seal | Rubber |
-| 1 | SKF ball brg | Ceramic |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - reindex:\n  \t\tindex: \n      \t- 5\n        - 4\n        - 3\n        - 2\n        - 1"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n|      | Product Data | Material |\n| :--: | :----------: | :------: |\n| 1 | SKF ball brg | Ceramic |\n| 2 | brg seal | Rubber |\n| 3 | Ball valve | Brass |\n| 4 | Ceramic cartridge | Ceramic |\n| 5 | Needle Bearing | Stainless Steel |\n\n</td><td>\n→ \n</td><td>\n\n\n|      | Product Data | Material |\n| :--: | :----------: | :------: |\n| 5 | Needle Bearing | Stainless Steel |\n| 4 | Ceramic cartridge | Ceramic |\n| 3 | Ball valve | Brass |\n| 2 | brg seal | Rubber |\n| 1 | SKF ball brg | Ceramic |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -665,105 +382,28 @@ Rename a column or list of columns.
 
 #### Renaming Columns With Input and Output
 
-```yaml
-wrangles:
-  - rename:
-      input:
-      	- Manufacturer Name
-      	- Manufacturer Part Number
-      output:
-      	- Manufacturer
-       	- MPN
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer Name | Manufacturer Part Number |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | MPN |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - rename:\n      input:\n      \t- Manufacturer Name\n      \t- Manufacturer Part Number\n      output:\n      \t- Manufacturer\n       \t- MPN"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer Name | Manufacturer Part Number |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | MPN |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Renaming Columns Without Using Input and Output
 Rename is a unique Wrangle that can be used without naming input and output. Simply list the columns to be renamed with their new names seperated by a colon
-```yaml
-wrangles:
-  - rename:
-      Manufacturer Name: Manufacturer
-      Manufacturer Part Number: MPN
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer Name | Manufacturer Part Number |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | MPN |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - rename:\n      Manufacturer Name: Manufacturer\n      Manufacturer Part Number: MPN"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer Name | Manufacturer Part Number |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | MPN |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Using Wrangles in Rename
 Wrangles can be used to rename columns, but they must be used instead of using the standard rename. Simply add wrangles as a parameter, then add the wrangles you wish to use. **Note:** *if using wrangles to rename, a column named 'columns' must be returned.*
 
-```yaml
-  - rename:
-      wrangles:
-        - convert.case:
-            input: columns
-            case: upper
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer Name | Manufacturer Part Number |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-
-</td><td>
-→ 
-</td><td>
-
-| MANUFACTURER NAME | MANUFACTURER PART NUMBER |
-|:--------:|:--------:| 
-| SKF | 302-2 |
-| Timken | PF48 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"  - rename:\n      wrangles:\n        - convert.case:\n            input: columns\n            case: upper"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer Name | Manufacturer Part Number |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n\n</td><td>\n→ \n</td><td>\n\n| MANUFACTURER NAME | MANUFACTURER PART NUMBER |\n|:--------:|:--------:| \n| SKF | 302-2 |\n| Timken | PF48 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 
 ### Parameters
@@ -788,40 +428,11 @@ Allows users to sort their data.
 
 #### Replacing Abbreviations
 
-```yaml
-wrangles:
-  - sort:
-      by: Price
-      ascending: true
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Item | Price |
-|:----:|:-----:|
-| Hammer | 11.99 |
-| Chisel | 4.99 |
-| Drill | 29.99 |
-| Wrench | 6.99 |
-| Saw | 13.99 |
-
-</td><td>
-→ 
-</td><td>
-  
-| Item | Price |
-|:----:|:-----:|
-| Chisel | 4.99 |
-| Wrench | 6.99 |
-| Hammer | 11.99 |
-| Saw | 13.99 |
-| Drill | 29.99 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - sort:\n      by: Price\n      ascending: true"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Item | Price |\n|:----:|:-----:|\n| Hammer | 11.99 |\n| Chisel | 4.99 |\n| Drill | 29.99 |\n| Wrench | 6.99 |\n| Saw | 13.99 |\n\n</td><td>\n→ \n</td><td>\n  \n| Item | Price |\n|:----:|:-----:|\n| Chisel | 4.99 |\n| Wrench | 6.99 |\n| Hammer | 11.99 |\n| Saw | 13.99 |\n| Drill | 29.99 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -837,32 +448,11 @@ wrangles:
 Transpose a dataframe.
 
 #### Transposing a Dataframe
-```yaml
-wrangles:
-  - transpose: {}
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Data | Material |
-|:------------:| :------: |
-| SKF ball brg | Ceramic |
-| brg seal | Rubber |
-
-</td><td>
-→ 
-</td><td>
-
-| | | |
-| -- | -- | -- |
-| Product Data | SKF ball bearing | bearing seal |
-| Material | Ceramic | Rubber |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - transpose: {}"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Data | Material |\n|:------------:| :------: |\n| SKF ball brg | Ceramic |\n| brg seal | Rubber |\n\n</td><td>\n→ \n</td><td>\n\n| | | |\n| -- | -- | -- |\n| Product Data | SKF ball bearing | bearing seal |\n| Material | Ceramic | Rubber |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 > Transpose is not compatible with where filtering
 \{.is-info\}

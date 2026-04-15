@@ -3,6 +3,9 @@ title: "Pandas"
 slug: /python/recipes/wrangles/pandas
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 > Pandas functions within Wrangles are currently under development and therefore do not possess all the functionality of pandas or other Wrangles. See below for details.
 \{.is-warning\}
 
@@ -14,34 +17,11 @@ Pandas functions within recipes allow users to employ the powerful [pandas](http
 
 ## Removing Duplicate Rows
 
-```yaml
-wrangles:
-  - pandas.drop_duplicates: {}
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Part Number | Item |
-|:--------|:--------|
-| 123456 | ball bearing |
-| 789123 | angle grinder |
-| 456789 | screwdriver |
-| 123456 | ball bearing |
-
-</td><td>
-→ 
-</td><td>
-  
-| Part Number | Item |
-|:--------|:--------|
-| 123456 | ball bearing |
-| 789123 | angle grinder |
-| 456789 | screwdriver |
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - pandas.drop_duplicates: {}"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Part Number | Item |\n|:--------|:--------|\n| 123456 | ball bearing |\n| 789123 | angle grinder |\n| 456789 | screwdriver |\n| 123456 | ball bearing |\n\n</td><td>\n→ \n</td><td>\n  \n| Part Number | Item |\n|:--------|:--------|\n| 123456 | ball bearing |\n| 789123 | angle grinder |\n| 456789 | screwdriver |\n</td></tr>\n</table>\n</div>"}
+/>
 
 
 > This example does not use any parameters, see [pandas.drop_duplicates](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html) for function parameters.
@@ -55,37 +35,11 @@ See [format.remove_duplicates](https://wrangles.io/en/python/recipes/wrangles/fo
 
 #### Group DataFrame using a mapper or by a Series of columns.
 
-```yaml
-wrangles:
-  - pandas.groupby:
-      parameters:
-        by: Product Type
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Type | Description |
-|:--------|:--------|
-| bearings | 14mm skf radial ball bearing |
-| hardware | 1/4-20x3" machine screw |
-| bearings | 3"odx2.5"id thrust bearing |
-| hardware | m6x35mm stainless steel bolt |
-
-</td><td>
-→ 
-</td><td>
-  
-| Product Type | Description |
-|:--------|:--------|
-| bearings | 14mm skf radial ball bearing |
-| bearings | 3"odx2.5"id thrust bearing |
-| hardware | 1/4-20x3" machine screw |
-| hardware | m6x35mm stainless steel bolt |
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - pandas.groupby:\n      parameters:\n        by: Product Type"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Type | Description |\n|:--------|:--------|\n| bearings | 14mm skf radial ball bearing |\n| hardware | 1/4-20x3\" machine screw |\n| bearings | 3\"odx2.5\"id thrust bearing |\n| hardware | m6x35mm stainless steel bolt |\n\n</td><td>\n→ \n</td><td>\n  \n| Product Type | Description |\n|:--------|:--------|\n| bearings | 14mm skf radial ball bearing |\n| bearings | 3\"odx2.5\"id thrust bearing |\n| hardware | 1/4-20x3\" machine screw |\n| hardware | m6x35mm stainless steel bolt |\n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -111,35 +65,11 @@ See [select.group_by](https://wrangles.io/python/recipes/wrangles/select#group-b
 
 #### Selects a random sample from the dataframe
 
-```yaml
-wrangles:
-  - pandas.sample:
-      parameters:
-      	n: 2
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Voltage | Current | Resistance |
-|:--------|:--------|:-----------|
-| 12v | 6a | 2ohm |
-| 18v | 6a | 3ohm |
-| 24v | 12a | 2ohm |
-| 36v | 12a | 3ohm |
-
-</td><td>
-→ 
-</td><td>
-  
-| Voltage | Current | Resistance |
-|:--------|:--------|:-----------|
-| 12v | 6a | 2ohm |
-| 24v | 12a | 2ohm |
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - pandas.sample:\n      parameters:\n      \tn: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Voltage | Current | Resistance |\n|:--------|:--------|:-----------|\n| 12v | 6a | 2ohm |\n| 18v | 6a | 3ohm |\n| 24v | 12a | 2ohm |\n| 36v | 12a | 3ohm |\n\n</td><td>\n→ \n</td><td>\n  \n| Voltage | Current | Resistance |\n|:--------|:--------|:-----------|\n| 12v | 6a | 2ohm |\n| 24v | 12a | 2ohm |\n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">

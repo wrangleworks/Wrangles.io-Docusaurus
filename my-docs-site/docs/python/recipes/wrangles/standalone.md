@@ -3,6 +3,9 @@ title: "Standalone"
 slug: /python/recipes/wrangles/standalone
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 # Classify
 Run a custom classification wrangle on the specified column or columns. A classification wrangle must be trained first.
 
@@ -14,36 +17,11 @@ Run a custom classification wrangle on the specified column or columns. A classi
 
 #### Food Type Example
 
-```yaml
-wrangles:
-  - classify:
-      input: Products
-      output: Category
-      model_id: ${model_id}
-      where: Products = Milk
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Products |
-|:--------:|
-| Rice     |
-| Milk     |
-
-</td><td>
-→ 
-</td><td>
-
-| Products | Category |
-|:--------:|:--------:|
-| Rice     | 	  |
-| Milk     | Dairy    |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - classify:\n      input: Products\n      output: Category\n      model_id: ${model_id}\n      where: Products = Milk"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Products |\n|:--------:|\n| Rice     |\n| Milk     |\n\n</td><td>\n→ \n</td><td>\n\n| Products | Category |\n|:--------:|:--------:|\n| Rice     | \t  |\n| Milk     | Dairy    |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -67,35 +45,11 @@ Add or Subtract time from a date
 
 #### Calculating a Future Date
 
-```yaml
-wrangles:
-   - date_calculator:
-      input: Date
-      output: New Date
-      operation: subtract  # Optional default is addition
-      time_unit: days
-      time_value: 1
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Date        |
-|:-------------: |
-| 2022-12-26   |
-
-</td><td>
-→ 
-</td><td>
-
-| New Date      |
-|:------------:|
-| 2022-12-25 |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n   - date_calculator:\n      input: Date\n      output: New Date\n      operation: subtract  # Optional default is addition\n      time_unit: days\n      time_value: 1"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Date        |\n|:-------------: |\n| 2022-12-26   |\n\n</td><td>\n→ \n</td><td>\n\n| New Date      |\n|:------------:|\n| 2022-12-25 |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -132,38 +86,11 @@ Look up data from a saved Lookup Wrangle. Data is output as a dictionary if an o
 ### Sample
 
 #### State Example
-```yaml
-wrangles:
-  - lookup:
-      input: State
-      output:
-        - Abbreviation
-      model_id: 55555555-5555-5555
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| State |
-|:----------:|
-| Texas |
-| New York |
-| Virginia |
-
-</td><td>
-→ 
-</td><td>
-
-| Abbreviation |
-|:----------:|
-| TX |
-| NY |
-| VA |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - lookup:\n      input: State\n      output:\n        - Abbreviation\n      model_id: 55555555-5555-5555"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| State |\n|:----------:|\n| Texas |\n| New York |\n| Virginia |\n\n</td><td>\n→ \n</td><td>\n\n| Abbreviation |\n|:----------:|\n| TX |\n| NY |\n| VA |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -192,36 +119,11 @@ Apply mathematical calculations to columns. Also called as maths
 
 #### Square Root Example
 
-```yaml
-wrangles:
-  - math:
-  	  input: sqrt(Values)
-      output: Square Root
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-|   Values |
-|---------:|
-|        4 |
-|        9 |
-|       16 |
-
-</td><td>
-→ 
-</td><td>
-
-| Values |   Square Root |
-|---------:|---------:|:---|
-| 4 | 2 |
-| 9 |       3 |
-| 16 |       4 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - math:\n  \t  input: sqrt(Values)\n      output: Square Root"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n|   Values |\n|---------:|\n|        4 |\n|        9 |\n|       16 |\n\n</td><td>\n→ \n</td><td>\n\n| Values |   Square Root |\n|---------:|---------:|:---|\n| 4 | 2 |\n| 9 |       3 |\n| 16 |       4 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 Math supports the set of operators listed below:
 
@@ -358,39 +260,11 @@ Remove all the elements that occur in one list from another.
 
 #### Removing Words From a Column
 
-```yaml
-wrangles:
-   - remove_words:
-        input: Description
-        to_remove:			# To Remove columns must be list
-          - Materials
-          - Colours
-        output: Product
-        tokenize_to_remove: True
-        ignore_case: False	
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Description       | Materials   | Colours   |
-|:------------------|:------------|:----------|
-| Steel Blue Bottle | ['Steel']   | ['Blue']  |
-| ['Steel', 'Blue', 'Bottle'] | ['Steel']   | ['Blue']  |
-
-</td><td>
-→ 
-</td><td>
-  
-| Product   |
-|:---------:|
-| Bottle    |
-| Bottle    |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n   - remove_words:\n        input: Description\n        to_remove:\t\t\t# To Remove columns must be list\n          - Materials\n          - Colours\n        output: Product\n        tokenize_to_remove: True\n        ignore_case: False\t"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Description       | Materials   | Colours   |\n|:------------------|:------------|:----------|\n| Steel Blue Bottle | ['Steel']   | ['Blue']  |\n| ['Steel', 'Blue', 'Bottle'] | ['Steel']   | ['Blue']  |\n\n</td><td>\n→ \n</td><td>\n  \n| Product   |\n|:---------:|\n| Bottle    |\n| Bottle    |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -417,35 +291,11 @@ Quick find and replace for simple values. Can use regex in the find field.
 ### Sample
 
 #### Replacing an Abbreviation
-```yaml
-wrangles:
-  - replace:
-  		input: Product Data
-      find: brg
-      replace: bearing
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Product Data |
-|:----------:|
-| SKF ball brg |
-| brg seal |
-
-</td><td>
-→ 
-</td><td>
-
-| Product Data |
-|:----------:|
-| SKF ball bearing |
-| bearing seal |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - replace:\n  \t\tinput: Product Data\n      find: brg\n      replace: bearing"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Product Data |\n|:----------:|\n| SKF ball brg |\n| brg seal |\n\n</td><td>\n→ \n</td><td>\n\n| Product Data |\n|:----------:|\n| SKF ball bearing |\n| bearing seal |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -471,35 +321,11 @@ Round numbers in a column to the nearest decimal point of your choosing.
 ### Sample
 
 #### Rounding a Column
-```yaml
-wrangles:
-  - round:
-  		input: Cost Per Unit
-      output: Cost Rounded
-      decimals: 2
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Cost Per Unit |
-|:-------------:|
-| 3.14159 |
-| 2.71828 |
-
-</td><td>
-→ 
-</td><td>
-
-| Cost Per Unit | Cost Rounded |
-|:-------------:| :----------: |
-| 3.14159 | 3.14 |
-| 2.71828 | 2.72 |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - round:\n  \t\tinput: Cost Per Unit\n      output: Cost Rounded\n      decimals: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Cost Per Unit |\n|:-------------:|\n| 3.14159 |\n| 2.71828 |\n\n</td><td>\n→ \n</td><td>\n\n| Cost Per Unit | Cost Rounded |\n|:-------------:| :----------: |\n| 3.14159 | 3.14 |\n| 2.71828 | 2.72 |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -577,35 +403,11 @@ Run a standardize wrangle. *e.g. A wrangle that expands abbreviations.* A standa
 
 #### Replacing Abbreviations
 
-```yaml
-wrangles:
-  - standardize:
-      input: Abbrev
-      output: Abbreviations
-      model_id: code_here
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Abbrev   |
-|:--------:|
-| ASAP     |
-| ETA      |
-
-</td><td>
-→ 
-</td><td>
-  
-| Abbreviations             |
-|:-------------------------:|
-| As Soon As Possible       |
-| Estimated Time of Arrival |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - standardize:\n      input: Abbrev\n      output: Abbreviations\n      model_id: code_here"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Abbrev   |\n|:--------:|\n| ASAP     |\n| ETA      |\n\n</td><td>\n→ \n</td><td>\n  \n| Abbreviations             |\n|:-------------------------:|\n| As Soon As Possible       |\n| Estimated Time of Arrival |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -634,37 +436,11 @@ Only SELECT statements are supported - the result will be the output. The curren
 
 #### Selecting a Subset of Data
 
-```yaml
-wrangles:
-  - sql:
-      command: |
-        SELECT header1, header2
-        FROM df
-        WHERE header1 >= 2
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| header1 | header2 | header3 |
-| :-----: | :-----: | :-----: |
-| 1 | a | x |
-| 2 | b | y |
-| 3 | c | z |
-
-</td><td>
-→ 
-</td><td>
-  
-| header1 | header2 |
-| :-----: | :-----: |
-| 2 | b |
-| 3 | c |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - sql:\n      command: |\n        SELECT header1, header2\n        FROM df\n        WHERE header1 >= 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| header1 | header2 | header3 |\n| :-----: | :-----: | :-----: |\n| 1 | a | x |\n| 2 | b | y |\n| 3 | c | z |\n\n</td><td>\n→ \n</td><td>\n  \n| header1 | header2 |\n| :-----: | :-----: |\n| 2 | b |\n| 3 | c |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -689,34 +465,11 @@ Translate the input column to another language. Powered by [DeepL](https://www.d
 
 #### Translating Spanish to English
 
-```yaml
-wrangles:
-  - translate:
-      input: Español
-      output: English
-      source_language: Spanish
-      target_language: English (British)
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Español        |
-|:-------------: |
-| ¡Hola Mundo!   |
-
-</td><td>
-→ 
-</td><td>
-
-| English      |
-|:------------:|
-| Hello World! |
-    
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - translate:\n      input: Español\n      output: English\n      source_language: Spanish\n      target_language: English (British)"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Español        |\n|:-------------: |\n| ¡Hola Mundo!   |\n\n</td><td>\n→ \n</td><td>\n\n| English      |\n|:------------:|\n| Hello World! |\n    \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">

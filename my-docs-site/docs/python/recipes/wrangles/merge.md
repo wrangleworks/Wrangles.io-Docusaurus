@@ -3,6 +3,8 @@ title: "Merge"
 slug: /python/recipes/wrangles/merge
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
 Functions to merge data from one or more columns into a single column.
 
 # Dictionaries
@@ -14,99 +16,39 @@ Take dictionaries in multiple columns and merge them to a single dictionary.
 
 #### Using Named Columns
 
-```yaml
-wrangles:
+<RecipePlayground
+  editable={true}
+  recipe={`wrangles:
   - merge.dictionaries:
       input:
         - Dict 1
         - Dict 2
-      output: Merged
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Dict 1           | Dict 2            |
-|:-----------------|:------------------|
-| `{'First': 'One'}` | `{'Second': 'Two'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Merged                            |
-|:----------------------------------|
-| `{'First': 'One', 'Second': 'Two'}` |
-  
-</td></tr>
-</table>
-</div>
+      output: Merged`}
+  inputColumns={['Dict 1', 'Dict 2']}
+  inputRows={[
+    ["{'First': 'One'}", "{'Second': 'Two'}"],
+  ]}
+  outputColumns={['Merged']}
+  outputRows={[
+    ["{'First': 'One', 'Second': 'Two'}"],
+  ]}
+/>
 
 #### Using a Wildcard (\*)
 
-```yaml
-# Using a Wildcard (*)
-wrangles:
-  - merge.dictionaries:
-      input: Dict *
-      output: Merged
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Dict 1           | Dict 2            |
-|:-----------------|:------------------|
-| `{'First': 'One'}` | `{'Second': 'Two'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Merged                            |
-|:----------------------------------|
-| `{'First': 'One', 'Second': 'Two'}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using a Wildcard (*)\nwrangles:\n  - merge.dictionaries:\n      input: Dict *\n      output: Merged"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Dict 1           | Dict 2            |\n|:-----------------|:------------------|\n| `{'First': 'One'}` | `{'Second': 'Two'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Merged                            |\n|:----------------------------------|\n| `{'First': 'One', 'Second': 'Two'}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Using a Wildcard (\*) With Not Columns
 
-```yaml
-# Using a Wildcard (*)
-wrangles:
-  - merge.dictionaries:
-      input: 
-      	- Dict *
-        - -Dict 2
-      output: Merged
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Dict 1           | Dict 2            | Dict 3            |
-|:-----------------|:------------------|:------------------|
-| `{'First': 'One'}` | `{'Second': 'Two'}` | `{'Third': 'Three'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Merged                            |
-|:----------------------------------|
-| `{'First': 'One', 'Third': 'Three'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using a Wildcard (*)\nwrangles:\n  - merge.dictionaries:\n      input: \n      \t- Dict *\n        - -Dict 2\n      output: Merged"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Dict 1           | Dict 2            | Dict 3            |\n|:-----------------|:------------------|:------------------|\n| `{'First': 'One'}` | `{'Second': 'Two'}` | `{'Third': 'Three'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Merged                            |\n|:----------------------------------|\n| `{'First': 'One', 'Third': 'Three'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -131,42 +73,11 @@ Take the first non-empty value from a series of columns.
 
 #### Coalescing 3 Columns
 
-```yaml
-wrangles:
-  - merge.coalesce:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Output Col
-      where: Col2 = E
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   | Col3   |
-|:------:|:------:|:------:|
-| A      | B      | C      |
-| D      | E      | F      |
-| G      | H      | I      |
-
-</td><td>
-→ 
-</td><td>
-
-  
-| Col1   | Col2   | Col3   | Output Col   |
-|:------:|:------:|:------:|:------------:|
-| A      | B      | C      |              |
-| D      | E      | F      | D            |
-| G      | H      | I      |              |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - merge.coalesce:\n      input:\n        - Col1\n        - Col2\n        - Col3\n      output: Output Col\n      where: Col2 = E"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   | Col3   |\n|:------:|:------:|:------:|\n| A      | B      | C      |\n| D      | E      | F      |\n| G      | H      | I      |\n\n</td><td>\n→ \n</td><td>\n\n  \n| Col1   | Col2   | Col3   | Output Col   |\n|:------:|:------:|:------:|:------------:|\n| A      | B      | C      |              |\n| D      | E      | F      | D            |\n| G      | H      | I      |              |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -191,69 +102,20 @@ If the input is a list of columns, concatenate multiple columns into one as a de
 
 #### Concatenating 3 Columns
 
-```yaml
-# Using concatenate to combine multiple columns
-wrangles:
-  - merge.concatenate:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Join Col
-      char: ', '
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   | Col3   |
-|:-------|:-------|:-------|
-| A      | B      | C      |
-
-</td><td>
-→ 
-</td><td>
-
-| Join Col   |
-|:------------:|
-| A, B, C      |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using concatenate to combine multiple columns\nwrangles:\n  - merge.concatenate:\n      input:\n        - Col1\n        - Col2\n        - Col3\n      output: Join Col\n      char: ', '"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   | Col3   |\n|:-------|:-------|:-------|\n| A      | B      | C      |\n\n</td><td>\n→ \n</td><td>\n\n| Join Col   |\n|:------------:|\n| A, B, C      |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Concatenating a Single Column
 
 If the input is a single column, concatenate a list within that column into a delimited string.
-```yaml
-# Using concatenate to join a column that is a list
-wrangles:
-  - merge.concatenate:
-      input: Col1
-      output: Join List
-      char: ' '
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1            |
-|:---------------:|
-| ['A', 'B', 'C'] |
-
-</td><td>
-→ 
-</td><td>
-
-| Join List   |
-|:-----------:|
-| A B C       |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using concatenate to join a column that is a list\nwrangles:\n  - merge.concatenate:\n      input: Col1\n      output: Join List\n      char: ' '"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1            |\n|:---------------:|\n| ['A', 'B', 'C'] |\n\n</td><td>\n→ \n</td><td>\n\n| Join List   |\n|:-----------:|\n| A B C       |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -277,74 +139,19 @@ Create a dictionary from keys and values in paired columns.
 
 #### Using Named Columns
 
-```yaml
-wrangles:
-	- merge.key_value_pairs:
-  		input:
-      	Letter: Number
-      output: Pairs
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Letter   |   Number |
-|:---------|---------:|
-| A        |        1 |
-| B        |        2 |
-| C        |        3 |
-
-</td><td>
-→ 
-</td><td>
-
-| Pairs      |
-|:----------:|
-| `{'A': 1}` |
-| `{'B': 2}` |
-| `{'C': 3}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n\t- merge.key_value_pairs:\n  \t\tinput:\n      \tLetter: Number\n      output: Pairs"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Letter   |   Number |\n|:---------|---------:|\n| A        |        1 |\n| B        |        2 |\n| C        |        3 |\n\n</td><td>\n→ \n</td><td>\n\n| Pairs      |\n|:----------:|\n| `{'A': 1}` |\n| `{'B': 2}` |\n| `{'C': 3}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Using a wildcard (\*)
 
-```yaml
-# Using a Wildcard (*)
-wrangles:
-	- merge.key_value_pairs:
-  		input:
-      	key*: value*
-      output: Object
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| key 1   | key 2   | value 1   | value 2   |
-|:--------|:--------|:----------|:----------|
-| A       | One     | a         | First     |
-| B       | Two     | b         | Second    |
-| C       | three   | c         | Third     |
-
-</td><td>
-→ 
-</td><td>
-
-| Object                         |
-|:------------------------------:|
-| `{'A': 'a', 'One': 'First'}`   |
-| `{'B': 'b', 'Two': 'Second'}`  |
-| `{'C': 'c', 'three': 'Third'}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using a Wildcard (*)\nwrangles:\n\t- merge.key_value_pairs:\n  \t\tinput:\n      \tkey*: value*\n      output: Object"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| key 1   | key 2   | value 1   | value 2   |\n|:--------|:--------|:----------|:----------|\n| A       | One     | a         | First     |\n| B       | Two     | b         | Second    |\n| C       | three   | c         | Third     |\n\n</td><td>\n→ \n</td><td>\n\n| Object                         |\n|:------------------------------:|\n| `{'A': 'a', 'One': 'First'}`   |\n| `{'B': 'b', 'Two': 'Second'}`  |\n| `{'C': 'c', 'three': 'Third'}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -366,36 +173,11 @@ Take lists in multiple columns and merge them to a single list.
 
 ##### Merging Two Lists
 
-```yaml
-wrangles:
-  - merge.lists:
-      input:
-        - col1
-        - col2
-      output: Combined Col
-      remove_duplicates: false		
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-| Col1       | Col2       |
-|:-----------|:-----------|
-| ['A', 'B'] | ['D', 'E'] |
-
-</td><td>
-→ 
-</td><td>
-
-| Combined Col         |
-|:--------------------:|
-| ['A', 'B', 'D', 'E'] |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - merge.lists:\n      input:\n        - col1\n        - col2\n      output: Combined Col\n      remove_duplicates: false\t\t"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n| Col1       | Col2       |\n|:-----------|:-----------|\n| ['A', 'B'] | ['D', 'E'] |\n\n</td><td>\n→ \n</td><td>\n\n| Combined Col         |\n|:--------------------:|\n| ['A', 'B', 'D', 'E'] |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -418,36 +200,11 @@ Take multiple columns and merge them to a list.
 
 #### Merging Multiple Columns to a Single List
 
-```yaml
-wrangles:
-  merge.to_list:
-    input:
-      - Col1
-      - Col2
-      - Col3
-    output: List Col
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   | Col3   |
-|:-------|:-------|:-------|
-| A      | B      | C      |
-
-</td><td>
-→ 
-</td><td>
-
-| List Col    		|
-|:---------------:|
-| ['A', 'B', 'C'] |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  merge.to_list:\n    input:\n      - Col1\n      - Col2\n      - Col3\n    output: List Col"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   | Col3   |\n|:-------|:-------|:-------|\n| A      | B      | C      |\n\n</td><td>\n→ \n</td><td>\n\n| List Col    \t\t|\n|:---------------:|\n| ['A', 'B', 'C'] |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -470,35 +227,11 @@ Take multiple columns and merge them to a dictionary (aka object) using the colu
 
 #### Merging Two Columns Into a Dictionary
 
-```yaml
-wrangles:
-  - merge.to_dict:
-      input:
-        - Col1
-        - Col2
-      output: Dict Col
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   |
-|:------:|:------:|
-| A      | B      |
-
-</td><td>
-→ 
-</td><td>
-
-| Dict Col                         |
-|:--------------------------------:|
-| `{'Col1': 'A', 'Col2': 'B'}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - merge.to_dict:\n      input:\n        - Col1\n        - Col2\n      output: Dict Col"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   |\n|:------:|:------:|\n| A      | B      |\n\n</td><td>\n→ \n</td><td>\n\n| Dict Col                         |\n|:--------------------------------:|\n| `{'Col1': 'A', 'Col2': 'B'}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">

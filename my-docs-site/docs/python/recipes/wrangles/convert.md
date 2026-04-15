@@ -3,6 +3,9 @@ title: "Convert"
 slug: /python/recipes/wrangles/convert
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 # Case
 Change the case of the input.
 
@@ -11,38 +14,11 @@ Change the case of the input.
 
 #### Capitalize Input Column
 
-```yaml
-wrangles:
-  - convert.case:
-      input: column
-      output: new column
-      case: upper
-      where: column = 'more text'
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| some text |
-| more text |
-| some more text |
-
-</td><td>
-→ 
-</td><td>
-  
-| column | new column |
-| :-----: | :-----: |
-| some text | |
-| more text | MORE TEXT |
-| some more text | |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.case:\n      input: column\n      output: new column\n      case: upper\n      where: column = 'more text'"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| some text |\n| more text |\n| some more text |\n\n</td><td>\n→ \n</td><td>\n  \n| column | new column |\n| :-----: | :-----: |\n| some text | |\n| more text | MORE TEXT |\n| some more text | |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -65,34 +41,11 @@ Change the data type of the input.
 
 #### Change a Float to an Integer
 
-```yaml
-    wrangles:
-      - convert.data_type:
-          input: column
-          output: new column
-          data_type: int
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| 3.14159 |
-
-</td><td>
-→ 
-</td><td>
-  
-| column | new column |
-| :-----: | :-----: |
-| 3.14159 | 3 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"    wrangles:\n      - convert.data_type:\n          input: column\n          output: new column\n          data_type: int"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| 3.14159 |\n\n</td><td>\n→ \n</td><td>\n  \n| column | new column |\n| :-----: | :-----: |\n| 3.14159 | 3 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 
@@ -116,36 +69,11 @@ Convert fractions to decimals
 
 #### Converting a Column of Fractions to Decimals
 
-```yaml
-wrangles:
-  - convert.fraction_to_decimal:
-      input: fractions
-      output: decimals
-      decimals: 3
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| fractions |
-| :-----: |
-| 3/32 |
-| 25/64 |
-
-</td><td>
-→ 
-</td><td>
-  
-| decimals |
-| :-----: |
-| 0.094 |
-| 0.391 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.fraction_to_decimal:\n      input: fractions\n      output: decimals\n      decimals: 3"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| fractions |\n| :-----: |\n| 3/32 |\n| 25/64 |\n\n</td><td>\n→ \n</td><td>\n  \n| decimals |\n| :-----: |\n| 0.094 |\n| 0.391 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -168,35 +96,11 @@ Convert an object to a JSON representation.
 
 #### Convert Text to JSON
 
-```yaml
-wrangles:
-  - convert.to_json:
-      input: column
-      output: new column
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| `['a', 'python', 'list']` |
-| `{'python': 'dict'}` |
-
-</td><td>
-→ 
-</td><td>
-  
-| new column |
-| :-----: |
-| `["a","python","list"]` |
-| `{"python":"dict"}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.to_json:\n      input: column\n      output: new column"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| `['a', 'python', 'list']` |\n| `{'python': 'dict'}` |\n\n</td><td>\n→ \n</td><td>\n  \n| new column |\n| :-----: |\n| `[\"a\",\"python\",\"list\"]` |\n| `{\"python\":\"dict\"}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -221,35 +125,11 @@ Convert a JSON string into an object
 
 #### Convert JSON to Object
 
-```yaml
-wrangles:
-  - convert.from_json:
-      input: column
-      output: new column
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| `["a","python","list"]` |
-| `{"python":"dict"}` |
-
-</td><td>
-→ 
-</td><td>
-  
-| new column |
-| :-----: |
-| `['a', 'python', 'list']` |
-| `{'python': 'dict'}` |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.from_json:\n      input: column\n      output: new column"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| `[\"a\",\"python\",\"list\"]` |\n| `{\"python\":\"dict\"}` |\n\n</td><td>\n→ \n</td><td>\n  \n| new column |\n| :-----: |\n| `['a', 'python', 'list']` |\n| `{'python': 'dict'}` |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -271,66 +151,11 @@ Convert an object to a YAML representation.
 ### Sample
 
 #### Convert a Dictionary to YAML
-```yaml
-wrangles:
-  - convert.to_yaml:
-      input: column 1
-      indent: 2
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-<table>
-  <tr>
-    <th>column 1</th>
-  </tr>
-  <tr>
-    <td>
-      
-     
-```python
-   {'Product Specs': [
-   		{
-   			'length': 6 inch,
-  		'voltage': 24V,
-   			'weight': 3lb
-       }
-     ]
-   }
-```
-   
-</td>
-</tr>
-</table>
-
-</td><td>
-→ 
-</td><td>
-
-<table>
-  <tr>
-    <th>column 1</th>
-  </tr>
-  <tr>
-    <td>
-      
-```yaml
-    Product Specs:
-      length: 6 inch
-      voltage: 24V
-      weight: 3lb
-```
-      
-</td>
-  </tr>
-</table>
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.to_yaml:\n      input: column 1\n      indent: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n<table>\n  <tr>\n    <th>column 1</th>\n  </tr>\n  <tr>\n    <td>\n      \n     \n```python\n   {'Product Specs': [\n   \t\t{\n   \t\t\t'length': 6 inch,\n  \t\t'voltage': 24V,\n   \t\t\t'weight': 3lb\n       }\n     ]\n   }\n```\n   \n</td>\n</tr>\n</table>\n\n</td><td>\n→ \n</td><td>\n\n<table>\n  <tr>\n    <th>column 1</th>\n  </tr>\n  <tr>\n    <td>\n      \n```yaml\n    Product Specs:\n      length: 6 inch\n      voltage: 24V\n      weight: 3lb\n```\n      \n</td>\n  </tr>\n</table>\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 
@@ -354,63 +179,11 @@ Convert a YAML representation into an object
 ### Sample
 
 #### Convert YAML To An Object
-```yaml
-wrangles:
-  - convert.from_yaml:
-      input: column 1
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-  
-<table>
-  <tr>
-    <th>column 1</th>
-  </tr>
-  <tr>
-    <td>
-
-```yaml
-    Product Specs:
-      length: 6 inch
-      voltage: 24V
-      weight: 3lb
-```
-
-</td>
-</tr>
-</table>
-
-</td><td>
-→ 
-</td><td>
-
-<table>
-  <tr>
-    <th>column 1</th>
-  </tr>
-  <tr>
-    <td>
-      
-```python
-   {'Product Specs': [
-   		{
-   			'length': 6 inch,
-  		'voltage': 24V,
-   			'weight': 3lb
-       }
-     ]
-   }
-```
-      
-</td>
-  </tr>
-</table>
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - convert.from_yaml:\n      input: column 1"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n  \n<table>\n  <tr>\n    <th>column 1</th>\n  </tr>\n  <tr>\n    <td>\n\n```yaml\n    Product Specs:\n      length: 6 inch\n      voltage: 24V\n      weight: 3lb\n```\n\n</td>\n</tr>\n</table>\n\n</td><td>\n→ \n</td><td>\n\n<table>\n  <tr>\n    <th>column 1</th>\n  </tr>\n  <tr>\n    <td>\n      \n```python\n   {'Product Specs': [\n   \t\t{\n   \t\t\t'length': 6 inch,\n  \t\t'voltage': 24V,\n   \t\t\t'weight': 3lb\n       }\n     ]\n   }\n```\n      \n</td>\n  </tr>\n</table>\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 

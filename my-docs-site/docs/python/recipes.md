@@ -3,6 +3,9 @@ title: "Recipes"
 slug: /python/recipes
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 Recipes allow a series of Wrangles to be defined and run as an automated sequence.
 
 # The Four Rs
@@ -76,105 +79,29 @@ For *input* for wrangles, and *columns* for read and write, a variety of tools c
 ### Wildcards
 A (*) can be used as a wildcard character to match any characters.
 
-```yaml
-# Using concatenate to combine multiple columns.
-wrangles:
-  - merge.concatenate:
-      input:
-        - Col* # This will match any column beginning 'Col'
-      output: Join Col
-      char: ', '
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   | Col3   |
-|:-------|:-------|:-------|
-| A      | B      | C      |
-
-</td><td>
-→ 
-</td><td>
-
-| Join Col   |
-|:------------:|
-| A, B, C      |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Using concatenate to combine multiple columns.\nwrangles:\n  - merge.concatenate:\n      input:\n        - Col* # This will match any column beginning 'Col'\n      output: Join Col\n      char: ', '"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   | Col3   |\n|:-------|:-------|:-------|\n| A      | B      | C      |\n\n</td><td>\n→ \n</td><td>\n\n| Join Col   |\n|:------------:|\n| A, B, C      |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Optional Columns
 Wrangles will generally fail if applied to a column that doesn't exist. A question mark (?) can be added to the end of a column name to make it optional. This disables the validation, but may still fail if the column is essential to the functioning of the wrangle.
 
-```yml
-wrangles:
-  # Merge the contents of column1 and column2
-  # to a list. Also merge column3 if it exists,
-  # but do not fail if it does not exist
-  - merge.to_list:
-      input:
-        - Col1
-        - Col2
-        - Col3? # this will include Col3 if it exists
-      output: output_column
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   |
-|:-------|:-------|
-| A      | B      |
-
-</td><td>
-→ 
-</td><td>
-
-| output_column   |
-|:------------:|
-| ['A', 'B']      |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  # Merge the contents of column1 and column2\n  # to a list. Also merge column3 if it exists,\n  # but do not fail if it does not exist\n  - merge.to_list:\n      input:\n        - Col1\n        - Col2\n        - Col3? # this will include Col3 if it exists\n      output: output_column"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   |\n|:-------|:-------|\n| A      | B      |\n\n</td><td>\n→ \n</td><td>\n\n| output_column   |\n|:------------:|\n| ['A', 'B']      |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Exclude Columns
 A dash (-) attached to the front of the column name will not include that column. Typically, this can be combined with a wildcard to find all columns matching a pattern except certain ones.
 
-```yaml
-# Concatenate all columns beginning Col, except Col2
-wrangles:
-  - merge.concatenate:
-      input:
-        - Col*
-        - -Col2
-      output: Join Col
-      char: ', '
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1   | Col2   | Col3   |
-|:-------|:-------|:-------|
-| A      | B      | C      |
-
-</td><td>
-→ 
-</td><td>
-
-| Join Col   |
-|:------------:|
-| A, C      |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"# Concatenate all columns beginning Col, except Col2\nwrangles:\n  - merge.concatenate:\n      input:\n        - Col*\n        - -Col2\n      output: Join Col\n      char: ', '"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1   | Col2   | Col3   |\n|:-------|:-------|:-------|\n| A      | B      | C      |\n\n</td><td>\n→ \n</td><td>\n\n| Join Col   |\n|:------------:|\n| A, C      |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 # Advanced Topics
 

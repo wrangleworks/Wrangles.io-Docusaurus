@@ -3,6 +3,9 @@ title: "Create"
 slug: /python/recipes/wrangles/create
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 Functions to create new columns.
 
 # Bins
@@ -13,82 +16,19 @@ Creates a column that segments and sorts data values into bins. Bins can either 
 
 #### Creating Bins With an Integer
 
-```yaml
-wrangles:
-  - create.bins:
-      input: Data
-      output: Category
-      bins: 3
-      labels:
-        - Bad
-        - Medium
-        - Good
-```
-<table>
-<tr><th></th><th></th></tr>
-<tr><td>
-→ 
-</td><td>
-  
-|   Data | Category   |
-|-------:|:-----------|
-|      1 | Bad        |
-|      7 | Good       |
-|      5 | Medium     |
-|      4 | Medium     |
-|      6 | Good       |
-|      3 | Bad        |
-  
-</td></tr>
-</table>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.bins:\n      input: Data\n      output: Category\n      bins: 3\n      labels:\n        - Bad\n        - Medium\n        - Good"}
+  exampleSource={"<table>\n<tr><th></th><th></th></tr>\n<tr><td>\n→ \n</td><td>\n  \n|   Data | Category   |\n|-------:|:-----------|\n|      1 | Bad        |\n|      7 | Good       |\n|      5 | Medium     |\n|      4 | Medium     |\n|      6 | Good       |\n|      3 | Bad        |\n  \n</td></tr>\n</table>"}
+/>
 
 #### Creating Bins With a List
 
-```yaml
-wrangles:
-  - create.bins:
-      input: Grades
-      output: Letter Grade
-      bins: 
-      	- 0
-      	- 60
-        - 70
-        - 80
-        - 90
-        - 100
-      labels:
-        - F
-        - D
-        - C
-        - B
-        - A
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Grade | Student |
-|:-----:|:-------:|
-| 64 | Charles |
-| 92 | Sabrina |
-| 76 | Edward |
-| 84 | Wendy |
-
-</td><td>
-→ 
-</td><td>
-  
-| Grade | Letter Grade | Student |
-|:-----:|:------------:|:-------:|
-| 64 | D | Charles |
-| 92 | A | Sabrina |
-| 76 | C | Edward |
-| 84 | B | Wendy |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.bins:\n      input: Grades\n      output: Letter Grade\n      bins: \n      \t- 0\n      \t- 60\n        - 70\n        - 80\n        - 90\n        - 100\n      labels:\n        - F\n        - D\n        - C\n        - B\n        - A"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Grade | Student |\n|:-----:|:-------:|\n| 64 | Charles |\n| 92 | Sabrina |\n| 76 | Edward |\n| 84 | Wendy |\n\n</td><td>\n→ \n</td><td>\n  \n| Grade | Letter Grade | Student |\n|:-----:|:------------:|:-------:|\n| 64 | D | Charles |\n| 92 | A | Sabrina |\n| 76 | C | Edward |\n| 84 | B | Wendy |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -115,108 +55,27 @@ Create a column with a user defined value. Defaults to None (empty).
 
 #### Creating a New Column
 
-```yaml
-wrangles:
-  - create.column:
-      output: New Column
-      value: new value			# Optional, otherwise empty
-      where: column > 1
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| 1 |
-| 2 |
-| 3 |
-
-</td><td>
-→ 
-</td><td>
-  
-| column | New Column |
-| :-----: | :-----: |
-| 1 | |
-| 2 | new value |
-| 3 | new value |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.column:\n      output: New Column\n      value: new value\t\t\t# Optional, otherwise empty\n      where: column > 1"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| 1 |\n| 2 |\n| 3 |\n\n</td><td>\n→ \n</td><td>\n  \n| column | New Column |\n| :-----: | :-----: |\n| 1 | |\n| 2 | new value |\n| 3 | new value |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Creating Multiple Columns
 
-```yaml
-wrangles:
-  - create.column:
-      output: 
-      	- New Column 1: new value 1 # Optional, otherwise empty
-        - New Column 2: new value 2
-        - New Column 3: new value 1
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| 1 |
-| 2 |
-| 3 |
-
-</td><td>
-→ 
-</td><td>
-  
-| column | New Column 1 | New Column 2 | New Column 3 |
-| :-----: | :-----: | :-----: | :-----: | :-----: |
-| 1 | new value 1 | new value 2 | new value 1 |
-| 2 | new value 1 | new value 2 | new value 1 |
-| 3 | new value 1 | new value 2 | new value 1 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.column:\n      output: \n      \t- New Column 1: new value 1 # Optional, otherwise empty\n        - New Column 2: new value 2\n        - New Column 3: new value 1"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| 1 |\n| 2 |\n| 3 |\n\n</td><td>\n→ \n</td><td>\n  \n| column | New Column 1 | New Column 2 | New Column 3 |\n| :-----: | :-----: | :-----: | :-----: | :-----: |\n| 1 | new value 1 | new value 2 | new value 1 |\n| 2 | new value 1 | new value 2 | new value 1 |\n| 3 | new value 1 | new value 2 | new value 1 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Creating Columns That Consist of Lists
 
-```yaml
-wrangles:
-  - create.column:
-      output: 
-      	- New Column: 
-        		- 4
-            - 5
-        		- 6
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column |
-| :-----: |
-| 1 |
-| 2 |
-| 3 |
-
-</td><td>
-→ 
-</td><td>
-  
-| column | New Column |
-| :-----: | :-----: |
-| 1 | [4, 5, 6] |
-| 2 | [4, 5, 6] |
-| 3 | [4, 5, 6] |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.column:\n      output: \n      \t- New Column: \n        \t\t- 4\n            - 5\n        \t\t- 6"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column |\n| :-----: |\n| 1 |\n| 2 |\n| 3 |\n\n</td><td>\n→ \n</td><td>\n  \n| column | New Column |\n| :-----: | :-----: |\n| 1 | [4, 5, 6] |\n| 2 | [4, 5, 6] |\n| 3 | [4, 5, 6] |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 > Columns of empty lists can also be created by passing through an empty list (empty square brackets: []) to the value of the column.
 \{.is-info\}
@@ -241,24 +100,11 @@ Create an embedding based on text input.
 
 #### Creating Embeddings
 
-```yaml
-wrangles:
-  - create.embeddings:
-      input: my_column
-      api_key: ${my_key}
-      output: embeddings
-```
-
-<table>
-<td>
-  
-| my_column (input) | embeddings (output)|
-|:---------:|:----------:|
-| angle grinder | [0.010793785, -0.010007165, 0.0028609, -0.0139...] |
-| jig saw | [-0.008975127, 0.009314879, -0.024150735, -0.0...] |
-  
-</td>
-</table>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.embeddings:\n      input: my_column\n      api_key: ${my_key}\n      output: embeddings"}
+  exampleSource={"<table>\n<td>\n  \n| my_column (input) | embeddings (output)|\n|:---------:|:----------:|\n| angle grinder | [0.010793785, -0.010007165, 0.0028609, -0.0139...] |\n| jig saw | [-0.008975127, 0.009314879, -0.024150735, -0.0...] |\n  \n</td>\n</table>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -286,29 +132,11 @@ Create a column with a GUID (Globally Unique Identifier)
 
 #### Creating a New GUID Column
 
-```yaml
-wrangles:
-  - create.guid:
-      output: GUID Column
-      
-  # OR
-  
-  - create.uuid:
-      output: GUID Column
-```
-<table>
-<tr><th></th><th></th></tr>
-<tr><td>
-→ 
-</td><td>
-  
-| GUID Column                          |
-|:------------------------------------:|
-| 9a13b4dd-1993-4bd2-8974-3f9a0f006d86 |
-| 1528d918-ecd7-457c-b44d-3d30705696d3 |
-  
-</td></tr>
-</table>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.guid:\n      output: GUID Column\n      \n  # OR\n  \n  - create.uuid:\n      output: GUID Column"}
+  exampleSource={"<table>\n<tr><th></th><th></th></tr>\n<tr><td>\n→ \n</td><td>\n  \n| GUID Column                          |\n|:------------------------------------:|\n| 9a13b4dd-1993-4bd2-8974-3f9a0f006d86 |\n| 1528d918-ecd7-457c-b44d-3d30705696d3 |\n  \n</td></tr>\n</table>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -329,35 +157,11 @@ Create a hash of a column.
 
 #### Creating a New Hash Column
 
-```yaml
-wrangles:
-  - create.hash:
-      input: Description
-      output: hash
-      method: md5
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Description |
-|:-----------:|
-| The wrench is blue |
-| The hammer is yellow |
-
-</td><td>
-→ 
-</td><td>
-  
-| New Column |
-|:----------:|
-| ce114e4501d2f4e2dcea3e17b546f339 |
-| a54d88e06612d820bc3be72877c74f257b561b19 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.hash:\n      input: Description\n      output: hash\n      method: md5"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Description |\n|:-----------:|\n| The wrench is blue |\n| The hammer is yellow |\n\n</td><td>\n→ \n</td><td>\n  \n| New Column |\n|:----------:|\n| ce114e4501d2f4e2dcea3e17b546f339 |\n| a54d88e06612d820bc3be72877c74f257b561b19 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 
 ### Parameters
@@ -381,26 +185,11 @@ Create a new incremental index.
 
 #### Creating a New Index Column
 
-```yaml
-wrangles:
-  - create.index:
-      output: New Index
-      start: 1    # optional
-      step: 1     # optional
-```
-<table>
-<tr><th></th><th></th></tr>
-<tr><td>
-→ 
-</td><td>
-  
-| New Index |
-|:---------:|
-| 1         |
-| 2         |
-  
-</td></tr>
-</table>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.index:\n      output: New Index\n      start: 1    # optional\n      step: 1     # optional"}
+  exampleSource={"<table>\n<tr><th></th><th></th></tr>\n<tr><td>\n→ \n</td><td>\n  \n| New Index |\n|:---------:|\n| 1         |\n| 2         |\n  \n</td></tr>\n</table>"}
+/>
 
 
 ### Parameters
@@ -428,36 +217,11 @@ Makes use of a jinja template to create a description, title, or summary based o
 
 #### Creating a Jinja Description
 
-```yaml
-wrangles:
-  - create.jinja:
-      output: Description
-      template:
-      	string: |
-        	This is a {{ Brand }} {{ Item_Type }} that is {{ Size }}
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Brand | Item Type | Size | 
-| :-----: | :-----: | :-----: |
-| SKF | ball bearing | 10mm |
-| Timken | bearing seal | 15mm |
-
-</td><td>
-→ 
-</td><td>
-  
-| Brand | Item Type | Size | Description |
-| :-----: | :-----: | :-----: | :-----: |
-| SKF | ball bearing | 10mm | This is a SKF ball bearing that is 10mm |
-| Timken | bearing seal | 15mm | This is a Timken bearing seal that is 15mm|
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - create.jinja:\n      output: Description\n      template:\n      \tstring: |\n        \tThis is a {{ Brand }} {{ Item_Type }} that is {{ Size }}"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Brand | Item Type | Size | \n| :-----: | :-----: | :-----: |\n| SKF | ball bearing | 10mm |\n| Timken | bearing seal | 15mm |\n\n</td><td>\n→ \n</td><td>\n  \n| Brand | Item Type | Size | Description |\n| :-----: | :-----: | :-----: | :-----: |\n| SKF | ball bearing | 10mm | This is a SKF ball bearing that is 10mm |\n| Timken | bearing seal | 15mm | This is a Timken bearing seal that is 15mm|\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 > Using a "|" character denotes a multi-line string in yaml which preserves line breaks. Use ">" if a multi-line string is used and you do not wish to preserve line breaks. See [jinja documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/) for information on how to write a jinja template.
 

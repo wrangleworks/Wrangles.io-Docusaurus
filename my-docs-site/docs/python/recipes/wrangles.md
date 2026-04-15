@@ -3,6 +3,9 @@ title: "Wrangles"
 slug: /python/recipes/wrangles
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 > Some Wrangles require authentication to the WrangleWorks servers. See [the installation instructions](/python/install#authentication)
 \{.is-warning\}
 
@@ -30,59 +33,11 @@ Wrangles are applied sequentially, starting from the base state of the source. E
 Each Wrangle typically has an input and an output. An input can be the name of one column, or a list of multiple columns. If no output is provided, the input column will be overwritten, otherwise a new column will be created.
 
 ## Example
-```yaml
-read:
-  # Generate some example data
-  - test:
-      rows: 3
-      values:
-        column1: an example sentence
-
-wrangles:
-  # If output is omitted, the input will be overwritten
-  - convert.case:
-      input: column1
-      case: upper
-  
-  # If output is specified, a new column will be created
-  - split.tokenize:
-      input: column1
-      output: column2
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th><th></th><th></th></tr>
-<tr><td>
-
-| column1 |
-| :-----: |
-| an example sentence |
-| an example sentence |
-| an example sentence |
-
-</td><td> 
-→
-</td><td>
-
-| column1 |
-| :-----: |
-| AN EXAMPLE SENTENCE |
-| AN EXAMPLE SENTENCE |
-| AN EXAMPLE SENTENCE |
-
-</td><td>
-→
-</td><td>
-  
-| column1 | column2 |
-| :-----: | :-----: |
-| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |
-| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |
-| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"read:\n  # Generate some example data\n  - test:\n      rows: 3\n      values:\n        column1: an example sentence\n\nwrangles:\n  # If output is omitted, the input will be overwritten\n  - convert.case:\n      input: column1\n      case: upper\n  \n  # If output is specified, a new column will be created\n  - split.tokenize:\n      input: column1\n      output: column2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th><th></th><th></th></tr>\n<tr><td>\n\n| column1 |\n| :-----: |\n| an example sentence |\n| an example sentence |\n| an example sentence |\n\n</td><td> \n→\n</td><td>\n\n| column1 |\n| :-----: |\n| AN EXAMPLE SENTENCE |\n| AN EXAMPLE SENTENCE |\n| AN EXAMPLE SENTENCE |\n\n</td><td>\n→\n</td><td>\n  \n| column1 | column2 |\n| :-----: | :-----: |\n| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |\n| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |\n| AN EXAMPLE SENTENCE | [AN, EXAMPLE, SENTENCE] |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 # Advanced Topics
 

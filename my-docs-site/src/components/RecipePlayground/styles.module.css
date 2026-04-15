@@ -1,0 +1,70 @@
+.playground {
+  margin: 1rem 0 1.5rem;
+}
+
+.resultLayout {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.singleTableLayout {
+  display: block;
+}
+
+.panelTable {
+  margin: 0;
+}
+
+.arrow {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0.25rem;
+}
+
+.cellValue {
+  white-space: pre-wrap;
+}
+
+.cellInput {
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: inherit;
+  font: inherit;
+  line-height: 1.4;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.65rem;
+  resize: vertical;
+  width: 100%;
+}
+
+.cellInput:focus {
+  border-color: var(--ifm-color-primary);
+  outline: 2px solid color-mix(in srgb, var(--ifm-color-primary) 18%, transparent);
+}
+
+.error {
+  color: #b42318;
+  margin: 0.75rem 0 0;
+}
+
+.hint {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  margin: 0.75rem 0 0;
+}
+
+@media (max-width: 996px) {
+  .resultLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}

@@ -3,6 +3,9 @@ title: "Extract2"
 slug: /python/recipes/wrangles/extract2
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 Functions to extract information from unstructured text.
 
 > Click [here](/excel/extract) to learn how to use Extract Wrangles in Excel.
@@ -55,83 +58,18 @@ With a recipe based extract.ai, the output parameters are listed in the recipe i
 This method can be used by just simply passing through a description or by providing a full list of the output parameters.
 
 ##### Making Use of Output Parameters
-```yaml
-wrangles:
-  - extract.ai:
-  		api_key: Your OpenAI api key
-      input: Product Specs # optional
-      output:
-      	Blade Diameter:
-        	type: number
-          description: The diameter of the blade used, reported in inches.
-          default: N/A
-          examples:
-            - 4.5"
-            - 8 inch
-        Max. RPM:
-        	type: number
-          description: The maximum rotations per minute (rpm).
-          default: 3600
-          examples:
-            - 3600 max. rpm
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Product Specs                    |
-|:---------------------------------|
-| 18V Cordless 4.5in angle grinder |
-| 120V 12in chop saw 3600 max. rpm |
-
-</td><td>
-→ 
-</td><td>
-
-| Blade Diameter | Max. RPM |
-|:--------------:|:--------:|
-| 4.5 inches |  |
-| 12 inches | 3600 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - extract.ai:\n  \t\tapi_key: Your OpenAI api key\n      input: Product Specs # optional\n      output:\n      \tBlade Diameter:\n        \ttype: number\n          description: The diameter of the blade used, reported in inches.\n          default: N/A\n          examples:\n            - 4.5\"\n            - 8 inch\n        Max. RPM:\n        \ttype: number\n          description: The maximum rotations per minute (rpm).\n          default: 3600\n          examples:\n            - 3600 max. rpm"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Product Specs                    |\n|:---------------------------------|\n| 18V Cordless 4.5in angle grinder |\n| 120V 12in chop saw 3600 max. rpm |\n\n</td><td>\n→ \n</td><td>\n\n| Blade Diameter | Max. RPM |\n|:--------------:|:--------:|\n| 4.5 inches |  |\n| 12 inches | 3600 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ##### Description Only
-```yaml
-wrangles:
-  - extract.ai:
-  		api_key: Your OpenAI api key
-      input: Product Specs # optional
-      output:
-      	Blade Diameter: The diameter of the blade used, reported in inches.
-        Max. RPM: The maximum rotations per minute (rpm).
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Product Specs                    |
-|:---------------------------------|
-| 18V Cordless 4.5in angle grinder |
-| 120V 12in chop saw 3600 max. rpm |
-
-</td><td>
-→ 
-</td><td>
-
-| Blade Diameter | Max. RPM |
-|:--------------:|:--------:|
-| 4.5 inches |  |
-| 12 inches | 3600 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - extract.ai:\n  \t\tapi_key: Your OpenAI api key\n      input: Product Specs # optional\n      output:\n      \tBlade Diameter: The diameter of the blade used, reported in inches.\n        Max. RPM: The maximum rotations per minute (rpm)."}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Product Specs                    |\n|:---------------------------------|\n| 18V Cordless 4.5in angle grinder |\n| 120V 12in chop saw 3600 max. rpm |\n\n</td><td>\n→ \n</td><td>\n\n| Blade Diameter | Max. RPM |\n|:--------------:|:--------:|\n| 4.5 inches |  |\n| 12 inches | 3600 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Model Based
 Model based extract.ai's use a model id to call a previously trained extract.ai. Like a Lookup Wrangle, data is output as a dictionary if a single output is passed where the name does not match one of the extract values name in the model. Outputs that do match the extracted values name from the model will be returned as individual columns. If no input or output is specified, results are returned as individual columns. Also, if the model only has a single value to extract, that will be output as it's own column instead of a dictionary.
@@ -148,101 +86,25 @@ The table below represents a sample extract.ai model which will serve as our mod
 | Sizes | Find the sizes in the text | string | | | | |
 
 ##### Dictionary Output
-```yaml
-wrangles:
-  - extract.ai:
-  		api_key: Your OpenAI api key
-      model_id: xxxx-xxxx-xxxxxxxx
-      output: Attributes
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Items |
-|:-----:|
-| Large yellow square |
-| Medium orange triangle |
-
-</td><td>
-→ 
-</td><td>
-
-| Attributes |
-|:----------:|
-| \{Colors: [yellow], Shapes: square, Sizes: Large\} |
-| \{Colors: [orange], Shapes: triangle, Sizes: Medium\} |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - extract.ai:\n  \t\tapi_key: Your OpenAI api key\n      model_id: xxxx-xxxx-xxxxxxxx\n      output: Attributes"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Items |\n|:-----:|\n| Large yellow square |\n| Medium orange triangle |\n\n</td><td>\n→ \n</td><td>\n\n| Attributes |\n|:----------:|\n| \\{Colors: [yellow], Shapes: square, Sizes: Large\\} |\n| \\{Colors: [orange], Shapes: triangle, Sizes: Medium\\} |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ##### Column Output by Name
-```yaml
-wrangles:
-  - extract.ai:
-  		api_key: Your OpenAI api key
-      model_id: xxxx-xxxx-xxxxxxxx
-      output:
-       - Colors
-       - Sizes
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Items |
-|:-----:|
-| Large yellow square |
-| Medium orange triangle |
-
-</td><td>
-→ 
-</td><td>
-
-| Colors | Sizes |
-|:------:|:-----:|
-| [yellow] | Large |
-| [orange] | Medium |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - extract.ai:\n  \t\tapi_key: Your OpenAI api key\n      model_id: xxxx-xxxx-xxxxxxxx\n      output:\n       - Colors\n       - Sizes"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Items |\n|:-----:|\n| Large yellow square |\n| Medium orange triangle |\n\n</td><td>\n→ \n</td><td>\n\n| Colors | Sizes |\n|:------:|:-----:|\n| [yellow] | Large |\n| [orange] | Medium |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ##### Column Output Without Input or Output
-```yaml
-wrangles:
-  - extract.ai:
-  		api_key: Your OpenAI api key
-      model_id: xxxx-xxxx-xxxxxxxx
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Items |
-|:-----:|
-| Large yellow square |
-| Medium orange triangle |
-
-</td><td>
-→ 
-</td><td>
-
-| Colors | Shapes | Sizes |
-|:------:|:------:|:-----:|
-| [yellow] | square | Large |
-| [orange] | triangle | Medium |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - extract.ai:\n  \t\tapi_key: Your OpenAI api key\n      model_id: xxxx-xxxx-xxxxxxxx"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Items |\n|:-----:|\n| Large yellow square |\n| Medium orange triangle |\n\n</td><td>\n→ \n</td><td>\n\n| Colors | Shapes | Sizes |\n|:------:|:------:|:-----:|\n| [yellow] | square | Large |\n| [orange] | triangle | Medium |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">

@@ -3,6 +3,9 @@ title: "Compare"
 slug: /python/recipes/wrangles/compare
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 # Text
 
 Compare two strings and return the intersection or difference, or use overlap to find the matching characters between the two strings.
@@ -13,111 +16,27 @@ Compare two strings and return the intersection or difference, or use overlap to
 
 #### Comparing the difference between two columns of text
 
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - col1
-        - col2
-      output: Difference
-      method: difference
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1 | Col2 |
-|:----:|:----:|
-| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
-| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
-| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
-
-</td><td>
-→ 
-</td><td>
-
-| Difference |
-|:----------:|
-| Pine Black Bottom |
-| Maple Orange Steel |
-| Normal Blue Plastic |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - compare.text:\n      input:\n        - col1\n        - col2\n      output: Difference\n      method: difference"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1 | Col2 |\n|:----:|:----:|\n| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |\n| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |\n| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |\n\n</td><td>\n→ \n</td><td>\n\n| Difference |\n|:----------:|\n| Pine Black Bottom |\n| Maple Orange Steel |\n| Normal Blue Plastic |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Comparing the intersection of two columns of text
 
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - col1
-        - col2
-      output: Intersection
-      method: intersection
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Col1 | Col2 |
-|:----:|:----:|
-| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
-| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
-| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
-
-</td><td>
-→ 
-</td><td>
-
-| Intersection |
-|:----------:|
-| Large Wood Marble Bookshelf |
-| Medium Wood Top Coffee Table |
-| Small Wood Top Console Table |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - compare.text:\n      input:\n        - col1\n        - col2\n      output: Intersection\n      method: intersection"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Col1 | Col2 |\n|:----:|:----:|\n| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |\n| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |\n| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |\n\n</td><td>\n→ \n</td><td>\n\n| Intersection |\n|:----------:|\n| Large Wood Marble Bookshelf |\n| Medium Wood Top Coffee Table |\n| Small Wood Top Console Table |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Comparing the overlap of two columns of text
 
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - Part Code1
-        - Part Code2
-      output: Overlap
-      method: overlap
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Part Code1 | Part Code2 |
-|:----------:|:----------:|
-| SKF6202 | TMKN6202 |
-| X06-02-000 | X06-81-000 |
-| 7100E15-V-230/3 | 7100E15-V-120/1 |
-
-</td><td>
-→ 
-</td><td>
-
-| Overlap |
-|:-------:|
-| ****6202 |
-| X06-**-000 |
-| 7100E15-V-\**0/\* |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - compare.text:\n      input:\n        - Part Code1\n        - Part Code2\n      output: Overlap\n      method: overlap"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Part Code1 | Part Code2 |\n|:----------:|:----------:|\n| SKF6202 | TMKN6202 |\n| X06-02-000 | X06-81-000 |\n| 7100E15-V-230/3 | 7100E15-V-120/1 |\n\n</td><td>\n→ \n</td><td>\n\n| Overlap |\n|:-------:|\n| ****6202 |\n| X06-**-000 |\n| 7100E15-V-\\**0/\\* |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">

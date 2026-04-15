@@ -17,6 +17,10 @@ const config = {
     locales: ['en'],
   },
 
+  customFields: {
+    recipeRunnerUrl: '/run-recipe',
+  },
+
   markdown: {
     mermaid: true,
   },

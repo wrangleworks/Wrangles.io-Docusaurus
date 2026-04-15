@@ -3,6 +3,9 @@ title: "Split"
 slug: /python/recipes/wrangles/split
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 > Click [here](/excel/format#split) to learn how to use Split Wrangles in Excel.
 \{.is-success\}
 
@@ -17,84 +20,51 @@ Below, we'll show you a few different methods of splitting dictionaries using sp
 
 ##### Splitting an Entire Dictionary
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      # Output not required
-```
-
-| Column                                    | |   | | Col1   | Col2   | Col3   |
-|:-----------------------------------------:|-|:-:|-| :----: |:------:|:------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      | C      |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      # Output not required"}
+  exampleSource={"| Column                                    | |   | | Col1   | Col2   | Col3   |\n|:-----------------------------------------:|-|:-:|-| :----: |:------:|:------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      | C      |"}
+/>
 
 ##### Choosing Specific Keys by Name
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: Col2
-```
-
-| Column                                    | |   | | Col2   |
-|:-----------------------------------------:|-|:-:|-|:------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | B      |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      output: Col2"}
+  exampleSource={"| Column                                    | |   | | Col2   |\n|:-----------------------------------------:|-|:-:|-|:------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | B      |"}
+/>
 
 ##### Using a Wildcard Output to Choose Specific Keys
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: Col*
-```
-
-| Column                                    | |   | | Col1   | Col2   |
-|:-----------------------------------------:|-|:-:|-| :----: |:------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Other': 'C'}` | | → | | A     | B     |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      output: Col*"}
+  exampleSource={"| Column                                    | |   | | Col1   | Col2   |\n|:-----------------------------------------:|-|:-:|-| :----: |:------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Other': 'C'}` | | → | | A     | B     |"}
+/>
 
 ##### Using Regular Expressions to Choose Specific Keys
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: "regex: .*3"
-```
-
-| Column                                    | |   | | Col3   |
-|:-----------------------------------------:|-|:-:|-|:------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | C      |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      output: \"regex: .*3\""}
+  exampleSource={"| Column                                    | |   | | Col3   |\n|:-----------------------------------------:|-|:-:|-|:------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | C      |"}
+/>
 
 ##### Choosing Specific Keys While Renaming the Output
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: 
-      	- Col1: Column 1
-      	- Col2: Column 2
-```
-
-| Column                                    | |   | | Column 1 | Column 2 |
-|:-----------------------------------------:|-|:-:|-|:--------:|:--------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      output: \n      \t- Col1: Column 1\n      \t- Col2: Column 2"}
+  exampleSource={"| Column                                    | |   | | Column 1 | Column 2 |\n|:-----------------------------------------:|-|:-:|-|:--------:|:--------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      |"}
+/>
 
 ##### Using a Wildcard While Renaming
 
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: 
-      	- Col*: Column *
-```
-
-| Column                                    | |   | | Column 1 | Column 2 | Column 3 |
-|:-----------------------------------------:|-|:-:|-|:--------:|:--------:|:--------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      | C      |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.dictionary:\n      input: Column\n      output: \n      \t- Col*: Column *"}
+  exampleSource={"| Column                                    | |   | | Column 1 | Column 2 | Column 3 |\n|:-----------------------------------------:|-|:-:|-|:--------:|:--------:|:--------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | | → | | A      | B      | C      |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -118,32 +88,19 @@ If only one output is given, split.list will return the same list it was given. 
 ### Sample
 
 #### Using a Wildcard
-```yaml
-wrangles:
-  - split.list:
-      input: Column
-      output: Column*      
-```
-
-| Column             | |   | | Column1   | Column2   | Column3   |
-|:------------------:|-|:-:|-|:---------:|:---------:|:---------:|
-| ['A', 'B', 'C']    | | → | | A         | B         | C         |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.list:\n      input: Column\n      output: Column*      "}
+  exampleSource={"| Column             | |   | | Column1   | Column2   | Column3   |\n|:------------------:|-|:-:|-|:---------:|:---------:|:---------:|\n| ['A', 'B', 'C']    | | → | | A         | B         | C         |"}
+/>
 
 
 #### Named Columns
-```yaml
-wrangles:
-  - split.list:
-      input: Column
-      output:
-      	- Heading A
-        - Heading B
-        - Heading C
-```
-
-| Column             | |   | | Heading A | Heading B | Heading C |
-|:------------------:|-|:-:|-|:---------:|:---------:|:---------:|
-| ['A', 'B', 'C']    | | → | | A         | B         | C         |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.list:\n      input: Column\n      output:\n      \t- Heading A\n        - Heading B\n        - Heading C"}
+  exampleSource={"| Column             | |   | | Heading A | Heading B | Heading C |\n|:------------------:|-|:-:|-|:---------:|:---------:|:---------:|\n| ['A', 'B', 'C']    | | → | | A         | B         | C         |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -166,85 +123,52 @@ The text can be split into either multiple columns or a list.
 ### Sample
 
 #### To a List
-```yaml
-wrangles:
-  - split.text:
-      input: Column1
-      output: Column2
-      char: ', '
-```
-| Column1            | |   | | Column2                  |
-|:------------------:|-|:-:|-|:------------------------:|
-| Hello, Wrangles!   | | → | | ['Hello', 'Wrangles!']   |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.text:\n      input: Column1\n      output: Column2\n      char: ', '"}
+  exampleSource={"| Column1            | |   | | Column2                  |\n|:------------------:|-|:-:|-|:------------------------:|\n| Hello, Wrangles!   | | → | | ['Hello', 'Wrangles!']   |"}
+/>
 
 
 
 #### Split Using Regex
-```yaml
-# Split on x, case insensitive.
-wrangles:
-  - split.text:
-      input: Col1
-      output: Col2
-      char: 'regex:(?i)x'
-```
-| Col1                | |   | | Col2                  |
-|:-------------------:|-|:-:|-|:----------------------|
-| 1x2 | | → | | ['1', '2'] |
-| 1X2 | | → | | ['1', '2'] |
+<RecipePlayground
+  editable={true}
+  recipe={"# Split on x, case insensitive.\nwrangles:\n  - split.text:\n      input: Col1\n      output: Col2\n      char: 'regex:(?i)x'"}
+  exampleSource={"| Col1                | |   | | Col2                  |\n|:-------------------:|-|:-:|-|:----------------------|\n| 1x2 | | → | | ['1', '2'] |\n| 1X2 | | → | | ['1', '2'] |"}
+/>
 
 
 
 #### Slice the Output
 Choose specific elements to keep after splitting.
 Accepts [python slicing syntax](https://www.w3schools.com/python/python_strings_slicing.asp)
-```yaml
-wrangles:
-  - split.text:
-      input: Column1
-      output: Column2
-      char: ', '
-      element: 0
-```
-| Column1            | |   | | Column2                  |
-|:------------------:|-|:-:|-|:------------------------:|
-| Hello, Wrangles!   | | → | | Hello  |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.text:\n      input: Column1\n      output: Column2\n      char: ', '\n      element: 0"}
+  exampleSource={"| Column1            | |   | | Column2                  |\n|:------------------:|-|:-:|-|:------------------------:|\n| Hello, Wrangles!   | | → | | Hello  |"}
+/>
 
 
 
 #### Split to Columns (Wildcard)
 The output columns will be given an incrementing number in the position of the wildcard (\*)
 
-```yaml
-wrangles:
-  - split.text:
-      input: Col
-      output: Col*              # Optional
-      char: ', '
-```
-
-| Col              | |   | | Col1    | Col2     |
-|:----------------:|-|:-:|-|:--------:|:---------:|
-| Hello, Wrangles! | | → | | Hello    | Wrangles! |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.text:\n      input: Col\n      output: Col*              # Optional\n      char: ', '"}
+  exampleSource={"| Col              | |   | | Col1    | Col2     |\n|:----------------:|-|:-:|-|:--------:|:---------:|\n| Hello, Wrangles! | | → | | Hello    | Wrangles! |"}
+/>
 
 
 #### Split to Columns (Named)
 The output will be placed in the named columns. The number of output columns must be known in advance.
 
-```yaml
-wrangles:
-  - split.text:
-      input: Col
-      output:
-      	- Col 1
-        - Col 2
-        - Col 3
-      char: ', '
-```
-
-| Col                  | |   | | Col 1     | Col 2  | Col 3 |
-|:--------------------:|-|:-:|-|:---------:|:------:|:-----:|
-| Wrangles, are, Cool! | | → | | Wrangles  | are    | Cool! |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.text:\n      input: Col\n      output:\n      \t- Col 1\n        - Col 2\n        - Col 3\n      char: ', '"}
+  exampleSource={"| Col                  | |   | | Col 1     | Col 2  | Col 3 |\n|:--------------------:|-|:-:|-|:---------:|:------:|:-----:|\n| Wrangles, are, Cool! | | → | | Wrangles  | are    | Cool! |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -270,29 +194,19 @@ wrangles:
 
 #### Tokenizing a String
 
-```yaml
-wrangles:
-  - split.tokenize:
-      input: Materials
-      output: Tokenized List
-```
-
-| Materials                       | |   | | Tokenized List                        |
-|:-------------------------------:|-|:-:|-| :-----------------------------------: |
-| Stainless Steel Oak Wood        | | → | | ['Stainless', 'Steel', 'Oak', 'Wood'] |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.tokenize:\n      input: Materials\n      output: Tokenized List"}
+  exampleSource={"| Materials                       | |   | | Tokenized List                        |\n|:-------------------------------:|-|:-:|-| :-----------------------------------: |\n| Stainless Steel Oak Wood        | | → | | ['Stainless', 'Steel', 'Oak', 'Wood'] |"}
+/>
 
 #### Tokenizing a List
 
-```yaml
-wrangles:
-  - split.tokenize:
-      input: Materials
-      output: Tokenized List
-```
-
-| Materials                       | |   | | Tokenized List                        |
-|:-------------------------------:|-|:-:|-| :-----------------------------------: |
-| ['Stainless Steel', 'Oak Wood'] | | → | | ['Stainless', 'Steel', 'Oak', 'Wood'] |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - split.tokenize:\n      input: Materials\n      output: Tokenized List"}
+  exampleSource={"| Materials                       | |   | | Tokenized List                        |\n|:-------------------------------:|-|:-:|-| :-----------------------------------: |\n| ['Stainless Steel', 'Oak Wood'] | | → | | ['Stainless', 'Steel', 'Oak', 'Wood'] |"}
+/>
 
 ### Parameters
 <div className="table-scroll">

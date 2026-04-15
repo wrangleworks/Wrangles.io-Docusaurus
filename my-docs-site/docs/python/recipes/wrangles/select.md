@@ -3,6 +3,9 @@ title: "Select"
 slug: /python/recipes/wrangles/select
 ---
 
+import RecipePlayground from '@site/src/components/RecipePlayground';
+
+
 # Columns
 Select columns from the dataframe
 
@@ -11,33 +14,11 @@ Select columns from the dataframe
 
 #### Selecting Columns
 
-```yaml
-wrangles:
-  - select.columns:
-      input: Manufacturer
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Part Number |
-|:----------:|:-----------:|
-| SKF | 1234 |
-| Timken | 5678 |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer |
-|:----------:|
-| SKF |
-| Timken |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.columns:\n      input: Manufacturer"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Part Number |\n|:----------:|:-----------:|\n| SKF | 1234 |\n| Timken | 5678 |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer |\n|:----------:|\n| SKF |\n| Timken |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -56,206 +37,56 @@ Select a named element of a dictionary.
 
 #### Selecting Dictionary Element Using Where
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      output: Shapes
-      element: shapes
-      default: square
-      where: Part Number = 1234
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Properties | Part Number |
-|:----------:|:-----------:|
-| `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` | 1234 |
-| `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` | 5678 |
-
-</td><td>
-→ 
-</td><td>
-
-| Shapes |
-|:------:|
-| round |
-| |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      output: Shapes\n      element: shapes\n      default: square\n      where: Part Number = 1234"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Properties | Part Number |\n|:----------:|:-----------:|\n| `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` | 1234 |\n| `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` | 5678 |\n\n</td><td>\n→ \n</td><td>\n\n| Shapes |\n|:------:|\n| round |\n| |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Selecting Multiple Dictionary Elements
 When passing element as a list, the output will remane a dictionary even if it is only a list of one. In the example below, we have overwritten the input column by not providing an output.
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      element: 
-      	- shapes
-        - materials
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Properties |
-|:----------:|
-| `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` |
-| `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Properties |
-|:----------:|
-| `{'shapes': 'round', 'materials': 'tungsten'}` |
-| `{'shapes': 'square', 'materials': 'tungsten'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      element: \n      \t- shapes\n        - materials"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Properties |\n|:----------:|\n| `{'colours': ['red', 'white', 'blue'], 'shapes': 'round', 'materials': 'tungsten'}` |\n| `{'colours': ['green', 'yellow', 'orange'], 'shapes': 'square', 'materials': 'tungsten'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Properties |\n|:----------:|\n| `{'shapes': 'round', 'materials': 'tungsten'}` |\n| `{'shapes': 'square', 'materials': 'tungsten'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Selecting Multiple Dictionary Elements Using a Wildcard
 Wildcards can be used to select dictionary elements. As before, when passing element as a list, the output remanes a dictionary. **Note**: When using a wildcard or regex, element must be passed as a list and therefore the output will remain a dictionary.
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      output: Output Dict
-      element: 
-      	- Col*
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Column                                    |
-|:-----------------------------------------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Other3': 'C'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Column                                    | Output Dict |
-|:-----------------------------------------:|:-----------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col2': 'B'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      output: Output Dict\n      element: \n      \t- Col*"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Column                                    |\n|:-----------------------------------------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Other3': 'C'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Column                                    | Output Dict |\n|:-----------------------------------------:|:-----------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col2': 'B'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Selecting Multiple Dictionary Elements Using Regex
 Regex patterns can be used to select dictionary elements. As before, when passing element as a list, the output remanes a dictionary. **Note**: When using a wildcard or regex, element must be passed as a list and therefore the output will remain a dictionary.
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      output: Output Dict
-      element: 
-      	- "regex: .*2"
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Column                                    |
-|:-----------------------------------------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Column                                    | Output Dict |
-|:-----------------------------------------:|:-----------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col2': 'B'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      output: Output Dict\n      element: \n      \t- \"regex: .*2\""}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Column                                    |\n|:-----------------------------------------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Column                                    | Output Dict |\n|:-----------------------------------------:|:-----------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col2': 'B'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Selecting Elements While Renaming 
 Selected dictionary elements can also be renamed in the output by following the example below.
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      output: Output Dict
-      element: 
-      	- Col1: Column 1
-        - Col2: Column 2
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Column                                    |
-|:-----------------------------------------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Column                                    | Output Dict |
-|:-----------------------------------------:|:-----------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Column 1': 'A', 'Column 2': 'B'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      output: Output Dict\n      element: \n      \t- Col1: Column 1\n        - Col2: Column 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Column                                    |\n|:-----------------------------------------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Column                                    | Output Dict |\n|:-----------------------------------------:|:-----------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Column 1': 'A', 'Column 2': 'B'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Using Default to Fill Missing Elements
 By adding a default, missing dictionary elements are filled in upon output. Without the use of a default, the wrangle will throw an error when it encounters a missing element.
 
-```yaml
-wrangles:
-  - select.dictionary_element:
-      input: Properties
-      output: Output Dict
-      element: 
-      	- Col1
-        - Col3
-      default:
-      	Col1: Z
-        Col3: Y
-```
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Column                                    |
-|:-----------------------------------------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |
-| `{'Col1': 'D', 'Col2': 'E'}` |
-
-</td><td>
-→ 
-</td><td>
-
-| Column                                    | Output Dict |
-|:-----------------------------------------:|:-----------:|
-| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col3': 'C'}` |
-| `{'Col1': 'D', 'Col2': 'E'}` | `{'Col1': 'D', 'Col3': 'Y'}` |
-
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.dictionary_element:\n      input: Properties\n      output: Output Dict\n      element: \n      \t- Col1\n        - Col3\n      default:\n      \tCol1: Z\n        Col3: Y"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Column                                    |\n|:-----------------------------------------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` |\n| `{'Col1': 'D', 'Col2': 'E'}` |\n\n</td><td>\n→ \n</td><td>\n\n| Column                                    | Output Dict |\n|:-----------------------------------------:|:-----------:|\n| `{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'}` | `{'Col1': 'A', 'Col3': 'C'}` |\n| `{'Col1': 'D', 'Col2': 'E'}` | `{'Col1': 'D', 'Col3': 'Y'}` |\n\n</td></tr>\n</table>\n</div>"}
+/>
 
 
 ### Parameters
@@ -281,16 +112,11 @@ Select elements of lists or dicts using python syntax like col[1:3]['key'].
 
 #### Selecting The First Element
 
-```yaml
-wrangles:
-  - select.element:
-      input: Column 1[0]
-      output: First Element
-```
-
-| Column 1 |   | | Column 1 | First Element |
-|:--------:|:-:|-|:--------:|:-------------:|
-| ['A', 0.6] |  → | | ['A', 0.6] | 'A' |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.element:\n      input: Column 1[0]\n      output: First Element"}
+  exampleSource={"| Column 1 |   | | Column 1 | First Element |\n|:--------:|:-:|-|:--------:|:-------------:|\n| ['A', 0.6] |  → | | ['A', 0.6] | 'A' |"}
+/>
 
 ### Parameters
 
@@ -311,40 +137,11 @@ Group and aggregate data based on certain criteria.
 
 #### Grouping By One Column
 
-```yaml
-wrangles:
-  - select.group_by:
-      by: 
-        - Product Type
-      sum: Quanitity
-      mean: Price ($)
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Product | Product Type | Quantity | Price ($) |
-| :------ | :----------- | :------- | :-------- |
-| Hammer | Hand Tools | 3 | 12.99 |
-| Ratchet Wrench | Hand Tools | 12 | 6.99 | 
-| Cordless Drill | Power Tools | 2 | 49.99 |
-| Reciprocating Saw | Power Tools | 7 | 29.99 |
-
-</td><td>
-→ 
-</td><td>
-
-  
-| Product Type | Quantity.sum | Price ($).mean |
-| :----------- | :----------- | :------------- |
-| Hand Tools | 15 | 9.99 |
-| Power Tools | 9 | 39.99 |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.group_by:\n      by: \n        - Product Type\n      sum: Quanitity\n      mean: Price ($)"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Product | Product Type | Quantity | Price ($) |\n| :------ | :----------- | :------- | :-------- |\n| Hammer | Hand Tools | 3 | 12.99 |\n| Ratchet Wrench | Hand Tools | 12 | 6.99 | \n| Cordless Drill | Power Tools | 2 | 49.99 |\n| Reciprocating Saw | Power Tools | 7 | 29.99 |\n\n</td><td>\n→ \n</td><td>\n\n  \n| Product Type | Quantity.sum | Price ($).mean |\n| :----------- | :----------- | :------------- |\n| Hand Tools | 15 | 9.99 |\n| Power Tools | 9 | 39.99 |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Grouping With Custom Function Aggregation 
 
@@ -420,36 +217,11 @@ Return the first n rows
 
 #### Selecting The First n Rows
 
-```yaml
-wrangles:
-  - select.head:
-      n: 2
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Timken | Bearing Race |
-| Acme Bearings | Needle Bearing |
-| General Bearing Co. | Roller Bearing |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Timken | Bearing Race |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.head:\n      n: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Timken | Bearing Race |\n| Acme Bearings | Needle Bearing |\n| General Bearing Co. | Roller Bearing |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Timken | Bearing Race |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -469,39 +241,21 @@ Inputs are expected to be of the form [value, confidence_score]
 
 #### Selecting Highest Confidence Single Output
 
-```yaml
-wrangles:
-  - select.highest_confidence:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Highest Confidence
-```
-
-| Col1        | Col2        | Col3        | |   | | Highest Confidence   |
-|:-----------:|:-----------:|:-----------:|-|:-:|-|:--------------------:|
-| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | ['C', 0.99]          |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.highest_confidence:\n      input:\n        - Col1\n        - Col2\n        - Col3\n      output: Highest Confidence"}
+  exampleSource={"| Col1        | Col2        | Col3        | |   | | Highest Confidence   |\n|:-----------:|:-----------:|:-----------:|-|:-:|-|:--------------------:|\n| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | ['C', 0.99]          |"}
+/>
 
 
 #### Selecting Highest Confidence Two Outputs
 When a list of two outputs is given, the item and it's confidence are split into different columns
 
-```yaml
-wrangles:
-  - select.highest_confidence:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output:
-      	- Item
-      	- Confidence
-```
-
-| Col1 | Col2 | Col3 |     |     | | Item | Confidence |
-| :--: | :--: | :--: | :-: | :-: |-| :--: | :--------: |
-| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | C    | .99 |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.highest_confidence:\n      input:\n        - Col1\n        - Col2\n        - Col3\n      output:\n      \t- Item\n      \t- Confidence"}
+  exampleSource={"| Col1 | Col2 | Col3 |     |     | | Item | Confidence |\n| :--: | :--: | :--: | :-: | :-: |-| :--: | :--------: |\n| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] | | → | | C    | .99 |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -524,17 +278,11 @@ Select characters from the left of the input. Using a negative length will rever
 
 #### Selecting Three Leftmost Elements
 
-```yaml
-wrangles:
-  - select.left:
-      input: Column
-      output: Result
-      length: 3
-```
-
-| Column  | |   | | Result |
-|:-------:|-|:-:|-|:------:|
-| pudding | | → | | pud    |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.left:\n      input: Column\n      output: Result\n      length: 3"}
+  exampleSource={"| Column  | |   | | Result |\n|:-------:|-|:-:|-|:------:|\n| pudding | | → | | pud    |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -557,16 +305,11 @@ Calculate the lengths of data in a column. The length depends on the data type e
 
 #### Selecting the Length of Data Within a Column
 
-```yaml
-wrangles:
-  - select.length:
-      input: Part Code
-      output: Part Code Length
-```
-
-| Part Code  | |   | | Part Code Length |
-|:-------:|-|:-:|-|:------:|
-| 6202 | | → | | 4 |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.length:\n      input: Part Code\n      output: Part Code Length"}
+  exampleSource={"| Part Code  | |   | | Part Code Length |\n|:-------:|-|:-:|-|:------:|\n| 6202 | | → | | 4 |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -588,19 +331,11 @@ Select a numbered element of a list (zero indexed)
 
 #### Selecting the Second Element in a List
 
-```yaml
-wrangles:
-  - select.list_element:
-      input: Col1
-      output: Second Element
-      element: 2			# Zero Indexed
-      default: F
-```
-
-| Col1            | |   | | Second Element   |
-|:---------------:|-|:-:|-|:----------------:|
-| ['A', 'B', 'C'] | | → | | C                |
-| ['D', 'E'] | | → | | F |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.list_element:\n      input: Col1\n      output: Second Element\n      element: 2\t\t\t# Zero Indexed\n      default: F"}
+  exampleSource={"| Col1            | |   | | Second Element   |\n|:---------------:|-|:-:|-|:----------------:|\n| ['A', 'B', 'C'] | | → | | C                |\n| ['D', 'E'] | | → | | F |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -625,17 +360,11 @@ Select characters from the right of the input. Using a negative length will reve
 
 #### Selecting the Three Rightmost Elements
 
-```yaml
-wrangles:
-  - select.right:
-      input: Column
-      output: Result
-      length: 3
-```
-
-| Column  | |   | | Result |
-|:-------:|-|:-:|-|:------:|
-| pudding | | → | | ing    |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.right:\n      input: Column\n      output: Result\n      length: 3"}
+  exampleSource={"| Column  | |   | | Result |\n|:-------:|-|:-:|-|:------:|\n| pudding | | → | | ing    |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -659,68 +388,19 @@ Select a random sample of rows.
 
 #### Selecting 2 Random Rows
 
-```yaml
-wrangles:
-  - select.sample:
-      rows: 2
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Timken | Bearing Race |
-| Acme Bearings | Needle Bearing |
-| General Bearing Co. | Roller Bearing |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Acme Bearings | Needle Bearing |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.sample:\n      rows: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Timken | Bearing Race |\n| Acme Bearings | Needle Bearing |\n| General Bearing Co. | Roller Bearing |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Acme Bearings | Needle Bearing |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 #### Selecting a Random 25% of All Rows
 
-```yaml
-wrangles:
-  - select.sample:
-      rows: .25
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Timken | Bearing Race |
-| Acme Bearings | Needle Bearing |
-| General Bearing Co. | Roller Bearing |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| Acme Bearings | Needle Bearing |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.sample:\n      rows: .25"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Timken | Bearing Race |\n| Acme Bearings | Needle Bearing |\n| General Bearing Co. | Roller Bearing |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| Acme Bearings | Needle Bearing |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -740,46 +420,27 @@ Select characters from the middle of the input.
 
 #### Selecting a Substring With Start and Length
 
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      start: 2
-      length: 3
-```
-
-| Column  | |   | | Result |
-|:-------:|-|:-:|-|:------:|
-| pudding | | → | | udd    |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.substring:\n      input: Column\n      output: Result\n      start: 2\n      length: 3"}
+  exampleSource={"| Column  | |   | | Result |\n|:-------:|-|:-:|-|:------:|\n| pudding | | → | | udd    |"}
+/>
 
 #### Selecting a Substring With Start Only
 
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      start: 2
-```
-
-| Column  | |   | | Result |
-|:-------:|-|:-:|-|:------:|
-| pudding | | → | | udding |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.substring:\n      input: Column\n      output: Result\n      start: 2"}
+  exampleSource={"| Column  | |   | | Result |\n|:-------:|-|:-:|-|:------:|\n| pudding | | → | | udding |"}
+/>
 
 #### Selecting a Substring With Length Only
 
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      length: 3
-```
-
-| Column  | |   | | Result |
-|:-------:|-|:-:|-|:------:|
-| pudding | | → | | pud    |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.substring:\n      input: Column\n      output: Result\n      length: 3"}
+  exampleSource={"| Column  | |   | | Result |\n|:-------:|-|:-:|-|:------:|\n| pudding | | → | | pud    |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -803,36 +464,11 @@ Return the last n rows
 
 #### Selecting The Last n Rows
 
-```yaml
-wrangles:
-  - select.tail:
-      n: 2
-```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| SKF | Ball Bearing |
-| Timken | Bearing Race |
-| Acme Bearings | Needle Bearing |
-| General Bearing Co. | Roller Bearing |
-
-</td><td>
-→ 
-</td><td>
-
-| Manufacturer | Product |
-|:------------:|:-------:|
-| Acme Bearings | Needle Bearing |
-| General Bearing Co. | Roller Bearing |
-  
-</td></tr>
-</table>
-</div>
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.tail:\n      n: 2"}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| SKF | Ball Bearing |\n| Timken | Bearing Race |\n| Acme Bearings | Needle Bearing |\n| General Bearing Co. | Roller Bearing |\n\n</td><td>\n→ \n</td><td>\n\n| Manufacturer | Product |\n|:------------:|:-------:|\n| Acme Bearings | Needle Bearing |\n| General Bearing Co. | Roller Bearing |\n  \n</td></tr>\n</table>\n</div>"}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -851,19 +487,11 @@ Select the first option if it exceeds a given threshold, else the second option.
 
 #### Selecting Results Above a Threshold
 
-```yaml
-wrangles:
-  - select.threshold:
-      input:
-        - Col1
-        - Col2
-      output: Result
-      threshold: .77
-```
-
-| Col1       | Col2        | |   | | Result   |
-|:----------:|:-----------:|-|:-:|-|:-----------:|
-| ['A', 0.6] | ['B', 0.79] | | → | | B           |
+<RecipePlayground
+  editable={true}
+  recipe={"wrangles:\n  - select.threshold:\n      input:\n        - Col1\n        - Col2\n      output: Result\n      threshold: .77"}
+  exampleSource={"| Col1       | Col2        | |   | | Result   |\n|:----------:|:-----------:|-|:-:|-|:-----------:|\n| ['A', 0.6] | ['B', 0.79] | | → | | B           |"}
+/>
 
 ### Parameters
 <div className="table-scroll">
