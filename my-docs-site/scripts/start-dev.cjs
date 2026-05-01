@@ -49,6 +49,10 @@ const proxy = httpProxy.createProxyServer({
   xfwd: true,
 });
 
+function isRecipeRoute(url) {
+  return Boolean(url && url.startsWith('/run-recipe'));
+}
+
 proxy.on('error', (error, req, res) => {
   console.error('[dev-proxy] Proxy error:', error.message);
   if (res && !res.headersSent) {
@@ -59,10 +63,26 @@ proxy.on('error', (error, req, res) => {
   }
 });
 
+proxy.on('proxyReq', (proxyReq, req) => {
+  if (isRecipeRoute(req.url)) {
+    console.log(`[dev-proxy] Forwarding ${req.method} ${req.url} -> host=${proxyReq.getHeader('host')} path=${proxyReq.path}`);
+  }
+});
+
+proxy.on('proxyRes', (proxyRes, req) => {
+  if (isRecipeRoute(req.url)) {
+    console.log(`[dev-proxy] Response ${proxyRes.statusCode} for ${req.method} ${req.url}`);
+  }
+});
+
 const server = http.createServer((req, res) => {
   const target = req.url && req.url.startsWith('/run-recipe')
     ? `http://127.0.0.1:${runnerPort}`
     : `http://127.0.0.1:${docusaurusPort}`;
+
+  if (isRecipeRoute(req.url)) {
+    console.log(`[dev-proxy] Incoming ${req.method} ${req.url} target=${target}`);
+  }
 
   proxy.web(req, res, {target});
 });

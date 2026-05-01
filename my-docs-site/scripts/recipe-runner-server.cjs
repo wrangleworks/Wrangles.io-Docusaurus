@@ -8,6 +8,19 @@ const port = Number(process.env.RECIPE_RUNNER_PORT || 3001);
 const siteDir = path.resolve(__dirname, '..');
 const runnerPath = path.join(siteDir, 'run_recipe.py');
 
+function createRequestId() {
+  return `runner-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function previewText(value, limit = 220) {
+  if (!value) {
+    return '';
+  }
+
+  const normalized = String(value).replace(/\s+/g, ' ').trim();
+  return normalized.length > limit ? `${normalized.slice(0, limit)}...` : normalized;
+}
+
 function loadEnvFile(filePath) {
   if (!fs.existsSync(filePath)) {
     return {};
@@ -43,33 +56,41 @@ const runnerEnv = {
   ...process.env,
 };
 
-function writeJson(response, statusCode, payload) {
+function writeJson(response, statusCode, payload, requestId) {
   response.writeHead(statusCode, {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Recipe-Request-Id',
     'Content-Type': 'application/json; charset=utf-8',
+    'X-Recipe-Request-Id': requestId,
   });
   response.end(JSON.stringify(payload));
 }
 
-function logRunnerFailure({payload, stdout, stderr, message}) {
-  console.error('[recipe-runner] Request failed');
-  console.error('[recipe-runner] Recipe preview:');
+function logRunnerFailure({requestId, payload, stdout, stderr, message}) {
+  console.error(`[recipe-runner:${requestId}] Request failed`);
+  console.error(`[recipe-runner:${requestId}] Recipe preview:`);
   console.error((payload.recipe || '').split('\n').slice(0, 12).join('\n'));
   if (stderr.trim()) {
-    console.error('[recipe-runner] Python stderr:');
+    console.error(`[recipe-runner:${requestId}] Python stderr:`);
     console.error(stderr.trim());
   }
   if (stdout.trim()) {
-    console.error('[recipe-runner] Python stdout:');
+    console.error(`[recipe-runner:${requestId}] Python stdout:`);
     console.error(stdout.trim());
   }
-  console.error(`[recipe-runner] Response message: ${message}`);
+  console.error(`[recipe-runner:${requestId}] Response message: ${message}`);
 }
 
-function runRecipe(payload) {
+function runRecipe(payload, requestId) {
   return new Promise((resolve, reject) => {
+    console.log(`[recipe-runner:${requestId}] Spawning python runner`, {
+      inputColumns: payload.input?.columns || [],
+      inputRowCount: payload.input?.rows?.length || 0,
+      outputColumns: payload.outputColumns || [],
+      recipePreview: previewText(payload.recipe, 160),
+    });
+
     const child = spawn('python3', [runnerPath], {
       cwd: siteDir,
       env: runnerEnv,
@@ -94,10 +115,15 @@ function runRecipe(payload) {
     child.on('close', (code) => {
       if (code === 0) {
         try {
-          resolve(JSON.parse(stdout));
+          const parsed = JSON.parse(stdout);
+          console.log(`[recipe-runner:${requestId}] Python runner completed`, {
+            outputColumns: parsed.columns || [],
+            outputRowCount: parsed.rows?.length || 0,
+          });
+          resolve(parsed);
         } catch (error) {
           const message = `Recipe runner returned invalid JSON: ${stdout || error.message}`;
-          logRunnerFailure({payload, stdout, stderr, message});
+          logRunnerFailure({requestId, payload, stdout, stderr, message});
           reject(new Error(message));
         }
         return;
@@ -111,7 +137,7 @@ function runRecipe(payload) {
         // Keep the raw stderr/stdout message.
       }
 
-      logRunnerFailure({payload, stdout, stderr, message});
+      logRunnerFailure({requestId, payload, stdout, stderr, message});
       reject(new Error(message));
     });
 
@@ -121,13 +147,20 @@ function runRecipe(payload) {
 }
 
 const server = http.createServer((request, response) => {
+  const requestId = request.headers['x-recipe-request-id'] || createRequestId();
+  console.log(`[recipe-runner:${requestId}] Incoming request ${request.method} ${request.url}`);
+
   if (request.method === 'OPTIONS') {
-    writeJson(response, 204, {});
+    writeJson(response, 204, {}, requestId);
     return;
   }
 
   if (request.method !== 'POST' || request.url !== '/run-recipe') {
-    writeJson(response, 404, {error: 'Not found'});
+    console.warn(`[recipe-runner:${requestId}] Rejected request`, {
+      method: request.method,
+      url: request.url,
+    });
+    writeJson(response, 404, {error: 'Not found'}, requestId);
     return;
   }
 
@@ -137,13 +170,33 @@ const server = http.createServer((request, response) => {
   });
 
   request.on('end', async () => {
+    console.log(`[recipe-runner:${requestId}] Raw body received`, {
+      bytes: Buffer.byteLength(body || '', 'utf8'),
+      preview: previewText(body),
+    });
+
     try {
       const payload = JSON.parse(body || '{}');
-      const result = await runRecipe(payload);
-      writeJson(response, 200, result);
+      const result = await runRecipe(payload, requestId);
+      writeJson(response, 200, result, requestId);
     } catch (error) {
-      console.error('[recipe-runner] HTTP request failed:', error.message);
-      writeJson(response, 500, {error: error.message});
+      if (error instanceof SyntaxError) {
+        console.error(`[recipe-runner:${requestId}] Invalid JSON body`, {
+          preview: previewText(body),
+        });
+        writeJson(response, 400, {error: 'Invalid JSON request body.'}, requestId);
+        return;
+      }
+
+      console.error(`[recipe-runner:${requestId}] HTTP request failed:`, error.message);
+      writeJson(response, 500, {error: error.message}, requestId);
+    }
+  });
+
+  request.on('error', (error) => {
+    console.error(`[recipe-runner:${requestId}] Request stream error:`, error.message);
+    if (!response.headersSent) {
+      writeJson(response, 500, {error: `Request stream error: ${error.message}`}, requestId);
     }
   });
 });

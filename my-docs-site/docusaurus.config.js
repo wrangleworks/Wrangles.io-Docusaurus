@@ -68,6 +68,11 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
+          {
+            to: '/playground',
+            position: 'left',
+            label: 'Playground',
+          },
         ],
       },
       prism: {

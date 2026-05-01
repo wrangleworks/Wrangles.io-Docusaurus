@@ -1,0 +1,692 @@
+.page {
+  --panel: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 236, 0.92));
+  --panel-border: rgba(28, 41, 61, 0.12);
+  --panel-shadow: 0 28px 60px rgba(34, 47, 73, 0.12);
+  --ink: #172033;
+  --muted: #566172;
+  --accent: #e25d3f;
+  --accent-deep: #b9452c;
+  --surface: #fffdf7;
+  --track: rgba(23, 32, 51, 0.08);
+  color: var(--ink);
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem 0 2.5rem;
+}
+
+.hero,
+.dataPanel,
+.controlPanel,
+.recipePanel,
+.paletteGroup,
+.pipelineBoard,
+.emptyInspector {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--panel-shadow);
+}
+
+.hero {
+  align-items: end;
+  background:
+    radial-gradient(circle at top left, rgba(255, 186, 104, 0.28), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(70, 162, 201, 0.18), transparent 32%),
+    linear-gradient(135deg, #fff7df, #fffdf7 45%, #eef8ff);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.hero::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  content: '';
+  height: 1px;
+  left: -10%;
+  position: absolute;
+  top: 0;
+  width: 120%;
+}
+
+.kicker,
+.eyebrow {
+  color: var(--accent-deep);
+  font-family: "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.sectionHeader h2,
+.emptyInspector h2 {
+  font-family: "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0.8rem 0 0;
+  max-width: 58ch;
+}
+
+.heroActions {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: end;
+}
+
+.primaryButton,
+.secondaryButton,
+.paletteCard button,
+.gridControls button,
+.nodeActions button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-width: 11rem;
+  padding: 0.9rem 1.2rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #e25d3f, #ff9063);
+  box-shadow: 0 18px 30px rgba(226, 93, 63, 0.28);
+  color: white;
+  font-weight: 700;
+}
+
+.secondaryButton {
+  background: rgba(23, 32, 51, 0.08);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.paletteCard button:hover,
+.gridControls button:hover,
+.nodeActions button:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.topDeck {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+}
+
+.dataPanel,
+.controlPanel,
+.recipePanel,
+.paletteGroup,
+.pipelineBoard,
+.emptyInspector {
+  padding: 1.1rem;
+}
+
+.controlPanel {
+  display: grid;
+  gap: 1rem;
+}
+
+.inspector {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sectionHeader {
+  align-items: start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.gridControls {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.gridControls span {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.gridControls button,
+.nodeActions button {
+  background: rgba(23, 32, 51, 0.08);
+  color: var(--ink);
+  padding: 0.45rem 0.7rem;
+}
+
+.gridControls button:disabled,
+.nodeActions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.tableShell {
+  background:
+    linear-gradient(180deg, rgba(23, 32, 51, 0.04), transparent),
+    var(--surface);
+  border: 1px solid rgba(23, 32, 51, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.tableScroll {
+  overflow: auto;
+}
+
+.playTable {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+.playTable th,
+.playTable td {
+  border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+  border-right: 1px solid rgba(23, 32, 51, 0.08);
+  padding: 0;
+  vertical-align: top;
+}
+
+.playTable th:last-child,
+.playTable td:last-child {
+  border-right: 0;
+}
+
+.playTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.indexHeader,
+.indexCell {
+  background: rgba(23, 32, 51, 0.04);
+  text-align: center;
+  width: 3.25rem;
+}
+
+.indexCell {
+  color: var(--muted);
+  font-weight: 700;
+  padding: 0.7rem 0.5rem;
+}
+
+.columnInput,
+.cellInput,
+.fieldInput {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.columnInput,
+.cellInput {
+  padding: 0.8rem 0.85rem;
+}
+
+.columnInput {
+  font-weight: 700;
+}
+
+.cellInput {
+  min-height: 3.1rem;
+  resize: vertical;
+}
+
+.helperText,
+.fieldHint,
+.recipeMeta,
+.emptyInspector p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.fieldGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.fieldCard {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 32, 51, 0.08);
+  border-radius: 20px;
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.85rem;
+}
+
+.fieldLabel {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.fieldInput {
+  background: rgba(23, 32, 51, 0.04);
+  border-radius: 16px;
+  padding: 0.8rem 0.9rem;
+}
+
+.listInput {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.toggle {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.65rem;
+  font-weight: 700;
+}
+
+.columnStrip {
+  border-top: 1px dashed rgba(23, 32, 51, 0.12);
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.columnStrip span {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.columnChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.columnChips code {
+  background: rgba(23, 32, 51, 0.08);
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem;
+}
+
+.colorBadge {
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.35rem 0.7rem;
+}
+
+.recipeMeta {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.notice,
+.error {
+  border-radius: 18px;
+  margin: 0.85rem 0 0;
+  padding: 0.8rem 0.95rem;
+}
+
+.notice {
+  background: rgba(47, 131, 92, 0.1);
+  color: #1e6949;
+}
+
+.error {
+  background: rgba(203, 60, 51, 0.12);
+  color: #9f281d;
+}
+
+.bottomDeck {
+  display: grid;
+  gap: 1rem;
+}
+
+.builderLayout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(18rem, 24rem) minmax(0, 1fr);
+}
+
+.palette {
+  display: grid;
+  gap: 1rem;
+}
+
+.paletteGroup {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 236, 0.92)),
+    var(--surface);
+}
+
+.groupHeader {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.groupHeader h3 {
+  font-family: "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+  margin: 0;
+}
+
+.groupHeader span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.paletteCards {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.paletteCard {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 32, 51, 0.08);
+  border-radius: 22px;
+  cursor: grab;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.9rem;
+}
+
+.paletteCard strong,
+.pipelineCard strong {
+  display: block;
+  font-family: "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+  font-size: 1.03rem;
+  margin-bottom: 0.15rem;
+}
+
+.paletteCard p,
+.pipelineCard span,
+.emptyPipeline p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.paletteCard button {
+  background: rgba(23, 32, 51, 0.08);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 0.6rem 0.9rem;
+}
+
+.pipelineBoard {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.93), rgba(239, 248, 255, 0.88)),
+    radial-gradient(circle at top left, rgba(240, 143, 88, 0.16), transparent 32%);
+  min-height: 28rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.pipelineBoard::before {
+  background-image:
+    linear-gradient(rgba(23, 32, 51, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 32, 51, 0.05) 1px, transparent 1px);
+  background-position: center center;
+  background-size: 22px 22px;
+  content: '';
+  inset: 0;
+  opacity: 0.55;
+  position: absolute;
+}
+
+.pipelineTrack,
+.emptyPipeline {
+  position: relative;
+  z-index: 1;
+}
+
+.pipelineTrack {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.emptyPipeline {
+  align-items: center;
+  border: 2px dashed rgba(23, 32, 51, 0.12);
+  border-radius: 24px;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  margin: 1.1rem;
+  min-height: 24rem;
+  padding: 1rem;
+  place-content: center;
+  text-align: center;
+}
+
+.pipelineNode {
+  align-items: center;
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.pipelineCard {
+  align-items: start;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(23, 32, 51, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 20px 35px rgba(39, 54, 84, 0.12);
+  display: grid;
+  gap: 0.2rem;
+  min-width: 12rem;
+  padding: 0.95rem;
+  text-align: left;
+}
+
+.pipelineCardActive {
+  box-shadow: 0 24px 40px rgba(226, 93, 63, 0.22);
+  transform: translateY(-3px);
+}
+
+.nodeIndex {
+  background: rgba(23, 32, 51, 0.08);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+  padding: 0.2rem 0.55rem;
+  width: fit-content;
+}
+
+.nodeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.connector {
+  background: linear-gradient(90deg, rgba(23, 32, 51, 0.12), rgba(226, 93, 63, 0.26), rgba(23, 32, 51, 0.12));
+  border-radius: 999px;
+  height: 0.4rem;
+  width: 4rem;
+}
+
+.emptyInspector {
+  display: grid;
+  place-content: center;
+  text-align: left;
+}
+
+.badgesun,
+.cardsun {
+  background: rgba(255, 196, 92, 0.22);
+}
+
+.badgelagoon,
+.cardlagoon {
+  background: rgba(78, 171, 200, 0.18);
+}
+
+.badgeember,
+.cardember {
+  background: rgba(235, 105, 74, 0.18);
+}
+
+.badgeforest,
+.cardforest {
+  background: rgba(81, 156, 112, 0.18);
+}
+
+.badgeviolet,
+.cardviolet {
+  background: rgba(132, 113, 220, 0.16);
+}
+
+.badgesky,
+.cardsky {
+  background: rgba(85, 150, 232, 0.16);
+}
+
+.badgeslate,
+.cardslate {
+  background: rgba(99, 112, 133, 0.16);
+}
+
+@media (max-width: 996px) {
+  .hero,
+  .topDeck,
+  .builderLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroActions {
+    justify-items: stretch;
+  }
+
+  .pipelineTrack {
+    justify-content: center;
+  }
+}
+
+
+
+/* Modal Overlay Background */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* The Modal Window itself */
+.modalContent {
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: modalPopIn 0.2s ease-out forwards;
+}
+
+.modalHeader {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200, #eaeaea);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modalTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.closeModalButton {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-600, #666);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.closeModalButton:hover {
+  background-color: var(--ifm-color-emphasis-100, #f0f0f0);
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.modalFooter {
+  padding: 16px 24px;
+  border-top: 1px solid var(--ifm-color-emphasis-200, #eaeaea);
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--ifm-color-emphasis-100, #fafafa);
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

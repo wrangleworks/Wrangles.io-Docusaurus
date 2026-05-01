@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
 import yaml from 'js-yaml';
 import {RecipePlaygroundProvider} from './context';
+import {runRecipeRequest} from '../recipeRunnerClient';
 import styles from './styles.module.css';
 
 function trimCell(value) {
@@ -300,19 +301,6 @@ function DataTable({columns, rows, editable, onCellChange}) {
   );
 }
 
-async function readJsonResponse(response) {
-  const rawText = await response.text();
-  if (!rawText) {
-    return {};
-  }
-
-  try {
-    return JSON.parse(rawText);
-  } catch (_error) {
-    return {error: rawText};
-  }
-}
-
 export default function RecipePlayground({
   recipe,
   editable = false,
@@ -364,25 +352,15 @@ export default function RecipePlayground({
     setError('');
 
     try {
-      const response = await fetch(runnerUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const payload = await runRecipeRequest({
+        runnerUrl,
+        recipe: normalizedRecipe,
+        input: {
+          columns: resolvedInputColumns,
+          rows: currentInputRows,
         },
-        body: JSON.stringify({
-          recipe: normalizedRecipe,
-          input: {
-            columns: resolvedInputColumns,
-            rows: currentInputRows,
-          },
-          outputColumns: resolvedOutputColumns,
-        }),
+        outputColumns: resolvedOutputColumns,
       });
-
-      const payload = await readJsonResponse(response);
-      if (!response.ok) {
-        throw new Error(payload.error || 'Recipe run failed.');
-      }
 
       setCurrentOutput({
         columns: payload.columns?.length ? payload.columns : resolvedOutputColumns,

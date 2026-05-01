@@ -13,16 +13,33 @@ PORT = int(os.environ.get('PORT', '3000'))
 RUN_RECIPE = SITE_DIR / 'run_recipe.py'
 
 
+def create_request_id():
+    import time
+    import random
+
+    return f"prod-{int(time.time() * 1000):x}-{random.randint(0, 0xFFFFFF):06x}"
+
+
+def preview_text(value, limit=220):
+    if not value:
+        return ''
+
+    normalized = ' '.join(str(value).split())
+    return f"{normalized[:limit]}..." if len(normalized) > limit else normalized
+
+
 class AppHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(BUILD_DIR), **kwargs)
 
     def do_OPTIONS(self):
         if self.path == '/run-recipe':
+            request_id = self.headers.get('X-Recipe-Request-Id', create_request_id())
+            print(f'[prod-server:{request_id}] OPTIONS {self.path}')
             self.send_response(204)
             self.send_header('Access-Control-Allow-Origin', '*')
             self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
-            self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+            self.send_header('Access-Control-Allow-Headers', 'Content-Type, X-Recipe-Request-Id')
             self.end_headers()
             return
 
@@ -32,6 +49,7 @@ class AppHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         pathname = urlparse(self.path).path
         if pathname == '/healthz':
+            print('[prod-server] GET /healthz')
             self._send_json(200, {'ok': True})
             return
         self._serve_static(pathname, head_only=False)
@@ -46,13 +64,23 @@ class AppHandler(SimpleHTTPRequestHandler):
         self._serve_static(pathname, head_only=True)
 
     def do_POST(self):
+        request_id = self.headers.get('X-Recipe-Request-Id', create_request_id())
         pathname = urlparse(self.path).path
+        print(f'[prod-server:{request_id}] POST {pathname}')
         if pathname != '/run-recipe':
-            self._send_json(404, {'error': 'Not found'})
+            print(f'[prod-server:{request_id}] Rejected POST route {pathname}')
+            self._send_json(404, {'error': 'Not found'}, request_id=request_id)
             return
 
         content_length = int(self.headers.get('Content-Length', '0'))
         payload = self.rfile.read(content_length)
+        print(
+            f'[prod-server:{request_id}] Payload received',
+            {
+                'bytes': content_length,
+                'preview': preview_text(payload.decode('utf-8', errors='replace')),
+            },
+        )
 
         process = subprocess.run(
             [sys.executable, str(RUN_RECIPE)],
@@ -67,9 +95,17 @@ class AppHandler(SimpleHTTPRequestHandler):
             try:
                 response = json.loads(raw.decode('utf-8'))
             except json.JSONDecodeError:
-                self._send_json(500, {'error': raw.decode('utf-8', errors='replace')})
+                print(f'[prod-server:{request_id}] Invalid JSON from runner', preview_text(raw.decode('utf-8', errors='replace')))
+                self._send_json(500, {'error': raw.decode('utf-8', errors='replace')}, request_id=request_id)
                 return
-            self._send_json(200, response)
+            print(
+                f'[prod-server:{request_id}] Runner completed',
+                {
+                    'outputColumns': response.get('columns', []),
+                    'outputRowCount': len(response.get('rows', [])),
+                },
+            )
+            self._send_json(200, response, request_id=request_id)
             return
 
         message = process.stderr.decode('utf-8', errors='replace').strip() or process.stdout.decode('utf-8', errors='replace').strip() or 'Recipe runner failed.'
@@ -80,7 +116,12 @@ class AppHandler(SimpleHTTPRequestHandler):
         except json.JSONDecodeError:
             pass
 
-        self._send_json(500, {'error': message})
+        print(f'[prod-server:{request_id}] Runner failed', {
+            'stderr': preview_text(process.stderr.decode('utf-8', errors='replace')),
+            'stdout': preview_text(process.stdout.decode('utf-8', errors='replace')),
+            'message': message,
+        })
+        self._send_json(500, {'error': message}, request_id=request_id)
 
     def translate_path(self, path):
         pathname = urlparse(path).path
@@ -99,6 +140,7 @@ class AppHandler(SimpleHTTPRequestHandler):
             candidate = BUILD_DIR / 'index.html'
 
         if not candidate.exists():
+            print(f'[prod-server] Static build not found for {pathname}')
             self._send_json(500, {'error': 'Static build not found'})
             return
 
@@ -113,14 +155,16 @@ class AppHandler(SimpleHTTPRequestHandler):
         if not head_only:
             self.wfile.write(data)
 
-    def _send_json(self, status_code, payload):
+    def _send_json(self, status_code, payload, request_id=''):
         data = json.dumps(payload).encode('utf-8')
         self.send_response(status_code)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, X-Recipe-Request-Id')
         self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.send_header('Content-Length', str(len(data)))
+        if request_id:
+            self.send_header('X-Recipe-Request-Id', request_id)
         self.end_headers()
         self.wfile.write(data)
 
