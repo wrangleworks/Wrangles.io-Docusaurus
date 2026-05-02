@@ -16,11 +16,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=3000
 
 COPY requirements.txt ./
-RUN python -m pip install --no-cache-dir --disable-pip-version-check --no-compile -r requirements.txt
-
 COPY run_recipe.py ./run_recipe.py
 COPY start_prod.py ./start_prod.py
+COPY docker-entrypoint.sh ./docker-entrypoint.sh
 COPY --from=builder /app/build ./build
 
+RUN chmod +x /app/docker-entrypoint.sh
+
 EXPOSE 3000
-CMD ["python", "./start_prod.py"]
+CMD ["./docker-entrypoint.sh"]
