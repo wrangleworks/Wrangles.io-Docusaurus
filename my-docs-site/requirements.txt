@@ -1,2 +1,2 @@
 pandas
-wrangles
+wrangles==1.14.0
