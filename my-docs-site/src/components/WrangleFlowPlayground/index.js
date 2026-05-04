@@ -45,7 +45,8 @@ function createBlock(type) {
 
   for (const field of definition.fields) {
     if (field.type === 'list' && Array.isArray(defaults[field.key])) {
-      defaults[field.key] = defaults[field.key].join('\n');
+      // Prepend hyphens to default list items when adding a new block
+      defaults[field.key] = defaults[field.key].map(item => `- ${item}`).join('\n');
     }
   }
 
@@ -55,7 +56,6 @@ function createBlock(type) {
     values: defaults,
   };
 }
-
 function moveItem(items, fromIndex, toIndex) {
   if (toIndex < 0 || toIndex >= items.length) {
     return items;
@@ -70,10 +70,10 @@ function moveItem(items, fromIndex, toIndex) {
 function normalizeFieldValue(field, value) {
   if (field.type === 'list') {
     return Array.isArray(value)
-      ? value.map((item) => String(item).trim()).filter(Boolean)
+      ? value.map((item) => String(item).replace(/^-\s*/, '').trim()).filter(Boolean)
       : String(value ?? '')
           .split('\n')
-          .map((item) => item.trim())
+          .map((item) => item.replace(/^-\s*/, '').trim())
           .filter(Boolean);
   }
 
@@ -83,7 +83,6 @@ function normalizeFieldValue(field, value) {
 
   return value;
 }
-
 function toRecipeConfig(block) {
   const definition = WRANGLE_MAP[block.type];
   const values = Object.fromEntries(
@@ -254,13 +253,34 @@ function FieldControl({field, value, onChange}) {
   if (field.type === 'list') {
     const listValue = Array.isArray(value) ? value.join('\n') : String(value ?? '');
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent standard new line
+        
+        const target = event.target;
+        const { selectionStart, selectionEnd } = target;
+        const text = target.value;
+
+        // Inject the hyphen at the cursor
+        const nextValue = text.substring(0, selectionStart) + '\n- ' + text.substring(selectionEnd);
+        onChange(nextValue);
+
+        // Move the cursor exactly after the newly injected '- '
+        window.requestAnimationFrame(() => {
+          target.selectionStart = selectionStart + 3;
+          target.selectionEnd = selectionStart + 3;
+        });
+      }
+    };
+
     return (
       <textarea
         className={clsx(styles.fieldInput, styles.listInput)}
         rows={4}
         value={listValue}
         onChange={(event) => onChange(event.target.value)}
-        placeholder={field.placeholder}
+        onKeyDown={handleKeyDown}
+        placeholder={field.placeholder ? `- ${field.placeholder}` : '- Column A\n- Column B'}
         spellCheck={false}
       />
     );
