@@ -16,6 +16,13 @@ const DEFAULT_ROWS = 4;
 
 let nextBlockId = 1;
 
+const CATEGORY_ICONS = {
+  Convert: 'Cv',
+  Merge: 'Mg',
+  Split: 'Sp',
+  Select: 'Sl',
+};
+
 function createColumnName(index) {
   return `Column ${String.fromCharCode(65 + index)}`;
 }
@@ -34,10 +41,18 @@ function createInitialTable() {
 
 function createBlock(type) {
   const definition = WRANGLE_MAP[type];
+  const defaults = JSON.parse(JSON.stringify(definition.defaults));
+
+  for (const field of definition.fields) {
+    if (field.type === 'list' && Array.isArray(defaults[field.key])) {
+      defaults[field.key] = defaults[field.key].join('\n');
+    }
+  }
+
   return {
     id: `${type}-${nextBlockId++}`,
     type,
-    values: JSON.parse(JSON.stringify(definition.defaults)),
+    values: defaults,
   };
 }
 
@@ -112,37 +127,25 @@ function copyRows(rows) {
   return rows.map((row) => [...row]);
 }
 
+function WrangleIcon({category}) {
+  return <span className={styles.wrangleIcon}>{CATEGORY_ICONS[category] ?? category.slice(0, 2)}</span>;
+}
+
 function TableEditor({
   table,
   onCellChange,
   onColumnChange,
   onAddRow,
-  onRemoveRow,
   onAddColumn,
-  onRemoveColumn,
+  onRemoveRowAt,
+  onRemoveColumnAt,
 }) {
   return (
     <section className={styles.dataPanel}>
-      <div className={styles.sectionHeader}>
+      <div className={styles.panelHeader}>
         <div>
-          <p className={styles.eyebrow}>Top Left</p>
           <h2>Data Board</h2>
-        </div>
-        <div className={styles.gridControls}>
-          <span>{table.rows.length} rows</span>
-          <button type="button" onClick={onAddRow} disabled={table.rows.length >= MAX_ROWS}>
-            + Row
-          </button>
-          <button type="button" onClick={onRemoveRow} disabled={table.rows.length <= MIN_ROWS}>
-            - Row
-          </button>
-          <span>{table.columns.length} cols</span>
-          <button type="button" onClick={onAddColumn} disabled={table.columns.length >= MAX_COLUMNS}>
-            + Col
-          </button>
-          <button type="button" onClick={onRemoveColumn} disabled={table.columns.length <= MIN_COLUMNS}>
-            - Col
-          </button>
+          <p>{table.rows.length} rows · {table.columns.length} columns</p>
         </div>
       </div>
 
@@ -154,20 +157,49 @@ function TableEditor({
                 <th className={styles.indexHeader}>#</th>
                 {table.columns.map((column, columnIndex) => (
                   <th key={`column-${columnIndex}`}>
-                    <input
-                      className={styles.columnInput}
-                      value={column}
-                      onChange={(event) => onColumnChange(columnIndex, event.target.value)}
-                      spellCheck={false}
-                    />
+                    <div className={styles.columnHeaderCell}>
+                      <input
+                        className={styles.columnInput}
+                        value={column}
+                        onChange={(event) => onColumnChange(columnIndex, event.target.value)}
+                        spellCheck={false}
+                      />
+                      <button
+                        type="button"
+                        className={styles.inlineDangerButton}
+                        onClick={() => onRemoveColumnAt(columnIndex)}
+                        disabled={table.columns.length <= MIN_COLUMNS}
+                        aria-label={`Remove ${column || `column ${columnIndex + 1}`}`}>
+                        ×
+                      </button>
+                    </div>
                   </th>
                 ))}
+                <th className={styles.addColumnHeader}>
+                  <button
+                    type="button"
+                    onClick={onAddColumn}
+                    disabled={table.columns.length >= MAX_COLUMNS}
+                    aria-label="Add column">
+                    +
+                  </button>
+                </th>
               </tr>
             </thead>
             <tbody>
               {table.rows.map((row, rowIndex) => (
                 <tr key={`row-${rowIndex}`}>
-                  <td className={styles.indexCell}>{rowIndex + 1}</td>
+                  <td className={styles.indexCell}>
+                    <span>{rowIndex + 1}</span>
+                    <button
+                      type="button"
+                      className={styles.inlineDangerButton}
+                      onClick={() => onRemoveRowAt(rowIndex)}
+                      disabled={table.rows.length <= MIN_ROWS}
+                      aria-label={`Remove row ${rowIndex + 1}`}>
+                      ×
+                    </button>
+                  </td>
                   {table.columns.map((column, columnIndex) => (
                     <td key={`${column}-${rowIndex}`}>
                       <textarea
@@ -179,15 +211,20 @@ function TableEditor({
                       />
                     </td>
                   ))}
+                  <td className={styles.addColumnSpacer} aria-hidden="true" />
                 </tr>
               ))}
             </tbody>
           </table>
+          <button
+            type="button"
+            className={styles.addRowButton}
+            onClick={onAddRow}
+            disabled={table.rows.length >= MAX_ROWS}>
+            + Add Row
+          </button>
         </div>
       </div>
-      <p className={styles.helperText}>
-        Enter plain strings, numbers, lists like <code>['A', 'B']</code>, or dictionaries like <code>{`{'Key': 'Value'}`}</code>.
-      </p>
     </section>
   );
 }
@@ -215,11 +252,13 @@ function FieldControl({field, value, onChange}) {
   }
 
   if (field.type === 'list') {
+    const listValue = Array.isArray(value) ? value.join('\n') : String(value ?? '');
+
     return (
       <textarea
         className={clsx(styles.fieldInput, styles.listInput)}
         rows={4}
-        value={Array.isArray(value) ? value.join('\n') : ''}
+        value={listValue}
         onChange={(event) => onChange(event.target.value)}
         placeholder={field.placeholder}
         spellCheck={false}
@@ -305,27 +344,39 @@ function PipelineCard({block, isActive, index, isLast, onSelect, onMove, onDupli
 
   return (
     <div className={styles.pipelineNode}>
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         className={clsx(styles.pipelineCard, isActive && styles.pipelineCardActive, styles[`card${definition.color}`])}
-        onClick={() => onSelect(block.id)}>
+        onClick={() => onSelect(block.id)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onSelect(block.id);
+          }
+        }}>
         <span className={styles.nodeIndex}>{index + 1}</span>
-        <strong>{definition.label}</strong>
-        <span>{definition.type}</span>
-      </button>
-      <div className={styles.nodeActions}>
-        <button type="button" onClick={() => onMove(index, -1)} aria-label="Move block left">
-          ←
-        </button>
-        <button type="button" onClick={() => onMove(index, 1)} aria-label="Move block right">
-          →
-        </button>
-        <button type="button" onClick={() => onDuplicate(block.id)} aria-label="Duplicate block">
-          Duplicate
-        </button>
-        <button type="button" onClick={() => onRemove(block.id)} aria-label="Remove block">
-          Remove
-        </button>
+        <span className={styles.nodeMain}>
+          <WrangleIcon category={definition.category} />
+          <span>
+            <strong>{definition.label}</strong>
+            <span>{definition.type}</span>
+          </span>
+        </span>
+        <span className={styles.nodeActions}>
+          <button type="button" onClick={(event) => { event.stopPropagation(); onMove(index, -1); }} aria-label="Move block up">
+            ↑
+          </button>
+          <button type="button" onClick={(event) => { event.stopPropagation(); onMove(index, 1); }} aria-label="Move block down">
+            ↓
+          </button>
+          <button type="button" onClick={(event) => { event.stopPropagation(); onDuplicate(block.id); }} aria-label="Duplicate block">
+            ⧉
+          </button>
+          <button type="button" onClick={(event) => { event.stopPropagation(); onRemove(block.id); }} aria-label="Remove block">
+            ×
+          </button>
+        </span>
       </div>
       {!isLast ? <div className={styles.connector} aria-hidden="true" /> : null}
     </div>
@@ -366,6 +417,7 @@ function Palette({onAdd}) {
                     className={clsx(styles.paletteCard, styles[`card${item.color}`])}
                     draggable
                     onDragStart={(event) => event.dataTransfer.setData('text/wrangle-type', item.type)}>
+                    <WrangleIcon category={item.category} />
                     <div>
                       <strong>{item.label}</strong>
                       <p>{item.description}</p>
@@ -431,13 +483,13 @@ export default function WrangleFlowPlayground() {
     }));
   }
 
-  function removeRow() {
+  function removeRowAt(rowIndex) {
     setTable((previousTable) => ({
       ...previousTable,
       rows:
         previousTable.rows.length <= MIN_ROWS
           ? previousTable.rows
-          : previousTable.rows.slice(0, -1),
+          : previousTable.rows.filter((_, currentIndex) => currentIndex !== rowIndex),
     }));
   }
 
@@ -454,15 +506,15 @@ export default function WrangleFlowPlayground() {
     });
   }
 
-  function removeColumn() {
+  function removeColumnAt(columnIndex) {
     setTable((previousTable) => {
       if (previousTable.columns.length <= MIN_COLUMNS) {
         return previousTable;
       }
 
       return {
-        columns: previousTable.columns.slice(0, -1),
-        rows: previousTable.rows.map((row) => row.slice(0, -1)),
+        columns: previousTable.columns.filter((_, currentIndex) => currentIndex !== columnIndex),
+        rows: previousTable.rows.map((row) => row.filter((_, currentIndex) => currentIndex !== columnIndex)),
       };
     });
   }
@@ -586,63 +638,31 @@ export default function WrangleFlowPlayground() {
 
   return (
     <div className={styles.page}>
-      <section className={styles.hero}>
+      <header className={styles.appBar}>
         <div>
-          <p className={styles.kicker}>Wrangles Sandbox</p>
-          <h1>Build recipes like a game board.</h1>
-          <p className={styles.lead}>
-            Edit the input data, drag wrangle blocks into the pipeline, click a block to configure it, and run the whole recipe against the board.
-          </p>
+          <h1>Wrangles Sandbox</h1>
+          <span>Interactive recipe workspace</span>
         </div>
-        <div className={styles.heroActions}>
-          <button type="button" className={styles.primaryButton} onClick={runBoard} disabled={isRunning}>
-            {isRunning ? 'Running…' : 'Run Board'}
-          </button>
+        <div className={styles.appActions}>
           <button type="button" className={styles.secondaryButton} onClick={resetBoard}>
             Reset Board
           </button>
+          <button type="button" className={styles.primaryButton} onClick={runBoard} disabled={isRunning}>
+            {isRunning ? 'Running...' : 'Run Board'}
+          </button>
         </div>
-      </section>
+      </header>
 
-      <section className={styles.topDeck}>
-        <TableEditor
-          table={table}
-          onCellChange={setCellValue}
-          onColumnChange={setColumnName}
-          onAddRow={addRow}
-          onRemoveRow={removeRow}
-          onAddColumn={addColumn}
-          onRemoveColumn={removeColumn}
-        />
-
-        <section className={styles.controlPanel}>
-          <div className={styles.recipePanel}>
-            <div className={styles.sectionHeader}>
-              <div>
-                <p className={styles.eyebrow}>Live Recipe</p>
-                <h2>Generated YAML</h2>
-              </div>
-              <span className={styles.recipeMeta}>{blocks.length} wrangles</span>
-            </div>
-            <CodeBlock language="yaml">{recipeYaml}</CodeBlock>
-            {notice ? <p className={styles.notice}>{notice}</p> : null}
-            {error ? <p className={styles.error}>{error}</p> : null}
-          </div>
-        </section>
-      </section>
-
-      <section className={styles.bottomDeck}>
-        <div className={styles.sectionHeader}>
-          <div>
-            <p className={styles.eyebrow}>Bottom Half</p>
+      <div className={styles.workspace}>
+        <aside className={styles.leftPane}>
+          <div className={styles.paneHeader}>
             <h2>Wrangle Blocks</h2>
+            <p>Drag or add a block to the pipeline.</p>
           </div>
-          <p className={styles.helperText}>Drag blocks into the chain or click Add to append them instantly.</p>
-        </div>
-
-        <div className={styles.builderLayout}>
           <Palette onAdd={addBlock} />
+        </aside>
 
+        <main className={styles.centerPane}>
           <div
             className={styles.pipelineBoard}
             onDragOver={(event) => event.preventDefault()}
@@ -653,6 +673,12 @@ export default function WrangleFlowPlayground() {
                 addBlock(droppedType);
               }
             }}>
+            <div className={styles.panelHeader}>
+              <div>
+                <h2>Pipeline Builder</h2>
+                <p>{blocks.length ? `${blocks.length} configured ${blocks.length === 1 ? 'step' : 'steps'}` : 'Drop blocks here to start a recipe.'}</p>
+              </div>
+            </div>
             {blocks.length ? (
               <div className={styles.pipelineTrack}>
                 {blocks.map((block, index) => (
@@ -672,12 +698,37 @@ export default function WrangleFlowPlayground() {
             ) : (
               <div className={styles.emptyPipeline}>
                 <strong>Drop wrangle cards here</strong>
-                <p>Your pipeline will stack in order and become a runnable recipe.</p>
+                <p>Your recipe steps will stack in order as connected nodes.</p>
               </div>
             )}
           </div>
-        </div>
-      </section>
+
+          <TableEditor
+            table={table}
+            onCellChange={setCellValue}
+            onColumnChange={setColumnName}
+            onAddRow={addRow}
+            onAddColumn={addColumn}
+            onRemoveRowAt={removeRowAt}
+            onRemoveColumnAt={removeColumnAt}
+          />
+        </main>
+
+        <aside className={styles.rightPane}>
+          <div className={styles.recipePanel}>
+            <div className={styles.panelHeader}>
+              <div>
+                <h2>Generated YAML</h2>
+                <p>Updates as blocks change.</p>
+              </div>
+              <span className={styles.recipeMeta}>{blocks.length} wrangles</span>
+            </div>
+            <CodeBlock language="yaml">{recipeYaml}</CodeBlock>
+            {notice ? <p className={styles.notice}>{notice}</p> : null}
+            {error ? <p className={styles.error}>{error}</p> : null}
+          </div>
+        </aside>
+      </div>
 
       <BlockInspectorModal 
         block={activeBlock} 
