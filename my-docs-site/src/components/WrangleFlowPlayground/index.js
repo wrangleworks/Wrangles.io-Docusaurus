@@ -333,6 +333,7 @@ function PipelineCard({block, isActive, index, isLast, onSelect, onMove, onDupli
 }
 
 function Palette({onAdd}) {
+  const [openCategory, setOpenCategory] = useState('Convert');
   const categories = WRANGLE_CATALOG.reduce((grouped, item) => {
     grouped[item.category] = grouped[item.category] ?? [];
     grouped[item.category].push(item);
@@ -341,31 +342,44 @@ function Palette({onAdd}) {
 
   return (
     <div className={styles.palette}>
-      {Object.entries(categories).map(([category, items]) => (
-        <section key={category} className={styles.paletteGroup}>
-          <div className={styles.groupHeader}>
-            <h3>{category}</h3>
-            <span>{items.length} blocks</span>
-          </div>
-          <div className={styles.paletteCards}>
-            {items.map((item) => (
-              <div
-                key={item.type}
-                className={clsx(styles.paletteCard, styles[`card${item.color}`])}
-                draggable
-                onDragStart={(event) => event.dataTransfer.setData('text/wrangle-type', item.type)}>
-                <div>
-                  <strong>{item.label}</strong>
-                  <p>{item.description}</p>
-                </div>
-                <button type="button" onClick={() => onAdd(item.type)}>
-                  Add
-                </button>
+      {Object.entries(categories).map(([category, items]) => {
+        const isOpen = openCategory === category;
+
+        return (
+          <section key={category} className={clsx(styles.paletteGroup, isOpen && styles.paletteGroupOpen)}>
+            <button
+              type="button"
+              className={styles.groupHeader}
+              aria-expanded={isOpen}
+              onClick={() => setOpenCategory(isOpen ? '' : category)}>
+              <span className={styles.categoryTitle}>{category}</span>
+              <span className={styles.categoryMeta}>
+                {items.length} {items.length === 1 ? 'block' : 'blocks'}
+                <span className={styles.categoryChevron}>{isOpen ? '-' : '+'}</span>
+              </span>
+            </button>
+            {isOpen ? (
+              <div className={styles.paletteCards}>
+                {items.map((item) => (
+                  <div
+                    key={item.type}
+                    className={clsx(styles.paletteCard, styles[`card${item.color}`])}
+                    draggable
+                    onDragStart={(event) => event.dataTransfer.setData('text/wrangle-type', item.type)}>
+                    <div>
+                      <strong>{item.label}</strong>
+                      <p>{item.description}</p>
+                    </div>
+                    <button type="button" onClick={() => onAdd(item.type)}>
+                      Add
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-      ))}
+            ) : null}
+          </section>
+        );
+      })}
     </div>
   );
 }
