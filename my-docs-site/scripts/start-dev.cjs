@@ -53,13 +53,26 @@ function isRecipeRoute(url) {
   return Boolean(url && url.startsWith('/run-recipe'));
 }
 
+function getForwardedUrl(port, pathname = '/') {
+  const codespaceName = process.env.CODESPACE_NAME;
+  const forwardingDomain = process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN || 'app.github.dev';
+
+  if (codespaceName) {
+    return `https://${codespaceName}-${port}.${forwardingDomain}${pathname}`;
+  }
+
+  return `http://127.0.0.1:${port}${pathname}`;
+}
+
 proxy.on('error', (error, req, res) => {
   console.error('[dev-proxy] Proxy error:', error.message);
-  if (res && !res.headersSent) {
+  if (res && typeof res.writeHead === 'function' && !res.headersSent) {
     res.writeHead(502, {'Content-Type': 'application/json; charset=utf-8'});
   }
-  if (res) {
+  if (res && typeof res.end === 'function') {
     res.end(JSON.stringify({error: `Proxy error: ${error.message}`}));
+  } else if (res && typeof res.destroy === 'function') {
+    res.destroy();
   }
 });
 
@@ -174,6 +187,8 @@ function spawnChildren() {
 
 server.listen(publicPort, '0.0.0.0', () => {
   console.log(`[dev-proxy] Listening on http://0.0.0.0:${publicPort}`);
+  console.log(`[dev-proxy] Public URL -> ${getForwardedUrl(publicPort, '/')}`);
+  console.log(`[dev-proxy] Playground -> ${getForwardedUrl(publicPort, '/playground')}`);
   console.log(`[dev-proxy] Docusaurus -> http://127.0.0.1:${docusaurusPort}`);
   console.log(`[dev-proxy] Recipe runner -> http://127.0.0.1:${runnerPort}`);
   spawnChildren();

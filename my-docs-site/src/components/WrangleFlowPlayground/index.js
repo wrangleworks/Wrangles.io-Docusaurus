@@ -45,8 +45,7 @@ function createBlock(type) {
 
   for (const field of definition.fields) {
     if (field.type === 'list' && Array.isArray(defaults[field.key])) {
-      // Prepend hyphens to default list items when adding a new block
-      defaults[field.key] = defaults[field.key].map(item => `- ${item}`).join('\n');
+      defaults[field.key] = formatListValue(defaults[field.key]);
     }
   }
 
@@ -67,14 +66,22 @@ function moveItem(items, fromIndex, toIndex) {
   return nextItems;
 }
 
+function parseListValue(value) {
+  return Array.isArray(value)
+    ? value.map((item) => String(item).replace(/^-\s*/, '').trim()).filter(Boolean)
+    : String(value ?? '')
+        .split('\n')
+        .map((item) => item.replace(/^-\s*/, '').trim())
+        .filter(Boolean);
+}
+
+function formatListValue(items) {
+  return items.map((item) => `- ${item}`).join('\n');
+}
+
 function normalizeFieldValue(field, value) {
   if (field.type === 'list') {
-    return Array.isArray(value)
-      ? value.map((item) => String(item).replace(/^-\s*/, '').trim()).filter(Boolean)
-      : String(value ?? '')
-          .split('\n')
-          .map((item) => item.replace(/^-\s*/, '').trim())
-          .filter(Boolean);
+    return parseListValue(value);
   }
 
   if (field.type === 'boolean') {
@@ -124,6 +131,59 @@ function limitTable(columns, rows) {
 
 function copyRows(rows) {
   return rows.map((row) => [...row]);
+}
+
+function getBlockOutputNames(block) {
+  const definition = WRANGLE_MAP[block.type];
+  if (!definition) {
+    return [];
+  }
+
+  return definition.fields
+    .filter((field) => field.key === 'output')
+    .flatMap((field) => {
+      const value = block.values[field.key];
+      return field.type === 'list' ? parseListValue(value) : [String(value ?? '').trim()];
+    })
+    .filter(Boolean);
+}
+
+function uniqueOptions(options) {
+  return [...new Set(options.map((option) => String(option ?? '').trim()).filter(Boolean))];
+}
+
+function sanitizeInputValues(blocks, tableColumns) {
+  return blocks.map((block, blockIndex) => {
+    const definition = WRANGLE_MAP[block.type];
+    const availableInputs = uniqueOptions([
+      ...tableColumns,
+      ...blocks.slice(0, blockIndex).flatMap(getBlockOutputNames),
+    ]);
+
+    let nextValues = block.values;
+
+    for (const field of definition.fields) {
+      if (field.key !== 'input') {
+        continue;
+      }
+
+      if (field.type === 'list') {
+        const selected = parseListValue(block.values[field.key]).filter((input) => availableInputs.includes(input));
+        const nextValue = formatListValue(selected);
+        if (nextValue !== block.values[field.key]) {
+          nextValues = {...nextValues, [field.key]: nextValue};
+        }
+        continue;
+      }
+
+      const currentValue = String(block.values[field.key] ?? '').trim();
+      if (!availableInputs.includes(currentValue)) {
+        nextValues = {...nextValues, [field.key]: availableInputs[0] ?? ''};
+      }
+    }
+
+    return nextValues === block.values ? block : {...block, values: nextValues};
+  });
 }
 
 function WrangleIcon({category}) {
@@ -228,7 +288,95 @@ function TableEditor({
   );
 }
 
-function FieldControl({field, value, onChange}) {
+function getDroppedInput(event, options) {
+  const input = event.dataTransfer.getData('text/wrangle-input');
+  return options.includes(input) ? input : '';
+}
+
+function InputDropZone({children, isEmpty, onDropInput}) {
+  return (
+    <div
+      className={clsx(styles.inputDropZone, isEmpty && styles.inputDropZoneEmpty)}
+      onDragOver={(event) => event.preventDefault()}
+      onDrop={(event) => {
+        event.preventDefault();
+        onDropInput(event);
+      }}>
+      {children}
+    </div>
+  );
+}
+
+function SingleInputPicker({value, options, onChange}) {
+  const currentValue = String(value ?? '').trim();
+
+  function setInput(input) {
+    if (input) {
+      onChange(input);
+    }
+  }
+
+  return (
+    <InputDropZone
+      isEmpty={!currentValue}
+      onDropInput={(event) => setInput(getDroppedInput(event, options))}>
+      {currentValue ? (
+        <button type="button" className={styles.inputChip} onClick={() => onChange('')}>
+          {currentValue}
+          <span>×</span>
+        </button>
+      ) : (
+        <span className={styles.emptyInputHint}>Drop an input here</span>
+      )}
+    </InputDropZone>
+  );
+}
+
+function MultiInputPicker({value, options, onChange}) {
+  const selectedInputs = parseListValue(value);
+
+  function removeInput(input) {
+    onChange(formatListValue(selectedInputs.filter((item) => item !== input)));
+  }
+
+  function addInput(input) {
+    if (!input) {
+      return;
+    }
+    onChange(formatListValue([...selectedInputs, input]));
+  }
+
+  return (
+    <div className={styles.inputPicker}>
+      <InputDropZone
+        isEmpty={!selectedInputs.length}
+        onDropInput={(event) => addInput(getDroppedInput(event, options))}>
+        {selectedInputs.length ? (
+          selectedInputs.map((input) => (
+            <button key={input} type="button" className={styles.inputChip} onClick={() => removeInput(input)}>
+              {input}
+              <span>×</span>
+            </button>
+          ))
+        ) : (
+          <span className={styles.emptyInputHint}>Drop one or more inputs here</span>
+        )}
+      </InputDropZone>
+    </div>
+  );
+}
+
+function FieldControl({field, value, onChange, availableInputs}) {
+  const isInputField = field.key === 'input';
+
+  if (isInputField && field.type === 'list') {
+    return <MultiInputPicker value={value} options={availableInputs} onChange={onChange} />;
+  }
+
+  if (isInputField) {
+    return <SingleInputPicker value={value} options={availableInputs} onChange={onChange} />;
+  }
+
   if (field.type === 'select') {
     return (
       <select className={styles.fieldInput} value={String(value ?? '')} onChange={(event) => onChange(event.target.value)}>
@@ -297,7 +445,7 @@ function FieldControl({field, value, onChange}) {
   );
 }
 
-function BlockInspectorModal({block, currentColumns, onChange, onClose}) {
+function BlockInspectorModal({block, availableInputs, currentColumns, onChange, onClose}) {
   if (!block) {
     return null;
   }
@@ -332,6 +480,7 @@ function BlockInspectorModal({block, currentColumns, onChange, onClose}) {
                 <FieldControl 
                   field={field} 
                   value={block.values[field.key]} 
+                  availableInputs={availableInputs}
                   onChange={(value) => onChange(block.id, field.key, value)} 
                 />
                 {field.helper ? <span className={styles.fieldHint}>{field.helper}</span> : null}
@@ -340,10 +489,30 @@ function BlockInspectorModal({block, currentColumns, onChange, onClose}) {
           </div>
 
           <div className={styles.columnStrip}>
-            <span>Current columns</span>
+            <span>Available inputs</span>
             <div className={styles.columnChips}>
-              {currentColumns.map((column, index) => (
-                <code key={`${column}-${index}`}>{column}</code>
+              {availableInputs.map((column, index) => (
+                <button
+                  key={`${column}-${index}`}
+                  type="button"
+                  draggable
+                  onClick={() => {
+                    const inputField = definition.fields.find((field) => field.key === 'input');
+                    if (!inputField) {
+                      return;
+                    }
+
+                    const currentValue = block.values[inputField.key];
+                    const nextValue =
+                      inputField.type === 'list'
+                        ? formatListValue(uniqueOptions([...parseListValue(currentValue), column]))
+                        : column;
+                    onChange(block.id, inputField.key, nextValue);
+                  }}
+                  onDragStart={(event) => event.dataTransfer.setData('text/wrangle-input', column)}
+                  className={styles.availableInputChip}>
+                  {column}
+                </button>
               ))}
             </div>
           </div>
@@ -471,6 +640,16 @@ export default function WrangleFlowPlayground() {
     [activeBlockId, blocks],
   );
 
+  const activeBlockAvailableInputs = useMemo(() => {
+    if (!activeBlock) {
+      return uniqueOptions(table.columns);
+    }
+
+    const activeIndex = blocks.findIndex((block) => block.id === activeBlock.id);
+    const previousOutputs = blocks.slice(0, Math.max(activeIndex, 0)).flatMap(getBlockOutputNames);
+    return uniqueOptions([...table.columns, ...previousOutputs]);
+  }, [activeBlock, blocks, table.columns]);
+
   const recipeYaml = useMemo(() => buildRecipeYaml(blocks), [blocks]);
 
   function setCellValue(rowIndex, columnIndex, nextValue) {
@@ -541,7 +720,7 @@ export default function WrangleFlowPlayground() {
 
   function addBlock(type) {
     const nextBlock = createBlock(type);
-    setBlocks((previousBlocks) => [...previousBlocks, nextBlock]);
+    setBlocks((previousBlocks) => sanitizeInputValues([...previousBlocks, nextBlock], table.columns));
     setActiveBlockId(nextBlock.id);
     setNotice(`Added ${WRANGLE_MAP[type].label} to the pipeline.`);
   }
@@ -563,7 +742,7 @@ export default function WrangleFlowPlayground() {
   }
 
   function moveBlock(index, direction) {
-    setBlocks((previousBlocks) => moveItem(previousBlocks, index, index + direction));
+    setBlocks((previousBlocks) => sanitizeInputValues(moveItem(previousBlocks, index, index + direction), table.columns));
   }
 
   function duplicateBlock(blockId) {
@@ -588,7 +767,7 @@ export default function WrangleFlowPlayground() {
   }
 
   function removeBlock(blockId) {
-    const remainingBlocks = blocks.filter((block) => block.id !== blockId);
+    const remainingBlocks = sanitizeInputValues(blocks.filter((block) => block.id !== blockId), table.columns);
     setBlocks(remainingBlocks);
     if (activeBlockId === blockId) {
       setActiveBlockId(remainingBlocks[0]?.id ?? null);
@@ -752,6 +931,7 @@ export default function WrangleFlowPlayground() {
 
       <BlockInspectorModal 
         block={activeBlock} 
+        availableInputs={activeBlockAvailableInputs}
         currentColumns={table.columns} 
         onChange={updateBlockValue} 
         onClose={() => setActiveBlockId(null)} 
