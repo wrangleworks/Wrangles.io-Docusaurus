@@ -7,6 +7,7 @@ const host = process.env.RECIPE_RUNNER_HOST || '127.0.0.1';
 const port = Number(process.env.RECIPE_RUNNER_PORT || 3001);
 const siteDir = path.resolve(__dirname, '..');
 const runnerPath = path.join(siteDir, 'run_recipe.py');
+const catalogGeneratorPath = path.join(siteDir, 'scripts', 'generate-wrangle-catalog.cjs');
 
 function createRequestId() {
   return `runner-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -19,6 +20,29 @@ function previewText(value, limit = 220) {
 
   const normalized = String(value).replace(/\s+/g, ' ').trim();
   return normalized.length > limit ? `${normalized.slice(0, limit)}...` : normalized;
+}
+
+function extractRunnerError(...streams) {
+  for (const stream of streams) {
+    const lines = String(stream || '')
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .reverse();
+
+    for (const line of lines) {
+      try {
+        const parsed = JSON.parse(line);
+        if (parsed && typeof parsed === 'object' && parsed.error) {
+          return parsed.error;
+        }
+      } catch (_error) {
+        // Keep scanning for the JSON error line emitted by run_recipe.py.
+      }
+    }
+  }
+
+  return streams.map((stream) => String(stream || '').trim()).find(Boolean) || 'Recipe runner failed.';
 }
 
 function loadEnvFile(filePath) {
@@ -129,13 +153,7 @@ function runRecipe(payload, requestId) {
         return;
       }
 
-      let message = stderr.trim() || stdout.trim() || `Recipe runner exited with code ${code}`;
-      try {
-        const parsed = JSON.parse(stderr || stdout);
-        message = parsed.error || message;
-      } catch (_error) {
-        // Keep the raw stderr/stdout message.
-      }
+      const message = extractRunnerError(stderr, stdout) || `Recipe runner exited with code ${code}`;
 
       logRunnerFailure({requestId, payload, stdout, stderr, message});
       reject(new Error(message));
@@ -146,12 +164,61 @@ function runRecipe(payload, requestId) {
   });
 }
 
+function runCatalogGenerator(requestId) {
+  return new Promise((resolve, reject) => {
+    console.log(`[recipe-runner:${requestId}] Regenerating wrangle catalog`);
+
+    const child = spawn(process.execPath, [catalogGeneratorPath], {
+      cwd: siteDir,
+      env: runnerEnv,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+
+    let stdout = '';
+    let stderr = '';
+
+    child.stdout.on('data', (chunk) => {
+      stdout += chunk.toString();
+    });
+
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk.toString();
+    });
+
+    child.on('error', (error) => {
+      reject(new Error(`Failed to start catalog generator: ${error.message}`));
+    });
+
+    child.on('close', (code) => {
+      if (code === 0) {
+        console.log(`[recipe-runner:${requestId}] Catalog generator completed: ${previewText(stdout)}`);
+        resolve({message: stdout.trim() || 'Wrangle catalog regenerated.'});
+        return;
+      }
+
+      const message = stderr.trim() || stdout.trim() || `Catalog generator exited with code ${code}`;
+      console.error(`[recipe-runner:${requestId}] Catalog generator failed: ${message}`);
+      reject(new Error(message));
+    });
+  });
+}
+
 const server = http.createServer((request, response) => {
   const requestId = request.headers['x-recipe-request-id'] || createRequestId();
   console.log(`[recipe-runner:${requestId}] Incoming request ${request.method} ${request.url}`);
 
   if (request.method === 'OPTIONS') {
     writeJson(response, 204, {}, requestId);
+    return;
+  }
+
+  if (request.method === 'POST' && request.url === '/generate-wrangle-catalog') {
+    runCatalogGenerator(requestId)
+      .then((payload) => writeJson(response, 200, payload, requestId))
+      .catch((error) => {
+        console.error(`[recipe-runner:${requestId}] Catalog update failed:`, error.message);
+        writeJson(response, 500, {error: error.message}, requestId);
+      });
     return;
   }
 

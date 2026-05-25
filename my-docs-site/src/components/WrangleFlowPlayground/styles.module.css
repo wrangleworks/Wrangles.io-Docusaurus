@@ -204,6 +204,11 @@
   overflow: hidden;
 }
 
+.paletteGroupOpen {
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  overflow: visible;
+}
+
 .groupHeader {
   align-items: center;
   appearance: none;
@@ -252,6 +257,8 @@
   border-top: 1px solid var(--border);
   display: grid;
   gap: 0.5rem;
+  max-height: 24rem;
+  overflow-y: auto;
   padding: 0.55rem;
 }
 

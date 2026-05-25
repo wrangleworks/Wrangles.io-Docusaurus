@@ -1,9 +1,9 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
 import yaml from 'js-yaml';
-import {runRecipeRequest} from '../recipeRunnerClient';
+import {generateWrangleCatalogRequest, runRecipeRequest} from '../recipeRunnerClient';
 import WRANGLE_CATALOG, {WRANGLE_MAP} from './wrangleCatalog';
 import styles from './styles.module.css';
 
@@ -13,14 +13,25 @@ const MIN_COLUMNS = 1;
 const MIN_ROWS = 1;
 const DEFAULT_COLUMNS = 3;
 const DEFAULT_ROWS = 4;
+const CAN_GENERATE_CATALOG = process.env.NODE_ENV !== 'production';
 
 let nextBlockId = 1;
 
 const CATEGORY_ICONS = {
+  AI: 'AI',
+  Compare: 'Cp',
+  Compute: 'Fx',
   Convert: 'Cv',
+  Create: 'Cr',
+  Extract: 'Ex',
+  Format: 'Fmt',
+  Generate: 'AI',
+  Lookup: 'Lk',
   Merge: 'Mg',
-  Split: 'Sp',
   Select: 'Sl',
+  Split: 'Sp',
+  Transform: 'Tr',
+  Utility: 'Ut',
 };
 
 function createColumnName(index) {
@@ -54,6 +65,9 @@ function createBlock(type) {
     type,
     values: defaults,
   };
+  // I need to check those defaults again to be sure they are accurate
+  // Static image is not good for updating the catalog
+  // need to look into the model id
 }
 function moveItem(items, fromIndex, toIndex) {
   if (toIndex < 0 || toIndex >= items.length) {
@@ -380,6 +394,7 @@ function FieldControl({field, value, onChange, availableInputs}) {
   if (field.type === 'select') {
     return (
       <select className={styles.fieldInput} value={String(value ?? '')} onChange={(event) => onChange(event.target.value)}>
+        {!field.required ? <option value="">Use default</option> : null}
         {field.options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -395,6 +410,32 @@ function FieldControl({field, value, onChange, availableInputs}) {
         <input type="checkbox" checked={Boolean(value)} onChange={(event) => onChange(event.target.checked)} />
         <span>{value ? 'Enabled' : 'Disabled'}</span>
       </label>
+    );
+  }
+
+  if (field.type === 'number') {
+    return (
+      <input
+        className={styles.fieldInput}
+        type="number"
+        value={value ?? ''}
+        onChange={(event) => onChange(event.target.value)}
+        placeholder={field.placeholder}
+        spellCheck={false}
+      />
+    );
+  }
+
+  if (field.type === 'json') {
+    return (
+      <textarea
+        className={clsx(styles.fieldInput, styles.listInput)}
+        rows={5}
+        value={value ?? ''}
+        onChange={(event) => onChange(event.target.value)}
+        placeholder={'{\n  "key": "value"\n}'}
+        spellCheck={false}
+      />
     );
   }
 
@@ -574,11 +615,23 @@ function PipelineCard({block, isActive, index, isLast, onSelect, onMove, onDupli
 
 function Palette({onAdd}) {
   const [openCategory, setOpenCategory] = useState('Convert');
+  const groupRefs = useRef({});
   const categories = WRANGLE_CATALOG.reduce((grouped, item) => {
     grouped[item.category] = grouped[item.category] ?? [];
     grouped[item.category].push(item);
     return grouped;
   }, {});
+
+  useEffect(() => {
+    if (!openCategory) {
+      return;
+    }
+
+    groupRefs.current[openCategory]?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  }, [openCategory]);
 
   return (
     <div className={styles.palette}>
@@ -586,7 +639,12 @@ function Palette({onAdd}) {
         const isOpen = openCategory === category;
 
         return (
-          <section key={category} className={clsx(styles.paletteGroup, isOpen && styles.paletteGroupOpen)}>
+          <section
+            key={category}
+            ref={(element) => {
+              groupRefs.current[category] = element;
+            }}
+            className={clsx(styles.paletteGroup, isOpen && styles.paletteGroupOpen)}>
             <button
               type="button"
               className={styles.groupHeader}
@@ -634,6 +692,7 @@ export default function WrangleFlowPlayground() {
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [isRunning, setIsRunning] = useState(false);
+  const [isUpdatingCatalog, setIsUpdatingCatalog] = useState(false);
 
   const activeBlock = useMemo(
     () => blocks.find((block) => block.id === activeBlockId) ?? null,
@@ -835,6 +894,22 @@ export default function WrangleFlowPlayground() {
     }
   }
 
+  async function updateCatalog() {
+    setError('');
+    setNotice('');
+    setIsUpdatingCatalog(true);
+
+    try {
+      const payload = await generateWrangleCatalogRequest();
+      setNotice(`${payload.message || 'Wrangle catalog regenerated.'} Reload the page if the block list does not refresh automatically.`);
+    } catch (catalogError) {
+      console.error('[wrangle-flow-playground] Catalog update failed:', catalogError);
+      setError(catalogError.message);
+    } finally {
+      setIsUpdatingCatalog(false);
+    }
+  }
+
   return (
     <div className={styles.page}>
       <header className={styles.appBar}>
@@ -843,6 +918,11 @@ export default function WrangleFlowPlayground() {
           <span>Interactive recipe workspace</span>
         </div>
         <div className={styles.appActions}>
+          {CAN_GENERATE_CATALOG ? (
+            <button type="button" className={styles.secondaryButton} onClick={updateCatalog} disabled={isUpdatingCatalog}>
+              {isUpdatingCatalog ? 'Updating Catalog...' : 'Update Catalog'}
+            </button>
+          ) : null}
           <button type="button" className={styles.secondaryButton} onClick={resetBoard}>
             Reset Board
           </button>
