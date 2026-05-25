@@ -28,6 +28,26 @@ def preview_text(value, limit=220):
     return f"{normalized[:limit]}..." if len(normalized) > limit else normalized
 
 
+def extract_runner_error(*streams):
+    for stream in streams:
+        text = stream.decode('utf-8', errors='replace') if isinstance(stream, bytes) else str(stream or '')
+        for line in reversed([item.strip() for item in text.splitlines() if item.strip()]):
+            try:
+                parsed = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            if isinstance(parsed, dict) and parsed.get('error'):
+                return parsed['error']
+
+    for stream in streams:
+        text = stream.decode('utf-8', errors='replace') if isinstance(stream, bytes) else str(stream or '')
+        if text.strip():
+            return text.strip()
+
+    return 'Recipe runner failed.'
+
+
 class AppHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(BUILD_DIR), **kwargs)
@@ -108,13 +128,7 @@ class AppHandler(SimpleHTTPRequestHandler):
             self._send_json(200, response, request_id=request_id)
             return
 
-        message = process.stderr.decode('utf-8', errors='replace').strip() or process.stdout.decode('utf-8', errors='replace').strip() or 'Recipe runner failed.'
-        try:
-            parsed = json.loads(message)
-            if isinstance(parsed, dict) and parsed.get('error'):
-                message = parsed['error']
-        except json.JSONDecodeError:
-            pass
+        message = extract_runner_error(process.stderr, process.stdout)
 
         print(f'[prod-server:{request_id}] Runner failed', {
             'stderr': preview_text(process.stderr.decode('utf-8', errors='replace')),
