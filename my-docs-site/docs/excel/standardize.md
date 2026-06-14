@@ -1,5 +1,5 @@
 ---
-title: "Standardize"
+title: Standardize
 slug: /excel/standardize
 ---
 
@@ -320,6 +320,7 @@ Standardize the precision of your numerical data by specifying the desired numbe
 </div>
 
 # Spaces
+<!-- wrangle: {"type":"clean_whitespaces","model_id":"e36e15c4-f0ad-43f8-8555-ef683a8ab892"} -->
 Standardize text by eliminating extra spaces and converting special space characters to a single space.
 
 ![extra_spaces.gif](/gifs/extra_spaces.gif)

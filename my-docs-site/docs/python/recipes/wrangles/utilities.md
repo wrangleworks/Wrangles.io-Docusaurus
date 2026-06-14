@@ -1,5 +1,5 @@
 ---
-title: "Utilities"
+title: Utilities
 slug: /python/recipes/wrangles/utilities
 ---
 
@@ -90,6 +90,7 @@ See [here](https://wrangles.io/python/connectors/concurrent) for the Concurrent 
 
   
 # Copy
+<!-- wrangle: {"type":"copy","model_id":"b002fbdc-92c0-4347-889d-0f4bfeec99fa"} -->
 Create a copy of columns in a dataframe.
 
 ## Tabset \{.tabset\}
@@ -122,6 +123,7 @@ Create a copy of columns in a dataframe.
 </div>
 
 # Drop
+<!-- wrangle: {"type":"drop","model_id":"363bffbf-397e-4975-8382-e9efa5e9eed6"} -->
 Drop columns within a dataframe.
 
 ## Tabset \{.tabset\}
@@ -147,6 +149,7 @@ Drop columns within a dataframe.
 \{.is-info\}
 
 # Explode
+<!-- wrangle: {"type":"explode","model_id":"4e4b13ac-8d50-4b2c-85c8-2c31de1e817d"} -->
 Explode a column of lists into rows.
 
 ## Tabset \{.tabset\}
@@ -172,6 +175,7 @@ Explode a column of lists into rows.
 </div>
 
 # Filter
+<!-- wrangle: {"type":"filter","model_id":"e3242acf-d204-433f-8373-205b77481131"} -->
 Filter the dataframe based on the contents.
 
 ## Tabset \{.tabset\}
@@ -215,6 +219,7 @@ Filter the dataframe based on the contents.
 \{.is-info\}
 
 # Log
+<!-- wrangle: {"type":"log","model_id":"6177808e-aa2d-4d0b-8385-858b16948a5d"} -->
 Print the current status of the dataframe. Only a sample of rows will be logged.
 
 ## Tabset \{.tabset\}
@@ -344,6 +349,7 @@ Unique variables for each row can be utlized by following the example below wher
 
 
 # Reindex
+<!-- wrangle: {"type":"reindex","model_id":"def87df8-72da-4e34-83c1-1fde25126257"} -->
 Conform DataFrame to new index with optional filling logic.
 
 ## Tabset \{.tabset\}
@@ -375,6 +381,7 @@ Conform DataFrame to new index with optional filling logic.
 \{.is-info\}
 
 # Rename
+<!-- wrangle: {"type":"rename","model_id":"ab06898f-faf7-42e7-8275-5e3034a4d727"} -->
 Rename a column or list of columns.
 
 ## Tabset \{.tabset\}
@@ -421,6 +428,7 @@ Wrangles can be used to rename columns, but they must be used instead of using t
 \{.is-info\}
 
 # Sort
+<!-- wrangle: {"type":"sort","model_id":"1dcf06ad-898a-4d83-862c-4774be37a687"} -->
 Allows users to sort their data.
 
 ## Tabset \{.tabset\}
@@ -445,6 +453,7 @@ Allows users to sort their data.
 </div>
 
 # Transpose
+<!-- wrangle: {"type":"transpose","model_id":"8716347f-f286-49b2-8a0b-cb73292e7475"} -->
 Transpose a dataframe.
 
 #### Transposing a Dataframe

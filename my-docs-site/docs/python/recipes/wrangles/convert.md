@@ -1,5 +1,5 @@
 ---
-title: "Convert"
+title: Convert
 slug: /python/recipes/wrangles/convert
 ---
 
@@ -7,6 +7,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 
 
 # Case
+<!-- wrangle: {"type":"convert.case","model_id":"12ff4120-3613-4801-8653-99c793477fbc"} -->
 Change the case of the input.
 
 ## Tabset \{.tabset\}
@@ -34,6 +35,7 @@ Change the case of the input.
 </div>
 
 # Data Type
+<!-- wrangle: {"type":"convert.data_type","model_id":"52384f01-7164-404f-8615-063e7677a588"} -->
 Change the data type of the input.
 
 ## Tabset \{.tabset\}
@@ -62,6 +64,7 @@ Change the data type of the input.
 </div>
 
 # Fraction to Decimal
+<!-- wrangle: {"type":"convert.fraction_to_decimal","model_id":"7c55752e-70ab-4809-8298-c59436127457"} -->
 Convert fractions to decimals
 
 ## Tabset \{.tabset\}
@@ -89,6 +92,7 @@ Convert fractions to decimals
 </div>
 
 # To JSON
+<!-- wrangle: {"type":"convert.to_json","model_id":"94e54eb7-2b8c-4047-89d0-fb5d16baf396"} -->
 Convert an object to a JSON representation.
 
 ## Tabset \{.tabset\}
@@ -118,6 +122,7 @@ Convert an object to a JSON representation.
 </div>
 
 # From JSON
+<!-- wrangle: {"type":"convert.from_json","model_id":"e370dfcf-b0fe-4c48-8a52-6f34c47e7978"} -->
 Convert a JSON string into an object
 
 ## Tabset \{.tabset\}
@@ -145,6 +150,7 @@ Convert a JSON string into an object
 </div>
 
 # To YAML
+<!-- wrangle: {"type":"convert.to_yaml","model_id":"4cd6252f-ce47-4a9d-8272-3d87e875b72a"} -->
 Convert an object to a YAML representation.
 
 ## Tabset \{.tabset\}
@@ -173,6 +179,7 @@ Convert an object to a YAML representation.
 </div>
 
 # From YAML
+<!-- wrangle: {"type":"convert.from_yaml","model_id":"b1c20004-5f80-41c2-84d2-2d4601a033b5"} -->
 Convert a YAML representation into an object
 
 ## Tabset \{.tabset\}

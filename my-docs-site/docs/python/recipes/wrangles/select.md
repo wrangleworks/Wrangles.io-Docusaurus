@@ -1,5 +1,5 @@
 ---
-title: "Select"
+title: Select
 slug: /python/recipes/wrangles/select
 ---
 
@@ -7,6 +7,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 
 
 # Columns
+<!-- wrangle: {"type":"select.columns","model_id":"bca12c60-3957-4dc5-83f7-5ee460df2a11"} -->
 Select columns from the dataframe
 
 ## Tabset \{.tabset\}
@@ -30,6 +31,7 @@ Select columns from the dataframe
 </div>
 
 # Dictionary Element
+<!-- wrangle: {"type":"select.dictionary_element","model_id":"5adaeada-6da8-464f-84cb-9fb5ecc17e48"} -->
 Select a named element of a dictionary.
 
 ## Tabset \{.tabset\}
@@ -105,6 +107,7 @@ By adding a default, missing dictionary elements are filled in upon output. With
 
 
 # Element
+<!-- wrangle: {"type":"select.element","model_id":"223d2f4e-3247-4189-8b6c-e73fe44c4266"} -->
 Select elements of lists or dicts using python syntax like col[1:3]['key']. 
 
 ## Tabset \{.tabset\}
@@ -129,6 +132,7 @@ Select elements of lists or dicts using python syntax like col[1:3]['key'].
 
 
 # Group By
+<!-- wrangle: {"type":"select.group_by","model_id":"c0af10b1-423a-416c-8cb5-7e7fe1164964"} -->
 
 Group and aggregate data based on certain criteria.
 
@@ -209,6 +213,7 @@ def sum_times_two(x):
 | custom.placeholder | | str, list | Placeholder for custom functions. Replace 'placeholder' with the name of the function. | 
 
 # Head
+<!-- wrangle: {"type":"select.head","model_id":"237af1ec-db7d-415a-88b7-70586a2191fb"} -->
 
 Return the first n rows
 
@@ -233,6 +238,7 @@ Return the first n rows
 </div>
 
 # Highest Confidence
+<!-- wrangle: {"type":"select.highest_confidence","model_id":"00aad85d-8cc8-42e5-86f3-e4ff916e8ac2"} -->
 Select the option with the highest confidence from multiple columns.
 Inputs are expected to be of the form [value, confidence_score]
 
@@ -271,6 +277,7 @@ When a list of two outputs is given, the item and it's confidence are split into
 
 
 # Left
+<!-- wrangle: {"type":"select.left","model_id":"5cdd9857-0c77-43bf-80d7-d0a8cb6f980b"} -->
 Select characters from the left of the input. Using a negative length will reverse the side of select, ie select right.
 
 ## Tabset \{.tabset\}
@@ -298,6 +305,7 @@ Select characters from the left of the input. Using a negative length will rever
 </div>
 
 # Length
+<!-- wrangle: {"type":"select.length","model_id":"4d7a5f66-0a4a-40e0-8298-d5c55754423d"} -->
 Calculate the lengths of data in a column. The length depends on the data type e.g. text will be the length of the text, lists will be the number of elements in the list.
 
 ## Tabset \{.tabset\}
@@ -324,6 +332,7 @@ Calculate the lengths of data in a column. The length depends on the data type e
 </div>
 
 # List Element
+<!-- wrangle: {"type":"select.list_element","model_id":"ec40495d-d29a-4f62-86dd-eafa43cf388a"} -->
 Select a numbered element of a list (zero indexed)
 
 ## Tabset \{.tabset\}
@@ -353,6 +362,7 @@ Select a numbered element of a list (zero indexed)
 
 
 # Right
+<!-- wrangle: {"type":"select.right","model_id":"89ee82ec-3bc5-4bfa-899b-7a1260ef9bdb"} -->
 Select characters from the right of the input. Using a negative length will reverse the side of select, ie select left.
 
 ## Tabset \{.tabset\}
@@ -381,6 +391,7 @@ Select characters from the right of the input. Using a negative length will reve
 
 
 # Sample
+<!-- wrangle: {"type":"select.sample","model_id":"95a84ab6-a66e-450f-8a4a-7a87e3a77932"} -->
 Select a random sample of rows.
 
 ## Tabset \{.tabset\}
@@ -413,6 +424,7 @@ Select a random sample of rows.
 
 
 # Substring
+<!-- wrangle: {"type":"select.substring","model_id":"8befddf8-602e-4fa9-8f16-4c547210ebec"} -->
 Select characters from the middle of the input.
 
 ## Tabset \{.tabset\}
@@ -457,6 +469,7 @@ Select characters from the middle of the input.
 </div>
 
 # Tail 
+<!-- wrangle: {"type":"select.tail","model_id":"60853759-c160-49a4-87eb-036516a9d823"} -->
 Return the last n rows
 
 ## Tabset \{.tabset\}
@@ -480,6 +493,7 @@ Return the last n rows
 </div>
 
 # Threshold
+<!-- wrangle: {"type":"select.threshold","model_id":"af2a5dcc-0ec0-48d7-8fb4-f58d9c5391d2"} -->
 Select the first option if it exceeds a given threshold, else the second option.
 
 ## Tabset \{.tabset\}

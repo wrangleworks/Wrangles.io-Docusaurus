@@ -8,6 +8,8 @@ const port = Number(process.env.RECIPE_RUNNER_PORT || 3001);
 const siteDir = path.resolve(__dirname, '..');
 const runnerPath = path.join(siteDir, 'run_recipe.py');
 const catalogGeneratorPath = path.join(siteDir, 'scripts', 'generate-wrangle-catalog.cjs');
+const venvPythonPath = path.join(siteDir, '.venv', 'bin', 'python');
+const pythonCommand = process.env.WRANGLES_RUNNER_PYTHON || (fs.existsSync(venvPythonPath) ? venvPythonPath : 'python3');
 
 function createRequestId() {
   return `runner-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -115,7 +117,7 @@ function runRecipe(payload, requestId) {
       recipePreview: previewText(payload.recipe, 160),
     });
 
-    const child = spawn('python3', [runnerPath], {
+    const child = spawn(pythonCommand, [runnerPath], {
       cwd: siteDir,
       env: runnerEnv,
       stdio: ['pipe', 'pipe', 'pipe'],

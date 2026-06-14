@@ -1,5 +1,5 @@
 ---
-title: "Format"
+title: Format
 slug: /python/recipes/wrangles/format
 ---
 
@@ -10,6 +10,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 \{.is-success\}
 
 # Dates
+<!-- wrangle: {"type":"format.dates","model_id":"a3c15135-4f7a-4659-83fd-f657afa603c9"} -->
 Format a date into desired pattern
 
 ## Tabset \{.tabset\}
@@ -43,6 +44,7 @@ wrangles:
 </div>
 
 # Pad
+<!-- wrangle: {"type":"format.pad","model_id":"76c19378-38f4-45aa-85d1-3cdf8f8aae29"} -->
 Pad a string to a fixed length
 
 ## Tabset \{.tabset\}
@@ -72,6 +74,7 @@ Pad a string to a fixed length
 </div>
 
 # Prefix
+<!-- wrangle: {"type":"format.prefix","model_id":"c12f99b9-2363-4da7-8405-7c73b87906e5"} -->
 Add a prefix to a column.
 
 ## Tabset \{.tabset\}
@@ -107,6 +110,7 @@ wrangles:
 </div>
 
 # Remove Duplicates
+<!-- wrangle: {"type":"format.remove_duplicates","model_id":"283b9e78-b2b2-43d0-844f-9842c33120aa"} -->
 Removed duplicate values in a list.
 
 ## Tabset \{.tabset\}
@@ -135,6 +139,7 @@ Removed duplicate values in a list.
 </div>
 
 # Significant Figures
+<!-- wrangle: {"type":"format.significant_figures","model_id":"a359f72a-5250-4dd8-84f6-8a8173bee0f6"} -->
 Format a value to a specific number of significant figures
 
 ## Tabset \{.tabset\}
@@ -170,6 +175,7 @@ wrangles:
 </div>
 
 # Suffix
+<!-- wrangle: {"type":"format.suffix","model_id":"8d127060-ba2d-4934-897f-07662e01e40b"} -->
 Add a suffix to a column
 
 ## Tabset \{.tabset\}
@@ -205,6 +211,7 @@ wrangles:
 </div>
 
 # Trim
+<!-- wrangle: {"type":"format.trim","model_id":"af16b3c1-c230-4868-8ebe-f574904a0c76"} -->
 Remove excess whitespace at the start and end of text. Can accept multiple columns.
 
 ## Tabset \{.tabset\}

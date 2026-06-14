@@ -1,5 +1,5 @@
 ---
-title: "Extract"
+title: Extract
 slug: /python/recipes/wrangles/extract
 ---
 
@@ -12,6 +12,7 @@ Functions to extract information from unstructured text.
 \{.is-success\}
 
 # Address
+<!-- wrangle: {"type":"extract.address","model_id":"44153f95-4581-4cee-898e-b3b4714045fd"} -->
 Extract geographical information from unstructured text such as streets, cities or countries.
 
 ## Tabset \{.tabset\}
@@ -47,6 +48,7 @@ wrangles:
 </div>
 
 # AI
+<!-- wrangle: {"type":"extract.ai","model_id":"d9f89b00-fda3-4f4c-826c-6417b9390607"} -->
 Use the power of AI (OpenAI's chatGPT in particular) to extract meaningful data. There are two ways to use extract.ai: recipe based and model based.
 
 ## Tabset \{.tabset\}
@@ -139,6 +141,7 @@ The table below represents a sample extract.ai model which will serve as our mod
 </div>
 
 # Attributes
+<!-- wrangle: {"type":"extract.attributes","model_id":"03ccedef-c938-41f1-8980-280f1a91542e"} -->
 Extract numeric attributes from unstructured text such as lengths or voltages.
 
 ## Tabset \{.tabset\}
@@ -219,6 +222,7 @@ List of Attributes:
 </div>
 
 # Brackets
+<!-- wrangle: {"type":"extract.brackets","model_id":"9b4c15fa-2aaa-40c8-8834-6e835760bee5"} -->
 Extract text properties in brackets from the input
 
 ## Tabset \{.tabset\}
@@ -256,6 +260,7 @@ wrangles:
 </div>
 
 # Codes
+<!-- wrangle: {"type":"extract.codes","model_id":"da591387-0fca-4842-8bcb-d19f561f0292"} -->
 Extract alphanumeric codes from unstructured text. Can be performed on one column or multiple columns.
 
 ## Tabset \{.tabset\}
@@ -304,6 +309,7 @@ wrangles:
 </div>
 
 # Custom
+<!-- wrangle: {"type":"extract.custom","model_id":"e8e96b76-86bf-41dc-8d16-825dcff9688b"} -->
 Extract data from the input using a DIY or bespoke extraction wrangle. Can be performed on one column or multiple columns.
 
 It is important to note that (non-regex) pattern matching extracts match whole words that are separated by word boundaries. Word boundaries include anything that is not a letter, number or an underscore.
@@ -393,6 +399,7 @@ wrangles:
 
 
 # Date Properties
+<!-- wrangle: {"type":"extract.date_properties","model_id":"a346de62-93cd-44ba-8d30-a6305629c6d7"} -->
 Extract date properties from a date (day, month, year, etc...)
 
 ## Tabset \{.tabset\}
@@ -427,6 +434,7 @@ wrangles:
 </div>
 
 # Date Range
+<!-- wrangle: {"type":"extract.date_range","model_id":"9cebfa6f-a524-4aec-84a7-02d77b792843"} -->
 Extract date range from two dates
 
 ## Tabset \{.tabset\}
@@ -482,6 +490,7 @@ Range options:
 </div>
 
 # HTML
+<!-- wrangle: {"type":"extract.html","model_id":"728fc87a-a20d-4efa-833a-612e0b5eadc3"} -->
 Extract Text and Links from HTML Elements
 
 ## Tabset \{.tabset\}
@@ -530,6 +539,7 @@ wrangles:
 </div>
 
 # Properties
+<!-- wrangle: {"type":"extract.properties","model_id":"23bbdb86-fd13-4b78-8fff-a7a76769ab63"} -->
 Extract categorical properties from unstructured text such as colours or materials.
 
 ## Tabset \{.tabset\}
@@ -580,6 +590,7 @@ wrangles:
 </div>
 
 # Regex
+<!-- wrangle: {"type":"extract.regex","model_id":"9aa0253a-4b70-4737-832c-964e15967289"} -->
 Extract single values using regex
 
 ## Tabset \{.tabset\}

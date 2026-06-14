@@ -28,7 +28,8 @@
   opacity: 0.4;
 }
 
-.runButton {
+.runButton,
+.playgroundButton {
   line-height: 1;
   padding: 0.45rem 0.6rem !important;
 }

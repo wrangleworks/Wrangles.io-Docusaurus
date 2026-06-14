@@ -1,5 +1,5 @@
 ---
-title: "Compare"
+title: Compare
 slug: /python/recipes/wrangles/compare
 ---
 
@@ -7,6 +7,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 
 
 # Text
+<!-- wrangle: {"type":"compare.text","model_id":"31905b74-ce58-45cd-8add-821cc04ab946"} -->
 
 Compare two strings and return the intersection or difference, or use overlap to find the matching characters between the two strings.
 

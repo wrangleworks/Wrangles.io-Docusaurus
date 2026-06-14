@@ -14,6 +14,7 @@ const MIN_ROWS = 1;
 const DEFAULT_COLUMNS = 3;
 const DEFAULT_ROWS = 4;
 const CAN_GENERATE_CATALOG = process.env.NODE_ENV !== 'production';
+const WRANGLE_FLOW_TRANSFER_KEY = 'wrangle-flow-playground-transfer';
 
 let nextBlockId = 1;
 
@@ -69,6 +70,98 @@ function createBlock(type) {
   // Static image is not good for updating the catalog
   // need to look into the model id
 }
+
+function formatFieldValueForControl(field, value) {
+  if (field.type === 'list' && Array.isArray(value)) {
+    return formatListValue(value.map((item) => (typeof item === 'string' ? item : yaml.dump(item, {flowLevel: 0}).trim())));
+  }
+
+  if (field.type === 'json' && value && typeof value === 'object') {
+    return JSON.stringify(value, null, 2);
+  }
+
+  return value;
+}
+
+function createBlockFromRecipe(type, config = {}) {
+  const block = createBlock(type);
+  const definition = WRANGLE_MAP[type];
+
+  return {
+    ...block,
+    values: definition.fields.reduce(
+      (values, field) => ({
+        ...values,
+        [field.key]: Object.prototype.hasOwnProperty.call(config, field.key)
+          ? formatFieldValueForControl(field, config[field.key])
+          : values[field.key],
+      }),
+      block.values,
+    ),
+  };
+}
+
+function blocksFromRecipe(recipe) {
+  const parsed = yaml.load(recipe);
+  if (!Array.isArray(parsed?.wrangles)) {
+    return [];
+  }
+
+  return parsed.wrangles
+    .map((entry) => {
+      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+        return null;
+      }
+
+      const [[type, config]] = Object.entries(entry);
+      if (!WRANGLE_MAP[type]) {
+        return null;
+      }
+
+      return createBlockFromRecipe(type, config && typeof config === 'object' ? config : {});
+    })
+    .filter(Boolean);
+}
+
+function tableFromTransfer(table) {
+  const columns = Array.isArray(table?.columns) ? table.columns.map((column, index) => String(column || createColumnName(index))) : [];
+  const rows = Array.isArray(table?.rows)
+    ? table.rows.map((row) => (Array.isArray(row) ? row.map((cell) => String(cell ?? '')) : []))
+    : [];
+  return limitTable(columns, rows).table;
+}
+
+function consumePlaygroundTransfer() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  const raw = window.localStorage.getItem(WRANGLE_FLOW_TRANSFER_KEY);
+  if (!raw) {
+    return null;
+  }
+
+  window.localStorage.removeItem(WRANGLE_FLOW_TRANSFER_KEY);
+
+  try {
+    const payload = JSON.parse(raw);
+    const blocks = blocksFromRecipe(payload.recipe);
+    const table = tableFromTransfer(payload.table);
+
+    if (!blocks.length && !table.columns.length) {
+      return null;
+    }
+
+    return {
+      blocks,
+      table,
+    };
+  } catch (error) {
+    console.error('[wrangle-flow-playground] Could not load transferred recipe example:', error);
+    return null;
+  }
+}
+
 function moveItem(items, fromIndex, toIndex) {
   if (toIndex < 0 || toIndex >= items.length) {
     return items;
@@ -693,6 +786,19 @@ export default function WrangleFlowPlayground() {
   const [notice, setNotice] = useState('');
   const [isRunning, setIsRunning] = useState(false);
   const [isUpdatingCatalog, setIsUpdatingCatalog] = useState(false);
+
+  useEffect(() => {
+    const transfer = consumePlaygroundTransfer();
+    if (!transfer) {
+      return;
+    }
+
+    setTable(transfer.table);
+    setBlocks(sanitizeInputValues(transfer.blocks, transfer.table.columns));
+    setActiveBlockId(transfer.blocks[0]?.id ?? null);
+    setNotice('Loaded the recipe example into the playground.');
+    setError('');
+  }, []);
 
   const activeBlock = useMemo(
     () => blocks.find((block) => block.id === activeBlockId) ?? null,

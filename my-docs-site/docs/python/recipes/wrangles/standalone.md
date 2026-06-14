@@ -1,5 +1,5 @@
 ---
-title: "Standalone"
+title: Standalone
 slug: /python/recipes/wrangles/standalone
 ---
 
@@ -7,6 +7,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 
 
 # Classify
+<!-- wrangle: {"type":"classify","model_id":"06669ef8-cdd1-42f7-8078-98e0b7a42c30"} -->
 Run a custom classification wrangle on the specified column or columns. A classification wrangle must be trained first.
 
 > Click [here](/excel/classify) to learn how to use Classify Wrangles in Excel.
@@ -38,6 +39,7 @@ Run a custom classification wrangle on the specified column or columns. A classi
 </div>
 
 # Date Calculator
+<!-- wrangle: {"type":"date_calculator","model_id":"19cfeb4f-02af-4ab2-895c-0ff2bb5cce19"} -->
 Add or Subtract time from a date
 
 ## Tabset \{.tabset\}
@@ -77,6 +79,7 @@ List of time units
 - milliseconds
 
 # Lookup
+<!-- wrangle: {"type":"lookup","model_id":"b3339193-d1cc-4c89-8ed6-901efa6d81be"} -->
 Look up data from a saved Lookup Wrangle. Data is output as a dictionary if an output is not specified or the output does not match any columns in the lookup. If specific lookup columns are named in the output, they will be output as individual columns.
 
 > Click [here](/excel/Lookup) to learn how to use Lookup Wrangles in Excel.
@@ -106,6 +109,7 @@ Look up data from a saved Lookup Wrangle. Data is output as a dictionary if an o
 </div>
 
 # Math
+<!-- wrangle: {"type":"math","model_id":"494b11ad-00c1-4748-8b93-6bec982f4fec"} -->
 > Added **v0.5**
 \{.is-info\}
 
@@ -145,6 +149,7 @@ Math supports the set of operators listed below:
 </div>
 
 # Python
+<!-- wrangle: {"type":"python","model_id":"c0398a11-7731-4e47-8df0-b07eea0b1d6c"} -->
 
 > Added **v1.6**
 \{.is-info\}
@@ -253,6 +258,7 @@ wrangles:
 </div>
 
 # Remove Words
+<!-- wrangle: {"type":"remove_words","model_id":"543b96c3-f354-48be-8046-bf0cb9fbaf56"} -->
 Remove all the elements that occur in one list from another.
 
 ## Tabset \{.tabset\}
@@ -282,6 +288,7 @@ Remove all the elements that occur in one list from another.
 </div>
 
 # Replace
+<!-- wrangle: {"type":"replace","model_id":"f0ab715e-9e0e-4614-83e4-5cd8ea08a09f"} -->
 Quick find and replace for simple values. Can use regex in the find field.
 
 > Click [here](/excel/standardize#replace) to learn how to use Replace Wrangles in Excel.
@@ -312,6 +319,7 @@ Quick find and replace for simple values. Can use regex in the find field.
 </div>
 
 # Round
+<!-- wrangle: {"type":"round","model_id":"12f3111b-8511-4e42-8d3f-b5302dc3b4e4"} -->
 Round numbers in a column to the nearest decimal point of your choosing.
 
 > Click [here](/excel/standardize#round) to learn how to use Round Wrangles in Excel.
@@ -341,6 +349,7 @@ Round numbers in a column to the nearest decimal point of your choosing.
 </div>
 
 # Similarity
+<!-- wrangle: {"type":"similarity","model_id":"7c733344-4cce-4938-8013-53742fb46a90"} -->
 Calculate the similarity of two **vectors**. 
 
 > Note: Similarity only works on vectors. In order to produce vectors for a column of strings, use [create.embeddings](/python/recipes/wrangles/create#embeddings).
@@ -393,6 +402,7 @@ List of methods:
 - euclidean
 
 # Standardize
+<!-- wrangle: {"type":"standardize","model_id":"53cd3fdd-24e2-4411-8655-6014b92a3f3a"} -->
 Run a standardize wrangle. *e.g. A wrangle that expands abbreviations.* A standardization wrangle must be trained first.
 
 > Click [here](/excel/standardize) to learn how to use Standardize Wrangles in Excel.
@@ -424,6 +434,7 @@ Run a standardize wrangle. *e.g. A wrangle that expands abbreviations.* A standa
 </div>
 
 # SQL
+<!-- wrangle: {"type":"sql","model_id":"467a06b1-a697-4d31-8061-7d83a719fd79"} -->
 > This does not currently work with objects. If your table contains objects, [convert.to_json](/python/recipes/wrangles/convert#to-json) prior to using SQL.
 \{.is-warning\}
 
@@ -455,6 +466,7 @@ Only SELECT statements are supported - the result will be the output. The curren
 \{.is-info\}
 
 # Translate
+<!-- wrangle: {"type":"translate","model_id":"73c3ceb6-ffd8-4d74-8389-c83b99d33bb0"} -->
 Translate the input column to another language. Powered by [DeepL](https://www.deepl.com/translator). A list of language codes can be found [here](https://www.deepl.com/docs-api/translating-text/).
 
 > Click [here](/excel/translate) to learn how to use Translate Wrangles in Excel.

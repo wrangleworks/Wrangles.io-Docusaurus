@@ -1,5 +1,5 @@
 ---
-title: "Merge"
+title: Merge
 slug: /python/recipes/wrangles/merge
 ---
 
@@ -8,6 +8,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 Functions to merge data from one or more columns into a single column.
 
 # Dictionaries
+<!-- wrangle: {"type":"merge.dictionaries","model_id":"93e27737-e966-4ba9-8777-4e96724ebfc4"} -->
 Take dictionaries in multiple columns and merge them to a single dictionary. 
 **Note:** For duplicate keys, the last key in the list takes precedence as the first entry in the merged dictionary.
 
@@ -63,6 +64,7 @@ Take dictionaries in multiple columns and merge them to a single dictionary.
 </div>
 
 # Coalesce
+<!-- wrangle: {"type":"merge.coalesce","model_id":"25c1a60d-fa48-4b9a-8c03-0921d5b31049"} -->
 Take the first non-empty value from a series of columns.
 
 > Click [here](/excel/format#coalesce) to learn how to use Coalesce Wrangles in Excel.
@@ -92,6 +94,7 @@ Take the first non-empty value from a series of columns.
 </div>
 
 # Concatenate
+<!-- wrangle: {"type":"merge.concatenate","model_id":"6ff76728-e1f6-4d3d-8946-6aa3b7524b3f"} -->
 If the input is a list of columns, concatenate multiple columns into one as a delimited string.
 
 > Click [here](/excel/format#concatenate) to learn how to use Concatenate Wrangles in Excel.
@@ -132,6 +135,7 @@ If the input is a single column, concatenate a list within that column into a de
 </div>
 
 # Key Value Pairs
+<!-- wrangle: {"type":"merge.key_value_pairs","model_id":"8a2cd37c-8ef7-4b05-8264-36512f5dd837"} -->
 Create a dictionary from keys and values in paired columns.
 
 ## Tabset \{.tabset\}
@@ -166,6 +170,7 @@ Create a dictionary from keys and values in paired columns.
 </div>
 
 # Lists
+<!-- wrangle: {"type":"merge.lists","model_id":"d9978f00-b3d4-4583-884e-a53b98a43e9a"} -->
 Take lists in multiple columns and merge them to a single list.
 
 ## Tabset \{.tabset\}
@@ -193,6 +198,7 @@ Take lists in multiple columns and merge them to a single list.
 </div>
 
 # To List
+<!-- wrangle: {"type":"merge.to_list","model_id":"d5300fe7-c8a4-4a41-8f12-f2c1698678cc"} -->
 Take multiple columns and merge them to a list.
 
 ## Tabset \{.tabset\}
@@ -220,6 +226,7 @@ Take multiple columns and merge them to a list.
 </div>
 
 # To Dict
+<!-- wrangle: {"type":"merge.to_dict","model_id":"9b869210-0d89-403b-8409-7cecdb5f9c7c"} -->
 Take multiple columns and merge them to a dictionary (aka object) using the column headers as keys.
 
 ## Tabset \{.tabset\}

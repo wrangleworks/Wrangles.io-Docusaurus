@@ -1,5 +1,5 @@
 ---
-title: "Classify"
+title: Classify
 slug: /excel/classify
 ---
 
@@ -50,6 +50,7 @@ This is an example of data that could be use to train a Classify Wrangle to pred
 To update an existing Classify Wrangle, click on the extra menu (...) for the relevant Wrangle and choose Edit. The previous training data will be shown and can be added to or updated. Click Submit when finished to retrain the Wrangle.
 
 # Use a Classify Wrangle
+<!-- wrangle: {"type":"classify","model_id":"06669ef8-cdd1-42f7-8078-98e0b7a42c30"} -->
 
 > Click [here](/python/recipes/wrangles/standalone#classify) to learn how to use Classify Wrangles in a recipe.
 \{.is-success\}

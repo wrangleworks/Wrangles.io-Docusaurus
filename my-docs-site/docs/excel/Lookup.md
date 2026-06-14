@@ -1,5 +1,5 @@
 ---
-title: "Lookup"
+title: Lookup
 slug: /excel/Lookup
 ---
 
@@ -11,6 +11,7 @@ The Lookup Wrangle can be used to store data to be looked up later. They come in
 ![mywrangleslookup.png](/images/lookup/mywrangleslookup.png)
 
 # Key Lookup Wrangles
+<!-- wrangle: {"type":"lookup","model_id":"b3339193-d1cc-4c89-8ed6-901efa6d81be"} -->
 Key Lookup Wrangles return columns based on the keys from the cells highlighted. These keys can be words, numbers, characters or a combination of the previous. Read below to learn more about Key Lookup Wrangles!
 
 ![lookup_abbreviations.gif](/images/lookup/lookup_abbreviations.gif)

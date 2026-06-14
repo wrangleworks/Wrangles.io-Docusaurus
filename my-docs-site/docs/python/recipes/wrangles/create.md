@@ -1,5 +1,5 @@
 ---
-title: "Create"
+title: Create
 slug: /python/recipes/wrangles/create
 ---
 
@@ -9,6 +9,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 Functions to create new columns.
 
 # Bins
+<!-- wrangle: {"type":"create.bins","model_id":"232e3ba0-4735-4934-88aa-0163181abb3f"} -->
 Creates a column that segments and sorts data values into bins. Bins can either be an integer or a list. When passing bins as an integer, the input data is split equally into that amount of bins. When passing bins as a list, the input data is split into bins based on the list. See below for an example of both.
 
 ## Tabset \{.tabset\}
@@ -45,6 +46,7 @@ Creates a column that segments and sorts data values into bins. Bins can either 
 </div>
 
 # Column
+<!-- wrangle: {"type":"create.column","model_id":"5a18e2c8-ec7c-45f5-88fd-bb5c358a8b40"} -->
 Create a column with a user defined value. Defaults to None (empty).
 
 > If you'd like to copy a column, see [here](https://wrangles.io/python/recipes/wrangles/standalone#copy).
@@ -93,6 +95,7 @@ Create a column with a user defined value. Defaults to None (empty).
 </div>
 
 # Embeddings
+<!-- wrangle: {"type":"create.embeddings","model_id":"e3518afd-a819-40ec-8b49-eb25690220c1"} -->
 Create an embedding based on text input.
 
 ## Tabset \{.tabset\}
@@ -125,6 +128,8 @@ Create an embedding based on text input.
 </div>
 
 # GUID / UUID
+<!-- wrangle: {"type":"create.guid","model_id":"cf3aaab2-3d5b-4c9b-826e-7af7510521c9"} -->
+<!-- wrangle: {"type":"create.uuid","model_id":"c376f3ff-2283-4c4c-8d7f-70db6f53ed19"} -->
 Create a column with a GUID (Globally Unique Identifier)
 
 ## Tabset \{.tabset\}
@@ -150,6 +155,7 @@ Create a column with a GUID (Globally Unique Identifier)
 </div>
 
 # Hash
+<!-- wrangle: {"type":"create.hash","model_id":"11e8fc13-00d2-4779-8d87-6288b07de7e7"} -->
 Create a hash of a column.
 
 ## Tabset \{.tabset\}
@@ -178,6 +184,7 @@ Create a hash of a column.
 </div>
 
 # Index
+<!-- wrangle: {"type":"create.index","model_id":"0a4909ca-6e14-4da7-8a70-a7fd106d6944"} -->
 Create a new incremental index.
 
 ## Tabset \{.tabset\}
@@ -207,6 +214,7 @@ Create a new incremental index.
 </div>
 
 # Jinja
+<!-- wrangle: {"type":"create.jinja","model_id":"10fc6709-16d4-4eab-8f56-6cb5d170ea66"} -->
 Makes use of a jinja template to create a description, title, or summary based on your data. 
 
 > **Note:** Jinja templates do not allow for variables (ie column headers) with spaces. To combat this, the wrangle will automatically replace spaces with an underscore. Therefore, it is important to use underscores instead of spaces when implementing variables in your jinja template.

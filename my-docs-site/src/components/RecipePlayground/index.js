@@ -7,6 +7,8 @@ import {RecipePlaygroundProvider} from './context';
 import {runRecipeRequest} from '../recipeRunnerClient';
 import styles from './styles.module.css';
 
+const WRANGLE_FLOW_TRANSFER_KEY = 'wrangle-flow-playground-transfer';
+
 function trimCell(value) {
   return String(value ?? '')
     .replace(/<br\s*\/?>/gi, '\n')
@@ -379,6 +381,29 @@ export default function RecipePlayground({
     }
   }
 
+  function openInPlayground() {
+    const table = hasInputTable
+      ? {
+          columns: resolvedInputColumns,
+          rows: currentInputRows,
+        }
+      : {
+          columns: currentOutput.columns,
+          rows: currentOutput.rows,
+        };
+
+    window.localStorage.setItem(
+      WRANGLE_FLOW_TRANSFER_KEY,
+      JSON.stringify({
+        recipe: normalizedRecipe,
+        table,
+        createdAt: Date.now(),
+      }),
+    );
+
+    window.location.assign('/playground');
+  }
+
   function handleCellChange(rowIndex, columnIndex, nextValue) {
     setCurrentInputRows((previousRows) =>
       previousRows.map((row, currentRowIndex) => {
@@ -398,7 +423,9 @@ export default function RecipePlayground({
       <RecipePlaygroundProvider
         value={{
           runRecipe,
+          openInPlayground,
           isRunning,
+          canOpenInPlayground: hasInputTable || hasOutputTable,
         }}>
         <CodeBlock language="yaml">{recipe}</CodeBlock>
       </RecipePlaygroundProvider>

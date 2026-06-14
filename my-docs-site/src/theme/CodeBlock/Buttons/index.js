@@ -37,6 +37,34 @@ function RunButton() {
   );
 }
 
+function PlaygroundButton() {
+  const recipePlayground = useRecipePlayground();
+
+  if (!recipePlayground?.canOpenInPlayground) {
+    return null;
+  }
+
+  const {openInPlayground} = recipePlayground;
+
+  return (
+    <Button
+      aria-label={translate({
+        id: 'theme.CodeBlock.openRecipePlaygroundAriaLabel',
+        message: 'Open recipe example in the playground',
+        description: 'The ARIA label for the playground button on recipe code blocks',
+      })}
+      title={translate({
+        id: 'theme.CodeBlock.openRecipePlaygroundTitle',
+        message: 'Open in Playground',
+        description: 'The title for the playground button on recipe code blocks',
+      })}
+      className={styles.playgroundButton}
+      onClick={openInPlayground}>
+      <span className={styles.runButtonLabel}>Playground</span>
+    </Button>
+  );
+}
+
 export default function CodeBlockButtons({className}) {
   return (
     <BrowserOnly>
@@ -45,6 +73,7 @@ export default function CodeBlockButtons({className}) {
           <WordWrapButton />
           <CopyButton />
           <RunButton />
+          <PlaygroundButton />
         </div>
       )}
     </BrowserOnly>

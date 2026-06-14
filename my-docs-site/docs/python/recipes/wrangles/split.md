@@ -1,5 +1,5 @@
 ---
-title: "Split"
+title: Split
 slug: /python/recipes/wrangles/split
 ---
 
@@ -10,6 +10,7 @@ import RecipePlayground from '@site/src/components/RecipePlayground';
 \{.is-success\}
 
 # Dictionary
+<!-- wrangle: {"type":"split.dictionary","model_id":"06ca98e4-d026-43f7-84eb-af246d401ba9"} -->
 Split a dictionary into columns. The dictionary keys will be used as the new column headers.
 
 ## Tabset \{.tabset\}
@@ -80,6 +81,7 @@ Below, we'll show you a few different methods of splitting dictionaries using sp
 </div>
 
 # List
+<!-- wrangle: {"type":"split.list","model_id":"3260b9f7-aae2-499f-8004-d211c2cf643e"} -->
 Split a list to multiple columns.
 
 If only one output is given, split.list will return the same list it was given. For this reason, the wrangle should be given an output of either a list of columns or a column name with a wildcard (\*). 
@@ -114,6 +116,7 @@ If only one output is given, split.list will return the same list it was given. 
 </div>
 
 # Text
+<!-- wrangle: {"type":"split.text","model_id":"e76e43f7-d129-4bf8-87b4-a304a378b130"} -->
 
 Split text (strings) on certain characters.
 
@@ -187,6 +190,7 @@ The output will be placed in the named columns. The number of output columns mus
 </div>
 
 # Tokenize
+<!-- wrangle: {"type":"split.tokenize","model_id":"6cc88418-ae0c-43f6-84ee-31e0d5f838c3"} -->
 [Tokenize](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization) elements in a list or string into individual tokens.
 
 ## Tabset \{.tabset\}
