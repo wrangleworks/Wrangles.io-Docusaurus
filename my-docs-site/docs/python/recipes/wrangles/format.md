@@ -18,13 +18,13 @@ Format a date into desired pattern
 
 #### Changing The Format of a Date
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - format.dates:
       input: Date
       output: Output Format
-      format: '%Y-%m-%d'  # must be wrapped by quotes " or '
-```
+      format: '%Y-%m-%d'  # must be wrapped by quotes " or '`}
+/>
 
 | Date      | Output Format   |
 |:----------|:----------------|
@@ -82,13 +82,13 @@ Add a prefix to a column.
 
 #### Adding a Prefix to a String
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - format.prefix:
       input: Data
       output: Prefix
-      value: anti
-```
+      value: anti`}
+/>
 
 | Data   | Prefix     |
 |:-------|:-----------|
@@ -147,13 +147,13 @@ Format a value to a specific number of significant figures
 
 #### Rounding to Significant Figures
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - format.significant_figures:
       input: Data
       significant_figures: 2
-      output: Data to 2 Figures
-```
+      output: Data to 2 Figures`}
+/>
 
 | Data | Data to 2 Figures |
 |:-----|:------------------|
@@ -167,7 +167,7 @@ wrangles:
 | Parameter | Required | Data Type | Notes |
 | :-------- | :------: | :-------- | :---- |
 | input | ✓ | str, list | Name of the input column | 
-| significant_figures | Number of significant figures to format to. Default is 3. | 
+| significant_figures | | int | Number of significant figures to format to. Default is 3. |
 | output | | str, list | Name of the output column. If none given, overwrites input |
 | where | | str | Filter the data to only apply the wrangle to certain rows using an equivalent to a SQL where criteria, such as column1 = 123 OR column2 = 'abc' |
 | where_params | | str | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name) |
@@ -183,13 +183,13 @@ Add a suffix to a column
 
 #### Adding a Suffix to a String
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - format.suffix:
       input: Data
       output: Suffix
-      value: ic
-```
+      value: ic`}
+/>
 
 | Data   | Suffix   |
 |:-------|:---------|
@@ -219,12 +219,14 @@ Remove excess whitespace at the start and end of text. Can accept multiple colum
 
 #### Trimming a String
 
-```yaml
-- format.trim:
-    input:
-      - col1
-    output: col1 trimmed
-```
+<RecipePlayground
+  recipe={`wrangles:
+  - format.trim:
+      input:
+        - col1
+      output: col1 trimmed`}
+/>
+
 | col1 | col1 trimmed |
 |:-------------------------|:---------|
 |     Hello World      | Hello World |

@@ -211,7 +211,7 @@ Filter the dataframe based on the contents.
 | not_contains | | str | Select rows where the input does not contain the value. Allows regular expressions. Defaults to none. |
 | is_null | | bool | If true, select all rows where the value is NULL. If false, where is not NULL. Defaults to none. |
 | where | | str | Use a SQL WHERE clause to filter the data. **Input parameter must be used if where is not provided.** It is suggested to use where independently of all other parameters except where_params. Defaults to none. |
-| where_params | list, obj | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name). |
+| where_params | | list, obj | Variables to use in conjunctions with where. This allows the query to be parameterized. This uses sqlite syntax (? or :name). |
 | if | | str | A condition that will determine whether the action runs or not as a whole. |
 </div>
 
@@ -227,27 +227,27 @@ Print the current status of the dataframe. Only a sample of rows will be logged.
 
 #### Logging All Columns to Terminal
 
-```yaml
-
+<RecipePlayground
+  recipe={`
 wrangles:
-  - log: {}
-```
+  - log: {}`}
+/>
 
 #### Logging Specific Columns to Terminal
 
-```yaml
-
+<RecipePlayground
+  recipe={`
 wrangles:
   - log:
   		columns:
       	- column1
-        - column2
-```
+        - column2`}
+/>
 
 #### Logging to a File
 
-```yaml
-
+<RecipePlayground
+  recipe={`
 wrangles:
   - log:
   		write:
@@ -255,8 +255,8 @@ wrangles:
         		name: output/filepath
             columns:
             	- column 1
-              - column 2
-```
+              - column 2`}
+/>
 
 
 ### Parameters
@@ -283,17 +283,17 @@ Apply a matrix of wrangles to the dataframe. This will run the wrangles for each
 #### Using Hardcoded Variables
 Run a simple custom function with a variable that is a list of values
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - matrix:
       variables:
         var: [A,B,C]
       wrangles:
         - custom.test_fn:
             input: Col1
-            output: Part Code ${var}
-            value: ${var}
-```
+            output: Part Code \${var}
+            value: \${var}`}
+/>
 
 ```python
 def test_fn(Col1, value):
@@ -480,16 +480,16 @@ Try a list of wrangles and catch any errors that occur
 ## Tabset \{.tabset\}
 ### Sample
 #### Using Try in a Recipe
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - try:
       wrangles:
         - risky_wrangle:
             input: column
       except:
         - backup_wrangle:
-            input: column
-```
+            input: column`}
+/>
 
 ### Parameters
 <div className="table-scroll">

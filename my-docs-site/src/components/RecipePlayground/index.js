@@ -256,6 +256,37 @@ function parseExampleSource(recipe, exampleSource) {
   };
 }
 
+function fallbackInputTable(recipe) {
+  try {
+    const parsed = yaml.load(recipe);
+    const firstWrangle = Array.isArray(parsed?.wrangles) ? parsed.wrangles[0] : null;
+    const config =
+      firstWrangle && typeof firstWrangle === 'object'
+        ? firstWrangle[Object.keys(firstWrangle)[0]]
+        : null;
+    const input = config?.input;
+    const columns = Array.isArray(input)
+      ? input.filter((item) => typeof item === 'string')
+      : typeof input === 'string'
+        ? [input]
+        : [];
+
+    if (columns.length) {
+      return {
+        columns,
+        rows: [columns.map(() => '')],
+      };
+    }
+  } catch (_error) {
+    // Fall through to a generic input table.
+  }
+
+  return {
+    columns: ['input'],
+    rows: [['']],
+  };
+}
+
 function TableCell({value, editable, onChange}) {
   if (!editable) {
     return <code className={styles.cellValue}>{value}</code>;
@@ -329,6 +360,7 @@ export default function RecipePlayground({
   const resolvedOutputRows = initialTables.outputRows;
   const hasInputTable = resolvedInputColumns.length > 0;
   const hasOutputTable = resolvedOutputColumns.length > 0;
+  const fallbackTable = useMemo(() => fallbackInputTable(normalizedRecipe), [normalizedRecipe]);
 
   const {siteConfig} = useDocusaurusContext();
   const runnerUrl = siteConfig.customFields?.recipeRunnerUrl || '/run-recipe';
@@ -354,13 +386,17 @@ export default function RecipePlayground({
     setError('');
 
     try {
+      const inputTable = hasInputTable
+        ? {
+            columns: resolvedInputColumns,
+            rows: currentInputRows,
+          }
+        : fallbackTable;
+
       const payload = await runRecipeRequest({
         runnerUrl,
         recipe: normalizedRecipe,
-        input: {
-          columns: resolvedInputColumns,
-          rows: currentInputRows,
-        },
+        input: inputTable,
         outputColumns: resolvedOutputColumns,
       });
 
@@ -387,10 +423,12 @@ export default function RecipePlayground({
           columns: resolvedInputColumns,
           rows: currentInputRows,
         }
-      : {
-          columns: currentOutput.columns,
-          rows: currentOutput.rows,
-        };
+      : hasOutputTable
+        ? {
+            columns: currentOutput.columns,
+            rows: currentOutput.rows,
+          }
+        : fallbackTable;
 
     window.localStorage.setItem(
       WRANGLE_FLOW_TRANSFER_KEY,
@@ -425,7 +463,7 @@ export default function RecipePlayground({
           runRecipe,
           openInPlayground,
           isRunning,
-          canOpenInPlayground: hasInputTable || hasOutputTable,
+          canOpenInPlayground: true,
         }}>
         <CodeBlock language="yaml">{recipe}</CodeBlock>
       </RecipePlaygroundProvider>
@@ -447,9 +485,7 @@ export default function RecipePlayground({
         <div className={styles.singleTableLayout}>
           <DataTable columns={currentOutput.columns} rows={currentOutput.rows} editable={false} />
         </div>
-      ) : (
-        <p className={styles.error}>Could not parse this example into a runnable table.</p>
-      )}
+      ) : null}
 
       {error ? <p className={styles.error}>{error}</p> : null}
       {editable && hasInputTable ? <p className={styles.hint}>Edit the input cells, then click Run on the recipe block.</p> : null}

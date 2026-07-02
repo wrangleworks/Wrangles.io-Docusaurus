@@ -20,14 +20,14 @@ Extract geographical information from unstructured text such as streets, cities 
 
 #### Extracting Street Name
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.address:
       input: Location
       output: Street
       dataType: streets
-      where: SUBSTRING(Location, 1, 3) = '221'
-```
+      where: SUBSTRING(Location, 1, 3) = '221'`}
+/>
 
 | Location                                         | Street             |
 |:-------------------------------------------------|:--------------------|
@@ -149,13 +149,13 @@ Extract numeric attributes from unstructured text such as lengths or voltages.
 
 #### Extracting All Attributes
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.attributes:
       input: tools
       output: attributes
-      responseContent: span
-```
+      responseContent: span`}
+/>
 
 | Tools (input)           | Attributes (span )(output)                     |
 |:-----------------|:--------------------------------------|
@@ -169,14 +169,14 @@ wrangles:
 
 #### Extracting Specific Attributes
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.attributes:
       input: Tools
       output: attributes
       responseContent: span
-      attribute_type: mass			# Specific attributes
-```
+      attribute_type: mass			# Specific attributes`}
+/>
 
 
 ### Parameters
@@ -230,12 +230,12 @@ Extract text properties in brackets from the input
 
 #### Extracting Data Within Brackets
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.brackets:
       input: Data
-      output: Output
-```
+      output: Output`}
+/>
 
 | Data       | Output   |
 |:-----------|:---------|
@@ -268,13 +268,13 @@ Extract alphanumeric codes from unstructured text. Can be performed on one colum
 
 #### Extracting Codes From Single Column
   
-```yaml
-# One column input
+<RecipePlayground
+  recipe={`# One column input
 wrangles:
   - extract.codes:
       input: Secret
-      output: Code Extract
-```
+      output: Code Extract`}
+/>
 
 | Secret                      | Code Extract   |
 |:----------------------------|:---------------|
@@ -282,15 +282,15 @@ wrangles:
 
 #### Extracting Codes From Multiple Columns
 
-```yaml
-# Multi column input
+<RecipePlayground
+  recipe={`# Multi column input
 wrangles:
   - extract.codes:
       input:
       	- code1
         - code2
-      output: Codes
-```
+      output: Codes`}
+/>
   
 | code1           | code2           | Codes                        |
 |:----------------|:----------------|:-----------------------------|
@@ -320,14 +320,14 @@ It is important to note that (non-regex) pattern matching extracts match whole w
 
 #### Extracting Wood Types From Single Column
 
-```yaml
-# One column input
+<RecipePlayground
+  recipe={`# One column input
 wrangles:
   - extract.custom:
       input: Product
       output: Wood Types
-      model_id: model_id_here
-```
+      model_id: model_id_here`}
+/>
 
 
 | Product                           | Wood Types             |
@@ -337,16 +337,16 @@ wrangles:
 
 #### Extracting Wood Types From Multiple Columns
 
-```yaml
-# Multi column input
+<RecipePlayground
+  recipe={`# Multi column input
 wrangles:
   - extract.custom:
       input:
       	- Part 1 of 2
         - Part 2 of 2
       output: Wood Types
-      model_id: model_id_here
-```
+      model_id: model_id_here`}
+/>
 
 
 | Part 1 of 2             | Part 2 of 2                 | Wood Types   |
@@ -355,8 +355,8 @@ wrangles:
 
 #### Using Multiple Extract Models
 
-```yaml
-# Multiple Models
+<RecipePlayground
+  recipe={`# Multiple Models
 wrangles:
 	- extract.custom:
   		input:
@@ -367,8 +367,8 @@ wrangles:
         - Item Type
       model_id:
       	- wood_Type_model_id
-        - item_type_model_id
-```
+        - item_type_model_id`}
+/>
 
 
 | Product                           | Wood Types             | Item Type
@@ -407,13 +407,13 @@ Extract date properties from a date (day, month, year, etc...)
 
 #### Extracting Month From Date
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.date_properties:
       input: Date
       output: Output
-      property: month_name
-```
+      property: month_name`}
+/>
 
 | Date                | Output   |
 |:--------------------|:---------|
@@ -442,14 +442,14 @@ Extract date range from two dates
 
 #### Extracting Number of Months From Range
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.date_range:
       start_time: Start
       end_time: End
       output: Output
-      range: months
-```
+      range: months`}
+/>
 
 | Start               | End                 |   Output |
 |:--------------------|:--------------------|---------:|
@@ -498,13 +498,13 @@ Extract Text and Links from HTML Elements
 
 #### Extracting Text From HTML
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.html:
       input: HTML
       output: Text
-      data_type: text
-```
+      data_type: text`}
+/>
 
 | HTML                                                       | Text           |
 |:-----------------------------------------------------------|:---------------|
@@ -512,13 +512,13 @@ wrangles:
 
 #### Extracting Links From HTML
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.html:
       input: HTML
       output: Links
-      data_type: links
-```
+      data_type: links`}
+/>
 
 | HTML                                                       | Links                              |
 |:-----------------------------------------------------------|:----------------------------------|
@@ -547,12 +547,12 @@ Extract categorical properties from unstructured text such as colours or materia
 
 #### Extracting All Properties
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.properties:
       input: water bottles
-      output: properties
-```
+      output: properties`}
+/>
 
 | Products                    | Product Properties                                      |
 |:----------------------------|:--------------------------------------------------------|
@@ -561,13 +561,13 @@ wrangles:
 
 #### Extracting Colour
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.properties:
       input: water bottles
       output: properties
-      property_type: colours # Optional
-```
+      property_type: colours # Optional`}
+/>
 
 | Products                    | Product Colours   |
 |:----------------------------|:------------------|
@@ -598,13 +598,13 @@ Extract single values using regex
 
 #### Extracting Number of Months From Range
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.regex:
   		input: Product
       output: GPM
-      find: \d\.?\d? ?gpm
-```
+      find: \\d\\.?\\d? ?gpm`}
+/>
 
 | Product               | GPM                 |
 |:--------------------|:--------------------|
@@ -614,14 +614,14 @@ wrangles:
 #### Implementing output_pattern
 The output_pattern parameter can be used to specify regex capture groups to output
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - extract.regex:
   		input: Product
       output: GPM
-      find: (\d\.?\d?) ?gpm
-  		output_pattern: \1 Gallons Per Minute
-```
+      find: (\\d\\.?\\d?) ?gpm
+  output_pattern: \\1 Gallons Per Minute`}
+/>
 
 | Product | GPM |
 |:-------:|:---:|

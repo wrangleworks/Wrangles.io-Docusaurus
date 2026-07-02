@@ -164,12 +164,12 @@ The Python Wrangle allows executing simple Python commands inline within a recip
 
 #### Python Wrangle
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - python:
       output: result
-      command: My_Column.upper()
-```
+      command: My_Column.upper()`}
+/>
 
 | My Column | result |
 |:--------:|:--------:|
@@ -193,13 +193,13 @@ wrangles:
 ## Including Your Own Parameters
 The python wrangle supports including parameters which allows you to parameterize a variable of unknown origin safely. For example, if you wanted to slice a string or a list like shown below:
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - python:
       output: sliced
       command: input_column[:i]
-      i: ${var}
-```
+      i: \${var}`}
+/>
 
 In the above code, i is a variable who's value will be dictated by the user.
 
@@ -215,18 +215,18 @@ Run a recipe as a wrangle. Click [here](https://wrangles.io/en/python/connectors
 
 #### Recipe Call Using Name
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - recipe:
       name: recipe1.wrgl.yaml
-
-```
+`}
+/>
 The output columns of the Wrangle-Recipe will be added to the dataframe.
 
 #### Imbedded Sub-Recipe
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
 	- recipe:
   		output: Description Refined
   		wrangles:
@@ -236,8 +236,8 @@ wrangles:
             
         - remove_words:
         		input: Description
-            output: Description Refined
-```
+            output: Description Refined`}
+/>
             
 
 ### Parameters
@@ -359,16 +359,16 @@ Calculate the similarity of two **vectors**.
 ### Sample
 
 #### Rounding a Column
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - create.embeddings:
       input: col1
-      api_key: ${my_key}
+      api_key: \${my_key}
       output: col1 embeddings
       
   - create.embeddings:
       input: col2
-      api_key: ${my_key}
+      api_key: \${my_key}
       output: col2 embeddings
 
   - similarity:
@@ -376,8 +376,9 @@ wrangles:
         - col1 embeddings
         - col2 embeddings
       output: similarity
-      method: adjusted cosine
-```
+      method: adjusted cosine`}
+/>
+
 | col1 | col2 | col1 embeddings | col2 embeddings | similarity |
 |:----:|:----:|:---------------:|:---------------:|:----------:|
 | SKF | Timken | [1, 2, 3, 4] | [4, 3, 2, 1] | 0.158931 |

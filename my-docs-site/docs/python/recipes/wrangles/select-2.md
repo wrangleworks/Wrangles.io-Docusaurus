@@ -149,12 +149,12 @@ Group and aggregate data based on certain criteria.
 
 #### Grouping With Custom Function Aggregation 
 
-```yaml
-wrangles:
+<RecipePlayground
+  recipe={`wrangles:
   - select.group_by:
       by: Category
-      custom.sum_times_two: Quantity
-```
+      custom.sum_times_two: Quantity`}
+/>
 
 ```python
 def sum_times_two(x):
