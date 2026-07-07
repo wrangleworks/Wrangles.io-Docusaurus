@@ -154,38 +154,13 @@ Group and aggregate data based on certain criteria.
   - select.group_by:
       by: Category
       custom.sum_times_two: Quantity`}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Category | Quantity |\n|:--------:|:--------:|\n| Hand Tools | 3 |\n| Hand Tools | 1 |\n| Hand Tools | 2 |\n| Power Tools | 4 |\n\n</td><td>\n→ \n</td><td>\n\n  \n| Category | Quantity.sum_times_two |\n|:--------:|:----------------------:|\n| Hand Tools | 12 |\n| Power Tools | 4 |\n  \n</td></tr>\n</table>\n</div>"}
 />
 
 ```python
 def sum_times_two(x):
     return sum(x) * 2
 ```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Category | Quantity |
-|:--------:|:--------:|
-| Hand Tools | 3 |
-| Hand Tools | 1 |
-| Hand Tools | 2 |
-| Power Tools | 4 |
-
-</td><td>
-→ 
-</td><td>
-
-  
-| Category | Quantity.sum_times_two |
-|:--------:|:----------------------:|
-| Hand Tools | 12 |
-| Power Tools | 4 |
-  
-</td></tr>
-</table>
-</div>
 
 > Note: Recipes using select.group_by **must** be output to a new sheet because they change the shape of the dataframe.
 \{.is-info\}

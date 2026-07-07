@@ -26,12 +26,11 @@ Extract geographical information from unstructured text such as streets, cities 
       output: Street
       dataType: streets
       where: SUBSTRING(Location, 1, 3) = '221'`}
-/>
-
-| Location                                         | Street             |
+  exampleSource={`| Location                                         | Street             |
 |:-------------------------------------------------|:--------------------|
 | 221 B Baker St., London, England, United Kingdom | ['221 B Baker St.'] |
-| London SW1A 1AA, London, England, United Kingdom | |
+| London SW1A 1AA, London, England, United Kingdom | |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -152,16 +151,21 @@ Extract numeric attributes from unstructured text such as lengths or voltages.
       input: tools
       output: attributes
       responseContent: span`}
+  exampleSource={`| Tools            | Attributes (Span)                     |
+|:-----------------|:--------------------------------------|
+| hammer 5kg, 0.5m | \`{'length': ['0.5m'], 'mass': ['5kg']}\` |`}
 />
 
-| Tools            | Attributes (Span)                     |
-|:-----------------|:--------------------------------------|
-| hammer 5kg, 0.5m | `{'length': ['0.5m'], 'mass': ['5kg']}` |
-
-
-| Tools            | Attributes (Object)                                                                                 |
+<RecipePlayground
+  recipe={`wrangles:
+  - extract.attributes:
+      input: tools
+      output: attributes
+      responseContent: object`}
+  exampleSource={`| Tools            | Attributes (Object)                                                                                 |
 |:-----------------|:--------------------------------------------------------------------------------------------|
-| hammer 5kg, 0.5m | \{'length': [\{'unit': 'metre', 'value': 0.5\}], 'mass': [\{'unit': 'kilogram', 'value': 5.0\}]\} |
+| hammer 5kg, 0.5m | \{'length': [\{'unit': 'metre', 'value': 0.5\}], 'mass': [\{'unit': 'kilogram', 'value': 5.0\}]\} |`}
+/>
 
 #### Extracting Specific Attributes
 
@@ -230,14 +234,13 @@ Extract text properties in brackets from the input
   - extract.brackets:
       input: Data
       output: Output`}
-/>
-
-| Data       | Output   |
+  exampleSource={`| Data       | Output   |
 |:-----------|:---------|
 | *\{Hello\}*    | Hello    |
 | [Wrangles] | Wrangles |
 | (!)        | !        |
-| &lt;!>        | !        |
+| &lt;!>        | !        |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -268,11 +271,10 @@ wrangles:
   - extract.codes:
       input: Secret
       output: Code Extract`}
-/>
-
-| Secret                      | Code Extract   |
+  exampleSource={`| Secret                      | Code Extract   |
 |:----------------------------|:---------------|
-| to gain access use Z1ON0101 | ['Z1ON0101']   |
+| to gain access use Z1ON0101 | ['Z1ON0101']   |`}
+/>
 
 #### Extracting Codes From Multiple Columns
 
@@ -284,11 +286,10 @@ wrangles:
       	- code1
         - code2
       output: Codes`}
-/>
-  
-| code1           | code2           | Codes                        |
+  exampleSource={`| code1           | code2           | Codes                        |
 |:----------------|:----------------|:-----------------------------|
-| code CH465517080-1 | code CH465517080-2 | ['CH465517080-1', 'CH465517080-2'] |
+| code CH465517080-1 | code CH465517080-2 | ['CH465517080-1', 'CH465517080-2'] |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -320,13 +321,11 @@ wrangles:
       input: Product
       output: Wood Types
       model_id: model_id_here`}
-/>
-
-
-| Product                           | Wood Types             |
+  exampleSource={`| Product                           | Wood Types             |
 |:----------------------------------|:-----------------------|
 | Dining Oakwood Chair              | Oakwood                |
-| Living Room Teakwood Frame Mirror | Teakwood               |
+| Living Room Teakwood Frame Mirror | Teakwood               |`}
+/>
 
 #### Extracting Wood Types From Multiple Columns
 
@@ -339,12 +338,10 @@ wrangles:
         - Part 2 of 2
       output: Wood Types
       model_id: model_id_here`}
-/>
-
-
-| Part 1 of 2             | Part 2 of 2                 | Wood Types   |
+  exampleSource={`| Part 1 of 2             | Part 2 of 2                 | Wood Types   |
 |:------------------------|:----------------------------|:--------------|
-| Dining Acacia Wood Table | Imitation Wood Table Chairs | ['Acacia Wood', 'Imitation Wood']|
+| Dining Acacia Wood Table | Imitation Wood Table Chairs | ['Acacia Wood', 'Imitation Wood']|`}
+/>
 
 #### Using Multiple Extract Models
 
@@ -361,13 +358,11 @@ wrangles:
       model_id:
       	- wood_Type_model_id
         - item_type_model_id`}
-/>
-
-
-| Product                           | Wood Types             | Item Type
+  exampleSource={`| Product                           | Wood Types             | Item Type
 |:----------------------------------|:-----------------------|:-----------------------|
 | Dining Oakwood Chair              | Oakwood                | Chair |
-| Living Room Teakwood Frame Mirror | Teakwood               | Mirror |
+| Living Room Teakwood Frame Mirror | Teakwood               | Mirror |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -405,11 +400,10 @@ Extract date properties from a date (day, month, year, etc...)
       input: Date
       output: Output
       property: month_name`}
-/>
-
-| Date                | Output   |
+  exampleSource={`| Date                | Output   |
 |:--------------------|:---------|
-| 1992-08-13 00:00:00 | August   |
+| 1992-08-13 00:00:00 | August   |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -440,11 +434,10 @@ Extract date range from two dates
       end_time: End
       output: Output
       range: months`}
-/>
-
-| Start               | End                 |   Output |
+  exampleSource={`| Start               | End                 |   Output |
 |:--------------------|:--------------------|---------:|
-| 1992-08-13 00:00:00 | 2023-08-13 00:00:00 |      371 |
+| 1992-08-13 00:00:00 | 2023-08-13 00:00:00 |      371 |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -494,11 +487,10 @@ Extract Text and Links from HTML Elements
       input: HTML
       output: Text
       data_type: text`}
-/>
-
-| HTML                                                       | Text           |
+  exampleSource={`| HTML                                                       | Text           |
 |:-----------------------------------------------------------|:---------------|
-| `<a href="https://www.wrangleworks.com/">Wrangle Works!</a>` | Wrangle Works! |
+| \`<a href="https://www.wrangleworks.com/">Wrangle Works!</a>\` | Wrangle Works! |`}
+/>
 
 #### Extracting Links From HTML
 
@@ -508,11 +500,10 @@ Extract Text and Links from HTML Elements
       input: HTML
       output: Links
       data_type: links`}
-/>
-
-| HTML                                                       | Links                              |
+  exampleSource={`| HTML                                                       | Links                              |
 |:-----------------------------------------------------------|:----------------------------------|
-| `<a href="https://www.wrangleworks.com/">Wrangle Works!</a>` | ['https://www.wrangleworks.com/'] |
+| \`<a href="https://www.wrangleworks.com/">Wrangle Works!</a>\` | ['https://www.wrangleworks.com/'] |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -541,12 +532,11 @@ Extract categorical properties from unstructured text such as colours or materia
   - extract.properties:
       input: water bottles
       output: properties`}
-/>
-
-| Products                    | Product Properties                                      |
+  exampleSource={`| Products                    | Product Properties                                      |
 |:----------------------------|:--------------------------------------------------------|
-| Stainless Steel Blue Bottle | `{'Colours': ['Blue'], 'Materials': ['Stainless Steel']}` |
-| Plastic Yellow Bottle       | `{'Colours': ['Yellow'], 'Materials': ['Plastic']}`       |
+| Stainless Steel Blue Bottle | \`{'Colours': ['Blue'], 'Materials': ['Stainless Steel']}\` |
+| Plastic Yellow Bottle       | \`{'Colours': ['Yellow'], 'Materials': ['Plastic']}\`       |`}
+/>
 
 #### Extracting Colour
 
@@ -556,12 +546,11 @@ Extract categorical properties from unstructured text such as colours or materia
       input: water bottles
       output: properties
       property_type: colours # Optional`}
-/>
-
-| Products                    | Product Colours   |
+  exampleSource={`| Products                    | Product Colours   |
 |:----------------------------|:------------------|
 | Stainless Steel Blue Bottle | ['Blue']          |
-| Plastic Yellow Bottle       | ['Yellow']        |
+| Plastic Yellow Bottle       | ['Yellow']        |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -592,13 +581,12 @@ Extract single values using regex
   		input: Product
       output: GPM
       find: \\d\\.?\\d? ?gpm`}
-/>
-
-| Product               | GPM                 |
+  exampleSource={`| Product               | GPM                 |
 |:--------------------|:--------------------|
 | 3.4 gpm water pump | 3.4 gpm |
-| 2gpm water pump | 2gpm |
-  
+| 2gpm water pump | 2gpm |`}
+/>
+
 #### Implementing output_pattern
 The output_pattern parameter can be used to specify regex capture groups to output
 
@@ -609,12 +597,11 @@ The output_pattern parameter can be used to specify regex capture groups to outp
       output: GPM
       find: (\\d\\.?\\d?) ?gpm
   output_pattern: \\1 Gallons Per Minute`}
-/>
-
-| Product | GPM |
+  exampleSource={`| Product | GPM |
 |:-------:|:---:|
 | 3.4 gpm water pump for 5.5 gallon tank | 3.4 Gallons Per Minute |
-| 2gpm water pump for 2 gal tank | 2 Gallons Per Minute |
+| 2gpm water pump for 2 gal tank | 2 Gallons Per Minute |`}
+/>
 
 ### Parameters
 <div className="table-scroll">

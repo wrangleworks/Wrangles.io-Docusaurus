@@ -24,11 +24,10 @@ Format a date into desired pattern
       input: Date
       output: Output Format
       format: '%Y-%m-%d'  # must be wrapped by quotes " or '`}
-/>
-
-| Date      | Output Format   |
+  exampleSource={`| Date      | Output Format   |
 |:----------|:----------------|
-| 6/23/1912 | 1912-06-23      |
+| 6/23/1912 | 1912-06-23      |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -88,13 +87,12 @@ Add a prefix to a column.
       input: Data
       output: Prefix
       value: anti`}
-/>
-
-| Data   | Prefix     |
+  exampleSource={`| Data   | Prefix     |
 |:-------|:-----------|
 | freeze | antifreeze |
 | dote   | antidote   |
-| hero   | antihero   |
+| hero   | antihero   |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -153,13 +151,12 @@ Format a value to a specific number of significant figures
       input: Data
       significant_figures: 2
       output: Data to 2 Figures`}
-/>
-
-| Data | Data to 2 Figures |
+  exampleSource={`| Data | Data to 2 Figures |
 |:-----|:------------------|
 | 1.25 | 1.2 |
 | 12.3 | 12 |
-| 55.6 | 55 |
+| 55.6 | 55 |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -189,13 +186,12 @@ Add a suffix to a column
       input: Data
       output: Suffix
       value: ic`}
-/>
-
-| Data   | Suffix   |
+  exampleSource={`| Data   | Suffix   |
 |:-------|:---------|
 | sto    | stoic    |
 | hero   | heroic   |
-| icon   | iconic   |
+| icon   | iconic   |`}
+/>
 
 ### Parameters
 <div className="table-scroll">
@@ -225,11 +221,10 @@ Remove excess whitespace at the start and end of text. Can accept multiple colum
       input:
         - col1
       output: col1 trimmed`}
-/>
-
-| col1 | col1 trimmed |
+  exampleSource={`| col1 | col1 trimmed |
 |:-------------------------|:---------|
-|     Hello World      | Hello World |
+|     Hello World      | Hello World |`}
+/>
 
 ### Parameters
 <div className="table-scroll">

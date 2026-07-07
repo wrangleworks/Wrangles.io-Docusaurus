@@ -169,11 +169,10 @@ The Python Wrangle allows executing simple Python commands inline within a recip
   - python:
       output: result
       command: My_Column.upper()`}
-/>
-
-| My Column | result |
+  exampleSource={`| My Column | result |
 |:--------:|:--------:|
-| example text | EXAMPLE TEXT |
+| example text | EXAMPLE TEXT |`}
+/>
 
 > Note: The python wrangle replaces spaces in column headers with an underscore so it is important to keep this in mind when writing your commands.
 \{.is-info\}
@@ -377,12 +376,11 @@ Calculate the similarity of two **vectors**.
         - col2 embeddings
       output: similarity
       method: adjusted cosine`}
-/>
-
-| col1 | col2 | col1 embeddings | col2 embeddings | similarity |
+  exampleSource={`| col1 | col2 | col1 embeddings | col2 embeddings | similarity |
 |:----:|:----:|:---------------:|:---------------:|:----------:|
 | SKF | Timken | [1, 2, 3, 4] | [4, 3, 2, 1] | 0.158931 |
-| Ball Bearing | Roller Bearing | [5, 6, 7, 8] | [5, 6, 7, 9] | 0.942437 |
+| Ball Bearing | Roller Bearing | [5, 6, 7, 8] | [5, 6, 7, 9] | 0.942437 |`}
+/>
 
 ### Parameters
 <div className="table-scroll">

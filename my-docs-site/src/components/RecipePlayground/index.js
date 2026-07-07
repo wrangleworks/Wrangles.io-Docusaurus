@@ -97,6 +97,10 @@ function parseCompactMarkdownExample(markdown) {
     groups.push(currentGroup);
   }
 
+  if (groups.length < 2) {
+    return null;
+  }
+
   const tables = groups.map((group) => ({
     columns: group.map((index) => header[index]),
     rows: body.map((row) => group.map((index) => row[index] ?? '')),
@@ -165,18 +169,38 @@ function extractTablesFromHtmlExample(source) {
     .filter(Boolean);
 }
 
-function normalizeOutputColumns(output) {
-  if (!output) return [];
-  if (typeof output === 'string') return output.includes('*') ? [] : [output];
-  if (!Array.isArray(output)) return [];
+function normalizeColumnName(column) {
+  return String(column ?? '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\[[^\]]*\]/g, '')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .trim()
+    .toLowerCase();
+}
 
-  return output.flatMap((item) => {
+function columnMatches(column, target) {
+  const normalizedColumn = normalizeColumnName(column);
+  const normalizedTarget = normalizeColumnName(target);
+
+  return (
+    normalizedColumn === normalizedTarget ||
+    normalizedColumn.startsWith(normalizedTarget + ' ') ||
+    normalizedColumn.endsWith(' ' + normalizedTarget)
+  );
+}
+
+function normalizeConfigColumns(value) {
+  if (!value) return [];
+  if (typeof value === 'string') return value.includes('*') ? [] : [value];
+  if (!Array.isArray(value)) return [];
+
+  return value.flatMap((item) => {
     if (typeof item === 'string') {
       return item.includes('*') ? [] : [item];
     }
     if (item && typeof item === 'object') {
       return Object.values(item)
-        .filter((value) => typeof value === 'string' && !value.includes('*'));
+        .filter((itemValue) => typeof itemValue === 'string' && !itemValue.includes('*'));
     }
     return [];
   });
@@ -188,14 +212,24 @@ function inferInputFromOutput(recipe, outputTable) {
   try {
     const parsed = yaml.load(recipe);
     const firstWrangle = Array.isArray(parsed?.wrangles) ? parsed.wrangles[0] : null;
-    const config = firstWrangle && typeof firstWrangle === 'object' ? firstWrangle[Object.keys(firstWrangle)[0]] : null;
-    const outputColumns = normalizeOutputColumns(config?.output);
+    const config =
+      firstWrangle && typeof firstWrangle === 'object'
+        ? firstWrangle[Object.keys(firstWrangle)[0]]
+        : null;
+    const configuredInputColumns = normalizeConfigColumns(config?.input);
+    const configuredOutputColumns = normalizeConfigColumns(config?.output);
 
-    if (!outputColumns.length) {
-      return null;
-    }
+    const inferredInputColumns = outputTable.columns.filter(
+      (column) =>
+        !configuredOutputColumns.some((outputColumn) => columnMatches(column, outputColumn)),
+    );
+    const configuredInputMatches = configuredInputColumns.length
+      ? outputTable.columns.filter((column) =>
+          configuredInputColumns.some((inputColumn) => columnMatches(column, inputColumn)),
+        )
+      : [];
+    const inputColumns = configuredInputMatches.length ? configuredInputMatches : inferredInputColumns;
 
-    const inputColumns = outputTable.columns.filter((column) => !outputColumns.includes(column));
     if (!inputColumns.length) {
       return null;
     }
@@ -336,7 +370,7 @@ function DataTable({columns, rows, editable, onCellChange}) {
 
 export default function RecipePlayground({
   recipe,
-  editable = false,
+  editable = true,
   inputColumns,
   inputRows,
   outputColumns,

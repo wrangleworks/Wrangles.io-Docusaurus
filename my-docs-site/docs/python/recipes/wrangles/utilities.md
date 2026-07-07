@@ -293,39 +293,13 @@ Run a simple custom function with a variable that is a list of values
             input: Col1
             output: Part Code \${var}
             value: \${var}`}
+  exampleSource={"<div className=\"table-scroll\">\n<table>\n<tr><th></th><th></th><th></th></tr>\n<tr><td>\n\n| Part Code | \n|:---------:|\n| 6202      |\n| br549     |\n| 554-114   |\n| 554-112   |\n\n</td><td>\n→ \n</td><td>\n\n| Part Code | Part Code A | Part Code B | Part Code C |\n|:---------:|:-----------:|:-----------:|:-----------:|\n| 6202      | 6202A       | 6202B       | 6202C       |\n| br549     | br549A      | br549B      | br549C      |\n| 554-114   | 554-114A    | 554-114B    | 554-114C    |\n| 554-112   | 554-112A    | 554-112B    | 554-112C    |\n  \n</td></tr>\n</table>\n</div>"}
 />
 
 ```python
 def test_fn(Col1, value):
     return Col1 + value
 ```
-
-<div className="table-scroll">
-<table>
-<tr><th></th><th></th><th></th></tr>
-<tr><td>
-
-| Part Code | 
-|:---------:|
-| 6202      |
-| br549     |
-| 554-114   |
-| 554-112   |
-
-</td><td>
-→ 
-</td><td>
-
-| Part Code | Part Code A | Part Code B | Part Code C |
-|:---------:|:-----------:|:-----------:|:-----------:|
-| 6202      | 6202A       | 6202B       | 6202C       |
-| br549     | br549A      | br549B      | br549C      |
-| 554-114   | 554-114A    | 554-114B    | 554-114C    |
-| 554-112   | 554-112A    | 554-112B    | 554-112C    |
-  
-</td></tr>
-</table>
-</div>
 
 #### Using Unique Variables Per Row
 Unique variables for each row can be utlized by following the example below where a different model id is used for each row.
