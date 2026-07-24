@@ -26,6 +26,24 @@ const config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'wrangles',
+        path: 'wrangle-docs',
+        routeBasePath: 'wrangle',
+        sidebarPath: './sidebarsWrangle.js',
+        exclude: ['**/_sources/**'],
+        remarkPlugins: [
+          require('./src/remark/linksListMarker'),
+          require('./src/remark/scrapedAttributes'),
+        ],
+      }),
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -34,6 +52,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
+          exclude: ['**/_sources/**'],
           remarkPlugins: [
             require('./src/remark/linksListMarker'),
             require('./src/remark/scrapedAttributes'),
@@ -54,17 +73,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Home',
-        logo: {
-          alt: 'Logo',
-          src: 'img/logo.svg',
-        },
+        title: 'WrangleWorks',
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'custom-wrangleMode',
             position: 'left',
-            label: 'Docs',
           },
           {
             to: '/playground',

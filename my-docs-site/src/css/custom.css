@@ -589,3 +589,120 @@ h4.tabset {
 .theme-doc-markdown table code {
   white-space: nowrap;
 }
+
+
+/* Top-level Docs/Wrangles mode switch */
+.ww-mode-switch {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 0.15rem;
+  padding: 0.2rem;
+}
+
+.ww-mode-switch__option {
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0.58rem 0.85rem;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.ww-mode-switch__option:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ww-mode-switch__option--active {
+  background: #ffffff;
+  color: var(--ww-blue-900);
+}
+
+.ww-mode-switch__option--active:hover {
+  color: var(--ww-blue-900);
+}
+
+/* Wrangle mode navigation: left-side category pills, content on the right */
+.ww-wrangle-mode .theme-doc-sidebar-container {
+  background: transparent;
+  border-right: 0;
+  padding: 1.25rem 0.75rem 1.25rem 1rem;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-menu,
+.ww-wrangle-mode .theme-doc-sidebar-container .menu,
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__list {
+  padding: 0;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__list-item {
+  margin: 0;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__link {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #365166;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 800;
+  justify-content: flex-start;
+  line-height: 1.15;
+  min-height: 2.45rem;
+  padding: 0.66rem 1rem;
+  text-decoration: none;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__link:hover {
+  background: #e6eef6;
+  color: #12344c;
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__link--active {
+  background: #ffffff;
+  border-color: #9bc0df;
+  box-shadow: 0 1px 2px rgba(18, 27, 43, 0.08);
+  color: var(--ww-blue-900);
+}
+
+.ww-wrangle-mode .theme-doc-sidebar-container .menu__link--active::before {
+  background: var(--ww-blue-700);
+  border-radius: 999px;
+  content: "";
+  height: 0.48rem;
+  margin-right: 0.55rem;
+  width: 0.48rem;
+}
+
+.ww-wrangle-mode .breadcrumbs {
+  background: transparent;
+  border-bottom: 0;
+}
+
+
+@media (max-width: 996px) {
+  .ww-mode-switch {
+    margin-left: 0;
+  }
+
+  .ww-mode-switch__option {
+    font-size: 0.8rem;
+    padding: 0.52rem 0.72rem;
+  }
+
+}
