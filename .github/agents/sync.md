@@ -65,7 +65,7 @@ Some sections may be empty when the source page does not provide that informatio
 When syncing a wrangle:
 
 - Use only the approved source URL listed in the Source Map.
-- If the URL has an anchor and the anchor is unreliable, load the page and locate the wrangle by visible heading text.
+- If the URL has an anchor and the anchor is unreliable, load the full page without the hash and locate the wrangle by visible heading text.
 - Preserve locally stored identifiers such as wrangle key, slug, type, subtype, variant, status, tags, source file path, docs path, and catalog metadata unless the user explicitly asks to change them.
 - Preserve parameter names exactly as documented by the source.
 - Preserve enum values exactly as documented by the source.
@@ -74,6 +74,22 @@ When syncing a wrangle:
 - Do not add marketing language, opinions, or undocumented behavior.
 - Do not remove useful local examples unless the source clearly supersedes them.
 - If source and local docs conflict, use the source for behavior and report the conflict.
+
+## Fetch Rules
+
+Do not skip a wrangle after a single failed website fetch. The model can only sync from the live site if the runtime successfully retrieves the page, so try every available retrieval path before marking a source unavailable.
+
+For each approved source URL:
+
+1. Try the direct web fetch tool for the exact approved URL.
+2. If that fails, try opening the exact approved URL with the browser or Playwright tool.
+3. If the URL includes a `#hash`, retry the same URL without the hash and locate the target section by heading text.
+4. If shell tools are available, retry with a terminal HTTP client such as `curl`, `wget`, Node `fetch`, or Python `urllib`.
+5. If DNS fails, retry once after a short delay before skipping.
+
+Only skip as unavailable when all available fetch methods fail. When skipping, report the exact methods attempted and the exact error class, such as DNS failure, timeout, HTTP status, blocked request, or missing heading.
+
+Do not use search results, guessed URLs, cached snippets, or unrelated pages as replacements for the approved source URL.
 
 ## MDX Safety Rules
 
@@ -91,7 +107,7 @@ Docusaurus parses these files as MDX. Keep the files build-safe.
 For each wrangle in the requested category or sync run:
 
 1. Read the local target file.
-2. Fetch the approved source URL.
+2. Fetch the approved source URL using the Fetch Rules.
 3. Locate the relevant source section.
 4. Compare parameters, descriptions, defaults, examples, notes, and access requirements.
 5. Update only the target source partial.
