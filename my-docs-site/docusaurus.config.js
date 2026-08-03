@@ -2,11 +2,11 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'WrangleWorks Internal Wiki',
+  title: 'WrangleWorks',
   tagline: "There's a process for that!",
   favicon: 'img/favicon.ico',
 
-  url: 'http://docs.kardiydata.net', // Change this to your real domain later
+  url: 'https://wrangles.io',
   baseUrl: '/',
 
   onBrokenLinks: 'warn',
@@ -64,6 +64,9 @@ const config = {
         theme: {
           // Use require.resolve to avoid path resolution quirks across environments.
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleTagManager: {
+          containerId: 'GTM-53M7W79',
         },
       }),
     ],
