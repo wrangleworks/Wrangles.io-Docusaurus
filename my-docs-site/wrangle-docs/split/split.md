@@ -16,15 +16,6 @@ import Tokenize from './_sources/tokenize.md';
 
 Split wrangles break strings, lists, dictionaries, or rows into smaller pieces.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | split |
-| Wrangle Count | 5 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/split/_sources/*.md` |
-
 ## Wrangles
 
 - [Dictionary](#dictionary) - `split.dictionary`
@@ -52,3 +43,14 @@ Split wrangles break strings, lists, dictionaries, or rows into smaller pieces.
 ---
 
 <Tokenize />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | split |
+| Wrangle Count | 5 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/split/_sources/*.md` |

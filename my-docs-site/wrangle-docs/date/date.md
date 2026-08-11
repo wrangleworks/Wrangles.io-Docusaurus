@@ -12,6 +12,16 @@ import DateCalculator from './_sources/date-calculator.md';
 
 Date wrangles work with date and time values.
 
+## Wrangles
+
+- [Date Calculator](#date-calculator) - `date_calculator`
+
+---
+
+<DateCalculator />
+
+---
+
 ## Metadata
 
 | Field | Value |
@@ -20,11 +30,3 @@ Date wrangles work with date and time values.
 | Wrangle Count | 1 |
 | Generated Source | `public.wranglesio_content` |
 | Section Sources | `wrangle-docs/date/_sources/*.md` |
-
-## Wrangles
-
-- [Date Calculator](#date-calculator) - `date_calculator`
-
----
-
-<DateCalculator />

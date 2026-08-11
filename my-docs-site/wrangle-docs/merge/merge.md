@@ -18,15 +18,6 @@ import ToList from './_sources/to-list.md';
 
 Merge wrangles combine multiple columns, lists, dictionaries, or values into a single output.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | merge |
-| Wrangle Count | 7 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/merge/_sources/*.md` |
-
 ## Wrangles
 
 - [Coalesce](#coalesce) - `merge.coalesce`
@@ -64,3 +55,14 @@ Merge wrangles combine multiple columns, lists, dictionaries, or values into a s
 ---
 
 <ToList />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | merge |
+| Wrangle Count | 7 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/merge/_sources/*.md` |

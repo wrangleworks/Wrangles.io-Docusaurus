@@ -16,15 +16,6 @@ import Sql from './_sources/sql.md';
 
 Compute wrangles calculate values using SQL, Python, math, search scoring, or conditional logic.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | compute |
-| Wrangle Count | 5 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/compute/_sources/*.md` |
-
 ## Wrangles
 
 - [Case When](#case-when) - `compute.case_when`
@@ -52,3 +43,14 @@ Compute wrangles calculate values using SQL, Python, math, search scoring, or co
 ---
 
 <Sql />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | compute |
+| Wrangle Count | 5 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/compute/_sources/*.md` |

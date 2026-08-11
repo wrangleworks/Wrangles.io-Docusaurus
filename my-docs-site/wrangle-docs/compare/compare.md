@@ -14,15 +14,6 @@ import Text from './_sources/text.md';
 
 Compare wrangles compare values, lists, vectors, or text and return useful similarities or differences.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | compare |
-| Wrangle Count | 3 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/compare/_sources/*.md` |
-
 ## Wrangles
 
 - [Lists](#lists) - `compare.lists`
@@ -40,3 +31,14 @@ Compare wrangles compare values, lists, vectors, or text and return useful simil
 ---
 
 <Text />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | compare |
+| Wrangle Count | 3 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/compare/_sources/*.md` |

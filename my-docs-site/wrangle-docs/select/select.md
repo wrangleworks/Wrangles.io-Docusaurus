@@ -28,15 +28,6 @@ import Threshold from './_sources/threshold.md';
 
 Select wrangles choose rows, columns, elements, substrings, or values from existing data.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | select |
-| Wrangle Count | 17 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/select/_sources/*.md` |
-
 ## Wrangles
 
 - [Columns](#columns) - `select.columns`
@@ -124,3 +115,14 @@ Select wrangles choose rows, columns, elements, substrings, or values from exist
 ---
 
 <Threshold />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | select |
+| Wrangle Count | 17 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/select/_sources/*.md` |

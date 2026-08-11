@@ -22,15 +22,6 @@ import Regex from './_sources/regex.md';
 
 Extract wrangles identify and extract structured information from unstructured or semi-structured input.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | extract |
-| Wrangle Count | 11 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/extract/_sources/*.md` |
-
 ## Wrangles
 
 - [Address](#address) - `extract.address`
@@ -88,3 +79,14 @@ Extract wrangles identify and extract structured information from unstructured o
 ---
 
 <Regex />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | extract |
+| Wrangle Count | 11 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/extract/_sources/*.md` |

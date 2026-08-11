@@ -12,6 +12,16 @@ import Lookup from './_sources/lookup.md';
 
 Lookup wrangles retrieve values from saved lookup wrangles.
 
+## Wrangles
+
+- [Lookup](#lookup) - `lookup`
+
+---
+
+<Lookup />
+
+---
+
 ## Metadata
 
 | Field | Value |
@@ -20,11 +30,3 @@ Lookup wrangles retrieve values from saved lookup wrangles.
 | Wrangle Count | 1 |
 | Generated Source | `public.wranglesio_content` |
 | Section Sources | `wrangle-docs/lookup/_sources/*.md` |
-
-## Wrangles
-
-- [Lookup](#lookup) - `lookup`
-
----
-
-<Lookup />

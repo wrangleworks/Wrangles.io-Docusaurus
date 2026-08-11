@@ -13,15 +13,6 @@ import RetrieveLinkContent from './_sources/retrieve-link-content.md';
 
 Search wrangles find links and retrieve targeted content from external web pages.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | search |
-| Wrangle Count | 2 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/search/_sources/*.md` |
-
 ## Wrangles
 
 - [Find Links](#find-links) - `search.find_links`
@@ -34,3 +25,14 @@ Search wrangles find links and retrieve targeted content from external web pages
 ---
 
 <RetrieveLinkContent />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | search |
+| Wrangle Count | 2 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/search/_sources/*.md` |

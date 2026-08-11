@@ -14,15 +14,6 @@ import Huggingface from './_sources/huggingface.md';
 
 AI wrangles use trained models or external AI providers to classify, extract, generate, or transform data.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | ai |
-| Wrangle Count | 3 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/ai/_sources/*.md` |
-
 ## Wrangles
 
 - [Ai](#ai) - `generate.ai`
@@ -40,3 +31,14 @@ AI wrangles use trained models or external AI providers to classify, extract, ge
 ---
 
 <Huggingface />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | ai |
+| Wrangle Count | 3 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/ai/_sources/*.md` |

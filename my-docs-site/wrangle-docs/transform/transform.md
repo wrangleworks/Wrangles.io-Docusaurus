@@ -15,15 +15,6 @@ import Transpose from './_sources/transpose.md';
 
 Transform wrangles copy, rename, reindex, or transpose data.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | transform |
-| Wrangle Count | 4 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/transform/_sources/*.md` |
-
 ## Wrangles
 
 - [Copy](#copy) - `copy`
@@ -46,3 +37,14 @@ Transform wrangles copy, rename, reindex, or transpose data.
 ---
 
 <Transpose />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | transform |
+| Wrangle Count | 4 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/transform/_sources/*.md` |

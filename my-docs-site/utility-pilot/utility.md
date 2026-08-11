@@ -14,6 +14,16 @@ import Log from '../wrangle-docs/utility/_sources/log.md';
 
 Utility wrangles support logging and other workflow-level actions.
 
+## Wrangles
+
+- [Log](#log) - `log`
+
+---
+
+<Log />
+
+---
+
 ## Metadata
 
 | Field | Value |
@@ -22,11 +32,3 @@ Utility wrangles support logging and other workflow-level actions.
 | Wrangle Count | 1 |
 | Generated Source | `public.wranglesio_content` |
 | Section Sources | `wrangle-docs/utility/_sources/*.md` |
-
-## Wrangles
-
-- [Log](#log) - `log`
-
----
-
-<Log />

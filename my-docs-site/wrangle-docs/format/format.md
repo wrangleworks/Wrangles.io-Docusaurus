@@ -24,15 +24,6 @@ import Trim from './_sources/trim.md';
 
 Format wrangles clean, standardize, translate, pad, trim, or otherwise reformat existing values.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | format |
-| Wrangle Count | 13 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/format/_sources/*.md` |
-
 ## Wrangles
 
 - [Clean Whitespaces](#clean-whitespaces) - `clean_whitespaces`
@@ -100,3 +91,14 @@ Format wrangles clean, standardize, translate, pad, trim, or otherwise reformat 
 ---
 
 <Trim />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | format |
+| Wrangle Count | 13 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/format/_sources/*.md` |

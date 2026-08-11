@@ -19,15 +19,6 @@ import Uuid from './_sources/uuid.md';
 
 Create wrangles add new data such as generated IDs, bins, indexes, hashes, embeddings, or templated text.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | create |
-| Wrangle Count | 8 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/create/_sources/*.md` |
-
 ## Wrangles
 
 - [Bins](#bins) - `create.bins`
@@ -70,3 +61,14 @@ Create wrangles add new data such as generated IDs, bins, indexes, hashes, embed
 ---
 
 <Uuid />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | create |
+| Wrangle Count | 8 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/create/_sources/*.md` |

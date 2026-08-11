@@ -18,15 +18,6 @@ import ToYaml from './_sources/to-yaml.md';
 
 Convert wrangles change data formats, representations, and data types.
 
-## Metadata
-
-| Field | Value |
-| --- | --- |
-| Type | convert |
-| Wrangle Count | 7 |
-| Generated Source | `public.wranglesio_content` |
-| Section Sources | `wrangle-docs/convert/_sources/*.md` |
-
 ## Wrangles
 
 - [Case](#case) - `convert.case`
@@ -64,3 +55,14 @@ Convert wrangles change data formats, representations, and data types.
 ---
 
 <ToYaml />
+
+---
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| Type | convert |
+| Wrangle Count | 7 |
+| Generated Source | `public.wranglesio_content` |
+| Section Sources | `wrangle-docs/convert/_sources/*.md` |

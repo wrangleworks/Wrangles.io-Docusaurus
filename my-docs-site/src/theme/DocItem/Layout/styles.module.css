@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 997px) {
+  .docItemCol {
+    max-width: 75% !important;
+  }
+
+  .docItemColExpanded {
+    flex-basis: 100%;
+    max-width: 100% !important;
+  }
+}
+
+
+.tocColumn {
+  position: relative;
+}
+
+.tocToggle {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.16);
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  left: -0.75rem;
+  padding: 0;
+  position: absolute;
+  top: 1.75rem;
+  transition: background-color 120ms ease, border-color 120ms ease;
+  width: 2rem;
+  z-index: 2;
+}
+
+.tocToggle:hover {
+  background: #eef6ff;
+  border-color: #1976d2;
+}
+
+.tocToggle:focus-visible {
+  outline: 3px solid rgba(25, 118, 210, 0.35);
+  outline-offset: 2px;
+}
+
+.tocToggleCollapsed {
+  border-radius: 4px 0 0 4px;
+  left: auto;
+  position: fixed;
+  right: 0;
+  top: calc(var(--ifm-navbar-height) + 1.25rem);
+  z-index: 100;
+}
+
+.chevron {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  display: block;
+  height: 0.5rem;
+  transform: rotate(-45deg);
+  width: 0.5rem;
+}
+
+.chevronExpand {
+  transform: rotate(135deg);
+}
+
