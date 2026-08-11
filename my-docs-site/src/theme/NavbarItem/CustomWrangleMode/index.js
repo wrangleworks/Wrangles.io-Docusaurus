@@ -4,21 +4,23 @@ import {useLocation} from '@docusaurus/router';
 
 export default function CustomWrangleModeNavbarItem() {
   const location = useLocation();
-  const isWrangleMode = location.pathname === '/wrangle' || location.pathname.startsWith('/wrangle/');
+  const isWrangleMode =
+    location.pathname === '/wrangle' ||
+    location.pathname.startsWith('/wrangle/');
 
   return (
-    <div className="navbar__item ww-mode-switch" role="group" aria-label="Documentation mode">
+    <div className="navbar__item ww-mode-switch" role="group" aria-label="Wrangle product documentation">
       <Link
         className={`ww-mode-switch__option${!isWrangleMode ? ' ww-mode-switch__option--active' : ''}`}
         to="/"
         aria-pressed={!isWrangleMode}>
-        Docs
+        WranglesXL
       </Link>
       <Link
         className={`ww-mode-switch__option${isWrangleMode ? ' ww-mode-switch__option--active' : ''}`}
         to="/wrangle"
         aria-pressed={isWrangleMode}>
-        Wrangles
+        WranglesPy
       </Link>
     </div>
   );

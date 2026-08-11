@@ -19,15 +19,15 @@ If you recall from the manual excersize, our data is dirty and riddled with nois
 ![demo_-_products.png](/images/demo_-_products.png)
 
 The wrangles we will be working with can be found here:
-- [extract.properties](/python/recipes/wrangles/extract#properties)
-- [select.list_element](/python/recipes/wrangles/select#list-element)
-- [extract.attributes](/python/recipes/wrangles/extract#attributes)
-- [extract.codes](/python/recipes/wrangles/extract#codes)
-- [replace](/python/recipes/wrangles/standalone#replace)
-- [extract.address](/python/recipes/wrangles/extract#address)
-- [extract.brackets](/python/recipes/wrangles/extract#brackets)
-- [extract.custom](/python/recipes/wrangles/extract#custom)
-- [merge.concatenate](/python/recipes/wrangles/merge#concatenate)
+- [extract.properties](/wrangle/extract#properties)
+- [select.list_element](/wrangle/select#list-element)
+- [extract.attributes](/wrangle/extract#attributes)
+- [extract.codes](/wrangle/extract#codes)
+- [replace](/wrangle/format#replace)
+- [extract.address](/wrangle/extract#address)
+- [extract.brackets](/wrangle/extract#brackets)
+- [extract.custom](/wrangle/extract#custom)
+- [merge.concatenate](/wrangle/merge#concatenate)
 
 Here is the recipe we will be using, but keep reading to go over it step by step.
 
@@ -192,7 +192,7 @@ Storage is wrapped in curly brackets in our data so the extract.brackets stock w
       first_element: true
 ```
 
-In order to extract brand, we have utilized a custom extract wrangle. You'll notice that extract.custom has a first_element parameter that allows users to specify the first element only when running the wrangle. This gets rid of the need for an additional select wrangle. See [extract.custom](/python/recipes/wrangles/extract#custom) to learn how to train your own custom extract wrangle. 
+In order to extract brand, we have utilized a custom extract wrangle. You'll notice that extract.custom has a first_element parameter that allows users to specify the first element only when running the wrangle. This gets rid of the need for an additional select wrangle. See [extract.custom](/wrangle/extract#custom) to learn how to train your own custom extract wrangle.
 
 Our model is as follows:
 

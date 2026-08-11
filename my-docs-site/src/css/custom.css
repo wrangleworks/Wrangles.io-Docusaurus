@@ -591,7 +591,7 @@ h4.tabset {
 }
 
 
-/* Top-level Docs/Wrangles mode switch */
+/* Top-level WranglesXL/WranglesPy mode switch */
 .ww-mode-switch {
   align-items: center;
   background: rgba(255, 255, 255, 0.12);
@@ -629,30 +629,30 @@ h4.tabset {
   color: var(--ww-blue-900);
 }
 
-/* Wrangle mode navigation: left-side category pills, content on the right */
-.ww-wrangle-mode .theme-doc-sidebar-container {
+/* WranglesPy navigation: left-side category pills, content on the right */
+.ww-wranglespy-mode .theme-doc-sidebar-container {
   background: transparent;
   border-right: 0;
   padding: 1.25rem 0.75rem 1.25rem 1rem;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-menu,
-.ww-wrangle-mode .theme-doc-sidebar-container .menu,
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__list {
+.ww-wranglespy-mode .theme-doc-sidebar-menu,
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu,
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__list {
   padding: 0;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__list {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__list {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__list-item {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__list-item {
   margin: 0;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__link {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__link {
   align-items: center;
   background: transparent;
   border: 1px solid transparent;
@@ -668,19 +668,19 @@ h4.tabset {
   text-decoration: none;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__link:hover {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__link:hover {
   background: #e6eef6;
   color: #12344c;
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__link--active {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__link--active {
   background: #ffffff;
   border-color: #9bc0df;
   box-shadow: 0 1px 2px rgba(18, 27, 43, 0.08);
   color: var(--ww-blue-900);
 }
 
-.ww-wrangle-mode .theme-doc-sidebar-container .menu__link--active::before {
+.ww-wranglespy-mode .theme-doc-sidebar-container .menu__link--active::before {
   background: var(--ww-blue-700);
   border-radius: 999px;
   content: "";
@@ -689,11 +689,10 @@ h4.tabset {
   width: 0.48rem;
 }
 
-.ww-wrangle-mode .breadcrumbs {
+.ww-wranglespy-mode .breadcrumbs {
   background: transparent;
   border-bottom: 0;
 }
-
 
 @media (max-width: 996px) {
   .ww-mode-switch {

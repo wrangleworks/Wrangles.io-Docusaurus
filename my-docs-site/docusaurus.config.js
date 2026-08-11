@@ -42,6 +42,16 @@ const config = {
         ],
       }),
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'utilityPilot',
+        path: 'utility-pilot',
+        routeBasePath: 'python/recipes/wrangles',
+        sidebarPath: false,
+      }),
+    ],
   ],
 
   presets: [
@@ -52,7 +62,10 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
-          exclude: ['**/_sources/**'],
+          exclude: [
+            '**/_sources/**',
+            'python/recipes/wrangles/utilities.md',
+          ],
           remarkPlugins: [
             require('./src/remark/linksListMarker'),
             require('./src/remark/scrapedAttributes'),
