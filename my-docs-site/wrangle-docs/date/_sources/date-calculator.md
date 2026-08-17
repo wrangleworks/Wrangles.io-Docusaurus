@@ -89,7 +89,9 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 - `seconds`
 - `milliseconds`
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -99,7 +101,11 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -110,3 +116,5 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Variant | stock |
 | Status | active |
 | Tags | Date, date_calculator |
+
+</details>

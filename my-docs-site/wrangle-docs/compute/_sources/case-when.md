@@ -144,7 +144,9 @@ Each item in `cases` is an object with a condition and value. Conditions are eva
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -154,7 +156,11 @@ Each item in `cases` is an object with a condition and value. Conditions are eva
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -165,3 +171,5 @@ Each item in `cases` is an object with a condition and value. Conditions are eva
 | Variant | stock |
 | Status | active |
 | Tags | Compute, compute, case_when |
+
+</details>

@@ -76,7 +76,9 @@ Nested wrangles can have their own access requirements.
 
 _No defaults are documented in the legacy source._
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -86,7 +88,11 @@ _No defaults are documented in the legacy source._
 | Catalog Source | Not present in generated catalog |
 | Mapping Source | Not present in generated mappings |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -97,3 +103,5 @@ _No defaults are documented in the legacy source._
 | Variant | stock |
 | Status | active (legacy documentation) |
 | Tags | Utility, concurrent |
+
+</details>

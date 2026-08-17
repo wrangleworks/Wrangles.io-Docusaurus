@@ -74,7 +74,9 @@ Nested wrangles can have their own access requirements.
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -84,7 +86,11 @@ Nested wrangles can have their own access requirements.
 | Catalog Source | Not present in generated catalog |
 | Mapping Source | Not present in generated mappings |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -95,3 +101,5 @@ Nested wrangles can have their own access requirements.
 | Variant | stock |
 | Status | active (legacy documentation) |
 | Tags | Utility, try |
+
+</details>

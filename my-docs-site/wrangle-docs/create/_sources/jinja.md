@@ -81,7 +81,9 @@ Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -91,7 +93,11 @@ Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -102,3 +108,5 @@ Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>
 | Variant | stock |
 | Status | active |
 | Tags | Create, create, jinja |
+
+</details>

@@ -90,7 +90,9 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -100,7 +102,11 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -111,3 +117,5 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Variant | stock |
 | Status | active |
 | Tags | Format, format, pad |
+
+</details>

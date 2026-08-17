@@ -82,7 +82,9 @@ _Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -92,7 +94,11 @@ _Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -103,3 +109,5 @@ _Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
 | Variant | stock |
 | Status | active |
 | Tags | AI, classify |
+
+</details>

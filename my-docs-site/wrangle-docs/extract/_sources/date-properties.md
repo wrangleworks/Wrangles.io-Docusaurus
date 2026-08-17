@@ -75,7 +75,9 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -85,7 +87,11 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -96,3 +102,5 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Variant | stock |
 | Status | active |
 | Tags | Extract, extract, date_properties |
+
+</details>

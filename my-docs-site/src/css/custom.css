@@ -829,3 +829,74 @@ h4.tabset {
   }
 
 }
+
+/* Wrangle source and metadata disclosures */
+.ww-wrangle-doc-scope .ww-field-disclosure {
+  background: transparent;
+  border-bottom: 1px solid #d5dde5;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  border-top: 1px solid #d5dde5;
+  box-shadow: none;
+  color: inherit;
+  margin: 0.8rem 0;
+  padding: 0;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure + .ww-field-disclosure {
+  border-top: 0;
+  margin-top: -0.8rem;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure > summary {
+  align-items: center;
+  color: #175f9c;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.05rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0.8rem 0.15rem;
+  user-select: none;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure > summary::before {
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  height: 0.45rem;
+  margin-left: 0.15rem;
+  position: static;
+  transform: rotate(-45deg);
+  transition: transform 120ms ease;
+  width: 0.45rem;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure[open] > summary::before,
+.ww-wrangle-doc-scope .ww-field-disclosure[data-collapsed="false"] > summary::before {
+  transform: rotate(45deg);
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure table {
+  margin: 0.15rem 0 1rem;
+  width: 100%;
+}
+
+.ww-wrangle-doc-scope .ww-field-disclosure > :last-child {
+  margin-bottom: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ww-wrangle-doc-scope .ww-field-disclosure > summary::before {
+    transition: none;
+  }
+}

@@ -94,7 +94,9 @@ _Template based on the documented parameters; no published source example is cur
 }
 ```
 
-### Source
+<details className="ww-field-disclosure">
+
+<summary>Source</summary>
 
 | Field | Value |
 | --- | --- |
@@ -104,7 +106,11 @@ _Template based on the documented parameters; no published source example is cur
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
 
-### Metadata
+</details>
+
+<details className="ww-field-disclosure">
+
+<summary>Metadata</summary>
 
 | Field | Value |
 | --- | --- |
@@ -115,3 +121,5 @@ _Template based on the documented parameters; no published source example is cur
 | Variant | stock |
 | Status | active |
 | Tags | Search, search, find_links |
+
+</details>
