@@ -2,17 +2,47 @@
 
 Remove duplicate values in a list.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Removing Duplicates From a List
+
+##### Recipe
+
+```yaml
+wrangles:
+    - format.remove_duplicates:
+        input: Attack of the Clones
+        output: Commander
+        where: Rank = Commander
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Rank | Attack of the Clones |
 | --- | --- |
-| ID | 283b9e78-b2b2-43d0-844f-9842c33120aa |
-| Wrangle Key | `format.remove_duplicates` |
-| Type | format |
-| Subtype | remove_duplicates |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, remove_duplicates |
+| Commander | ['Cody', 'Cody', 'Cody'] |
+| Captain | ['Rex', 'Rex', 'Rex'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Rank | Commander | Attack of the Clones |
+| --- | --- | --- |
+| Commander | ['Cody'] | ['Cody', 'Cody', 'Cody'] |
+| Captain |  | ['Rex', 'Rex', 'Rex'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -49,36 +79,6 @@ Remove duplicate values in a list.
 }
 ```
 
-### Examples
-
-#### Removing Duplicates From a List
-
-##### Recipe
-
-```yaml
-wrangles:
-    - format.remove_duplicates:
-        input: Attack of the Clones
-        output: Commander
-        where: Rank = Commander
-```
-
-##### Input Sample
-
-| Rank | Attack of the Clones |
-| --- | --- |
-| Commander | ['Cody', 'Cody', 'Cody'] |
-| Captain | ['Rex', 'Rex', 'Rex'] |
-
-##### Output Sample
-
-| Rank | Commander | Attack of the Clones |
-| --- | --- | --- |
-| Commander | ['Cody'] | ['Cody', 'Cody', 'Cody'] |
-| Captain |  | ['Rex', 'Rex', 'Rex'] |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 283b9e78-b2b2-43d0-844f-9842c33120aa |
+| Wrangle Key | `format.remove_duplicates` |
+| Type | format |
+| Subtype | remove_duplicates |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, remove_duplicates |

@@ -2,17 +2,46 @@
 
 Take multiple columns and merge them to a dictionary (aka object) using the column headers as keys.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Merging Two Columns Into a Dictionary
+
+##### Recipe
+
+```yaml
+wrangles:
+  - merge.to_dict:
+      input:
+        - Col1
+        - Col2
+      output: Dict Col
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 |
 | --- | --- |
-| ID | 9b869210-0d89-403b-8409-7cecdb5f9c7c |
-| Wrangle Key | `merge.to_dict` |
-| Type | merge |
-| Subtype | to_dict |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, to_dict |
+| A | B |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Dict Col |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B'\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -47,35 +76,6 @@ Take multiple columns and merge them to a dictionary (aka object) using the colu
 }
 ```
 
-### Examples
-
-#### Merging Two Columns Into a Dictionary
-
-##### Recipe
-
-```yaml
-wrangles:
-  - merge.to_dict:
-      input:
-        - Col1
-        - Col2
-      output: Dict Col
-```
-
-##### Input Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| A | B |
-
-##### Output Sample
-
-| Dict Col |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B'\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -85,3 +85,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 9b869210-0d89-403b-8409-7cecdb5f9c7c |
+| Wrangle Key | `merge.to_dict` |
+| Type | merge |
+| Subtype | to_dict |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, to_dict |

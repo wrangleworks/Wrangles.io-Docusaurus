@@ -2,17 +2,45 @@
 
 Format a date into the desired pattern.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Changing The Format of a Date
+
+##### Recipe
+
+```yaml
+wrangles:
+  - format.dates:
+      input: Date
+      output: Output Format
+      format: '%Y-%m-%d'  # must be wrapped by quotes " or '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Date |
+| --- |
+| 6/23/1912 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Date | Output Format |
 | --- | --- |
-| ID | a3c15135-4f7a-4659-83fd-f657afa603c9 |
-| Wrangle Key | `format.dates` |
-| Type | format |
-| Subtype | dates |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, dates |
+| 6/23/1912 | 1912-06-23 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -49,34 +77,6 @@ Format a date into the desired pattern.
 }
 ```
 
-### Examples
-
-#### Changing The Format of a Date
-
-##### Recipe
-
-```yaml
-wrangles:
-  - format.dates:
-      input: Date
-      output: Output Format
-      format: '%Y-%m-%d'  # must be wrapped by quotes " or '
-```
-
-##### Input Sample
-
-| Date |
-| --- |
-| 6/23/1912 |
-
-##### Output Sample
-
-| Date | Output Format |
-| --- | --- |
-| 6/23/1912 | 1912-06-23 |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -86,3 +86,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | a3c15135-4f7a-4659-83fd-f657afa603c9 |
+| Wrangle Key | `format.dates` |
+| Type | format |
+| Subtype | dates |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, dates |

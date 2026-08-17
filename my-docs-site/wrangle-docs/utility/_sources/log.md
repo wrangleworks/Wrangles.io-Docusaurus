@@ -2,17 +2,118 @@
 
 Print the current status of the dataframe. Only a sample of rows is logged.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Logging All Columns to Terminal
+
+##### Recipe
+
+```yaml
+wrangles:
+  - log: {}
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_Logging side-effect; no tabular input sample._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+_Logs a sample of rows or status information to the configured destination._
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
+
+#### Logging Specific Columns to Terminal
+
+##### Recipe
+
+```yaml
+wrangles:
+  - log:
+      columns:
+        - column1
+        - column2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_Logging side-effect; no tabular input sample._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+_Logs a sample of rows or status information to the configured destination._
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
+
+#### Logging to a File
+
+##### Recipe
+
+```yaml
+wrangles:
+  - log:
+      write:
+        - file:
+            name: output/filepath
+            columns:
+              - column 1
+              - column 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_Logging side-effect; no tabular input sample._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+_Logs a sample of rows or status information to the configured destination._
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
+
+#### Native Variables
+
+| Variable | Function |
 | --- | --- |
-| ID | 6177808e-aa2d-4d0b-8385-858b16948a5d |
-| Wrangle Key | `log` |
-| Type | utility |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Utility, log |
+| `${column_count}` | Number of columns. |
+| `${columns}` | List of all columns. |
+| `${df}` | Current dataframe. |
+| `${row_count}` | Number of visible rows processed in each batch. |
 
 ### Access
 
@@ -53,74 +154,6 @@ Print the current status of the dataframe. Only a sample of rows is logged.
 }
 ```
 
-### Examples
-
-#### Logging All Columns to Terminal
-
-##### Recipe
-
-```yaml
-wrangles:
-  - log: {}
-```
-
-##### Input Sample
-
-_Logging side-effect; no tabular input sample._
-
-##### Output Sample
-
-_Logs a sample of rows or status information to the configured destination._
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
-#### Logging Specific Columns to Terminal
-
-##### Recipe
-
-```yaml
-wrangles:
-  - log:
-      columns:
-        - column1
-        - column2
-```
-
-##### Input Sample
-
-_Logging side-effect; no tabular input sample._
-
-##### Output Sample
-
-_Logs a sample of rows or status information to the configured destination._
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
-#### Logging to a File
-
-##### Recipe
-
-```yaml
-wrangles:
-  - log:
-      write:
-        - file:
-            name: output/filepath
-            columns:
-              - column 1
-              - column 2
-```
-
-##### Input Sample
-
-_Logging side-effect; no tabular input sample._
-
-##### Output Sample
-
-_Logs a sample of rows or status information to the configured destination._
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -130,3 +163,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 6177808e-aa2d-4d0b-8385-858b16948a5d |
+| Wrangle Key | `log` |
+| Type | utility |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Utility, log |

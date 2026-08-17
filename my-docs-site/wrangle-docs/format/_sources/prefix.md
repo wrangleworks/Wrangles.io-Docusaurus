@@ -2,17 +2,49 @@
 
 Add a prefix to a column.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Adding a Prefix to a String
+
+##### Recipe
+
+```yaml
+wrangles:
+  - format.prefix:
+      input: Data
+      output: Prefix
+      value: anti
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Data |
+| --- |
+| freeze |
+| dote |
+| hero |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Data | Prefix |
 | --- | --- |
-| ID | c12f99b9-2363-4da7-8405-7c73b87906e5 |
-| Wrangle Key | `format.prefix` |
-| Type | format |
-| Subtype | prefix |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, prefix |
+| freeze | antifreeze |
+| dote | antidote |
+| hero | antihero |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -51,38 +83,6 @@ Add a prefix to a column.
 }
 ```
 
-### Examples
-
-#### Adding a Prefix to a String
-
-##### Recipe
-
-```yaml
-wrangles:
-  - format.prefix:
-      input: Data
-      output: Prefix
-      value: anti
-```
-
-##### Input Sample
-
-| Data |
-| --- |
-| freeze |
-| dote |
-| hero |
-
-##### Output Sample
-
-| Data | Prefix |
-| --- | --- |
-| freeze | antifreeze |
-| dote | antidote |
-| hero | antihero |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -92,3 +92,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | c12f99b9-2363-4da7-8405-7c73b87906e5 |
+| Wrangle Key | `format.prefix` |
+| Type | format |
+| Subtype | prefix |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, prefix |

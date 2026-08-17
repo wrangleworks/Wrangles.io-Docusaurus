@@ -2,17 +2,47 @@
 
 Return the last n rows
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting The Last n Rows
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.tail:
+      n: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product | Manufacturer |
 | --- | --- |
-| ID | 60853759-c160-49a4-87eb-036516a9d823 |
-| Wrangle Key | `select.tail` |
-| Type | select |
-| Subtype | tail |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, tail |
+| Ball Bearing | SKF |
+| Bearing Race | Timken |
+| Needle Bearing | Acme Bearings |
+| Roller Bearing | General Bearing Co. |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Manufacturer |
+| --- | --- |
+| Needle Bearing | Acme Bearings |
+| Roller Bearing | General Bearing Co. |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -38,36 +68,6 @@ Return the last n rows
 }
 ```
 
-### Examples
-
-#### Selecting The Last n Rows
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.tail:
-      n: 2
-```
-
-##### Input Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Race | Timken |
-| Needle Bearing | Acme Bearings |
-| Roller Bearing | General Bearing Co. |
-
-##### Output Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Needle Bearing | Acme Bearings |
-| Roller Bearing | General Bearing Co. |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -77,3 +77,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 60853759-c160-49a4-87eb-036516a9d823 |
+| Wrangle Key | `select.tail` |
+| Type | select |
+| Subtype | tail |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, tail |

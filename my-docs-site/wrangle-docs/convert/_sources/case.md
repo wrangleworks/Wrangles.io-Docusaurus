@@ -6,17 +6,50 @@ Change the case of the input.
 Non-string values are passed through unaltered.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Capitalize Input Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.case:
+      input: column
+      output: new column
+      case: upper
+      where: column = 'more text'
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| some text |
+| more text |
+| some more text |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| column | new column |
 | --- | --- |
-| ID | 12ff4120-3613-4801-8653-99c793477fbc |
-| Wrangle Key | `convert.case` |
-| Type | convert |
-| Subtype | case |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, case |
+| some text |  |
+| more text | MORE TEXT |
+| some more text |  |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -53,39 +86,6 @@ Non-string values are passed through unaltered.
 }
 ```
 
-### Examples
-
-#### Capitalize Input Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.case:
-      input: column
-      output: new column
-      case: upper
-      where: column = 'more text'
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| some text |
-| more text |
-| some more text |
-
-##### Output Sample
-
-| column | new column |
-| --- | --- |
-| some text |  |
-| more text | MORE TEXT |
-| some more text |  |
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -95,3 +95,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 12ff4120-3613-4801-8653-99c793477fbc |
+| Wrangle Key | `convert.case` |
+| Type | convert |
+| Subtype | case |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, case |

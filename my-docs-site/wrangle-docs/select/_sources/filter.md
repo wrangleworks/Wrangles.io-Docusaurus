@@ -2,17 +2,50 @@
 
 Filter the dataframe based on the contents.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Filtering a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  # Select only red fruits
+  - filter:
+      input: Color
+      equal:
+        - red
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Color | Fruit |
 | --- | --- |
-| ID | e3242acf-d204-433f-8373-205b77481131 |
-| Wrangle Key | `filter` |
-| Type | select |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Select, filter |
+| red | Apple |
+| green | Apple |
+| orange | Orange |
+| red | Strawberry |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Color | Fruit |
+| --- | --- |
+| red | Apple |
+| red | Strawberry |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -67,39 +100,6 @@ Filter the dataframe based on the contents.
 }
 ```
 
-### Examples
-
-#### Filtering a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  # Select only red fruits
-  - filter:
-      input: Color
-      equal:
-        - red
-```
-
-##### Input Sample
-
-| Color | Fruit |
-| --- | --- |
-| red | Apple |
-| green | Apple |
-| orange | Orange |
-| red | Strawberry |
-
-##### Output Sample
-
-| Color | Fruit |
-| --- | --- |
-| red | Apple |
-| red | Strawberry |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -109,3 +109,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e3242acf-d204-433f-8373-205b77481131 |
+| Wrangle Key | `filter` |
+| Type | select |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Select, filter |

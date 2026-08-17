@@ -2,17 +2,47 @@
 
 Round numbers in a column to the nearest decimal point of your choosing.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Rounding a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - round:
+      input: Cost Per Unit
+      output: Cost Rounded
+      decimals: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Cost Per Unit |
+| --- |
+| 3.14159 |
+| 2.71828 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Cost Per Unit | Cost Rounded |
 | --- | --- |
-| ID | 12f3111b-8511-4e42-8d3f-b5302dc3b4e4 |
-| Wrangle Key | `round` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, round |
+| 3.14159 | 3.14 |
+| 2.71828 | 2.72 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -49,36 +79,6 @@ Round numbers in a column to the nearest decimal point of your choosing.
 }
 ```
 
-### Examples
-
-#### Rounding a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - round:
-      input: Cost Per Unit
-      output: Cost Rounded
-      decimals: 2
-```
-
-##### Input Sample
-
-| Cost Per Unit |
-| --- |
-| 3.14159 |
-| 2.71828 |
-
-##### Output Sample
-
-| Cost Per Unit | Cost Rounded |
-| --- | --- |
-| 3.14159 | 3.14 |
-| 2.71828 | 2.72 |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 12f3111b-8511-4e42-8d3f-b5302dc3b4e4 |
+| Wrangle Key | `round` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, round |

@@ -2,17 +2,45 @@
 
 Select characters from the left of the input. Using a negative length reverses the side of selection, selecting from the right.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 5cdd9857-0c77-43bf-80d7-d0a8cb6f980b |
-| Wrangle Key | `select.left` |
-| Type | select |
-| Subtype | left |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, left |
+#### Selecting Three Leftmost Elements
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.left:
+      input: Column
+      output: Result
+      length: 3
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| pudding |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Result |
+| --- |
+| pud |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -49,34 +77,6 @@ Select characters from the left of the input. Using a negative length reverses t
 }
 ```
 
-### Examples
-
-#### Selecting Three Leftmost Elements
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.left:
-      input: Column
-      output: Result
-      length: 3
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| pudding |
-
-##### Output Sample
-
-| Result |
-| --- |
-| pud |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -86,3 +86,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 5cdd9857-0c77-43bf-80d7-d0a8cb6f980b |
+| Wrangle Key | `select.left` |
+| Type | select |
+| Subtype | left |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, left |

@@ -336,6 +336,89 @@ body {
   margin-top: 1.15rem;
 }
 
+/* Wrangle pages use explicit panels to keep sample labels attached to their data. */
+.ww-wrangle-doc-scope .theme-doc-markdown > h2:not([id^="metadata"]) {
+  background: #e9f3fb;
+  border: 1px solid #c7dceb;
+  border-bottom: 1px solid #c7dceb;
+  border-left: 6px solid #ecbf5d;
+  border-radius: 4px;
+  color: #124f78;
+  margin-top: 3.25rem;
+  padding: 0.72rem 0.9rem;
+}
+
+.ww-wrangle-doc-scope .theme-doc-markdown > h2:not([id^="metadata"]):first-of-type {
+  margin-top: 2.4rem;
+}
+
+.ww-wrangle-doc-scope .ww-sample-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.25rem 0;
+  position: relative;
+}
+
+.ww-wrangle-doc-scope .ww-sample-grid::before {
+  background: #cbd5df;
+  bottom: 0;
+  content: "";
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+}
+
+.ww-wrangle-doc-scope .ww-sample-panel {
+  background: #f8fafc;
+  border: 1px solid #d6dde8;
+  border-radius: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.ww-wrangle-doc-scope .ww-sample-panel > h5:first-child {
+  color: #234263;
+  margin: 0 0 0.8rem;
+}
+
+.ww-wrangle-doc-scope .ww-sample-panel > table {
+  display: table;
+  margin: 0;
+  min-width: 100%;
+  width: 100%;
+}
+
+.ww-wrangle-doc-scope .ww-sample-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.ww-wrangle-doc-scope .theme-doc-markdown > hr {
+  background: #dfe6ec;
+  border: 0;
+  height: 6px;
+  margin: 3.5rem 0 0.5rem;
+}
+
+@media (max-width: 760px) {
+  .ww-wrangle-doc-scope .ww-sample-grid {
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ww-wrangle-doc-scope .ww-sample-grid::before {
+    display: none;
+  }
+
+  .ww-wrangle-doc-scope .theme-doc-markdown > h2:not([id^="metadata"]) {
+    margin-top: 2.6rem;
+  }
+}
+
 .theme-doc-markdown a {
   color: #006ed8;
   text-underline-offset: 2px;

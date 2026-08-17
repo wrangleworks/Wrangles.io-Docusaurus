@@ -2,17 +2,52 @@
 
 Take the first non-empty value from a series of columns.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 25c1a60d-fa48-4b9a-8c03-0921d5b31049 |
-| Wrangle Key | `merge.coalesce` |
-| Type | merge |
-| Subtype | coalesce |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, coalesce |
+#### Coalescing 3 Columns
+
+##### Recipe
+
+```yaml
+wrangles:
+  - merge.coalesce:
+      input:
+        - Col1
+        - Col2
+        - Col3
+      output: Output Col
+      where: Col2 = E
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 | Col3 |
+| --- | --- | --- |
+| A | B | C |
+| D | E | F |
+| G | H | I |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col1 | Col2 | Col3 | Output Col |
+| --- | --- | --- | --- |
+| A | B | C |  |
+| D | E | F | D |
+| G | H | I |  |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -45,41 +80,6 @@ Take the first non-empty value from a series of columns.
 }
 ```
 
-### Examples
-
-#### Coalescing 3 Columns
-
-##### Recipe
-
-```yaml
-wrangles:
-  - merge.coalesce:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Output Col
-      where: Col2 = E
-```
-
-##### Input Sample
-
-| Col1 | Col2 | Col3 |
-| --- | --- | --- |
-| A | B | C |
-| D | E | F |
-| G | H | I |
-
-##### Output Sample
-
-| Col1 | Col2 | Col3 | Output Col |
-| --- | --- | --- | --- |
-| A | B | C |  |
-| D | E | F | D |
-| G | H | I |  |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -89,3 +89,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 25c1a60d-fa48-4b9a-8c03-0921d5b31049 |
+| Wrangle Key | `merge.coalesce` |
+| Type | merge |
+| Subtype | coalesce |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, coalesce |

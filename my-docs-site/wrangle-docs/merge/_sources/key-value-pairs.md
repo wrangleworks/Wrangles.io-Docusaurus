@@ -2,17 +2,92 @@
 
 Create a dictionary from keys and values in paired columns.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Using Named Columns
+
+##### Recipe
+
+```yaml
+wrangles:
+  - merge.key_value_pairs:
+      input:
+        Letter: Number
+      output: Pairs
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Letter | Number |
 | --- | --- |
-| ID | 8a2cd37c-8ef7-4b05-8264-36512f5dd837 |
-| Wrangle Key | `merge.key_value_pairs` |
-| Type | merge |
-| Subtype | key_value_pairs |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, key_value_pairs |
+| A | 1 |
+| B | 2 |
+| C | 3 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Pairs |
+| --- |
+| \{'A': 1\} |
+| \{'B': 2\} |
+| \{'C': 3\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
+
+#### Using a wildcard (*)
+
+##### Recipe
+
+```yaml
+# Using a Wildcard (*)
+wrangles:
+  - merge.key_value_pairs:
+      input:
+        key*: value*
+      output: Object
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| key 1 | key 2 | value 1 | value 2 |
+| --- | --- | --- | --- |
+| A | One | a | First |
+| B | Two | b | Second |
+| C | three | c | Third |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Object |
+| --- |
+| \{'A': 'a', 'One': 'First'\} |
+| \{'B': 'b', 'Two': 'Second'\} |
+| \{'C': 'c', 'three': 'Third'\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -44,69 +119,6 @@ Create a dictionary from keys and values in paired columns.
 }
 ```
 
-### Examples
-
-#### Using Named Columns
-
-##### Recipe
-
-```yaml
-wrangles:
-  - merge.key_value_pairs:
-      input:
-        Letter: Number
-      output: Pairs
-```
-
-##### Input Sample
-
-| Letter | Number |
-| --- | --- |
-| A | 1 |
-| B | 2 |
-| C | 3 |
-
-##### Output Sample
-
-| Pairs |
-| --- |
-| \{'A': 1\} |
-| \{'B': 2\} |
-| \{'C': 3\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
-#### Using a wildcard (*)
-
-##### Recipe
-
-```yaml
-# Using a Wildcard (*)
-wrangles:
-  - merge.key_value_pairs:
-      input:
-        key*: value*
-      output: Object
-```
-
-##### Input Sample
-
-| key 1 | key 2 | value 1 | value 2 |
-| --- | --- | --- | --- |
-| A | One | a | First |
-| B | Two | b | Second |
-| C | three | c | Third |
-
-##### Output Sample
-
-| Object |
-| --- |
-| \{'A': 'a', 'One': 'First'\} |
-| \{'B': 'b', 'Two': 'Second'\} |
-| \{'C': 'c', 'three': 'Third'\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -116,3 +128,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 8a2cd37c-8ef7-4b05-8264-36512f5dd837 |
+| Wrangle Key | `merge.key_value_pairs` |
+| Type | merge |
+| Subtype | key_value_pairs |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, key_value_pairs |

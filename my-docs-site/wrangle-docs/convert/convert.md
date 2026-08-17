@@ -18,18 +18,6 @@ import ToYaml from './_sources/to-yaml.md';
 
 Convert wrangles change data formats, representations, and data types.
 
-## Wrangles
-
-- [Case](#case) - `convert.case`
-- [Data Type](#data-type) - `convert.data_type`
-- [Fraction To Decimal](#fraction-to-decimal) - `convert.fraction_to_decimal`
-- [From Json](#from-json) - `convert.from_json`
-- [From Yaml](#from-yaml) - `convert.from_yaml`
-- [To Json](#to-json) - `convert.to_json`
-- [To Yaml](#to-yaml) - `convert.to_yaml`
-
----
-
 <Case />
 
 ---

@@ -2,17 +2,114 @@
 
 Extract numeric attributes from unstructured text such as lengths, voltages, weights, or temperatures. Requires WrangleWorks Account.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting All Attributes
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.attributes:
+      input: tools
+      output: attributes
+      responseContent: span
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Tools (input) | Attributes (span )(output) |
 | --- | --- |
-| ID | 03ccedef-c938-41f1-8980-280f1a91542e |
-| Wrangle Key | `extract.attributes` |
-| Type | extract |
-| Subtype | attributes |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, attributes |
+| hammer 5kg, 0.5m | \{'length': ['0.5m'], 'mass': ['5kg']\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting All Attributes
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.attributes:
+      input: tools
+      output: attributes
+      responseContent: object
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Tools (input) | Attributes (Object) (output) |
+| --- | --- |
+| hammer 5kg, 0.5m | \{'length': [\{'unit': 'metre', 'value': 0.5\}], 'mass': [\{'unit': 'kilogram', 'value': 5.0\}]\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting Specific Attributes
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.attributes:
+      input: Tools
+      output: attributes
+      responseContent: span
+      attribute_type: mass			# Specific attributes
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+_No sample available._
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -37,7 +134,6 @@ Extract numeric attributes from unstructured text such as lengths, voltages, wei
 | where | Where | text | No | Filter rows before applying the wrangle using SQL-like criteria, such as `column1 = 123 OR column2 = 'abc'`. |  |  |
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
-
 
 ### Defaults
 
@@ -86,79 +182,6 @@ Extract numeric attributes from unstructured text such as lengths, voltages, wei
 - `volume`
 - `volumetric flow`
 
-### Examples
-
-#### Extracting All Attributes
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.attributes:
-      input: tools
-      output: attributes
-      responseContent: span
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Tools (input) | Attributes (span )(output) |
-| --- | --- |
-| hammer 5kg, 0.5m | \{'length': ['0.5m'], 'mass': ['5kg']\} |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting All Attributes
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.attributes:
-      input: tools
-      output: attributes
-      responseContent: object
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Tools (input) | Attributes (Object) (output) |
-| --- | --- |
-| hammer 5kg, 0.5m | \{'length': [\{'unit': 'metre', 'value': 0.5\}], 'mass': [\{'unit': 'kilogram', 'value': 5.0\}]\} |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting Specific Attributes
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.attributes:
-      input: Tools
-      output: attributes
-      responseContent: span
-      attribute_type: mass			# Specific attributes
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-_No sample available._
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -168,3 +191,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 03ccedef-c938-41f1-8980-280f1a91542e |
+| Wrangle Key | `extract.attributes` |
+| Type | extract |
+| Subtype | attributes |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, attributes |

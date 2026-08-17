@@ -18,18 +18,6 @@ import ToList from './_sources/to-list.md';
 
 Merge wrangles combine multiple columns, lists, dictionaries, or values into a single output.
 
-## Wrangles
-
-- [Coalesce](#coalesce) - `merge.coalesce`
-- [Concatenate](#concatenate) - `merge.concatenate`
-- [Dictionaries](#dictionaries) - `merge.dictionaries`
-- [Key Value Pairs](#key-value-pairs) - `merge.key_value_pairs`
-- [Lists](#lists) - `merge.lists`
-- [To Dict](#to-dict) - `merge.to_dict`
-- [To List](#to-list) - `merge.to_list`
-
----
-
 <Coalesce />
 
 ---

@@ -13,13 +13,6 @@ import RetrieveLinkContent from './_sources/retrieve-link-content.md';
 
 Search wrangles find links and retrieve targeted content from external web pages.
 
-## Wrangles
-
-- [Find Links](#find-links) - `search.find_links`
-- [Retrieve Link Content](#retrieve-link-content) - `search.retrieve_link_content`
-
----
-
 <FindLinks />
 
 ---

@@ -2,17 +2,60 @@
 
 Conform a DataFrame to a new index with optional filling logic.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | def87df8-72da-4e34-83c1-1fde25126257 |
-| Wrangle Key | `reindex` |
-| Type | transform |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Transform, reindex |
+:::note
+Cannot specify both `axis` and any of `index` or `columns`. Reindex is not compatible with `where` filtering.
+:::
+
+#### Reindexing a Dataframe
+
+##### Recipe
+
+```yaml
+wrangles:
+  - reindex:
+      index:
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+|  | Material | Product Data |
+| --- | --- | --- |
+| 1 | Ceramic | SKF ball brg |
+| 2 | Rubber | brg seal |
+| 3 | Brass | Ball valve |
+| 4 | Ceramic | Ceramic cartridge |
+| 5 | Stainless Steel | Needle Bearing |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+|  | Material | Product Data |
+| --- | --- | --- |
+| 5 | Stainless Steel | Needle Bearing |
+| 4 | Ceramic | Ceramic cartridge |
+| 3 | Brass | Ball valve |
+| 2 | Rubber | brg seal |
+| 1 | Ceramic | SKF ball brg |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -47,49 +90,6 @@ Conform a DataFrame to a new index with optional filling logic.
 }
 ```
 
-### Examples
-
-:::note
-Cannot specify both `axis` and any of `index` or `columns`. Reindex is not compatible with `where` filtering.
-:::
-
-#### Reindexing a Dataframe
-
-##### Recipe
-
-```yaml
-wrangles:
-  - reindex:
-      index:
-        - 5
-        - 4
-        - 3
-        - 2
-        - 1
-```
-
-##### Input Sample
-
-|  | Material | Product Data |
-| --- | --- | --- |
-| 1 | Ceramic | SKF ball brg |
-| 2 | Rubber | brg seal |
-| 3 | Brass | Ball valve |
-| 4 | Ceramic | Ceramic cartridge |
-| 5 | Stainless Steel | Needle Bearing |
-
-##### Output Sample
-
-|  | Material | Product Data |
-| --- | --- | --- |
-| 5 | Stainless Steel | Needle Bearing |
-| 4 | Ceramic | Ceramic cartridge |
-| 3 | Brass | Ball valve |
-| 2 | Rubber | brg seal |
-| 1 | Ceramic | SKF ball brg |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -99,3 +99,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | def87df8-72da-4e34-83c1-1fde25126257 |
+| Wrangle Key | `reindex` |
+| Type | transform |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Transform, reindex |

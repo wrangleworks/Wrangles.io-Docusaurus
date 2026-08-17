@@ -2,17 +2,138 @@
 
 Create column(s) with a user defined value. Defaults to `None` (empty). If you need to copy an existing column, use the copy wrangle instead.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Creating a New Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.column:
+      output: New Column
+      value: new value			# Optional, otherwise empty
+      where: column > 1
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| 1 |
+| 2 |
+| 3 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| column | New Column |
 | --- | --- |
-| ID | 5a18e2c8-ec7c-45f5-88fd-bb5c358a8b40 |
-| Wrangle Key | `create.column` |
-| Type | create |
-| Subtype | column |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, column |
+| 1 |  |
+| 2 | new value |
+| 3 | new value |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
+
+#### Creating Multiple Columns
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.column:
+      output: 
+      	- New Column 1: new value 1 # Optional, otherwise empty
+        - New Column 2: new value 2
+        - New Column 3: new value 1
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| 1 |
+| 2 |
+| 3 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| column | New Column 1 | New Column 2 | New Column 3 |
+| --- | --- | --- | --- |
+| 1 | new value 1 | new value 2 | new value 1 |
+| 2 | new value 1 | new value 2 | new value 1 |
+| 3 | new value 1 | new value 2 | new value 1 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
+
+#### Creating Columns That Consist of Lists
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.column:
+      output: 
+      	- New Column: 
+        		- 4
+            - 5
+        		- 6
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| 1 |
+| 2 |
+| 3 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| column | New Column |
+| --- | --- |
+| 1 | [4, 5, 6] |
+| 2 | [4, 5, 6] |
+| 3 | [4, 5, 6] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
+
+Columns of empty lists can also be created by passing an empty list (`[]`) as the column value.
 
 ### Access
 
@@ -44,103 +165,6 @@ Create column(s) with a user defined value. Defaults to `None` (empty). If you n
 }
 ```
 
-### Examples
-
-#### Creating a New Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.column:
-      output: New Column
-      value: new value			# Optional, otherwise empty
-      where: column > 1
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| 1 |
-| 2 |
-| 3 |
-
-##### Output Sample
-
-| column | New Column |
-| --- | --- |
-| 1 |  |
-| 2 | new value |
-| 3 | new value |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
-#### Creating Multiple Columns
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.column:
-      output: 
-      	- New Column 1: new value 1 # Optional, otherwise empty
-        - New Column 2: new value 2
-        - New Column 3: new value 1
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| 1 |
-| 2 |
-| 3 |
-
-##### Output Sample
-
-| column | New Column 1 | New Column 2 | New Column 3 |
-| --- | --- | --- | --- |
-| 1 | new value 1 | new value 2 | new value 1 |
-| 2 | new value 1 | new value 2 | new value 1 |
-| 3 | new value 1 | new value 2 | new value 1 |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
-#### Creating Columns That Consist of Lists
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.column:
-      output: 
-      	- New Column: 
-        		- 4
-            - 5
-        		- 6
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| 1 |
-| 2 |
-| 3 |
-
-##### Output Sample
-
-| column | New Column |
-| --- | --- |
-| 1 | [4, 5, 6] |
-| 2 | [4, 5, 6] |
-| 3 | [4, 5, 6] |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
-Columns of empty lists can also be created by passing an empty list (`[]`) as the column value.
-
 ### Source
 
 | Field | Value |
@@ -150,3 +174,15 @@ Columns of empty lists can also be created by passing an empty list (`[]`) as th
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 5a18e2c8-ec7c-45f5-88fd-bb5c358a8b40 |
+| Wrangle Key | `create.column` |
+| Type | create |
+| Subtype | column |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, column |

@@ -6,17 +6,128 @@ Extract data from the input using a DIY or bespoke extraction wrangle. Can be pe
 Non-regex pattern matching extracts whole-word matches separated by word boundaries. Word boundaries include anything that is not a letter, number, or underscore.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Wood Types From Single Column
+
+##### Recipe
+
+```yaml
+# One column input
+wrangles:
+  - extract.custom:
+      input: Product
+      output: Wood Types
+      model_id: model_id_here
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Wood Types |
 | --- | --- |
-| ID | e8e96b76-86bf-41dc-8d16-825dcff9688b |
-| Wrangle Key | `extract.custom` |
-| Type | extract |
-| Subtype | custom |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, custom |
+| Dining Oakwood Chair | Oakwood |
+| Living Room Teakwood Frame Mirror | Teakwood |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting Wood Types From Multiple Columns
+
+##### Recipe
+
+```yaml
+# Multi column input
+wrangles:
+  - extract.custom:
+      input:
+      	- Part 1 of 2
+        - Part 2 of 2
+      output: Wood Types
+      model_id: model_id_here
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Wood Types | Part 1 of 2 | Part 2 of 2 |
+| --- | --- | --- |
+| ['Acacia Wood', 'Imitation Wood'] | Dining Acacia Wood Table | Imitation Wood Table Chairs |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Using Multiple Extract Models
+
+##### Recipe
+
+```yaml
+# Multiple Models
+wrangles:
+	- extract.custom:
+  		input:
+      	- Product
+        - Product
+      output:
+      	- Wood Types
+        - Item Type
+      model_id:
+      	- wood_Type_model_id
+        - item_type_model_id
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Item Type | Wood Types |
+| --- | --- | --- |
+| Dining Oakwood Chair | Chair | Oakwood |
+| Living Room Teakwood Frame Mirror | Mirror | Teakwood |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -44,7 +155,6 @@ Non-regex pattern matching extracts whole-word matches separated by word boundar
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -66,93 +176,6 @@ Non-regex pattern matching extracts whole-word matches separated by word boundar
 }
 ```
 
-### Examples
-
-#### Extracting Wood Types From Single Column
-
-##### Recipe
-
-```yaml
-# One column input
-wrangles:
-  - extract.custom:
-      input: Product
-      output: Wood Types
-      model_id: model_id_here
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Product | Wood Types |
-| --- | --- |
-| Dining Oakwood Chair | Oakwood |
-| Living Room Teakwood Frame Mirror | Teakwood |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting Wood Types From Multiple Columns
-
-##### Recipe
-
-```yaml
-# Multi column input
-wrangles:
-  - extract.custom:
-      input:
-      	- Part 1 of 2
-        - Part 2 of 2
-      output: Wood Types
-      model_id: model_id_here
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Wood Types | Part 1 of 2 | Part 2 of 2 |
-| --- | --- | --- |
-| ['Acacia Wood', 'Imitation Wood'] | Dining Acacia Wood Table | Imitation Wood Table Chairs |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Using Multiple Extract Models
-
-##### Recipe
-
-```yaml
-# Multiple Models
-wrangles:
-	- extract.custom:
-  		input:
-      	- Product
-        - Product
-      output:
-      	- Wood Types
-        - Item Type
-      model_id:
-      	- wood_Type_model_id
-        - item_type_model_id
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Product | Item Type | Wood Types |
-| --- | --- | --- |
-| Dining Oakwood Chair | Chair | Oakwood |
-| Living Room Teakwood Frame Mirror | Mirror | Teakwood |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -162,3 +185,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e8e96b76-86bf-41dc-8d16-825dcff9688b |
+| Wrangle Key | `extract.custom` |
+| Type | extract |
+| Subtype | custom |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, custom |

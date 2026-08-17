@@ -6,17 +6,50 @@ Makes use of a Jinja template to create a description, title, or summary based o
 Jinja templates do not allow variables with spaces. This wrangle automatically replaces spaces in column headers with underscores, so use underscores instead of spaces when referencing columns in the template.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 10fc6709-16d4-4eab-8f56-6cb5d170ea66 |
-| Wrangle Key | `create.jinja` |
-| Type | create |
-| Subtype | jinja |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, jinja |
+#### Creating a Jinja Description
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.jinja:
+      output: Description
+      template:
+      	string: |
+        	This is a {{ Brand }} {{ Item_Type }} that is {{ Size }}
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Size | Brand | Item Type |
+| --- | --- | --- |
+| 10mm | SKF | ball bearing |
+| 15mm | Timken | bearing seal |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Size | Brand | Item Type | Description |
+| --- | --- | --- | --- |
+| 10mm | SKF | ball bearing | This is a SKF ball bearing that is 10mm |
+| 15mm | Timken | bearing seal | This is a Timken bearing seal that is 15mm |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
+
+Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>` for a multi-line string when line breaks should not be preserved.
 
 ### Access
 
@@ -48,39 +81,6 @@ Jinja templates do not allow variables with spaces. This wrangle automatically r
 }
 ```
 
-### Examples
-
-#### Creating a Jinja Description
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.jinja:
-      output: Description
-      template:
-      	string: |
-        	This is a {{ Brand }} {{ Item_Type }} that is {{ Size }}
-```
-
-##### Input Sample
-
-| Size | Brand | Item Type |
-| --- | --- | --- |
-| 10mm | SKF | ball bearing |
-| 15mm | Timken | bearing seal |
-
-##### Output Sample
-
-| Size | Brand | Item Type | Description |
-| --- | --- | --- | --- |
-| 10mm | SKF | ball bearing | This is a SKF ball bearing that is 10mm |
-| 15mm | Timken | bearing seal | This is a Timken bearing seal that is 15mm |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
-Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>` for a multi-line string when line breaks should not be preserved.
-
 ### Source
 
 | Field | Value |
@@ -90,3 +90,15 @@ Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 10fc6709-16d4-4eab-8f56-6cb5d170ea66 |
+| Wrangle Key | `create.jinja` |
+| Type | create |
+| Subtype | jinja |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, jinja |

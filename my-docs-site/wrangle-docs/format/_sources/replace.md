@@ -6,17 +6,47 @@ Quick find and replace for simple values. Can use regex in the `find` field.
 Values that are not a number or a string pass through unaltered.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | f0ab715e-9e0e-4614-83e4-5cd8ea08a09f |
-| Wrangle Key | `replace` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, replace |
+#### Replacing an Abbreviation
+
+##### Recipe
+
+```yaml
+wrangles:
+  - replace:
+      input: Product Data
+      find: brg
+      replace: bearing
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product Data |
+| --- |
+| SKF ball brg |
+| brg seal |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product Data |
+| --- |
+| SKF ball bearing |
+| bearing seal |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -55,36 +85,6 @@ Values that are not a number or a string pass through unaltered.
 }
 ```
 
-### Examples
-
-#### Replacing an Abbreviation
-
-##### Recipe
-
-```yaml
-wrangles:
-  - replace:
-      input: Product Data
-      find: brg
-      replace: bearing
-```
-
-##### Input Sample
-
-| Product Data |
-| --- |
-| SKF ball brg |
-| brg seal |
-
-##### Output Sample
-
-| Product Data |
-| --- |
-| SKF ball bearing |
-| bearing seal |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -94,3 +94,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | f0ab715e-9e0e-4614-83e4-5cd8ea08a09f |
+| Wrangle Key | `replace` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, replace |

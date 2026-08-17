@@ -2,17 +2,232 @@
 
 Split a dictionary into columns. The dictionary keys are used as the new column headers.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Splitting an Entire Dictionary
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      # Output not required
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col1 | Col2 | Col3 |
+| --- | --- | --- |
+| A | B | C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Choosing Specific Keys by Name
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      output: Col2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col2 |
+| --- |
+| B |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Using a Wildcard Output to Choose Specific Keys
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      output: Col*
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Other': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col1 | Col2 |
 | --- | --- |
-| ID | 06ca98e4-d026-43f7-84eb-af246d401ba9 |
-| Wrangle Key | `split.dictionary` |
-| Type | split |
-| Subtype | dictionary |
-| Variant | stock |
-| Status | active |
-| Tags | Split, split, dictionary |
+| A | B |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Using Regular Expressions to Choose Specific Keys
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      output: "regex: .*3"
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col3 |
+| --- |
+| C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Choosing Specific Keys While Renaming the Output
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      output:
+        - Col1: Column 1
+        - Col2: Column 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Column 1 | Column 2 |
+| --- | --- |
+| A | B |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Using a Wildcard While Renaming
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.dictionary:
+      input: Column
+      output:
+        - Col*: Column *
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Column 1 | Column 2 | Column 3 |
+| --- | --- | --- |
+| A | B | C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
 
 ### Access
 
@@ -49,161 +264,6 @@ Split a dictionary into columns. The dictionary keys are used as the new column 
 }
 ```
 
-### Examples
-
-#### Splitting an Entire Dictionary
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      # Output not required
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
-
-##### Output Sample
-
-| Col1 | Col2 | Col3 |
-| --- | --- | --- |
-| A | B | C |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Choosing Specific Keys by Name
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: Col2
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
-
-##### Output Sample
-
-| Col2 |
-| --- |
-| B |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Using a Wildcard Output to Choose Specific Keys
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: Col*
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Other': 'C'\} |
-
-##### Output Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| A | B |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Using Regular Expressions to Choose Specific Keys
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output: "regex: .*3"
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
-
-##### Output Sample
-
-| Col3 |
-| --- |
-| C |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Choosing Specific Keys While Renaming the Output
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output:
-        - Col1: Column 1
-        - Col2: Column 2
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
-
-##### Output Sample
-
-| Column 1 | Column 2 |
-| --- | --- |
-| A | B |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Using a Wildcard While Renaming
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.dictionary:
-      input: Column
-      output:
-        - Col*: Column *
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| \{'Col1': 'A', 'Col2': 'B', 'Col3': 'C'\} |
-
-##### Output Sample
-
-| Column 1 | Column 2 | Column 3 |
-| --- | --- | --- |
-| A | B | C |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 ### Source
 
 | Field | Value |
@@ -213,3 +273,15 @@ _Source: `docs/python/recipes/wrangles/split.md`_
 | Legacy Path | docs/python/recipes/wrangles/split.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 06ca98e4-d026-43f7-84eb-af246d401ba9 |
+| Wrangle Key | `split.dictionary` |
+| Type | split |
+| Subtype | dictionary |
+| Variant | stock |
+| Status | active |
+| Tags | Split, split, dictionary |

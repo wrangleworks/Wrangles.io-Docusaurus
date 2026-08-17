@@ -2,17 +2,45 @@
 
 Condense multiple spaces to a single space and convert special space characters to a standard space.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | e36e15c4-f0ad-43f8-8555-ef683a8ab892 |
-| Wrangle Key | `clean_whitespaces` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, clean_whitespaces |
+#### Food Type Example
+
+##### Recipe
+
+```yaml
+wrangles:
+  - clean_whitespaces:
+      input: Products
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Products |
+| --- |
+| `Hello     world!` |
+| `Hello     universe!` |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Products |
+| --- |
+| Hello world! |
+| Hello universe! |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -48,34 +76,6 @@ Condense multiple spaces to a single space and convert special space characters 
 }
 ```
 
-### Examples
-
-#### Food Type Example
-
-##### Recipe
-
-```yaml
-wrangles:
-  - clean_whitespaces:
-      input: Products
-```
-
-##### Input Sample
-
-| Products |
-| --- |
-| `Hello     world!` |
-| `Hello     universe!` |
-
-##### Output Sample
-
-| Products |
-| --- |
-| Hello world! |
-| Hello universe! |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -85,3 +85,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/excel/standardize.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e36e15c4-f0ad-43f8-8555-ef683a8ab892 |
+| Wrangle Key | `clean_whitespaces` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, clean_whitespaces |

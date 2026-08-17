@@ -2,17 +2,91 @@
 
 Group and aggregate the data
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Grouping By One Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.group_by:
+      by: 
+        - Product Type
+      sum: Quanitity
+      mean: Price ($)
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product | Quantity | Price ($) | Product Type |
+| --- | --- | --- | --- |
+| Hammer | 3 | 12.99 | Hand Tools |
+| Ratchet Wrench | 12 | 6.99 | Hand Tools |
+| Cordless Drill | 2 | 49.99 | Power Tools |
+| Reciprocating Saw | 7 | 29.99 | Power Tools |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product Type | Quantity.sum | Price ($).mean |
+| --- | --- | --- |
+| Hand Tools | 15 | 9.99 |
+| Power Tools | 9 | 39.99 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
+
+#### Grouping With Custom Function Aggregation
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.group_by:
+      by: Category
+      custom.sum_times_two: Quantity
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Category | Quantity |
 | --- | --- |
-| ID | c0af10b1-423a-416c-8cb5-7e7fe1164964 |
-| Wrangle Key | `select.group_by` |
-| Type | select |
-| Subtype | group_by |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, group_by |
+| Hand Tools | 3 |
+| Hand Tools | 1 |
+| Hand Tools | 2 |
+| Power Tools | 4 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Category | Quantity.sum_times_two |
+| --- | --- |
+| Hand Tools | 12 |
+| Power Tools | 4 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -73,68 +147,6 @@ Group and aggregate the data
 }
 ```
 
-### Examples
-
-#### Grouping By One Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.group_by:
-      by: 
-        - Product Type
-      sum: Quanitity
-      mean: Price ($)
-```
-
-##### Input Sample
-
-| Product | Quantity | Price ($) | Product Type |
-| --- | --- | --- | --- |
-| Hammer | 3 | 12.99 | Hand Tools |
-| Ratchet Wrench | 12 | 6.99 | Hand Tools |
-| Cordless Drill | 2 | 49.99 | Power Tools |
-| Reciprocating Saw | 7 | 29.99 | Power Tools |
-
-##### Output Sample
-
-| Product Type | Quantity.sum | Price ($).mean |
-| --- | --- | --- |
-| Hand Tools | 15 | 9.99 |
-| Power Tools | 9 | 39.99 |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-#### Grouping With Custom Function Aggregation
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.group_by:
-      by: Category
-      custom.sum_times_two: Quantity
-```
-
-##### Input Sample
-
-| Category | Quantity |
-| --- | --- |
-| Hand Tools | 3 |
-| Hand Tools | 1 |
-| Hand Tools | 2 |
-| Power Tools | 4 |
-
-##### Output Sample
-
-| Category | Quantity.sum_times_two |
-| --- | --- |
-| Hand Tools | 12 |
-| Power Tools | 4 |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -144,3 +156,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | c0af10b1-423a-416c-8cb5-7e7fe1164964 |
+| Wrangle Key | `select.group_by` |
+| Type | select |
+| Subtype | group_by |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, group_by |

@@ -2,17 +2,89 @@
 
 Select the option with the highest confidence from multiple columns. Inputs are expected to be of the form `[value, confidence_score]`.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting Highest Confidence Single Output
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.highest_confidence:
+      input:
+        - Col1
+        - Col2
+        - Col3
+      output: Highest Confidence
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 | Col3 |
+| --- | --- | --- |
+| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Highest Confidence |
+| --- |
+| ['C', 0.99] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
+
+#### Selecting Highest Confidence Two Outputs
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.highest_confidence:
+      input:
+        - Col1
+        - Col2
+        - Col3
+      output:
+        - Item
+        - Confidence
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 | Col3 |
+| --- | --- | --- |
+| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Item | Confidence |
 | --- | --- |
-| ID | 00aad85d-8cc8-42e5-86f3-e4ff916e8ac2 |
-| Wrangle Key | `select.highest_confidence` |
-| Type | select |
-| Subtype | highest_confidence |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, highest_confidence |
+| C | 0.99 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -47,66 +119,6 @@ Select the option with the highest confidence from multiple columns. Inputs are 
 }
 ```
 
-### Examples
-
-#### Selecting Highest Confidence Single Output
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.highest_confidence:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Highest Confidence
-```
-
-##### Input Sample
-
-| Col1 | Col2 | Col3 |
-| --- | --- | --- |
-| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] |
-
-##### Output Sample
-
-| Highest Confidence |
-| --- |
-| ['C', 0.99] |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-#### Selecting Highest Confidence Two Outputs
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.highest_confidence:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output:
-        - Item
-        - Confidence
-```
-
-##### Input Sample
-
-| Col1 | Col2 | Col3 |
-| --- | --- | --- |
-| ['A', 0.79] | ['B', 0.77] | ['C', 0.99] |
-
-##### Output Sample
-
-| Item | Confidence |
-| --- | --- |
-| C | 0.99 |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -116,3 +128,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 00aad85d-8cc8-42e5-86f3-e4ff916e8ac2 |
+| Wrangle Key | `select.highest_confidence` |
+| Type | select |
+| Subtype | highest_confidence |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, highest_confidence |

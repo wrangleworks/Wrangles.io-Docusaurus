@@ -2,17 +2,79 @@
 
 Extract text and links from HTML elements. Requires WrangleWorks Account.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Text From HTML
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.html:
+      input: HTML
+      output: Text
+      data_type: text
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| HTML | Text |
 | --- | --- |
-| ID | 728fc87a-a20d-4efa-833a-612e0b5eadc3 |
-| Wrangle Key | `extract.html` |
-| Type | extract |
-| Subtype | html |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, html |
+| ` |  |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting Links From HTML
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.html:
+      input: HTML
+      output: Links
+      data_type: links
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| HTML | Links |
+| --- | --- |
+| ` |  |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -35,7 +97,6 @@ Extract text and links from HTML elements. Requires WrangleWorks Account.
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -52,56 +113,6 @@ Extract text and links from HTML elements. Requires WrangleWorks Account.
 }
 ```
 
-### Examples
-
-#### Extracting Text From HTML
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.html:
-      input: HTML
-      output: Text
-      data_type: text
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| HTML | Text |
-| --- | --- |
-| ` |  |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting Links From HTML
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.html:
-      input: HTML
-      output: Links
-      data_type: links
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| HTML | Links |
-| --- | --- |
-| ` |  |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -111,3 +122,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 728fc87a-a20d-4efa-833a-612e0b5eadc3 |
+| Wrangle Key | `extract.html` |
+| Type | extract |
+| Subtype | html |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, html |

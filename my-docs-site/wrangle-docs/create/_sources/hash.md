@@ -2,17 +2,47 @@
 
 Create a hash of a column.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 11e8fc13-00d2-4779-8d87-6288b07de7e7 |
-| Wrangle Key | `create.hash` |
-| Type | create |
-| Subtype | hash |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, hash |
+#### Creating a New Hash Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.hash:
+      input: Description
+      output: hash
+      method: md5
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Description |
+| --- |
+| The wrench is blue |
+| The hammer is yellow |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| New Column |
+| --- |
+| ce114e4501d2f4e2dcea3e17b546f339 |
+| a54d88e06612d820bc3be72877c74f257b561b19 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
 
 ### Access
 
@@ -49,36 +79,6 @@ Create a hash of a column.
 }
 ```
 
-### Examples
-
-#### Creating a New Hash Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.hash:
-      input: Description
-      output: hash
-      method: md5
-```
-
-##### Input Sample
-
-| Description |
-| --- |
-| The wrench is blue |
-| The hammer is yellow |
-
-##### Output Sample
-
-| New Column |
-| --- |
-| ce114e4501d2f4e2dcea3e17b546f339 |
-| a54d88e06612d820bc3be72877c74f257b561b19 |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/create.md`_
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 11e8fc13-00d2-4779-8d87-6288b07de7e7 |
+| Wrangle Key | `create.hash` |
+| Type | create |
+| Subtype | hash |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, hash |

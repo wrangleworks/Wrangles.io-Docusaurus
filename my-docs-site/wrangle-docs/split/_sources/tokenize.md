@@ -2,17 +2,82 @@
 
 Tokenize elements in a list or string into individual tokens.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 6cc88418-ae0c-43f6-84ee-31e0d5f838c3 |
-| Wrangle Key | `split.tokenize` |
-| Type | split |
-| Subtype | tokenize |
-| Variant | stock |
-| Status | active |
-| Tags | Split, split, tokenize |
+#### Tokenizing a String
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.tokenize:
+      input: Materials
+      output: Tokenized List
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Materials |
+| --- |
+| Stainless Steel Oak Wood |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Tokenized List |
+| --- |
+| ['Stainless', 'Steel', 'Oak', 'Wood'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+
+#### Tokenizing a List
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.tokenize:
+      input: Materials
+      output: Tokenized List
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Materials |
+| --- |
+| ['Stainless Steel', 'Oak Wood'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Tokenized List |
+| --- |
+| ['Stainless', 'Steel', 'Oak', 'Wood'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
 
 ### Access
 
@@ -49,59 +114,6 @@ Tokenize elements in a list or string into individual tokens.
 }
 ```
 
-### Examples
-
-#### Tokenizing a String
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.tokenize:
-      input: Materials
-      output: Tokenized List
-```
-
-##### Input Sample
-
-| Materials |
-| --- |
-| Stainless Steel Oak Wood |
-
-##### Output Sample
-
-| Tokenized List |
-| --- |
-| ['Stainless', 'Steel', 'Oak', 'Wood'] |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-
-#### Tokenizing a List
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.tokenize:
-      input: Materials
-      output: Tokenized List
-```
-
-##### Input Sample
-
-| Materials |
-| --- |
-| ['Stainless Steel', 'Oak Wood'] |
-
-##### Output Sample
-
-| Tokenized List |
-| --- |
-| ['Stainless', 'Steel', 'Oak', 'Wood'] |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 ### Source
 
 | Field | Value |
@@ -111,3 +123,15 @@ _Source: `docs/python/recipes/wrangles/split.md`_
 | Legacy Path | docs/python/recipes/wrangles/split.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 6cc88418-ae0c-43f6-84ee-31e0d5f838c3 |
+| Wrangle Key | `split.tokenize` |
+| Type | split |
+| Subtype | tokenize |
+| Variant | stock |
+| Status | active |
+| Tags | Split, split, tokenize |

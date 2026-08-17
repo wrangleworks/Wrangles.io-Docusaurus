@@ -2,17 +2,44 @@
 
 Calculate the lengths of data in a column. The length depends on the data type e.g. text will be the length of the text, lists will be the number of elements in the list.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 4d7a5f66-0a4a-40e0-8298-d5c55754423d |
-| Wrangle Key | `select.length` |
-| Type | select |
-| Subtype | length |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, length |
+#### Selecting the Length of Data Within a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.length:
+      input: Part Code
+      output: Part Code Length
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Part Code |
+| --- |
+| 6202 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Part Code Length |
+| --- |
+| 4 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -47,33 +74,6 @@ Calculate the lengths of data in a column. The length depends on the data type e
 }
 ```
 
-### Examples
-
-#### Selecting the Length of Data Within a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.length:
-      input: Part Code
-      output: Part Code Length
-```
-
-##### Input Sample
-
-| Part Code |
-| --- |
-| 6202 |
-
-##### Output Sample
-
-| Part Code Length |
-| --- |
-| 4 |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -83,3 +83,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 4d7a5f66-0a4a-40e0-8298-d5c55754423d |
+| Wrangle Key | `select.length` |
+| Type | select |
+| Subtype | length |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, length |

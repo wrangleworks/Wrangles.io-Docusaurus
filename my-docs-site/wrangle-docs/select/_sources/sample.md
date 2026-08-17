@@ -2,17 +2,86 @@
 
 Return a random sample of the rows
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting 2 Random Rows
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.sample:
+      rows: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product | Manufacturer |
 | --- | --- |
-| ID | 95a84ab6-a66e-450f-8a4a-7a87e3a77932 |
-| Wrangle Key | `select.sample` |
-| Type | select |
-| Subtype | sample |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, sample |
+| Ball Bearing | SKF |
+| Bearing Race | Timken |
+| Needle Bearing | Acme Bearings |
+| Roller Bearing | General Bearing Co. |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Manufacturer |
+| --- | --- |
+| Ball Bearing | SKF |
+| Needle Bearing | Acme Bearings |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
+
+#### Selecting a Random 25% of All Rows
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.sample:
+      rows: .25
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product | Manufacturer |
+| --- | --- |
+| Ball Bearing | SKF |
+| Bearing Race | Timken |
+| Needle Bearing | Acme Bearings |
+| Roller Bearing | General Bearing Co. |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Manufacturer |
+| --- | --- |
+| Needle Bearing | Acme Bearings |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -38,63 +107,6 @@ Return a random sample of the rows
 }
 ```
 
-### Examples
-
-#### Selecting 2 Random Rows
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.sample:
-      rows: 2
-```
-
-##### Input Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Race | Timken |
-| Needle Bearing | Acme Bearings |
-| Roller Bearing | General Bearing Co. |
-
-##### Output Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Needle Bearing | Acme Bearings |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-#### Selecting a Random 25% of All Rows
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.sample:
-      rows: .25
-```
-
-##### Input Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Race | Timken |
-| Needle Bearing | Acme Bearings |
-| Roller Bearing | General Bearing Co. |
-
-##### Output Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Needle Bearing | Acme Bearings |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -104,3 +116,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 95a84ab6-a66e-450f-8a4a-7a87e3a77932 |
+| Wrangle Key | `select.sample` |
+| Type | select |
+| Subtype | sample |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, sample |

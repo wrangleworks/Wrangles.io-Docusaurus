@@ -2,17 +2,80 @@
 
 Extract categorical properties from unstructured text, such as colours or materials. Requires WrangleWorks Account.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting All Properties
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.properties:
+      input: water bottles
+      output: properties
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Products | Product Properties |
 | --- | --- |
-| ID | 23bbdb86-fd13-4b78-8fff-a7a76769ab63 |
-| Wrangle Key | `extract.properties` |
-| Type | extract |
-| Subtype | properties |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, properties |
+| Stainless Steel Blue Bottle | \{'Colours': ['Blue'], 'Materials': ['Stainless Steel']\} |
+| Plastic Yellow Bottle | \{'Colours': ['Yellow'], 'Materials': ['Plastic']\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting Colour
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.properties:
+      input: water bottles
+      output: properties
+      property_type: colours # Optional
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Products | Product Colours |
+| --- | --- |
+| Stainless Steel Blue Bottle | ['Blue'] |
+| Plastic Yellow Bottle | ['Yellow'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -36,7 +99,6 @@ Extract categorical properties from unstructured text, such as colours or materi
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -54,57 +116,6 @@ Extract categorical properties from unstructured text, such as colours or materi
 }
 ```
 
-### Examples
-
-#### Extracting All Properties
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.properties:
-      input: water bottles
-      output: properties
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Products | Product Properties |
-| --- | --- |
-| Stainless Steel Blue Bottle | \{'Colours': ['Blue'], 'Materials': ['Stainless Steel']\} |
-| Plastic Yellow Bottle | \{'Colours': ['Yellow'], 'Materials': ['Plastic']\} |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting Colour
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.properties:
-      input: water bottles
-      output: properties
-      property_type: colours # Optional
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Products | Product Colours |
-| --- | --- |
-| Stainless Steel Blue Bottle | ['Blue'] |
-| Plastic Yellow Bottle | ['Yellow'] |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -114,3 +125,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 23bbdb86-fd13-4b78-8fff-a7a76769ab63 |
+| Wrangle Key | `extract.properties` |
+| Type | extract |
+| Subtype | properties |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, properties |

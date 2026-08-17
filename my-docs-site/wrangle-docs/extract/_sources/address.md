@@ -2,17 +2,45 @@
 
 Extract geographical information from unstructured text such as streets, cities, or countries. Requires WrangleWorks Account.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Street Name
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.address:
+      input: Location
+      output: Street
+      dataType: streets
+      where: SUBSTRING(Location, 1, 3) = '221'
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Street | Location |
 | --- | --- |
-| ID | 44153f95-4581-4cee-898e-b3b4714045fd |
-| Wrangle Key | `extract.address` |
-| Type | extract |
-| Subtype | address |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, address |
+| ['221 B Baker St.'] | 221 B Baker St., London, England, United Kingdom |
+|  | London SW1A 1AA, London, England, United Kingdom |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -34,7 +62,6 @@ Extract geographical information from unstructured text such as streets, cities,
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -50,34 +77,6 @@ Extract geographical information from unstructured text such as streets, cities,
 }
 ```
 
-### Examples
-
-#### Extracting Street Name
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.address:
-      input: Location
-      output: Street
-      dataType: streets
-      where: SUBSTRING(Location, 1, 3) = '221'
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Street | Location |
-| --- | --- |
-| ['221 B Baker St.'] | 221 B Baker St., London, England, United Kingdom |
-|  | London SW1A 1AA, London, England, United Kingdom |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -87,3 +86,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 44153f95-4581-4cee-898e-b3b4714045fd |
+| Wrangle Key | `extract.address` |
+| Type | extract |
+| Subtype | address |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, address |

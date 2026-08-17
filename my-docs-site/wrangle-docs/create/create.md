@@ -19,19 +19,6 @@ import Uuid from './_sources/uuid.md';
 
 Create wrangles add new data such as generated IDs, bins, indexes, hashes, embeddings, or templated text.
 
-## Wrangles
-
-- [Bins](#bins) - `create.bins`
-- [Column](#column) - `create.column`
-- [Embeddings](#embeddings) - `create.embeddings`
-- [Guid](#guid) - `create.guid`
-- [Hash](#hash) - `create.hash`
-- [Index](#index) - `create.index`
-- [Jinja](#jinja) - `create.jinja`
-- [Uuid](#uuid) - `create.uuid`
-
----
-
 <Bins />
 
 ---

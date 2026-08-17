@@ -2,17 +2,46 @@
 
 Translate the input column to another language. Powered by DeepL.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 73c3ceb6-ffd8-4d74-8389-c83b99d33bb0 |
-| Wrangle Key | `translate` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, translate |
+#### Translating Spanish to English
+
+##### Recipe
+
+```yaml
+wrangles:
+  - translate:
+      input: Español
+      output: English
+      source_language: Spanish
+      target_language: English (British)
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Español |
+| --- |
+| ¡Hola Mundo! |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| English |
+| --- |
+| Hello World! |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -53,35 +82,6 @@ Translate the input column to another language. Powered by DeepL.
 }
 ```
 
-### Examples
-
-#### Translating Spanish to English
-
-##### Recipe
-
-```yaml
-wrangles:
-  - translate:
-      input: Español
-      output: English
-      source_language: Spanish
-      target_language: English (British)
-```
-
-##### Input Sample
-
-| Español |
-| --- |
-| ¡Hola Mundo! |
-
-##### Output Sample
-
-| English |
-| --- |
-| Hello World! |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -91,3 +91,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 73c3ceb6-ffd8-4d74-8389-c83b99d33bb0 |
+| Wrangle Key | `translate` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, translate |

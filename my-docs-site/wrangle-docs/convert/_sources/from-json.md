@@ -2,17 +2,46 @@
 
 Convert a JSON string into an object.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | e370dfcf-b0fe-4c48-8a52-6f34c47e7978 |
-| Wrangle Key | `convert.from_json` |
-| Type | convert |
-| Subtype | from_json |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, from_json |
+#### Convert JSON to Object
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.from_json:
+      input: column
+      output: new column
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| `["a","python","list"]` |
+| `{"python":"dict"}` |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| new column |
+| --- |
+| `['a', 'python', 'list']` |
+| `{'python': 'dict'}` |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -49,35 +78,6 @@ Convert a JSON string into an object.
 }
 ```
 
-### Examples
-
-#### Convert JSON to Object
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.from_json:
-      input: column
-      output: new column
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| `["a","python","list"]` |
-| `{"python":"dict"}` |
-
-##### Output Sample
-
-| new column |
-| --- |
-| `['a', 'python', 'list']` |
-| `{'python': 'dict'}` |
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -87,3 +87,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e370dfcf-b0fe-4c48-8a52-6f34c47e7978 |
+| Wrangle Key | `convert.from_json` |
+| Type | convert |
+| Subtype | from_json |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, from_json |

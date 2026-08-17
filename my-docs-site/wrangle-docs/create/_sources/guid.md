@@ -2,17 +2,47 @@
 
 Create a column with a GUID (Globally Unique Identifier).
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | cf3aaab2-3d5b-4c9b-826e-7af7510521c9 |
-| Wrangle Key | `create.guid` |
-| Type | create |
-| Subtype | guid |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, guid |
+#### Creating a New GUID Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.guid:
+      output: GUID Column
+
+  # OR
+
+  - create.uuid:
+      output: GUID Column
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| GUID Column |
+| --- |
+| 9a13b4dd-1993-4bd2-8974-3f9a0f006d86 |
+| 1528d918-ecd7-457c-b44d-3d30705696d3 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
 
 ### Access
 
@@ -42,36 +72,6 @@ Create a column with a GUID (Globally Unique Identifier).
 }
 ```
 
-### Examples
-
-#### Creating a New GUID Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.guid:
-      output: GUID Column
-
-  # OR
-
-  - create.uuid:
-      output: GUID Column
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| GUID Column |
-| --- |
-| 9a13b4dd-1993-4bd2-8974-3f9a0f006d86 |
-| 1528d918-ecd7-457c-b44d-3d30705696d3 |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 ### Source
 
 | Field | Value |
@@ -81,3 +81,15 @@ _Source: `docs/python/recipes/wrangles/create.md`_
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | cf3aaab2-3d5b-4c9b-826e-7af7510521c9 |
+| Wrangle Key | `create.guid` |
+| Type | create |
+| Subtype | guid |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, guid |

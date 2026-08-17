@@ -28,28 +28,6 @@ import Threshold from './_sources/threshold.md';
 
 Select wrangles choose rows, columns, elements, substrings, or values from existing data.
 
-## Wrangles
-
-- [Columns](#columns) - `select.columns`
-- [Dictionary Element](#dictionary-element) - `select.dictionary_element`
-- [Drop](#drop) - `drop`
-- [Element](#element) - `select.element`
-- [Filter](#filter) - `filter`
-- [Group By](#group-by) - `select.group_by`
-- [Head](#head) - `select.head`
-- [Highest Confidence](#highest-confidence) - `select.highest_confidence`
-- [Left](#left) - `select.left`
-- [Length](#length) - `select.length`
-- [List Element](#list-element) - `select.list_element`
-- [Right](#right) - `select.right`
-- [Sample](#sample) - `select.sample`
-- [Sort](#sort) - `sort`
-- [Substring](#substring) - `select.substring`
-- [Tail](#tail) - `select.tail`
-- [Threshold](#threshold) - `select.threshold`
-
----
-
 <Columns />
 
 ---

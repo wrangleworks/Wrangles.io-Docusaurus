@@ -2,17 +2,46 @@
 
 Drop (Delete) selected column(s)
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Dropping a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - drop:
+      columns:
+        - Material
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Material | Product Data |
 | --- | --- |
-| ID | 363bffbf-397e-4975-8382-e9efa5e9eed6 |
-| Wrangle Key | `drop` |
-| Type | select |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Select, drop |
+| Ceramic | SKF ball brg |
+| Rubber | brg seal |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product Data |
+| --- |
+| SKF ball bearing |
+| bearing seal |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -41,35 +70,6 @@ Drop (Delete) selected column(s)
 }
 ```
 
-### Examples
-
-#### Dropping a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - drop:
-      columns:
-        - Material
-```
-
-##### Input Sample
-
-| Material | Product Data |
-| --- | --- |
-| Ceramic | SKF ball brg |
-| Rubber | brg seal |
-
-##### Output Sample
-
-| Product Data |
-| --- |
-| SKF ball bearing |
-| bearing seal |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -79,3 +79,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 363bffbf-397e-4975-8382-e9efa5e9eed6 |
+| Wrangle Key | `drop` |
+| Type | select |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Select, drop |

@@ -2,17 +2,52 @@
 
 Sort the data
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Replacing Abbreviations
+
+##### Recipe
+
+```yaml
+wrangles:
+  - sort:
+      by: Price
+      ascending: true
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Item | Price |
 | --- | --- |
-| ID | 1dcf06ad-898a-4d83-862c-4774be37a687 |
-| Wrangle Key | `sort` |
-| Type | select |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Select, sort |
+| Hammer | 11.99 |
+| Chisel | 4.99 |
+| Drill | 29.99 |
+| Wrench | 6.99 |
+| Saw | 13.99 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Item | Price |
+| --- | --- |
+| Chisel | 4.99 |
+| Wrench | 6.99 |
+| Hammer | 11.99 |
+| Saw | 13.99 |
+| Drill | 29.99 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -43,41 +78,6 @@ Sort the data
 }
 ```
 
-### Examples
-
-#### Replacing Abbreviations
-
-##### Recipe
-
-```yaml
-wrangles:
-  - sort:
-      by: Price
-      ascending: true
-```
-
-##### Input Sample
-
-| Item | Price |
-| --- | --- |
-| Hammer | 11.99 |
-| Chisel | 4.99 |
-| Drill | 29.99 |
-| Wrench | 6.99 |
-| Saw | 13.99 |
-
-##### Output Sample
-
-| Item | Price |
-| --- | --- |
-| Chisel | 4.99 |
-| Wrench | 6.99 |
-| Hammer | 11.99 |
-| Saw | 13.99 |
-| Drill | 29.99 |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -87,3 +87,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 1dcf06ad-898a-4d83-862c-4774be37a687 |
+| Wrangle Key | `sort` |
+| Type | select |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Select, sort |

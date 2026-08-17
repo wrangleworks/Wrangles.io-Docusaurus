@@ -6,17 +6,45 @@ Remove excess whitespace at the start and end of text. Can accept multiple colum
 Non-string values pass through unaltered.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Trimming a String
+
+##### Recipe
+
+```yaml
+wrangles:
+  - format.trim:
+      input:
+        - col1
+      output: col1 trimmed
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| col1 |
+| --- |
+| `  Hello World  ` |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| col1 | col1 trimmed |
 | --- | --- |
-| ID | af16b3c1-c230-4868-8ebe-f574904a0c76 |
-| Wrangle Key | `format.trim` |
-| Type | format |
-| Subtype | trim |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, trim |
+| Hello World | Hello World |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -51,34 +79,6 @@ Non-string values pass through unaltered.
 }
 ```
 
-### Examples
-
-#### Trimming a String
-
-##### Recipe
-
-```yaml
-wrangles:
-  - format.trim:
-      input:
-        - col1
-      output: col1 trimmed
-```
-
-##### Input Sample
-
-| col1 |
-| --- |
-| `  Hello World  ` |
-
-##### Output Sample
-
-| col1 | col1 trimmed |
-| --- | --- |
-| Hello World | Hello World |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | af16b3c1-c230-4868-8ebe-f574904a0c76 |
+| Wrangle Key | `format.trim` |
+| Type | format |
+| Subtype | trim |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, trim |

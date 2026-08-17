@@ -2,17 +2,134 @@
 
 Rename a column or list of columns.
 
-### Metadata
+### Examples
 
-| Field | Value |
+:::note
+Rename is not compatible with `where` filtering.
+:::
+
+#### Renaming Columns With Input and Output
+
+##### Recipe
+
+```yaml
+wrangles:
+  - rename:
+      input:
+        - Manufacturer Name
+        - Manufacturer Part Number
+      output:
+        - Manufacturer
+        - MPN
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Manufacturer Name | Manufacturer Part Number |
 | --- | --- |
-| ID | ab06898f-faf7-42e7-8275-5e3034a4d727 |
-| Wrangle Key | `rename` |
-| Type | transform |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Transform, rename |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Manufacturer | MPN |
+| --- | --- |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
+
+#### Renaming Columns Without Using Input and Output
+
+##### Recipe
+
+```yaml
+wrangles:
+  - rename:
+      Manufacturer Name: Manufacturer
+      Manufacturer Part Number: MPN
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Manufacturer Name | Manufacturer Part Number |
+| --- | --- |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Manufacturer | MPN |
+| --- | --- |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
+
+#### Using Wrangles in Rename
+
+##### Recipe
+
+```yaml
+wrangles:
+  - rename:
+      wrangles:
+        - convert.case:
+            input: columns
+            case: upper
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Manufacturer Name | Manufacturer Part Number |
+| --- | --- |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| MANUFACTURER NAME | MANUFACTURER PART NUMBER |
+| --- | --- |
+| SKF | 302-2 |
+| Timken | PF48 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -47,99 +164,6 @@ Rename a column or list of columns.
 }
 ```
 
-### Examples
-
-:::note
-Rename is not compatible with `where` filtering.
-:::
-
-#### Renaming Columns With Input and Output
-
-##### Recipe
-
-```yaml
-wrangles:
-  - rename:
-      input:
-        - Manufacturer Name
-        - Manufacturer Part Number
-      output:
-        - Manufacturer
-        - MPN
-```
-
-##### Input Sample
-
-| Manufacturer Name | Manufacturer Part Number |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-##### Output Sample
-
-| Manufacturer | MPN |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
-#### Renaming Columns Without Using Input and Output
-
-##### Recipe
-
-```yaml
-wrangles:
-  - rename:
-      Manufacturer Name: Manufacturer
-      Manufacturer Part Number: MPN
-```
-
-##### Input Sample
-
-| Manufacturer Name | Manufacturer Part Number |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-##### Output Sample
-
-| Manufacturer | MPN |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
-#### Using Wrangles in Rename
-
-##### Recipe
-
-```yaml
-wrangles:
-  - rename:
-      wrangles:
-        - convert.case:
-            input: columns
-            case: upper
-```
-
-##### Input Sample
-
-| Manufacturer Name | Manufacturer Part Number |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-##### Output Sample
-
-| MANUFACTURER NAME | MANUFACTURER PART NUMBER |
-| --- | --- |
-| SKF | 302-2 |
-| Timken | PF48 |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -149,3 +173,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | ab06898f-faf7-42e7-8275-5e3034a4d727 |
+| Wrangle Key | `rename` |
+| Type | transform |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Transform, rename |

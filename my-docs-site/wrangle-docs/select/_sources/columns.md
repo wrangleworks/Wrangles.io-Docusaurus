@@ -2,17 +2,45 @@
 
 Select columns from the dataframe
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting Columns
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.columns:
+      input: Manufacturer
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Part Number | Manufacturer |
 | --- | --- |
-| ID | bca12c60-3957-4dc5-83f7-5ee460df2a11 |
-| Wrangle Key | `select.columns` |
-| Type | select |
-| Subtype | columns |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, columns |
+| 1234 | SKF |
+| 5678 | Timken |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Manufacturer |
+| --- |
+| SKF |
+| Timken |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -41,34 +69,6 @@ Select columns from the dataframe
 }
 ```
 
-### Examples
-
-#### Selecting Columns
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.columns:
-      input: Manufacturer
-```
-
-##### Input Sample
-
-| Part Number | Manufacturer |
-| --- | --- |
-| 1234 | SKF |
-| 5678 | Timken |
-
-##### Output Sample
-
-| Manufacturer |
-| --- |
-| SKF |
-| Timken |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -78,3 +78,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | bca12c60-3957-4dc5-83f7-5ee460df2a11 |
+| Wrangle Key | `select.columns` |
+| Type | select |
+| Subtype | columns |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, columns |

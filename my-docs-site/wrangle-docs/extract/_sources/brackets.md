@@ -2,17 +2,45 @@
 
 Extract text in brackets from the input.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Data Within Brackets
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.brackets:
+      input: Data
+      output: Output
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Data | Output |
 | --- | --- |
-| ID | 9b4c15fa-2aaa-40c8-8834-6e835760bee5 |
-| Wrangle Key | `extract.brackets` |
-| Type | extract |
-| Subtype | brackets |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, brackets |
+| `{Hello}` | Hello |
+| `[Wrangles]` | Wrangles |
+| `(!)` | ! |
+| `<!>` | ! |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -36,7 +64,6 @@ Extract text in brackets from the input.
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -53,34 +80,6 @@ Extract text in brackets from the input.
 }
 ```
 
-### Examples
-
-#### Extracting Data Within Brackets
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.brackets:
-      input: Data
-      output: Output
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Data | Output |
-| --- | --- |
-| `{Hello}` | Hello |
-| `[Wrangles]` | Wrangles |
-| `(!)` | ! |
-| `<!>` | ! |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -90,3 +89,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 9b4c15fa-2aaa-40c8-8834-6e835760bee5 |
+| Wrangle Key | `extract.brackets` |
+| Type | extract |
+| Subtype | brackets |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, brackets |

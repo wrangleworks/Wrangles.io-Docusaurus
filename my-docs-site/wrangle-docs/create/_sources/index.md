@@ -2,17 +2,44 @@
 
 Create a new incremental index.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 0a4909ca-6e14-4da7-8a70-a7fd106d6944 |
-| Wrangle Key | `create.index` |
-| Type | create |
-| Subtype | index |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, index |
+#### Creating a New Index Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.index:
+      output: New Index
+      start: 1    # optional
+      step: 1     # optional
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| New Index |
+| --- |
+| 1 |
+| 2 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
 
 ### Access
 
@@ -51,33 +78,6 @@ Create a new incremental index.
 }
 ```
 
-### Examples
-
-#### Creating a New Index Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.index:
-      output: New Index
-      start: 1    # optional
-      step: 1     # optional
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| New Index |
-| --- |
-| 1 |
-| 2 |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 ### Source
 
 | Field | Value |
@@ -87,3 +87,15 @@ _Source: `docs/python/recipes/wrangles/create.md`_
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 0a4909ca-6e14-4da7-8a70-a7fd106d6944 |
+| Wrangle Key | `create.index` |
+| Type | create |
+| Subtype | index |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, index |

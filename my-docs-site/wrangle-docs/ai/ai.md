@@ -14,14 +14,6 @@ import Huggingface from './_sources/huggingface.md';
 
 AI wrangles use trained models or external AI providers to classify, extract, generate, or transform data.
 
-## Wrangles
-
-- [Ai](#ai) - `generate.ai`
-- [Classify](#classify) - `classify`
-- [Huggingface](#huggingface) - `huggingface`
-
----
-
 <Ai />
 
 ---

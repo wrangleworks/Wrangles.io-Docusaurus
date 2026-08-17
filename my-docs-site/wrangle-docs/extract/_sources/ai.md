@@ -6,17 +6,144 @@ Use AI to extract meaningful structured data. `extract.ai` can be used recipe-fi
 For saved extract.ai models, this is the preferred calling pattern compared with using `extract.custom`.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Making Use of Output Parameters
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.ai:
+      api_key: Your OpenAI api key
+      input: Product Specs
+      output:
+        Blade Diameter:
+          type: number
+          description: The diameter of the blade used, reported in inches.
+          default: N/A
+          examples:
+            - 4.5"
+            - 8 inch
+        Max. RPM:
+          type: number
+          description: The maximum rotations per minute (rpm).
+          default: 3600
+          examples:
+            - 3600 max. rpm
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product Specs |
+| --- |
+| 18V Cordless 4.5in angle grinder |
+| 120V 12in chop saw 3600 max. rpm |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Blade Diameter | Max. RPM |
 | --- | --- |
-| ID | d9f89b00-fda3-4f4c-826c-6417b9390607 |
-| Wrangle Key | `extract.ai` |
-| Type | ai |
-| Subtype | ai |
-| Variant | stock |
-| Status | active |
-| Tags | AI, extract, ai |
+| 4.5 inches |  |
+| 12 inches | 3600 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Description Only
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.ai:
+      api_key: Your OpenAI api key
+      input: Product Specs
+      output:
+        Blade Diameter: The diameter of the blade used, reported in inches.
+        Max. RPM: The maximum rotations per minute (rpm).
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product Specs |
+| --- |
+| 18V Cordless 4.5in angle grinder |
+| 120V 12in chop saw 3600 max. rpm |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Blade Diameter | Max. RPM |
+| --- | --- |
+| 4.5 inches |  |
+| 12 inches | 3600 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Model Based Column Output by Name
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.ai:
+      api_key: Your OpenAI api key
+      model_id: xxxx-xxxx-xxxxxxxx
+      output:
+        - Colors
+        - Sizes
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Items |
+| --- |
+| Large yellow square |
+| Medium orange triangle |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Colors | Sizes |
+| --- | --- |
+| [yellow] | Large |
+| [orange] | Medium |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -77,109 +204,6 @@ For saved extract.ai models, this is the preferred calling pattern compared with
 }
 ```
 
-### Examples
-
-#### Making Use of Output Parameters
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.ai:
-      api_key: Your OpenAI api key
-      input: Product Specs
-      output:
-        Blade Diameter:
-          type: number
-          description: The diameter of the blade used, reported in inches.
-          default: N/A
-          examples:
-            - 4.5"
-            - 8 inch
-        Max. RPM:
-          type: number
-          description: The maximum rotations per minute (rpm).
-          default: 3600
-          examples:
-            - 3600 max. rpm
-```
-
-##### Input Sample
-
-| Product Specs |
-| --- |
-| 18V Cordless 4.5in angle grinder |
-| 120V 12in chop saw 3600 max. rpm |
-
-##### Output Sample
-
-| Blade Diameter | Max. RPM |
-| --- | --- |
-| 4.5 inches |  |
-| 12 inches | 3600 |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Description Only
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.ai:
-      api_key: Your OpenAI api key
-      input: Product Specs
-      output:
-        Blade Diameter: The diameter of the blade used, reported in inches.
-        Max. RPM: The maximum rotations per minute (rpm).
-```
-
-##### Input Sample
-
-| Product Specs |
-| --- |
-| 18V Cordless 4.5in angle grinder |
-| 120V 12in chop saw 3600 max. rpm |
-
-##### Output Sample
-
-| Blade Diameter | Max. RPM |
-| --- | --- |
-| 4.5 inches |  |
-| 12 inches | 3600 |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Model Based Column Output by Name
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.ai:
-      api_key: Your OpenAI api key
-      model_id: xxxx-xxxx-xxxxxxxx
-      output:
-        - Colors
-        - Sizes
-```
-
-##### Input Sample
-
-| Items |
-| --- |
-| Large yellow square |
-| Medium orange triangle |
-
-##### Output Sample
-
-| Colors | Sizes |
-| --- | --- |
-| [yellow] | Large |
-| [orange] | Medium |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -189,3 +213,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | d9f89b00-fda3-4f4c-826c-6417b9390607 |
+| Wrangle Key | `extract.ai` |
+| Type | ai |
+| Subtype | ai |
+| Variant | stock |
+| Status | active |
+| Tags | AI, extract, ai |

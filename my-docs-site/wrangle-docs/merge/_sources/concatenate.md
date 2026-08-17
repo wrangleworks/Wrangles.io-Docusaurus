@@ -2,17 +2,88 @@
 
 If the input is a list of columns, concatenate multiple columns into one as a delimited string. If the input is a single column, concatenate a list within that column into a delimited string.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 6ff76728-e1f6-4d3d-8946-6aa3b7524b3f |
-| Wrangle Key | `merge.concatenate` |
-| Type | merge |
-| Subtype | concatenate |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, concatenate |
+#### Concatenating 3 Columns
+
+##### Recipe
+
+```yaml
+# Using concatenate to combine multiple columns
+wrangles:
+  - merge.concatenate:
+      input:
+        - Col1
+        - Col2
+        - Col3
+      output: Join Col
+      char: ', '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 | Col3 |
+| --- | --- | --- |
+| A | B | C |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Join Col |
+| --- |
+| A, B, C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
+
+#### Concatenating a Single Column
+
+##### Recipe
+
+```yaml
+# Using concatenate to join a column that is a list
+wrangles:
+  - merge.concatenate:
+      input: Col1
+      output: Join List
+      char: ' '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 |
+| --- |
+| ['A', 'B', 'C'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Join List |
+| --- |
+| A B C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -49,65 +120,6 @@ If the input is a list of columns, concatenate multiple columns into one as a de
 }
 ```
 
-### Examples
-
-#### Concatenating 3 Columns
-
-##### Recipe
-
-```yaml
-# Using concatenate to combine multiple columns
-wrangles:
-  - merge.concatenate:
-      input:
-        - Col1
-        - Col2
-        - Col3
-      output: Join Col
-      char: ', '
-```
-
-##### Input Sample
-
-| Col1 | Col2 | Col3 |
-| --- | --- | --- |
-| A | B | C |
-
-##### Output Sample
-
-| Join Col |
-| --- |
-| A, B, C |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
-#### Concatenating a Single Column
-
-##### Recipe
-
-```yaml
-# Using concatenate to join a column that is a list
-wrangles:
-  - merge.concatenate:
-      input: Col1
-      output: Join List
-      char: ' '
-```
-
-##### Input Sample
-
-| Col1 |
-| --- |
-| ['A', 'B', 'C'] |
-
-##### Output Sample
-
-| Join List |
-| --- |
-| A B C |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -117,3 +129,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 6ff76728-e1f6-4d3d-8946-6aa3b7524b3f |
+| Wrangle Key | `merge.concatenate` |
+| Type | merge |
+| Subtype | concatenate |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, concatenate |

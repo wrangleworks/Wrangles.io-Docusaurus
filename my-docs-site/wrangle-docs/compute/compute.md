@@ -16,16 +16,6 @@ import Sql from './_sources/sql.md';
 
 Compute wrangles calculate values using SQL, Python, math, search scoring, or conditional logic.
 
-## Wrangles
-
-- [Case When](#case-when) - `compute.case_when`
-- [Math](#math) - `math`
-- [Python](#python) - `python`
-- [Score Search Results](#score-search-results) - `compute.score_search_results`
-- [Sql](#sql) - `sql`
-
----
-
 <CaseWhen />
 
 ---

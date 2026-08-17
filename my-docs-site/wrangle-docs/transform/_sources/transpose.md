@@ -2,17 +2,48 @@
 
 Transpose a dataframe.
 
-### Metadata
+### Examples
 
-| Field | Value |
+:::note
+Transpose is not compatible with `where` filtering.
+:::
+
+#### Transposing a Dataframe
+
+##### Recipe
+
+```yaml
+wrangles:
+  - transpose:
+      header_column: Material
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Material | Product Data |
 | --- | --- |
-| ID | 8716347f-f286-49b2-8a0b-cb73292e7475 |
-| Wrangle Key | `transpose` |
-| Type | transform |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Transform, transpose |
+| Ceramic | SKF ball brg |
+| Rubber | brg seal |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Material | Ceramic | Rubber |
+| --- | --- | --- |
+| Product Data | SKF ball brg | brg seal |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -38,37 +69,6 @@ Transpose a dataframe.
 }
 ```
 
-### Examples
-
-:::note
-Transpose is not compatible with `where` filtering.
-:::
-
-#### Transposing a Dataframe
-
-##### Recipe
-
-```yaml
-wrangles:
-  - transpose:
-      header_column: Material
-```
-
-##### Input Sample
-
-| Material | Product Data |
-| --- | --- |
-| Ceramic | SKF ball brg |
-| Rubber | brg seal |
-
-##### Output Sample
-
-| Material | Ceramic | Rubber |
-| --- | --- | --- |
-| Product Data | SKF ball brg | brg seal |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -78,3 +78,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 8716347f-f286-49b2-8a0b-cb73292e7475 |
+| Wrangle Key | `transpose` |
+| Type | transform |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Transform, transpose |

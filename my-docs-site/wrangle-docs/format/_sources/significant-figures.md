@@ -2,17 +2,49 @@
 
 Format a value to a specific number of significant figures
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Rounding to Significant Figures
+
+##### Recipe
+
+```yaml
+wrangles:
+  - format.significant_figures:
+      input: Data
+      significant_figures: 2
+      output: Data to 2 Figures
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Data |
+| --- |
+| 1.25 |
+| 12.3 |
+| 55.6 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Data | Data to 2 Figures |
 | --- | --- |
-| ID | a359f72a-5250-4dd8-84f6-8a8173bee0f6 |
-| Wrangle Key | `format.significant_figures` |
-| Type | format |
-| Subtype | significant_figures |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, significant_figures |
+| 1.25 | 1.2 |
+| 12.3 | 12 |
+| 55.6 | 55 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -49,38 +81,6 @@ Format a value to a specific number of significant figures
 }
 ```
 
-### Examples
-
-#### Rounding to Significant Figures
-
-##### Recipe
-
-```yaml
-wrangles:
-  - format.significant_figures:
-      input: Data
-      significant_figures: 2
-      output: Data to 2 Figures
-```
-
-##### Input Sample
-
-| Data |
-| --- |
-| 1.25 |
-| 12.3 |
-| 55.6 |
-
-##### Output Sample
-
-| Data | Data to 2 Figures |
-| --- | --- |
-| 1.25 | 1.2 |
-| 12.3 | 12 |
-| 55.6 | 55 |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -90,3 +90,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | a359f72a-5250-4dd8-84f6-8a8173bee0f6 |
+| Wrangle Key | `format.significant_figures` |
+| Type | format |
+| Subtype | significant_figures |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, significant_figures |

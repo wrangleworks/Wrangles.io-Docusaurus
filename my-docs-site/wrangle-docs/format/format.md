@@ -24,24 +24,6 @@ import Trim from './_sources/trim.md';
 
 Format wrangles clean, standardize, translate, pad, trim, or otherwise reformat existing values.
 
-## Wrangles
-
-- [Clean Whitespaces](#clean-whitespaces) - `clean_whitespaces`
-- [Dates](#dates) - `format.dates`
-- [Pad](#pad) - `format.pad`
-- [Prefix](#prefix) - `format.prefix`
-- [Remove Duplicates](#remove-duplicates) - `format.remove_duplicates`
-- [Remove Words](#remove-words) - `remove_words`
-- [Replace](#replace) - `replace`
-- [Round](#round) - `round`
-- [Significant Figures](#significant-figures) - `format.significant_figures`
-- [Standardize](#standardize) - `standardize`
-- [Suffix](#suffix) - `format.suffix`
-- [Translate](#translate) - `translate`
-- [Trim](#trim) - `format.trim`
-
----
-
 <CleanWhitespaces />
 
 ---

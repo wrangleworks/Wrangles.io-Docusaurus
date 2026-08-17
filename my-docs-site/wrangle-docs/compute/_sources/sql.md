@@ -6,17 +6,49 @@ Apply a SQL command to the current dataframe. Only `SELECT` statements are suppo
 SQL does not currently work with objects. If your table contains objects, use `convert.to_json` before using SQL. SQL is not compatible with `where` filtering.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting a Subset of Data
+
+##### Recipe
+
+```yaml
+wrangles:
+  - sql:
+      command: |
+        SELECT header1, header2
+        FROM df
+        WHERE header1 >= 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| header1 | header2 | header3 |
+| --- | --- | --- |
+| 1 | a | x |
+| 2 | b | y |
+| 3 | c | z |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| header1 | header2 |
 | --- | --- |
-| ID | 467a06b1-a697-4d31-8061-7d83a719fd79 |
-| Wrangle Key | `sql` |
-| Type | compute |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Compute, sql |
+| 2 | b |
+| 3 | c |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -44,38 +76,6 @@ SQL does not currently work with objects. If your table contains objects, use `c
 }
 ```
 
-### Examples
-
-#### Selecting a Subset of Data
-
-##### Recipe
-
-```yaml
-wrangles:
-  - sql:
-      command: |
-        SELECT header1, header2
-        FROM df
-        WHERE header1 >= 2
-```
-
-##### Input Sample
-
-| header1 | header2 | header3 |
-| --- | --- | --- |
-| 1 | a | x |
-| 2 | b | y |
-| 3 | c | z |
-
-##### Output Sample
-
-| header1 | header2 |
-| --- | --- |
-| 2 | b |
-| 3 | c |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -85,3 +85,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 467a06b1-a697-4d31-8061-7d83a719fd79 |
+| Wrangle Key | `sql` |
+| Type | compute |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Compute, sql |

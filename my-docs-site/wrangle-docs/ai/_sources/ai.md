@@ -2,17 +2,52 @@
 
 Generate structured AI output for each recipe row.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Generate Structured Product Data
+
+This template generates a category from a product description. AI-generated values can vary by model and request.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - generate.ai:
+      input:
+        - Product Description
+      output:
+        Category:
+          type: string
+          description: Broad product category
+      api_key: Your OpenAI-compatible API key
+      model: gpt-5-mini
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product Description |
+| --- |
+| Stainless steel insulated water bottle, 750 ml |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product Description | Category |
 | --- | --- |
-| ID | 12c31c6c-cade-484d-84ba-7f302bf6af52 |
-| Wrangle Key | `generate.ai` |
-| Type | ai |
-| Subtype | ai |
-| Variant | stock |
-| Status | active |
-| Tags | AI, generate, ai |
+| Stainless steel insulated water bottle, 750 ml | Drinkware |
+
+</div>
+
+</div>
+
+_Template based on the documented parameters; no published source example is currently available._
 
 ### Access
 
@@ -66,10 +101,6 @@ Generate structured AI output for each recipe row.
 }
 ```
 
-### Examples
-
-_No examples are currently available._
-
 ### Source
 
 | Field | Value |
@@ -79,3 +110,15 @@ _No examples are currently available._
 | Legacy Path |  |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 12c31c6c-cade-484d-84ba-7f302bf6af52 |
+| Wrangle Key | `generate.ai` |
+| Type | ai |
+| Subtype | ai |
+| Variant | stock |
+| Status | active |
+| Tags | AI, generate, ai |

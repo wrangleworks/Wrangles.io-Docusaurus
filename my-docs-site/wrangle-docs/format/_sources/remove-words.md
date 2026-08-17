@@ -2,17 +2,51 @@
 
 Remove all the elements that occur in one list from another.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 543b96c3-f354-48be-8046-bf0cb9fbaf56 |
-| Wrangle Key | `remove_words` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, remove_words |
+#### Removing Words From a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+   - remove_words:
+        input: Description
+        to_remove: # To Remove columns must be list
+          - Materials
+          - Colours
+        output: Product
+        tokenize_to_remove: True
+        ignore_case: False
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Colours | Materials | Description |
+| --- | --- | --- |
+| ['Blue'] | ['Steel'] | Steel Blue Bottle |
+| ['Blue'] | ['Steel'] | ['Steel', 'Blue', 'Bottle'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product |
+| --- |
+| Bottle |
+| Bottle |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -53,40 +87,6 @@ Remove all the elements that occur in one list from another.
 }
 ```
 
-### Examples
-
-#### Removing Words From a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-   - remove_words:
-        input: Description
-        to_remove: # To Remove columns must be list
-          - Materials
-          - Colours
-        output: Product
-        tokenize_to_remove: True
-        ignore_case: False
-```
-
-##### Input Sample
-
-| Colours | Materials | Description |
-| --- | --- | --- |
-| ['Blue'] | ['Steel'] | Steel Blue Bottle |
-| ['Blue'] | ['Steel'] | ['Steel', 'Blue', 'Bottle'] |
-
-##### Output Sample
-
-| Product |
-| --- |
-| Bottle |
-| Bottle |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -96,3 +96,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 543b96c3-f354-48be-8046-bf0cb9fbaf56 |
+| Wrangle Key | `remove_words` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, remove_words |

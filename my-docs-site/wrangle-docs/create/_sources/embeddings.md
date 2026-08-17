@@ -2,17 +2,47 @@
 
 Create an embedding based on text input.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Creating Embeddings
+
+##### Recipe
+
+```yaml
+wrangles:
+  - create.embeddings:
+      input: my_column
+      api_key: ${my_key}
+      output: embeddings
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| my_column |
+| --- |
+| angle grinder |
+| jig saw |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| my_column | embeddings |
 | --- | --- |
-| ID | e3518afd-a819-40ec-8b49-eb25690220c1 |
-| Wrangle Key | `create.embeddings` |
-| Type | create |
-| Subtype | embeddings |
-| Variant | stock |
-| Status | active |
-| Tags | Create, create, embeddings |
+| angle grinder | [0.010793785, -0.010007165, 0.0028609, -0.0139...] |
+| jig saw | [-0.008975127, 0.009314879, -0.024150735, -0.0...] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/create.md`_
 
 ### Access
 
@@ -61,36 +91,6 @@ Create an embedding based on text input.
 }
 ```
 
-### Examples
-
-#### Creating Embeddings
-
-##### Recipe
-
-```yaml
-wrangles:
-  - create.embeddings:
-      input: my_column
-      api_key: ${my_key}
-      output: embeddings
-```
-
-##### Input Sample
-
-| my_column |
-| --- |
-| angle grinder |
-| jig saw |
-
-##### Output Sample
-
-| my_column | embeddings |
-| --- | --- |
-| angle grinder | [0.010793785, -0.010007165, 0.0028609, -0.0139...] |
-| jig saw | [-0.008975127, 0.009314879, -0.024150735, -0.0...] |
-
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 ### Source
 
 | Field | Value |
@@ -100,3 +100,15 @@ _Source: `docs/python/recipes/wrangles/create.md`_
 | Legacy Path | docs/python/recipes/wrangles/create.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e3518afd-a819-40ec-8b49-eb25690220c1 |
+| Wrangle Key | `create.embeddings` |
+| Type | create |
+| Subtype | embeddings |
+| Variant | stock |
+| Status | active |
+| Tags | Create, create, embeddings |

@@ -2,17 +2,43 @@
 
 Extract date properties from a date, such as day, month, year, weekday, or quarter.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Month From Date
+
+##### Recipe
+
+```yaml
+wrangles:
+  - extract.date_properties:
+      input: Date
+      output: Output
+      property: month_name
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Date | Output |
 | --- | --- |
-| ID | a346de62-93cd-44ba-8d30-a6305629c6d7 |
-| Wrangle Key | `extract.date_properties` |
-| Type | extract |
-| Subtype | date_properties |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, date_properties |
+| 1992-08-13 00:00:00 | August |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -34,7 +60,6 @@ Extract date properties from a date, such as day, month, year, weekday, or quart
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -50,32 +75,6 @@ Extract date properties from a date, such as day, month, year, weekday, or quart
 }
 ```
 
-### Examples
-
-#### Extracting Month From Date
-
-##### Recipe
-
-```yaml
-wrangles:
-  - extract.date_properties:
-      input: Date
-      output: Output
-      property: month_name
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Date | Output |
-| --- | --- |
-| 1992-08-13 00:00:00 | August |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -85,3 +84,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | a346de62-93cd-44ba-8d30-a6305629c6d7 |
+| Wrangle Key | `extract.date_properties` |
+| Type | extract |
+| Subtype | date_properties |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, date_properties |

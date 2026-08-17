@@ -2,17 +2,46 @@
 
 Convert an object to a JSON representation.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 94e54eb7-2b8c-4047-89d0-fb5d16baf396 |
-| Wrangle Key | `convert.to_json` |
-| Type | convert |
-| Subtype | to_json |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, to_json |
+#### Convert Text to JSON
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.to_json:
+      input: column
+      output: new column
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| `['a', 'python', 'list']` |
+| `{'python': 'dict'}` |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| new column |
+| --- |
+| `["a","python","list"]` |
+| `{"python":"dict"}` |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -53,35 +82,6 @@ Convert an object to a JSON representation.
 }
 ```
 
-### Examples
-
-#### Convert Text to JSON
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.to_json:
-      input: column
-      output: new column
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| `['a', 'python', 'list']` |
-| `{'python': 'dict'}` |
-
-##### Output Sample
-
-| new column |
-| --- |
-| `["a","python","list"]` |
-| `{"python":"dict"}` |
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -91,3 +91,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 94e54eb7-2b8c-4047-89d0-fb5d16baf396 |
+| Wrangle Key | `convert.to_json` |
+| Type | convert |
+| Subtype | to_json |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, to_json |

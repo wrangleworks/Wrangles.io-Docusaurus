@@ -2,17 +2,47 @@
 
 Run a standardize wrangle, such as one that expands abbreviations. A standardization wrangle must be trained first.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 53cd3fdd-24e2-4411-8655-6014b92a3f3a |
-| Wrangle Key | `standardize` |
-| Type | format |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Format, standardize |
+#### Replacing Abbreviations
+
+##### Recipe
+
+```yaml
+wrangles:
+  - standardize:
+      input: Abbrev
+      output: Abbreviations
+      model_id: code_here
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Abbrev |
+| --- |
+| ASAP |
+| ETA |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Abbreviations |
+| --- |
+| As Soon As Possible |
+| Estimated Time of Arrival |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -51,36 +81,6 @@ Run a standardize wrangle, such as one that expands abbreviations. A standardiza
 }
 ```
 
-### Examples
-
-#### Replacing Abbreviations
-
-##### Recipe
-
-```yaml
-wrangles:
-  - standardize:
-      input: Abbrev
-      output: Abbreviations
-      model_id: code_here
-```
-
-##### Input Sample
-
-| Abbrev |
-| --- |
-| ASAP |
-| ETA |
-
-##### Output Sample
-
-| Abbreviations |
-| --- |
-| As Soon As Possible |
-| Estimated Time of Arrival |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -90,3 +90,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 53cd3fdd-24e2-4411-8655-6014b92a3f3a |
+| Wrangle Key | `standardize` |
+| Type | format |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Format, standardize |

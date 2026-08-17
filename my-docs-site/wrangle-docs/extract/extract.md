@@ -22,22 +22,6 @@ import Regex from './_sources/regex.md';
 
 Extract wrangles identify and extract structured information from unstructured or semi-structured input.
 
-## Wrangles
-
-- [Address](#address) - `extract.address`
-- [AI](#ai) - `extract.ai`
-- [Attributes](#attributes) - `extract.attributes`
-- [Brackets](#brackets) - `extract.brackets`
-- [Codes](#codes) - `extract.codes`
-- [Custom](#custom) - `extract.custom`
-- [Date Properties](#date-properties) - `extract.date_properties`
-- [Date Range](#date-range) - `extract.date_range`
-- [Html](#html) - `extract.html`
-- [Properties](#properties) - `extract.properties`
-- [Regex](#regex) - `extract.regex`
-
----
-
 <Address />
 
 ---

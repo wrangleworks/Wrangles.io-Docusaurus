@@ -2,17 +2,50 @@
 
 Look up data from a saved Lookup Wrangle. Data is output as a dictionary if an output is not specified or the output does not match any columns in the lookup. If specific lookup columns are named in the output, they will be output as individual columns.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | b3339193-d1cc-4c89-8ed6-901efa6d81be |
-| Wrangle Key | `lookup` |
-| Type | lookup |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Lookup, lookup |
+#### State Example
+
+##### Recipe
+
+```yaml
+wrangles:
+  - lookup:
+      input: State
+      output:
+        - Abbreviation
+      model_id: 55555555-5555-5555
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| State |
+| --- |
+| Texas |
+| New York |
+| Virginia |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Abbreviation |
+| --- |
+| TX |
+| NY |
+| VA |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -48,39 +81,6 @@ Look up data from a saved Lookup Wrangle. Data is output as a dictionary if an o
 }
 ```
 
-### Examples
-
-#### State Example
-
-##### Recipe
-
-```yaml
-wrangles:
-  - lookup:
-      input: State
-      output:
-        - Abbreviation
-      model_id: 55555555-5555-5555
-```
-
-##### Input Sample
-
-| State |
-| --- |
-| Texas |
-| New York |
-| Virginia |
-
-##### Output Sample
-
-| Abbreviation |
-| --- |
-| TX |
-| NY |
-| VA |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -90,3 +90,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | b3339193-d1cc-4c89-8ed6-901efa6d81be |
+| Wrangle Key | `lookup` |
+| Type | lookup |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Lookup, lookup |

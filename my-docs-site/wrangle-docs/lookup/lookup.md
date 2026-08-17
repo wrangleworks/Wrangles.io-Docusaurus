@@ -12,12 +12,6 @@ import Lookup from './_sources/lookup.md';
 
 Lookup wrangles retrieve values from saved lookup wrangles.
 
-## Wrangles
-
-- [Lookup](#lookup) - `lookup`
-
----
-
 <Lookup />
 
 ---

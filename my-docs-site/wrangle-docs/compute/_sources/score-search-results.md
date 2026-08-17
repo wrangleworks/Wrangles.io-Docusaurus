@@ -2,17 +2,52 @@
 
 Scores and filters search results based on progressive partial/exact matching. Can return dictionaries or a parallel list of formatted strings.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 313a8ec0-cf13-4956-8d3b-5362b8641d0f |
-| Wrangle Key | `compute.score_search_results` |
-| Type | compute |
-| Subtype | score_search_results |
-| Variant | stock |
-| Status | active |
-| Tags | Compute, compute, score_search_results |
+#### Rank Part Search Results
+
+This template scores search results using supplier and part-code context. The fields added to each result dictionary depend on the scoring configuration.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compute.score_search_results:
+      input:
+        - Search Results
+        - Suppliers
+        - Part Codes
+      output:
+        - Scored Results
+      allow_other_exact: true
+      must_match_part_code: true
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Search Results | Suppliers | Part Codes |
+| --- | --- | --- |
+| `[{"title": "SKF 6202 bearing", "link": "https://example.com/6202"}]` | `["SKF"]` | `["6202"]` |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Search Results | Suppliers | Part Codes | Scored Results |
+| --- | --- | --- | --- |
+| `[{"title": "SKF 6202 bearing", "link": "https://example.com/6202"}]` | `["SKF"]` | `["6202"]` | Ranked result dictionaries |
+
+</div>
+
+</div>
+
+_Template based on the documented parameters; no published source example is currently available._
 
 ### Access
 
@@ -72,10 +107,6 @@ Scores and filters search results based on progressive partial/exact matching. C
 }
 ```
 
-### Examples
-
-_No examples are currently available._
-
 ### Source
 
 | Field | Value |
@@ -85,3 +116,15 @@ _No examples are currently available._
 | Legacy Path |  |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 313a8ec0-cf13-4956-8d3b-5362b8641d0f |
+| Wrangle Key | `compute.score_search_results` |
+| Type | compute |
+| Subtype | score_search_results |
+| Variant | stock |
+| Status | active |
+| Tags | Compute, compute, score_search_results |

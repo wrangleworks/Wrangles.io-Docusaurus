@@ -2,17 +2,52 @@
 
 Perform web searches to find links. Returns structured search results with titles, links, snippets, and optional pricing.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Find Product Links
+
+This template searches once per query and returns structured result dictionaries. Search results vary by provider, location, and time.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - search.find_links:
+      id: Row ID
+      queries:
+        - Search Query
+      output:
+        - Search Results
+      api_key: Your SerpApi API key
+      client: serpapi
+      n_results: 5
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Row ID | Search Query |
 | --- | --- |
-| ID | ec1f661b-2cbc-4a47-88e3-646179104376 |
-| Wrangle Key | `search.find_links` |
-| Type | search |
-| Subtype | find_links |
-| Variant | stock |
-| Status | active |
-| Tags | Search, search, find_links |
+| 1001 | SKF 6202 bearing supplier |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Row ID | Search Query | Search Results |
+| --- | --- | --- |
+| 1001 | SKF 6202 bearing supplier | `[{"title": "Example result", "link": "https://example.com/6202", "snippet": "SKF 6202 bearing"}]` |
+
+</div>
+
+</div>
+
+_Template based on the documented parameters; no published source example is currently available._
 
 ### Access
 
@@ -59,10 +94,6 @@ Perform web searches to find links. Returns structured search results with title
 }
 ```
 
-### Examples
-
-_No examples are currently available._
-
 ### Source
 
 | Field | Value |
@@ -72,3 +103,15 @@ _No examples are currently available._
 | Legacy Path | Not currently published on wrangles.io |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | ec1f661b-2cbc-4a47-88e3-646179104376 |
+| Wrangle Key | `search.find_links` |
+| Type | search |
+| Subtype | find_links |
+| Variant | stock |
+| Status | active |
+| Tags | Search, search, find_links |

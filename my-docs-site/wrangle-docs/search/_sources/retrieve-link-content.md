@@ -2,17 +2,52 @@
 
 Retrieves targeted content from web pages using LLM URL extraction. Can optionally output a second column containing a clean, human-readable text summary of the retrieved data.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Retrieve Structured Page Content
+
+This template extracts JSON content from a URL. Returned fields depend on the page, prompt, and retrieval model.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - search.retrieve_link_content:
+      input:
+        - Product URL
+      output:
+        - Page Data
+      api_key: Your Google API key
+      client: google_url_context
+      output_format: json
+      prompt: Extract the product title and manufacturer.
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product URL |
+| --- |
+| https://example.com/products/6202 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product URL | Page Data |
 | --- | --- |
-| ID | 3d5faa87-9e96-48c0-8226-5ae566e8d76c |
-| Wrangle Key | `search.retrieve_link_content` |
-| Type | search |
-| Subtype | retrieve_link_content |
-| Variant | stock |
-| Status | active |
-| Tags | Search, search, retrieve_link_content |
+| https://example.com/products/6202 | `{"title": "6202 Bearing", "manufacturer": "SKF"}` |
+
+</div>
+
+</div>
+
+_Template based on the documented parameters; no published source example is currently available._
 
 ### Access
 
@@ -56,10 +91,6 @@ Retrieves targeted content from web pages using LLM URL extraction. Can optional
 }
 ```
 
-### Examples
-
-_No examples are currently available._
-
 ### Source
 
 | Field | Value |
@@ -69,3 +100,15 @@ _No examples are currently available._
 | Legacy Path | Not currently published on wrangles.io |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 3d5faa87-9e96-48c0-8226-5ae566e8d76c |
+| Wrangle Key | `search.retrieve_link_content` |
+| Type | search |
+| Subtype | retrieve_link_content |
+| Variant | stock |
+| Status | active |
+| Tags | Search, search, retrieve_link_content |

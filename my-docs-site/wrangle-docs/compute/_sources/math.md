@@ -6,17 +6,48 @@ Apply mathematical calculations to columns. Also called as `maths`.
 Spaces within column headers are replaced with underscores automatically. Account for this when writing expressions in `input`.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Square Root Example
+
+##### Recipe
+
+```yaml
+wrangles:
+  - math:
+      input: sqrt(Values)
+      output: Square Root
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Values |
+| --- |
+| 4 |
+| 9 |
+| 16 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Values | Square Root |
 | --- | --- |
-| ID | 494b11ad-00c1-4748-8b93-6bec982f4fec |
-| Wrangle Key | `math` |
-| Type | compute |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Compute, math |
+| 4 | 2 |
+| 9 | 3 |
+| 16 | 4 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -55,37 +86,6 @@ Spaces within column headers are replaced with underscores automatically. Accoun
 }
 ```
 
-### Examples
-
-#### Square Root Example
-
-##### Recipe
-
-```yaml
-wrangles:
-  - math:
-      input: sqrt(Values)
-      output: Square Root
-```
-
-##### Input Sample
-
-| Values |
-| --- |
-| 4 |
-| 9 |
-| 16 |
-
-##### Output Sample
-
-| Values | Square Root |
-| --- | --- |
-| 4 | 2 |
-| 9 | 3 |
-| 16 | 4 |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -95,3 +95,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 494b11ad-00c1-4748-8b93-6bec982f4fec |
+| Wrangle Key | `math` |
+| Type | compute |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Compute, math |

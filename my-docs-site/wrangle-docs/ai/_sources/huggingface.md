@@ -2,17 +2,50 @@
 
 Use a model from huggingface
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Summarize Product Descriptions
+
+This template uses a Hugging Face summarization model. The exact response shape and text depend on the selected model.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - huggingface:
+      input:
+        - Product Description
+      output:
+        - Summary
+      api_token: Your Hugging Face API token
+      model: facebook/bart-large-cnn
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product Description |
+| --- |
+| A cordless drill with two batteries, a charger, and a compact carrying case. |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product Description | Summary |
 | --- | --- |
-| ID | ae12cf20-4934-428f-84a9-a6898cb7ffe0 |
-| Wrangle Key | `huggingface` |
-| Type | ai |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | AI, huggingface |
+| A cordless drill with two batteries, a charger, and a compact carrying case. | Cordless drill kit with batteries, charger, and case. |
+
+</div>
+
+</div>
+
+_Template based on the documented parameters; no published source example is currently available._
 
 ### Access
 
@@ -50,10 +83,6 @@ Use a model from huggingface
 }
 ```
 
-### Examples
-
-_No examples are currently available._
-
 ### Source
 
 | Field | Value |
@@ -63,3 +92,15 @@ _No examples are currently available._
 | Legacy Path |  |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | ae12cf20-4934-428f-84a9-a6898cb7ffe0 |
+| Wrangle Key | `huggingface` |
+| Type | ai |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | AI, huggingface |

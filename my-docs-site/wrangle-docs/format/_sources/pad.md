@@ -2,17 +2,52 @@
 
 Pad a string to a fixed length
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 76c19378-38f4-45aa-85d1-3cdf8f8aae29 |
-| Wrangle Key | `format.pad` |
-| Type | format |
-| Subtype | pad |
-| Variant | stock |
-| Status | active |
-| Tags | Format, format, pad |
+#### Adding Dashes to Part Numbers
+
+##### Recipe
+
+```yaml
+wrangles:
+  - format.pad:
+      input: Part Number
+      pad_length: 5
+      side: left
+      char: "-"
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Part Number |
+| --- |
+| 0458 |
+| 396 |
+| 84 |
+| 98516 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Part Number |
+| --- |
+| -0458 |
+| --396 |
+| ---84 |
+| 98516 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/format.md`_
 
 ### Access
 
@@ -55,41 +90,6 @@ Pad a string to a fixed length
 }
 ```
 
-### Examples
-
-#### Adding Dashes to Part Numbers
-
-##### Recipe
-
-```yaml
-wrangles:
-  - format.pad:
-      input: Part Number
-      pad_length: 5
-      side: left
-      char: "-"
-```
-
-##### Input Sample
-
-| Part Number |
-| --- |
-| 0458 |
-| 396 |
-| 84 |
-| 98516 |
-
-##### Output Sample
-
-| Part Number |
-| --- |
-| -0458 |
-| --396 |
-| ---84 |
-| 98516 |
-
-_Source: `docs/python/recipes/wrangles/format.md`_
-
 ### Source
 
 | Field | Value |
@@ -99,3 +99,15 @@ _Source: `docs/python/recipes/wrangles/format.md`_
 | Legacy Path | docs/python/recipes/wrangles/format.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 76c19378-38f4-45aa-85d1-3cdf8f8aae29 |
+| Wrangle Key | `format.pad` |
+| Type | format |
+| Subtype | pad |
+| Variant | stock |
+| Status | active |
+| Tags | Format, format, pad |

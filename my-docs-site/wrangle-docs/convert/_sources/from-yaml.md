@@ -2,17 +2,52 @@
 
 Convert a YAML representation into an object.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | b1c20004-5f80-41c2-84d2-2d4601a033b5 |
-| Wrangle Key | `convert.from_yaml` |
-| Type | convert |
-| Subtype | from_yaml |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, from_yaml |
+#### Convert YAML To An Object
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.from_yaml:
+      input: column 1
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+```yaml
+Product Specs:
+  length: 6 inch
+  voltage: 24V
+  weight: 3lb
+```
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+```python
+{
+  'Product Specs': {
+    'length': '6 inch',
+    'voltage': '24V',
+    'weight': '3lb'
+  }
+}
+```
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -47,41 +82,6 @@ Convert a YAML representation into an object.
 }
 ```
 
-### Examples
-
-#### Convert YAML To An Object
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.from_yaml:
-      input: column 1
-```
-
-##### Input Sample
-
-```yaml
-Product Specs:
-  length: 6 inch
-  voltage: 24V
-  weight: 3lb
-```
-
-##### Output Sample
-
-```python
-{
-  'Product Specs': {
-    'length': '6 inch',
-    'voltage': '24V',
-    'weight': '3lb'
-  }
-}
-```
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -91,3 +91,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | b1c20004-5f80-41c2-84d2-2d4601a033b5 |
+| Wrangle Key | `convert.from_yaml` |
+| Type | convert |
+| Subtype | from_yaml |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, from_yaml |

@@ -2,17 +2,53 @@
 
 Convert an object to a YAML representation.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 4cd6252f-ce47-4a9d-8272-3d87e875b72a |
-| Wrangle Key | `convert.to_yaml` |
-| Type | convert |
-| Subtype | to_yaml |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, to_yaml |
+#### Convert a Dictionary to YAML
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.to_yaml:
+      input: column 1
+      indent: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+```python
+{
+  'Product Specs': {
+    'length': '6 inch',
+    'voltage': '24V',
+    'weight': '3lb'
+  }
+}
+```
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+```yaml
+Product Specs:
+  length: 6 inch
+  voltage: 24V
+  weight: 3lb
+```
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -51,42 +87,6 @@ Convert an object to a YAML representation.
 }
 ```
 
-### Examples
-
-#### Convert a Dictionary to YAML
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.to_yaml:
-      input: column 1
-      indent: 2
-```
-
-##### Input Sample
-
-```python
-{
-  'Product Specs': {
-    'length': '6 inch',
-    'voltage': '24V',
-    'weight': '3lb'
-  }
-}
-```
-
-##### Output Sample
-
-```yaml
-Product Specs:
-  length: 6 inch
-  voltage: 24V
-  weight: 3lb
-```
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -96,3 +96,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 4cd6252f-ce47-4a9d-8272-3d87e875b72a |
+| Wrangle Key | `convert.to_yaml` |
+| Type | convert |
+| Subtype | to_yaml |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, to_yaml |

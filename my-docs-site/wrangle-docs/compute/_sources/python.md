@@ -6,17 +6,80 @@ The Python wrangle executes simple Python commands inline within a recipe. Row v
 This wrangle evaluates the Python command. Be cautious when including variables from untrusted sources in the command string.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Python Wrangle
+
+##### Recipe
+
+```yaml
+wrangles:
+  - python:
+      output: result
+      command: My_Column.upper()
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| My Column |
+| --- |
+| example text |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| My Column | result |
 | --- | --- |
-| ID | c0398a11-7731-4e47-8df0-b07eea0b1d6c |
-| Wrangle Key | `python` |
-| Type | compute |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Compute, python |
+| example text | EXAMPLE TEXT |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
+
+#### Including Your Own Parameters
+
+The Python wrangle supports parameters so values of unknown origin can be injected safely.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - python:
+      output: sliced
+      command: input_column[:i]
+      i: ${var}
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+_No sample available._
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -53,57 +116,6 @@ This wrangle evaluates the Python command. Be cautious when including variables 
 }
 ```
 
-### Examples
-
-#### Python Wrangle
-
-##### Recipe
-
-```yaml
-wrangles:
-  - python:
-      output: result
-      command: My_Column.upper()
-```
-
-##### Input Sample
-
-| My Column |
-| --- |
-| example text |
-
-##### Output Sample
-
-| My Column | result |
-| --- | --- |
-| example text | EXAMPLE TEXT |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
-#### Including Your Own Parameters
-
-The Python wrangle supports parameters so values of unknown origin can be injected safely.
-
-##### Recipe
-
-```yaml
-wrangles:
-  - python:
-      output: sliced
-      command: input_column[:i]
-      i: ${var}
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-_No sample available._
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -113,3 +125,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | c0398a11-7731-4e47-8df0-b07eea0b1d6c |
+| Wrangle Key | `python` |
+| Type | compute |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Compute, python |

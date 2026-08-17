@@ -2,17 +2,47 @@
 
 Convert fractions to decimals.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 7c55752e-70ab-4809-8298-c59436127457 |
-| Wrangle Key | `convert.fraction_to_decimal` |
-| Type | convert |
-| Subtype | fraction_to_decimal |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, fraction_to_decimal |
+#### Converting a Column of Fractions to Decimals
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.fraction_to_decimal:
+      input: fractions
+      output: decimals
+      decimals: 3
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| fractions |
+| --- |
+| 3/32 |
+| 25/64 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| decimals |
+| --- |
+| 0.094 |
+| 0.391 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -49,36 +79,6 @@ Convert fractions to decimals.
 }
 ```
 
-### Examples
-
-#### Converting a Column of Fractions to Decimals
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.fraction_to_decimal:
-      input: fractions
-      output: decimals
-      decimals: 3
-```
-
-##### Input Sample
-
-| fractions |
-| --- |
-| 3/32 |
-| 25/64 |
-
-##### Output Sample
-
-| decimals |
-| --- |
-| 0.094 |
-| 0.391 |
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 7c55752e-70ab-4809-8298-c59436127457 |
+| Wrangle Key | `convert.fraction_to_decimal` |
+| Type | convert |
+| Subtype | fraction_to_decimal |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, fraction_to_decimal |

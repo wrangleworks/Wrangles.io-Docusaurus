@@ -2,17 +2,204 @@
 
 Split text strings on certain characters. The text can be split into either multiple columns or a list.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### To a List
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.text:
+      input: Column1
+      output: Column2
+      char: ', '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column1 |
+| --- |
+| Hello, Wrangles! |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Column2 |
+| --- |
+| ['Hello', 'Wrangles!'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Split Using Regex
+
+##### Recipe
+
+```yaml
+# Split on x, case insensitive.
+wrangles:
+  - split.text:
+      input: Col1
+      output: Col2
+      char: 'regex:(?i)x'
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 |
+| --- |
+| 1x2 |
+| 1X2 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col2 |
+| --- |
+| ['1', '2'] |
+| ['1', '2'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Slice the Output
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.text:
+      input: Column1
+      output: Column2
+      char: ', '
+      element: 0
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column1 |
+| --- |
+| Hello, Wrangles! |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Column2 |
+| --- |
+| Hello |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Split to Columns (Wildcard)
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.text:
+      input: Col
+      output: Col*              # Optional
+      char: ', '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col |
+| --- |
+| Hello, Wrangles! |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col1 | Col2 |
 | --- | --- |
-| ID | e76e43f7-d129-4bf8-87b4-a304a378b130 |
-| Wrangle Key | `split.text` |
-| Type | split |
-| Subtype | text |
-| Variant | stock |
-| Status | active |
-| Tags | Split, split, text |
+| Hello | Wrangles! |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
+
+#### Split to Columns (Named)
+
+##### Recipe
+
+```yaml
+wrangles:
+  - split.text:
+      input: Col
+      output:
+        - Col 1
+        - Col 2
+        - Col 3
+      char: ', '
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col |
+| --- |
+| Wrangles, are, Cool! |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Col 1 | Col 2 | Col 3 |
+| --- | --- | --- |
+| Wrangles | are | Cool! |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/split.md`_
 
 ### Access
 
@@ -54,145 +241,6 @@ Split text strings on certain characters. The text can be split into either mult
 }
 ```
 
-### Examples
-
-#### To a List
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.text:
-      input: Column1
-      output: Column2
-      char: ', '
-```
-
-##### Input Sample
-
-| Column1 |
-| --- |
-| Hello, Wrangles! |
-
-##### Output Sample
-
-| Column2 |
-| --- |
-| ['Hello', 'Wrangles!'] |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Split Using Regex
-
-##### Recipe
-
-```yaml
-# Split on x, case insensitive.
-wrangles:
-  - split.text:
-      input: Col1
-      output: Col2
-      char: 'regex:(?i)x'
-```
-
-##### Input Sample
-
-| Col1 |
-| --- |
-| 1x2 |
-| 1X2 |
-
-##### Output Sample
-
-| Col2 |
-| --- |
-| ['1', '2'] |
-| ['1', '2'] |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Slice the Output
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.text:
-      input: Column1
-      output: Column2
-      char: ', '
-      element: 0
-```
-
-##### Input Sample
-
-| Column1 |
-| --- |
-| Hello, Wrangles! |
-
-##### Output Sample
-
-| Column2 |
-| --- |
-| Hello |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Split to Columns (Wildcard)
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.text:
-      input: Col
-      output: Col*              # Optional
-      char: ', '
-```
-
-##### Input Sample
-
-| Col |
-| --- |
-| Hello, Wrangles! |
-
-##### Output Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| Hello | Wrangles! |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-#### Split to Columns (Named)
-
-##### Recipe
-
-```yaml
-wrangles:
-  - split.text:
-      input: Col
-      output:
-        - Col 1
-        - Col 2
-        - Col 3
-      char: ', '
-```
-
-##### Input Sample
-
-| Col |
-| --- |
-| Wrangles, are, Cool! |
-
-##### Output Sample
-
-| Col 1 | Col 2 | Col 3 |
-| --- | --- | --- |
-| Wrangles | are | Cool! |
-
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 ### Source
 
 | Field | Value |
@@ -202,3 +250,15 @@ _Source: `docs/python/recipes/wrangles/split.md`_
 | Legacy Path | docs/python/recipes/wrangles/split.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | e76e43f7-d129-4bf8-87b4-a304a378b130 |
+| Wrangle Key | `split.text` |
+| Type | split |
+| Subtype | text |
+| Variant | stock |
+| Status | active |
+| Tags | Split, split, text |

@@ -2,17 +2,45 @@
 
 Change the data type of the input.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Change a Float to an Integer
+
+##### Recipe
+
+```yaml
+wrangles:
+  - convert.data_type:
+      input: column
+      output: new column
+      data_type: int
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| column |
+| --- |
+| 3.14159 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| column | new column |
 | --- | --- |
-| ID | 52384f01-7164-404f-8615-063e7677a588 |
-| Wrangle Key | `convert.data_type` |
-| Type | convert |
-| Subtype | data_type |
-| Variant | stock |
-| Status | active |
-| Tags | Convert, convert, data_type |
+| 3.14159 | 3 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/convert.md`_
 
 ### Access
 
@@ -51,34 +79,6 @@ Change the data type of the input.
 }
 ```
 
-### Examples
-
-#### Change a Float to an Integer
-
-##### Recipe
-
-```yaml
-wrangles:
-  - convert.data_type:
-      input: column
-      output: new column
-      data_type: int
-```
-
-##### Input Sample
-
-| column |
-| --- |
-| 3.14159 |
-
-##### Output Sample
-
-| column | new column |
-| --- | --- |
-| 3.14159 | 3 |
-
-_Source: `docs/python/recipes/wrangles/convert.md`_
-
 ### Source
 
 | Field | Value |
@@ -88,3 +88,15 @@ _Source: `docs/python/recipes/wrangles/convert.md`_
 | Legacy Path | docs/python/recipes/wrangles/convert.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 52384f01-7164-404f-8615-063e7677a588 |
+| Wrangle Key | `convert.data_type` |
+| Type | convert |
+| Subtype | data_type |
+| Variant | stock |
+| Status | active |
+| Tags | Convert, convert, data_type |

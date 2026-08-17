@@ -2,17 +2,46 @@
 
 Select elements of lists or dictionaries using Python syntax like `col[1:3]['key']`.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting The First Element
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.element:
+      input: Column A[0]
+      output: First Element
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column A |
+| --- |
+| [A, 0.9] |
+| [B, 0.8] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Column A | First Element |
 | --- | --- |
-| ID | 223d2f4e-3247-4189-8b6c-e73fe44c4266 |
-| Wrangle Key | `select.element` |
-| Type | select |
-| Subtype | element |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, element |
+| [A, 0.9] | A |
+| [B, 0.8] | B |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -47,35 +76,6 @@ Select elements of lists or dictionaries using Python syntax like `col[1:3]['key
 }
 ```
 
-### Examples
-
-#### Selecting The First Element
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.element:
-      input: Column A[0]
-      output: First Element
-```
-
-##### Input Sample
-
-| Column A |
-| --- |
-| [A, 0.9] |
-| [B, 0.8] |
-
-##### Output Sample
-
-| Column A | First Element |
-| --- | --- |
-| [A, 0.9] | A |
-| [B, 0.8] | B |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -85,3 +85,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 223d2f4e-3247-4189-8b6c-e73fe44c4266 |
+| Wrangle Key | `select.element` |
+| Type | select |
+| Subtype | element |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, element |

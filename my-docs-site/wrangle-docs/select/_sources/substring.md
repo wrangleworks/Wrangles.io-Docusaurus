@@ -2,17 +2,122 @@
 
 Return characters from the middle of text.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 8befddf8-602e-4fa9-8f16-4c547210ebec |
-| Wrangle Key | `select.substring` |
-| Type | select |
-| Subtype | substring |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, substring |
+#### Selecting a Substring With Start and Length
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.substring:
+      input: Column
+      output: Result
+      start: 2
+      length: 3
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| pudding |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Result |
+| --- |
+| udd |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
+
+#### Selecting a Substring With Start Only
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.substring:
+      input: Column
+      output: Result
+      start: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| pudding |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Result |
+| --- |
+| udding |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
+
+#### Selecting a Substring With Length Only
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.substring:
+      input: Column
+      output: Result
+      length: 3
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Column |
+| --- |
+| pudding |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Result |
+| --- |
+| pud |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -51,87 +156,6 @@ Return characters from the middle of text.
 }
 ```
 
-### Examples
-
-#### Selecting a Substring With Start and Length
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      start: 2
-      length: 3
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| pudding |
-
-##### Output Sample
-
-| Result |
-| --- |
-| udd |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-#### Selecting a Substring With Start Only
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      start: 2
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| pudding |
-
-##### Output Sample
-
-| Result |
-| --- |
-| udding |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-#### Selecting a Substring With Length Only
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.substring:
-      input: Column
-      output: Result
-      length: 3
-```
-
-##### Input Sample
-
-| Column |
-| --- |
-| pudding |
-
-##### Output Sample
-
-| Result |
-| --- |
-| pud |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -141,3 +165,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 8befddf8-602e-4fa9-8f16-4c547210ebec |
+| Wrangle Key | `select.substring` |
+| Type | select |
+| Subtype | substring |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, substring |

@@ -2,17 +2,139 @@
 
 Compare two strings and return the intersection or difference, or use overlap to find the matching characters between the two strings.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Comparing the difference between two columns of text
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compare.text:
+      input:
+        - col1
+        - col2
+      output: Difference
+      method: difference
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 |
 | --- | --- |
-| ID | 31905b74-ce58-45cd-8add-821cc04ab946 |
-| Wrangle Key | `compare.text` |
-| Type | compare |
-| Subtype | text |
-| Variant | stock |
-| Status | active |
-| Tags | Compare, compare, text |
+| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
+| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
+| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Difference |
+| --- |
+| Pine Black Bottom |
+| Maple Orange Steel |
+| Normal Blue Plastic |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/compare.md`_
+
+#### Comparing the intersection of two columns of text
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compare.text:
+      input:
+        - col1
+        - col2
+      output: Intersection
+      method: intersection
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 |
+| --- | --- |
+| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
+| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
+| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Intersection |
+| --- |
+| Large Wood Marble Bookshelf |
+| Medium Wood Top Coffee Table |
+| Small Wood Top Console Table |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/compare.md`_
+
+#### Comparing the overlap of two columns of text
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compare.text:
+      input:
+        - Part Code1
+        - Part Code2
+      output: Overlap
+      method: overlap
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Part Code1 | Part Code2 |
+| --- | --- |
+| SKF6202 | TMKN6202 |
+| X06-02-000 | X06-81-000 |
+| 7100E15-V-230/3 | 7100E15-V-120/1 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Overlap |
+| --- |
+| ****6202 |
+| X06-**-000 |
+| 7100E15-V-\**0/\* |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/compare.md`_
 
 ### Access
 
@@ -53,104 +175,6 @@ Compare two strings and return the intersection or difference, or use overlap to
 }
 ```
 
-### Examples
-
-#### Comparing the difference between two columns of text
-
-##### Recipe
-
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - col1
-        - col2
-      output: Difference
-      method: difference
-```
-
-##### Input Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
-| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
-| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
-
-##### Output Sample
-
-| Difference |
-| --- |
-| Pine Black Bottom |
-| Maple Orange Steel |
-| Normal Blue Plastic |
-
-_Source: `docs/python/recipes/wrangles/compare.md`_
-
-#### Comparing the intersection of two columns of text
-
-##### Recipe
-
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - col1
-        - col2
-      output: Intersection
-      method: intersection
-```
-
-##### Input Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| Large Oak Wood White Marble Top Bookshelf | Large Pine Wood Black Marble Bottom Bookshelf |
-| Medium Oak Wood White Marble Top Coffee Table | Medium Maple Wood Orange Steel Top Coffee Table |
-| Small Oak Wood White Marble Top Console Table | Small Normal Wood Blue Plastic Top Console Table |
-
-##### Output Sample
-
-| Intersection |
-| --- |
-| Large Wood Marble Bookshelf |
-| Medium Wood Top Coffee Table |
-| Small Wood Top Console Table |
-
-_Source: `docs/python/recipes/wrangles/compare.md`_
-
-#### Comparing the overlap of two columns of text
-
-##### Recipe
-
-```yaml
-wrangles:
-  - compare.text:
-      input:
-        - Part Code1
-        - Part Code2
-      output: Overlap
-      method: overlap
-```
-
-##### Input Sample
-
-| Part Code1 | Part Code2 |
-| --- | --- |
-| SKF6202 | TMKN6202 |
-| X06-02-000 | X06-81-000 |
-| 7100E15-V-230/3 | 7100E15-V-120/1 |
-
-##### Output Sample
-
-| Overlap |
-| --- |
-| ****6202 |
-| X06-**-000 |
-| 7100E15-V-\**0/\* |
-
-_Source: `docs/python/recipes/wrangles/compare.md`_
-
 ### Source
 
 | Field | Value |
@@ -160,3 +184,15 @@ _Source: `docs/python/recipes/wrangles/compare.md`_
 | Legacy Path | docs/python/recipes/wrangles/compare.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 31905b74-ce58-45cd-8add-821cc04ab946 |
+| Wrangle Key | `compare.text` |
+| Type | compare |
+| Subtype | text |
+| Variant | stock |
+| Status | active |
+| Tags | Compare, compare, text |

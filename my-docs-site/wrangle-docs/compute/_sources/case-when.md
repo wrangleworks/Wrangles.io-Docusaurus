@@ -2,17 +2,111 @@
 
 Assign values to a column based on conditional logic.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Assigning Letter Grades
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compute.case_when:
+      output: Letter Grade
+      cases:
+        - condition: Grade > 89
+          value: 'A'
+        - condition: 90 > Grade > 79
+          value: 'B'
+        - condition: 80 > Grade > 69
+          value: 'C'
+        - condition: 70 > Grade
+          value: 'F'
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Student | Grade |
 | --- | --- |
-| ID | 9a9662e4-53d1-4932-8adf-bc3e7aa364ad |
-| Wrangle Key | `compute.case_when` |
-| Type | compute |
-| Subtype | case_when |
-| Variant | stock |
-| Status | active |
-| Tags | Compute, compute, case_when |
+| Billy | 62 |
+| Sarah | 91 |
+| Timmy | 88 |
+| Tammy | 74 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Student | Grade | Letter Grade |
+| --- | --- | --- |
+| Billy | 62 | F |
+| Sarah | 91 | A |
+| Timmy | 88 | B |
+| Tammy | 74 | C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/compute.md`_
+
+#### Assigning Letter Grades with Attendance
+
+Conditions can be combined so multiple criteria must be met before assigning a value.
+
+##### Recipe
+
+```yaml
+wrangles:
+  - compute.case_when:
+      output: Letter Grade
+      cases:
+        - condition: (Grade > .89) & (Attendance == 'Good')
+          value: 'A'
+        - condition: (.90 > Grade > .79) & (Attendance == 'Good')
+          value: 'B'
+        - condition: (.80 > Grade > .69) & (Attendance == 'Good')
+          value: 'C'
+        - condition: (.70 > Grade) or (Attendance == 'Poor')
+          value: 'F'
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Student | Grade | Attendance |
+| --- | --- | --- |
+| Billy | 62 | Poor |
+| Sarah | 91 | Poor |
+| Timmy | 88 | Good |
+| Tammy | 74 | Good |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Student | Grade | Attendance | Letter Grade |
+| --- | --- | --- | --- |
+| Billy | 62 | Poor | F |
+| Sarah | 91 | Poor | F |
+| Timmy | 88 | Good | B |
+| Tammy | 74 | Good | C |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/compute.md`_
 
 ### Access
 
@@ -50,88 +144,6 @@ Each item in `cases` is an object with a condition and value. Conditions are eva
 }
 ```
 
-### Examples
-
-#### Assigning Letter Grades
-
-##### Recipe
-
-```yaml
-wrangles:
-  - compute.case_when:
-      output: Letter Grade
-      cases:
-        - condition: Grade > 89
-          value: 'A'
-        - condition: 90 > Grade > 79
-          value: 'B'
-        - condition: 80 > Grade > 69
-          value: 'C'
-        - condition: 70 > Grade
-          value: 'F'
-```
-
-##### Input Sample
-
-| Student | Grade |
-| --- | --- |
-| Billy | 62 |
-| Sarah | 91 |
-| Timmy | 88 |
-| Tammy | 74 |
-
-##### Output Sample
-
-| Student | Grade | Letter Grade |
-| --- | --- | --- |
-| Billy | 62 | F |
-| Sarah | 91 | A |
-| Timmy | 88 | B |
-| Tammy | 74 | C |
-
-_Source: `docs/python/recipes/wrangles/compute.md`_
-
-#### Assigning Letter Grades with Attendance
-
-Conditions can be combined so multiple criteria must be met before assigning a value.
-
-##### Recipe
-
-```yaml
-wrangles:
-  - compute.case_when:
-      output: Letter Grade
-      cases:
-        - condition: (Grade > .89) & (Attendance == 'Good')
-          value: 'A'
-        - condition: (.90 > Grade > .79) & (Attendance == 'Good')
-          value: 'B'
-        - condition: (.80 > Grade > .69) & (Attendance == 'Good')
-          value: 'C'
-        - condition: (.70 > Grade) or (Attendance == 'Poor')
-          value: 'F'
-```
-
-##### Input Sample
-
-| Student | Grade | Attendance |
-| --- | --- | --- |
-| Billy | 62 | Poor |
-| Sarah | 91 | Poor |
-| Timmy | 88 | Good |
-| Tammy | 74 | Good |
-
-##### Output Sample
-
-| Student | Grade | Attendance | Letter Grade |
-| --- | --- | --- | --- |
-| Billy | 62 | Poor | F |
-| Sarah | 91 | Poor | F |
-| Timmy | 88 | Good | B |
-| Tammy | 74 | Good | C |
-
-_Source: `docs/python/recipes/wrangles/compute.md`_
-
 ### Source
 
 | Field | Value |
@@ -141,3 +153,15 @@ _Source: `docs/python/recipes/wrangles/compute.md`_
 | Legacy Path | docs/python/recipes/wrangles/compute.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 9a9662e4-53d1-4932-8adf-bc3e7aa364ad |
+| Wrangle Key | `compute.case_when` |
+| Type | compute |
+| Subtype | case_when |
+| Variant | stock |
+| Status | active |
+| Tags | Compute, compute, case_when |

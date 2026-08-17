@@ -6,17 +6,126 @@ Take dictionaries in multiple columns and merge them to a single dictionary.
 For duplicate keys, the last key in the input list takes precedence in the merged dictionary.
 :::
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Using Named Columns
+
+##### Recipe
+
+```yaml
+wrangles:
+  - merge.dictionaries:
+      input:
+        - Dict 1
+        - Dict 2
+      output: Merged
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Dict 1 | Dict 2 |
 | --- | --- |
-| ID | 93e27737-e966-4ba9-8777-4e96724ebfc4 |
-| Wrangle Key | `merge.dictionaries` |
-| Type | merge |
-| Subtype | dictionaries |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, dictionaries |
+| \{'First': 'One'\} | \{'Second': 'Two'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Merged |
+| --- |
+| \{'First': 'One', 'Second': 'Two'\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
+
+#### Using a Wildcard (*)
+
+##### Recipe
+
+```yaml
+# Using a Wildcard (*)
+wrangles:
+  - merge.dictionaries:
+      input: Dict *
+      output: Merged
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Dict 1 | Dict 2 |
+| --- | --- |
+| \{'First': 'One'\} | \{'Second': 'Two'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Merged |
+| --- |
+| \{'First': 'One', 'Second': 'Two'\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
+
+#### Using a Wildcard (*) With Not Columns
+
+##### Recipe
+
+```yaml
+# Using a Wildcard (*)
+wrangles:
+  - merge.dictionaries:
+      input:
+        - Dict *
+        - -Dict 2
+      output: Merged
+```
+
+Note the extra dash in front of `Dict 2` excludes that column from the wildcard selection.
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Dict 1 | Dict 2 | Dict 3 |
+| --- | --- | --- |
+| \{'First': 'One'\} | \{'Second': 'Two'\} | \{'Third': 'Three'\} |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Merged |
+| --- |
+| \{'First': 'One', 'Third': 'Three'\} |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -51,91 +160,6 @@ For duplicate keys, the last key in the input list takes precedence in the merge
 }
 ```
 
-### Examples
-
-#### Using Named Columns
-
-##### Recipe
-
-```yaml
-wrangles:
-  - merge.dictionaries:
-      input:
-        - Dict 1
-        - Dict 2
-      output: Merged
-```
-
-##### Input Sample
-
-| Dict 1 | Dict 2 |
-| --- | --- |
-| \{'First': 'One'\} | \{'Second': 'Two'\} |
-
-##### Output Sample
-
-| Merged |
-| --- |
-| \{'First': 'One', 'Second': 'Two'\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
-#### Using a Wildcard (*)
-
-##### Recipe
-
-```yaml
-# Using a Wildcard (*)
-wrangles:
-  - merge.dictionaries:
-      input: Dict *
-      output: Merged
-```
-
-##### Input Sample
-
-| Dict 1 | Dict 2 |
-| --- | --- |
-| \{'First': 'One'\} | \{'Second': 'Two'\} |
-
-##### Output Sample
-
-| Merged |
-| --- |
-| \{'First': 'One', 'Second': 'Two'\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
-#### Using a Wildcard (*) With Not Columns
-
-##### Recipe
-
-```yaml
-# Using a Wildcard (*)
-wrangles:
-  - merge.dictionaries:
-      input:
-        - Dict *
-        - -Dict 2
-      output: Merged
-```
-
-Note the extra dash in front of `Dict 2` excludes that column from the wildcard selection.
-
-##### Input Sample
-
-| Dict 1 | Dict 2 | Dict 3 |
-| --- | --- | --- |
-| \{'First': 'One'\} | \{'Second': 'Two'\} | \{'Third': 'Three'\} |
-
-##### Output Sample
-
-| Merged |
-| --- |
-| \{'First': 'One', 'Third': 'Three'\} |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -145,3 +169,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 93e27737-e966-4ba9-8777-4e96724ebfc4 |
+| Wrangle Key | `merge.dictionaries` |
+| Type | merge |
+| Subtype | dictionaries |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, dictionaries |

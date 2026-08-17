@@ -2,17 +2,81 @@
 
 Extract alphanumeric codes from unstructured text. Can be performed on one column or multiple columns. Requires WrangleWorks Account.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Extracting Codes From Single Column
+
+##### Recipe
+
+```yaml
+# One column input
+wrangles:
+  - extract.codes:
+      input: Secret
+      output: Code Extract
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Secret | Code Extract |
 | --- | --- |
-| ID | da591387-0fca-4842-8bcb-d19f561f0292 |
-| Wrangle Key | `extract.codes` |
-| Type | extract |
-| Subtype | codes |
-| Variant | stock |
-| Status | active |
-| Tags | Extract, extract, codes |
+| to gain access use Z1ON0101 | ['Z1ON0101'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
+
+#### Extracting Codes From Multiple Columns
+
+##### Recipe
+
+```yaml
+# Multi column input
+wrangles:
+  - extract.codes:
+      input:
+      	- code1
+        - code2
+      output: Codes
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+_No sample available._
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Codes | code1 | code2 |
+| --- | --- | --- |
+| ['CH465517080-1', 'CH465517080-2'] | code CH465517080-1 | code CH465517080-2 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/extract.md`_
 
 ### Access
 
@@ -40,7 +104,6 @@ Extract alphanumeric codes from unstructured text. Can be performed on one colum
 | where_params | Where Params | json | No | Variables to use with `where` for parameterized criteria. Uses SQLite syntax such as `?` or `:name`. |  |  |
 | if | If | text | No | Condition that determines whether the action runs as a whole. |  |  |
 
-
 ### Defaults
 
 ```json
@@ -62,58 +125,6 @@ Extract alphanumeric codes from unstructured text. Can be performed on one colum
 }
 ```
 
-### Examples
-
-#### Extracting Codes From Single Column
-
-##### Recipe
-
-```yaml
-# One column input
-wrangles:
-  - extract.codes:
-      input: Secret
-      output: Code Extract
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Secret | Code Extract |
-| --- | --- |
-| to gain access use Z1ON0101 | ['Z1ON0101'] |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-#### Extracting Codes From Multiple Columns
-
-##### Recipe
-
-```yaml
-# Multi column input
-wrangles:
-  - extract.codes:
-      input:
-      	- code1
-        - code2
-      output: Codes
-```
-
-##### Input Sample
-
-_No sample available._
-
-##### Output Sample
-
-| Codes | code1 | code2 |
-| --- | --- | --- |
-| ['CH465517080-1', 'CH465517080-2'] | code CH465517080-1 | code CH465517080-2 |
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 ### Source
 
 | Field | Value |
@@ -123,3 +134,15 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
 | Legacy Path | docs/python/recipes/wrangles/extract.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | da591387-0fca-4842-8bcb-d19f561f0292 |
+| Wrangle Key | `extract.codes` |
+| Type | extract |
+| Subtype | codes |
+| Variant | stock |
+| Status | active |
+| Tags | Extract, extract, codes |

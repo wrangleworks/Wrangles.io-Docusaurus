@@ -15,15 +15,6 @@ import Transpose from './_sources/transpose.md';
 
 Transform wrangles copy, rename, reindex, or transpose data.
 
-## Wrangles
-
-- [Copy](#copy) - `copy`
-- [Reindex](#reindex) - `reindex`
-- [Rename](#rename) - `rename`
-- [Transpose](#transpose) - `transpose`
-
----
-
 <Copy />
 
 ---

@@ -2,17 +2,48 @@
 
 Select a numbered element of a list (zero indexed).
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | ec40495d-d29a-4f62-86dd-eafa43cf388a |
-| Wrangle Key | `select.list_element` |
-| Type | select |
-| Subtype | list_element |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, list_element |
+#### Selecting the Second Element in a List
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.list_element:
+      input: Col1
+      output: Second Element
+      element: 2 # Zero indexed
+      default: F
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 |
+| --- |
+| ['A', 'B', 'C'] |
+| ['D', 'E'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Third Element |
+| --- |
+| C |
+| F |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -51,37 +82,6 @@ Select a numbered element of a list (zero indexed).
 }
 ```
 
-### Examples
-
-#### Selecting the Second Element in a List
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.list_element:
-      input: Col1
-      output: Second Element
-      element: 2 # Zero indexed
-      default: F
-```
-
-##### Input Sample
-
-| Col1 |
-| --- |
-| ['A', 'B', 'C'] |
-| ['D', 'E'] |
-
-##### Output Sample
-
-| Third Element |
-| --- |
-| C |
-| F |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -91,3 +91,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | ec40495d-d29a-4f62-86dd-eafa43cf388a |
+| Wrangle Key | `select.list_element` |
+| Type | select |
+| Subtype | list_element |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, list_element |

@@ -2,17 +2,50 @@
 
 Explode a column of lists into rows
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Exploding a Column
+
+##### Recipe
+
+```yaml
+wrangles:
+  - explode:
+      input: Products
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Products | Manufacturer |
 | --- | --- |
-| ID | 4e4b13ac-8d50-4b2c-85c8-2c31de1e817d |
-| Wrangle Key | `explode` |
-| Type | split |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Split, explode |
+| [Ball Bearing, Bearing Seal] | SKF |
+| [Angle Grinder, Drill, Impact Driver] | Milwaukee |
+| Solid State Relay | Schneider |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Products | Manufacturer |
+| --- | --- |
+| Ball Bearing | SKF |
+| Bearing Seal | SKF |
+| Angle Grinder | Milwaukee |
+| Drill | Milwaukee |
+| Impact Driver | Milwaukee |
+| Solid State Relay | Schneider |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 ### Access
 
@@ -45,39 +78,6 @@ Explode a column of lists into rows
 }
 ```
 
-### Examples
-
-#### Exploding a Column
-
-##### Recipe
-
-```yaml
-wrangles:
-  - explode:
-      input: Products
-```
-
-##### Input Sample
-
-| Products | Manufacturer |
-| --- | --- |
-| [Ball Bearing, Bearing Seal] | SKF |
-| [Angle Grinder, Drill, Impact Driver] | Milwaukee |
-| Solid State Relay | Schneider |
-
-##### Output Sample
-
-| Products | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Seal | SKF |
-| Angle Grinder | Milwaukee |
-| Drill | Milwaukee |
-| Impact Driver | Milwaukee |
-| Solid State Relay | Schneider |
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 ### Source
 
 | Field | Value |
@@ -87,3 +87,15 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | Legacy Path | docs/python/recipes/wrangles/utilities.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 4e4b13ac-8d50-4b2c-85c8-2c31de1e817d |
+| Wrangle Key | `explode` |
+| Type | split |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Split, explode |

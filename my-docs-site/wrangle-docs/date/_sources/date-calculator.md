@@ -2,17 +2,47 @@
 
 Add or subtract time from a date.
 
-### Metadata
+### Examples
 
-| Field | Value |
-| --- | --- |
-| ID | 19cfeb4f-02af-4ab2-895c-0ff2bb5cce19 |
-| Wrangle Key | `date_calculator` |
-| Type | date |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | Date, date_calculator |
+#### Calculating a Future Date
+
+##### Recipe
+
+```yaml
+wrangles:
+   - date_calculator:
+      input: Date
+      output: New Date
+      operation: subtract  # Optional default is addition
+      time_unit: days
+      time_value: 1
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Date |
+| --- |
+| 2022-12-26 |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| New Date |
+| --- |
+| 2022-12-25 |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/standalone.md`_
 
 ### Access
 
@@ -59,36 +89,6 @@ Add or subtract time from a date.
 - `seconds`
 - `milliseconds`
 
-### Examples
-
-#### Calculating a Future Date
-
-##### Recipe
-
-```yaml
-wrangles:
-   - date_calculator:
-      input: Date
-      output: New Date
-      operation: subtract  # Optional default is addition
-      time_unit: days
-      time_value: 1
-```
-
-##### Input Sample
-
-| Date |
-| --- |
-| 2022-12-26 |
-
-##### Output Sample
-
-| New Date |
-| --- |
-| 2022-12-25 |
-
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
 ### Source
 
 | Field | Value |
@@ -98,3 +98,15 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 19cfeb4f-02af-4ab2-895c-0ff2bb5cce19 |
+| Wrangle Key | `date_calculator` |
+| Type | date |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | Date, date_calculator |

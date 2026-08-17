@@ -14,14 +14,6 @@ import Text from './_sources/text.md';
 
 Compare wrangles compare values, lists, vectors, or text and return useful similarities or differences.
 
-## Wrangles
-
-- [Lists](#lists) - `compare.lists`
-- [Similarity](#similarity) - `similarity`
-- [Text](#text) - `compare.text`
-
----
-
 <Lists />
 
 ---

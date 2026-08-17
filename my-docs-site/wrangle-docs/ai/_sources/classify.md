@@ -2,17 +2,48 @@
 
 Run a custom classification wrangle on the specified column or columns. A classification wrangle must be trained first.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Food Type Example
+
+##### Recipe
+
+```yaml
+wrangles:
+  - classify:
+      input: Products
+      output: Category
+      model_id: ${model_id}
+      where: Products = Milk
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Products |
+| --- |
+| Rice |
+| Milk |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Products | Category |
 | --- | --- |
-| ID | 06669ef8-cdd1-42f7-8078-98e0b7a42c30 |
-| Wrangle Key | `classify` |
-| Type | ai |
-| Subtype |  |
-| Variant | stock |
-| Status | active |
-| Tags | AI, classify |
+| Rice |  |
+| Milk | Dairy |
+
+</div>
+
+</div>
+
+_Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
 
 ### Access
 
@@ -51,37 +82,6 @@ Run a custom classification wrangle on the specified column or columns. A classi
 }
 ```
 
-### Examples
-
-#### Food Type Example
-
-##### Recipe
-
-```yaml
-wrangles:
-  - classify:
-      input: Products
-      output: Category
-      model_id: ${model_id}
-      where: Products = Milk
-```
-
-##### Input Sample
-
-| Products |
-| --- |
-| Rice |
-| Milk |
-
-##### Output Sample
-
-| Products | Category |
-| --- | --- |
-| Rice |  |
-| Milk | Dairy |
-
-_Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
-
 ### Source
 
 | Field | Value |
@@ -91,3 +91,15 @@ _Source: `https://wrangles.io/python/recipes/wrangles/standalone`_
 | Legacy Path | docs/python/recipes/wrangles/standalone.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 06669ef8-cdd1-42f7-8078-98e0b7a42c30 |
+| Wrangle Key | `classify` |
+| Type | ai |
+| Subtype |  |
+| Variant | stock |
+| Status | active |
+| Tags | AI, classify |

@@ -2,17 +2,47 @@
 
 Take lists in multiple columns and merge them to a single list.
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Merging Two Lists
+
+##### Recipe
+
+```yaml
+wrangles:
+  - merge.lists:
+      input:
+        - col1
+        - col2
+      output: Combined Col
+      remove_duplicates: false
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Col1 | Col2 |
 | --- | --- |
-| ID | d9978f00-b3d4-4583-884e-a53b98a43e9a |
-| Wrangle Key | `merge.lists` |
-| Type | merge |
-| Subtype | lists |
-| Variant | stock |
-| Status | active |
-| Tags | Merge, merge, lists |
+| ['A', 'B'] | ['D', 'E'] |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Combined Col |
+| --- |
+| ['A', 'B', 'D', 'E'] |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/merge.md`_
 
 ### Access
 
@@ -51,36 +81,6 @@ Take lists in multiple columns and merge them to a single list.
 }
 ```
 
-### Examples
-
-#### Merging Two Lists
-
-##### Recipe
-
-```yaml
-wrangles:
-  - merge.lists:
-      input:
-        - col1
-        - col2
-      output: Combined Col
-      remove_duplicates: false
-```
-
-##### Input Sample
-
-| Col1 | Col2 |
-| --- | --- |
-| ['A', 'B'] | ['D', 'E'] |
-
-##### Output Sample
-
-| Combined Col |
-| --- |
-| ['A', 'B', 'D', 'E'] |
-
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 ### Source
 
 | Field | Value |
@@ -90,3 +90,15 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
 | Legacy Path | docs/python/recipes/wrangles/merge.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | d9978f00-b3d4-4583-884e-a53b98a43e9a |
+| Wrangle Key | `merge.lists` |
+| Type | merge |
+| Subtype | lists |
+| Variant | stock |
+| Status | active |
+| Tags | Merge, merge, lists |

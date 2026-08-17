@@ -12,12 +12,6 @@ import DateCalculator from './_sources/date-calculator.md';
 
 Date wrangles work with date and time values.
 
-## Wrangles
-
-- [Date Calculator](#date-calculator) - `date_calculator`
-
----
-
 <DateCalculator />
 
 ---

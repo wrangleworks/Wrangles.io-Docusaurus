@@ -2,17 +2,47 @@
 
 Return the first n rows
 
-### Metadata
+### Examples
 
-| Field | Value |
+#### Selecting The First n Rows
+
+##### Recipe
+
+```yaml
+wrangles:
+  - select.head:
+      n: 2
+```
+
+<div className="ww-sample-grid">
+
+<div className="ww-sample-panel">
+
+##### Input Sample
+
+| Product | Manufacturer |
 | --- | --- |
-| ID | 237af1ec-db7d-415a-88b7-70586a2191fb |
-| Wrangle Key | `select.head` |
-| Type | select |
-| Subtype | head |
-| Variant | stock |
-| Status | active |
-| Tags | Select, select, head |
+| Ball Bearing | SKF |
+| Bearing Race | Timken |
+| Needle Bearing | Acme Bearings |
+| Roller Bearing | General Bearing Co. |
+
+</div>
+
+<div className="ww-sample-panel">
+
+##### Output Sample
+
+| Product | Manufacturer |
+| --- | --- |
+| Ball Bearing | SKF |
+| Bearing Race | Timken |
+
+</div>
+
+</div>
+
+_Source: `docs/python/recipes/wrangles/select.md`_
 
 ### Access
 
@@ -38,36 +68,6 @@ Return the first n rows
 }
 ```
 
-### Examples
-
-#### Selecting The First n Rows
-
-##### Recipe
-
-```yaml
-wrangles:
-  - select.head:
-      n: 2
-```
-
-##### Input Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Race | Timken |
-| Needle Bearing | Acme Bearings |
-| Roller Bearing | General Bearing Co. |
-
-##### Output Sample
-
-| Product | Manufacturer |
-| --- | --- |
-| Ball Bearing | SKF |
-| Bearing Race | Timken |
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 ### Source
 
 | Field | Value |
@@ -77,3 +77,15 @@ _Source: `docs/python/recipes/wrangles/select.md`_
 | Legacy Path | docs/python/recipes/wrangles/select.md |
 | Catalog Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleCatalog.generated.js |
 | Mapping Source | my-docs-site/src/components/WrangleFlowPlayground/wrangleMappings.json |
+
+### Metadata
+
+| Field | Value |
+| --- | --- |
+| ID | 237af1ec-db7d-415a-88b7-70586a2191fb |
+| Wrangle Key | `select.head` |
+| Type | select |
+| Subtype | head |
+| Variant | stock |
+| Status | active |
+| Tags | Select, select, head |

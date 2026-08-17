@@ -16,16 +16,6 @@ import Tokenize from './_sources/tokenize.md';
 
 Split wrangles break strings, lists, dictionaries, or rows into smaller pieces.
 
-## Wrangles
-
-- [Dictionary](#dictionary) - `split.dictionary`
-- [Explode](#explode) - `explode`
-- [List](#list) - `split.list`
-- [Text](#text) - `split.text`
-- [Tokenize](#tokenize) - `split.tokenize`
-
----
-
 <Dictionary />
 
 ---
