@@ -59,8 +59,6 @@ def test_fn(part_code, value):
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 #### Use Unique Variables Per Row
 
 This example runs `extract.custom` once for each unique model ID.
@@ -110,8 +108,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 #### Native Variables
 
 | Variable | Function |
@@ -120,19 +116,6 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | `${columns}` | List of all columns. |
 | `${df}` | Current dataframe. |
 | `${row_count}` | Number of visible rows processed in each batch. |
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
-:::note
-Nested wrangles can have their own access requirements.
-:::
 
 ### Parameters
 
@@ -151,6 +134,23 @@ Nested wrangles can have their own access requirements.
   "strategy": "loop"
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+:::note
+Nested wrangles can have their own access requirements.
+:::
+
+</details>
 
 <details className="ww-field-disclosure">
 

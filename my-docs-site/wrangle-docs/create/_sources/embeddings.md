@@ -42,17 +42,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/create.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | Yes |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -90,6 +79,19 @@ _Source: `docs/python/recipes/wrangles/create.md`_
   "output_type": ""
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | Yes |
+
+</details>
 
 <details className="ww-field-disclosure">
 

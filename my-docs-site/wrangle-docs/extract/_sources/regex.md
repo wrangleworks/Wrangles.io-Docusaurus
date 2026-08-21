@@ -39,8 +39,6 @@ _No sample available._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 #### Implementing output_pattern
 
 ##### Recipe
@@ -77,17 +75,6 @@ _No sample available._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -117,6 +104,19 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
   "output_pattern": ""
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

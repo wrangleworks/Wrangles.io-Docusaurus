@@ -33,8 +33,6 @@ _Logs a sample of rows or status information to the configured destination._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 #### Logging Specific Columns to Terminal
 
 ##### Recipe
@@ -66,8 +64,6 @@ _Logs a sample of rows or status information to the configured destination._
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/utilities.md`_
 
 #### Logging to a File
 
@@ -104,8 +100,6 @@ _Logs a sample of rows or status information to the configured destination._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
 #### Native Variables
 
 | Variable | Function |
@@ -114,15 +108,6 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 | `${columns}` | List of all columns. |
 | `${df}` | Current dataframe. |
 | `${row_count}` | Number of visible rows processed in each batch. |
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
 
 ### Parameters
 
@@ -153,6 +138,19 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
   "log_data": false
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

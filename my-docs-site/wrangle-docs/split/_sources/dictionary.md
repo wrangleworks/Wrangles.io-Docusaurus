@@ -39,8 +39,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 #### Choosing Specific Keys by Name
 
 ##### Recipe
@@ -75,8 +73,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/split.md`_
 
 #### Using a Wildcard Output to Choose Specific Keys
 
@@ -113,8 +109,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 #### Using Regular Expressions to Choose Specific Keys
 
 ##### Recipe
@@ -149,8 +143,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/split.md`_
 
 #### Choosing Specific Keys While Renaming the Output
 
@@ -189,8 +181,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/split.md`_
-
 #### Using a Wildcard While Renaming
 
 ##### Recipe
@@ -227,17 +217,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/split.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -263,6 +242,19 @@ _Source: `docs/python/recipes/wrangles/split.md`_
   "default": ""
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

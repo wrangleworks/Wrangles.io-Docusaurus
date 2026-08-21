@@ -47,18 +47,7 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>` for a multi-line string when line breaks should not be preserved.
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
 
 ### Parameters
 
@@ -80,6 +69,19 @@ Using `|` in YAML denotes a multi-line string that preserves line breaks. Use `>
   "template": "{}"
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

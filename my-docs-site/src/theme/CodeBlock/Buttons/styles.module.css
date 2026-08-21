@@ -34,6 +34,10 @@
   padding: 0.45rem 0.6rem !important;
 }
 
+.rawButtonControl {
+  display: flex;
+}
+
 .runButtonLabel {
   font-size: 0.8rem;
   font-weight: 600;

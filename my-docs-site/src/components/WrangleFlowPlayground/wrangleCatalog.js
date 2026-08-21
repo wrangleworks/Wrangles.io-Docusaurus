@@ -1,4 +1,5 @@
 import GENERATED_WRANGLE_CATALOG from './wrangleCatalog.generated';
+import ADDITIONAL_WRANGLE_CATALOG from './wrangleCatalog.additional';
 import WRANGLE_CATALOG_OVERRIDES from './wrangleCatalog.overrides';
 import WRANGLE_MAPPINGS from './wrangleMappings.json';
 
@@ -100,7 +101,7 @@ function applyOverride(entry) {
   };
 }
 
-const WRANGLE_CATALOG = GENERATED_WRANGLE_CATALOG.map(applyOverride);
+const WRANGLE_CATALOG = [...GENERATED_WRANGLE_CATALOG, ...ADDITIONAL_WRANGLE_CATALOG].map(applyOverride);
 
 export const WRANGLE_MAP = Object.fromEntries(WRANGLE_CATALOG.map((item) => [item.type, item]));
 

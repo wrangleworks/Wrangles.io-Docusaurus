@@ -41,17 +41,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/standalone.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | Yes |
-| Requires subscription | No |
-| Requires external API key | Yes |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -81,6 +70,19 @@ _Source: `docs/python/recipes/wrangles/standalone.md`_
   "target_language": "Bulgarian"
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | Yes |
+| Requires subscription | No |
+| Requires external API key | Yes |
+
+</details>
 
 <details className="ww-field-disclosure">
 

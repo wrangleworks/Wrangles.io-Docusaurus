@@ -49,15 +49,6 @@ wrangles:
 
 _Template based on the documented parameters; no published source example is currently available._
 
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | Yes |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -90,6 +81,19 @@ _Template based on the documented parameters; no published source example is cur
   "output_format": "json"
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | Yes |
+
+</details>
 
 <details className="ww-field-disclosure">
 

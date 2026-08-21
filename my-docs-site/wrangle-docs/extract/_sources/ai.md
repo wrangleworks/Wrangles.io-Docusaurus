@@ -59,8 +59,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 #### Description Only
 
 ##### Recipe
@@ -101,8 +99,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 #### Model Based Column Output by Name
 
 ##### Recipe
@@ -142,17 +138,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | Yes |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | Yes |
 
 ### Parameters
 
@@ -203,6 +188,19 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
   "model_id": ""
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | Yes |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | Yes |
+
+</details>
 
 <details className="ww-field-disclosure">
 

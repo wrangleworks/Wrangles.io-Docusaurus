@@ -45,8 +45,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 #### Grouping With Custom Function Aggregation
 
 ##### Recipe
@@ -85,17 +83,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
 
 ### Parameters
 
@@ -146,6 +133,19 @@ _Source: `docs/python/recipes/wrangles/select.md`_
   "auto_rename_columns": false
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

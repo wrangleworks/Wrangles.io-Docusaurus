@@ -44,8 +44,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
 #### Using a wildcard (*)
 
 ##### Recipe
@@ -87,17 +85,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/merge.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -118,6 +105,19 @@ _Source: `docs/python/recipes/wrangles/merge.md`_
   "skip_empty": false
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

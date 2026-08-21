@@ -44,8 +44,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 #### Selecting Multiple Dictionary Elements
 
 ##### Recipe
@@ -85,8 +83,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 #### Selecting Multiple Dictionary Elements Using a Wildcard
 
 ##### Recipe
@@ -123,8 +119,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/select.md`_
 
 #### Selecting Multiple Dictionary Elements Using Regex
 
@@ -163,8 +157,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/select.md`_
-
 #### Selecting Elements While Renaming
 
 ##### Recipe
@@ -202,8 +194,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/select.md`_
 
 #### Using Default to Fill Missing Elements
 
@@ -248,17 +238,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/select.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -286,6 +265,19 @@ _Source: `docs/python/recipes/wrangles/select.md`_
   "element": []
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

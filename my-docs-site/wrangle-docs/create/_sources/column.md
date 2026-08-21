@@ -44,8 +44,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 #### Creating Multiple Columns
 
 ##### Recipe
@@ -86,8 +84,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/create.md`_
 
 #### Creating Columns That Consist of Lists
 
@@ -131,18 +127,7 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/create.md`_
-
 Columns of empty lists can also be created by passing an empty list (`[]`) as the column value.
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
 
 ### Parameters
 
@@ -164,6 +149,19 @@ Columns of empty lists can also be created by passing an empty list (`[]`) as th
   ]
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

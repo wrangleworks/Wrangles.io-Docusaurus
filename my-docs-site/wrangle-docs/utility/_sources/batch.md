@@ -55,21 +55,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
-:::note
-Nested wrangles can have their own access or API-key requirements. The example uses `extract.ai`, which requires an API key.
-:::
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -83,6 +68,23 @@ Nested wrangles can have their own access or API-key requirements. The example u
 ### Defaults
 
 _No defaults are documented in the legacy source._
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+:::note
+Nested wrangles can have their own access or API-key requirements. The example uses `extract.ai`, which requires an API key.
+:::
+
+</details>
 
 <details className="ww-field-disclosure">
 

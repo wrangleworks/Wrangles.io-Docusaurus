@@ -46,8 +46,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/compare.md`_
-
 #### Comparing the intersection between two columns of lists
 
 ##### Recipe
@@ -89,8 +87,6 @@ wrangles:
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/compare.md`_
 
 #### Comparing the union between two columns of lists
 
@@ -134,17 +130,6 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/compare.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | No |
-| Requires subscription | No |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -169,6 +154,19 @@ _Source: `docs/python/recipes/wrangles/compare.md`_
   "remove_duplicates": false
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | No |
+| Requires subscription | No |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 

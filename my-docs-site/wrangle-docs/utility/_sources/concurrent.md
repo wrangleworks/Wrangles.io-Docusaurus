@@ -50,9 +50,20 @@ wrangles:
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/utilities.md`_
+### Parameters
 
-### Access
+| Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
+| --- | --- | --- | --- | --- | --- | --- |
+| wrangles | Wrangles | json | Yes | Wrangles to execute concurrently. |  |  |
+| max_concurrency | Max Concurrency | number | No | Maximum number of wrangles to execute in parallel. |  |  |
+
+### Defaults
+
+_No defaults are documented in the legacy source._
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
 
 | Requirement | Value |
 | --- | --- |
@@ -65,16 +76,7 @@ _Source: `docs/python/recipes/wrangles/utilities.md`_
 Nested wrangles can have their own access requirements.
 :::
 
-### Parameters
-
-| Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
-| --- | --- | --- | --- | --- | --- | --- |
-| wrangles | Wrangles | json | Yes | Wrangles to execute concurrently. |  |  |
-| max_concurrency | Max Concurrency | number | No | Maximum number of wrangles to execute in parallel. |  |  |
-
-### Defaults
-
-_No defaults are documented in the legacy source._
+</details>
 
 <details className="ww-field-disclosure">
 

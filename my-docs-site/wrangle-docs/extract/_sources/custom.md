@@ -44,8 +44,6 @@ _No sample available._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
 #### Extracting Wood Types From Multiple Columns
 
 ##### Recipe
@@ -82,8 +80,6 @@ _No sample available._
 </div>
 
 </div>
-
-_Source: `docs/python/recipes/wrangles/extract.md`_
 
 #### Using Multiple Extract Models
 
@@ -127,17 +123,6 @@ _No sample available._
 
 </div>
 
-_Source: `docs/python/recipes/wrangles/extract.md`_
-
-### Access
-
-| Requirement | Value |
-| --- | --- |
-| AI-backed | No |
-| Requires WrangleWorks account | Yes |
-| Requires subscription | Yes |
-| Requires external API key | No |
-
 ### Parameters
 
 | Parameter | Label | UI Type | Required | Description | Allowed Values | Default |
@@ -175,6 +160,19 @@ _Source: `docs/python/recipes/wrangles/extract.md`_
   "use_spellcheck": false
 }
 ```
+
+<details className="ww-field-disclosure">
+
+<summary>Access</summary>
+
+| Requirement | Value |
+| --- | --- |
+| AI-backed | No |
+| Requires WrangleWorks account | Yes |
+| Requires subscription | Yes |
+| Requires external API key | No |
+
+</details>
 
 <details className="ww-field-disclosure">
 
