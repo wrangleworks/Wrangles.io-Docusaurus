@@ -6,13 +6,6 @@
     "ghcr.io/devcontainers/features/git:1": {}
   },
   "forwardPorts": [3000],
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "eliostruyf.vscode-front-matter"
-      ]
-    }
-  },
   // 1. Nukes the root-owned temp cache
   // 2. Forces workspace ownership to the 'node' user
   // 3. Installs dependencies
